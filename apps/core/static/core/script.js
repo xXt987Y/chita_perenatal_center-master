@@ -99,14 +99,7 @@ $(document).ready(function () {
             return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #008000;">' + value + '</span>';
         }
     }
-    var dataAdapter = new $.jqx.dataAdapter(source, {
-        downloadComplete: function (data, status, xhr) {
-        },
-        loadComplete: function (data) {
-        },
-        loadError: function (xhr, status, error) {
-        }
-    });
+
     // initialize jqxGrid
     $("#grid").jqxGrid(
         {
@@ -404,8 +397,12 @@ $(document).ready(function () {
         "Нет",
         "Есть"
     ];
-    $("#jqxWidgetDrop").jqxDropDownList({source: source, placeHolder: "Select Item", width: 250, height: 30});
+    $(".jqxWidgetDropDoctor").jqxDropDownList({source: source, placeHolder: "Выбрать врача", width: 250, height: 30});
 });
+
+
+
+
 
 function render_okno_mkb10() {
     //Adding event listeners
