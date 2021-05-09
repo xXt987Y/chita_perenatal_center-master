@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Главная</title>
+    <meta name="description" content="Главная страница"/>
+    <meta name="keywords" content="центр"/>
+{% endblock %}
+
+{% block body %}
+<body>
+    <div class='openwindow'></div>
+    {% include 'partical/menu.html' %}
+    {% include 'partical/beremennaya.html' %}
+    {% include 'partical/beremennaya/mkb10.html' %}
+    <div id="tabliza_doctor"></div>
+
+
+</body>
+{% endblock %}

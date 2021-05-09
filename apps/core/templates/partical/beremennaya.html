@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="jqxWidgetWindow">
+    <div style="float: left;">
+        <div>
+            <input type="button" value="Open" class="showWindowButton1"/>
+            <input type="button" value="Close" class="hideWindowButton1" style="margin-left: 5px"/>
+        </div>
+        <div style="margin-top: 10px;">
+            <div class="resizeCheckBox1">
+                Resizable
+            </div>
+            <div class="dragCheckBox1">
+                Enable drag
+            </div>
+        </div>
+    </div>
+    <div class="mainDemoContainer1">
+        <div class="window1">
+            <div class="windowHeader1">
+                    <span>
+                        Беременная
+                    </span>
+            </div>
+            <div style="overflow: hidden;" class="windowContent1">
+                <div id="tab">
+                    <ul style="margin-left: 3px;">
+                        <li>Основные данные</li>
+                        <li>Анкеты</li>
+                        <li>Направление</li>
+                        <li>Консультация</li>
+                        <li>Исход</li>
+                    </ul>
+                    <div>
+                        {% include 'partical/beremennaya/OsnovnieDannie.html' %}
+                    </div>
+                    <div>
+                        {% include 'partical/beremennaya/Anketi.html' %}
+                    </div>
+                    <div>
+                        {% include 'partical/beremennaya/Napravleniya.html' %}
+                    </div>
+                    <div>
+                        {% include 'partical/beremennaya/Konsultaciya.html' %}
+                    </div>
+                    <div>
+                        {% include 'partical/beremennaya/Ishod.html' %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

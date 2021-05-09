@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    font-style: italic;
+    text-align: center;
+    margin: 0;
+}
+
+.topmenu {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 3px;
+    float: left;
+}
+
+
+.default {
+    margin-top: 1px;
+    padding: 0;
+    background-color: #dee0e2;
+    float: left;
+    width: 100%;
+    display: inline-flex;
+
+}
+
+.default1 {
+    margin: 0;
+    padding: 0;
+    background-color: #dee0e2;
+    float: left;
+    width: 100%;
+    display: inline-flex;
+}
+
+.combo{
+    display: inline-flex;
+    width: 60%;
+    float: right;
+    text-align: right;
+    margin-left: 40%;
+
+
+}
+
+.mainDemoContainer {
+    margin: 0;
+    padding: 0;
+}
+
+.jqxDateTimeInput {
+    float: left;
+    width: 50%;
+}
+
+.text {
+    width: 40%;
+    float: left;
+    text-align: right;
+    height: auto;
+
+}
+
+.doptext{
+    float: right;
+    text-align: left;
+    margin-left: 2px;
+}
+
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    border-radius: 5px 5px 5px 0;
+    height: 30px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+    padding-left: 10px;
+    background-color: #dee0e2;
+    float: left;
+    width: 100%;
+    display: none;
+}
+
+.tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+

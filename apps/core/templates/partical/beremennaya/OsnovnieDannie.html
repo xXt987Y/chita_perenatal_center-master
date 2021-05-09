@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="default">
+    <div class="text">Степень риска:</div>
+        <div class="jqxComboBox"></div>
+</div>
+
+<div class="default">
+    <div class="text">Дата взятия на учет:</div>
+            <div style="width: 200px;" class='jqxDateTimeInput'></div>
+</div>
+
+<div class="default">
+    <div class="text">Участковый врач:</div>
+        <div class="jqxComboBox"></div>
+</div>
+
+<div class="default">
+    <div class="text">ФИО беременной:</div>
+        <input type="text" class="input"/>
+</div>
+
+<div class="default">
+    <div class="text">Дата рождения:</div>
+            </br>
+            <div style="width: 200px;" class='jqxDateTimeInput'></div>
+</div>
+
+<div class="default">
+    <div class="text">Возраст беременной:</div>
+        <input style='margin-top: 3px;' type="number" class='input' min="0"/>
+</div>
+
+<div class="default">
+    <div class="text">Место постоянного проживания беременной:</div>
+        <div class="jqxComboBox"></div>
+</div>
+
+<div class="default">
+    <div class="text">№ телефона беременной:</div>
+        <input style='margin-top: 3px;' class='numericInput'/>
+</div>
+
+<div class="default">
+    <div class="text">№ ОМС беременной:</div>
+        <input type="text" class="input"/>
+</div>
+
+
+    <h3>Социально-биологические факторы</h3>
+
+<div class="default">
+    <div class="text">Вредные привычки:</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->курение</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->алкоголизм</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->наркомания</div>
+        <div class="acceptInput"><!--style="margin-left: 50px;"-->токсикомания</div>
+</div>
+
+<div class="default">
+    <div class="text">Вредные факторы труда и быта:</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->химические</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->радиоактивные</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->неудовл. жил. условия</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->приём лекарств. средств в ранние сроки беременности
+        </div>
+</div>
+
+<div class="default">
+    <div class="text">Социально-угрожаемая:</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"--></div>
+</div>
+
+<div class="default">
+    <div class="text">Семейное положение:</div>
+        <div class="jqxComboBox"></div>
+</div>
+
+<div class="default">
+    <div class="text">Соматические показатели:
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->мужской тип телосложения</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->гирсутизм</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Вес беременной, кг:
+        <input style='margin-top: 3px;' type="number" class='input' min="0"/>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Рост беременной, см:
+        <input style='margin-top: 3px;' type="number" class='input' min="0"/>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Размеры таза (пельвиометрия), см:
+        <div>Distantia spinarum (D.s):
+            <div class="ctrl">
+                <span id="viewds">0</span>
+                <input id="rangeds" type="range" min="0" max="50" step="0.1" value="0">
+                <input id="numds" type=number min="0" max="50" step="0,1" value="0">
+            </div>
+        </div>
+        <div>Distantia cristarum (D.c.):
+            <div class="ctrl">
+                <span id="viewdc">0</span>
+                <input id="rangedc" type="range" min="0" max="50" step="1" value="0">
+                <input id="numdc" type=number min="0" max="50" step="1" value="0">
+            </div>
+        </div>
+        <div>Distantia trochanterica (D.t.):
+            <div class="ctrl">
+                <span id="viewdt">0</span>
+                <input id="rangedt" type="range" min="0" max="50" step="1" value="0">
+                <input id="numdt" type=number min="0" max="50" step="1" value="0">
+            </div>
+        </div>
+        <div>Conjugata diagonalis (C.d.):
+            <div class="ctrl">
+                <span id="viewcd">0</span>
+                <input id="rangecd" type="range" min="0" max="50" step="10" value="0">
+                <input id="numcd" type=number min="0" max="50" step="1" value="0">
+            </div>
+        </div>
+        <div>Conjugata externa (C.e.):
+            <div class="ctrl">
+                <span id="viewce">0</span>
+                <input id="rangece" type="range" min="0" max="50" step="1" value="0">
+                <input id="numce" type=number min="0" max="50" step="1" value="0">
+            </div>
+        </div>
+        <div>Conjugata vera (C.v.):
+            <div class="ctrl">
+                <span id="viewcv">0</span>
+                <input id="rangecv" type="range" min="0" max="50" step="1" value="0">
+                <input id="numcv" type=number min="0" max="50" step="1" value="0">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="default">
+    <div class='jqxWidget' style='font-family: Verdana Arial; font-size: 12px; width: 400px;'>
+
+        <h4>Резус-факторы беременной/отца</h4>
+        <div style='margin-top: 10px;' class='jqxRadioButton'>
+            <span>+/+</span></div>
+        <div style='margin-top: 10px;' class='jqxRadioButton'>
+            <span>+/-</span></div>
+        <div style='margin-top: 10px;' class='jqxRadioButton'>
+            <span>-/+</span></div>
+        <div style='margin-top: 10px;' class='jqxRadioButton'>
+            <span>-/-</span></div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Взята под наблюдение:
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->после 12 нед. берем-сти</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Генетические факторы:
+        <div class="jqxComboBox"></div>
+    </div>
+</div>
+
+    <h3>Акушерско-гинекологический анамнез</h3>
+
+<div class="default">
+    <div class="text">Менструальная функция:
+        <div class="jqxComboBox"></div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Заболевания внутренних половых органов:
+        <div class="acceptInput"> воспаление придатков у нерожавшей</div>
+        <div class="acceptInput"> опухолевое образование придатков</div>
+        <div class="acceptInput"> гипоплазия матки</div>
+        <div class="acceptInput"> операции на придатках</div>
+        <div class="acceptInput"> истмико-цервикальная недостаточность</div>
+        <div class="acceptInput"> воспаление придатков у рожавшей</div>
+        <div class="acceptInput"> миома матки</div>
+        <div class="acceptInput"> пороки развития матки</div>
+        <div class="acceptInput"> операции на матке (кроме кес/сеч)</div>
+        <div class="acceptInput"> онкология в анамнезе</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Бесплодие:
+        <div class="jqxComboBox"></div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Тип бесплодия:
+        <div class="jqxComboBox"></div>
+    </div>
+</div>
+
+    <h3>Наступление текущей беременности</h3>
+
+<div class="default">
+    <div class="text">Наступление беременности:
+        <div>В результате ЭКО:
+            <div class="jqxComboBox"></div>
+            <div class="acceptInput">в результате стимуляции овуляции медикаментозными средствами</div>
+        </div>
+    </div>
+</div>
+
+<div class="default">
+    <diV class="jqxWidget">Дата первого дня последн. менс-ции:
+        <div id='jqxWidget'>
+            <div style="width: 200px;" class='jqxDateTimeInput'></div>
+        </div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Паритет беременности:
+        <div class="jqxComboBox"></div>
+    </div>
+</div>
+
+<div class="default">
+    <div>Самопроизвольный аборт:
+        <div class="jqxComboBox"></div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Внематочная беременность:
+        <div class="acceptInput"></div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Резус-конфликтная беременность:
+        <div class="acceptInput"></div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Гемолитическая болезнь:
+        <div class="acceptInput">плода или новорожденного</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Искуственный аборт:
+        <div class="jqxComboBox"></div>
+        <div>Осложнения:
+            <div class="jqxComboBox"></div>
+        </div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Осложнения беременности(анамнез):
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->нет</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. преэклампсией умеренной</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. преэклампсией тяжелой</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. эклампсией</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. фетоплацент. недостаточностью</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. обост. экстрагенит. патологии</div>
+        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. преждеврем. отслойкой плаценты</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Осложнения родов(анамнез):
+        <div>
+            <div style='margin-top: 10px;' class='jqxRadioButton'>
+                <span>нет</span>
+            </div>
+            <div style='margin-top: 10px;' class='jqxRadioButton'>
+                <span>своевременные</span>
+            </div>
+            <div style='margin-top: 10px;' class='jqxRadioButton'>
+                <span>преждевременные</span>
+            </div>
+            <div style='margin-top: 10px;' class='jqxRadioButton'>
+                <span>запоздалые</span>
+            </div>
+        </div>
+        <div class="acceptInput">осложн. разрывом мягких родовых путей 2-3 степени</div>
+        <div class="acceptInput"> осложн. кровотечением</div>
+        <div class="acceptInput"> осложн. гнойно-септической инфекцией</div>
+        <div class="acceptInput"> осложн. мертворождением</div>
+        <div class="text">кесарево сечение:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div class="acceptInput"> рубец на матке после миомэктомии</div>
+        <div class="acceptInput"> осложн. аномалиями родовой деятельности</div>
+        <div class="acceptInput"> клинически узкий таз</div>
+        <div class="acceptInput"> плодоразрушающая операция</div>
+    </div>
+    <div class="jqxWidget">Новорожденный или плод(анамнез):
+        <div class="acceptInput"> смерть в неонатальном периоде</div>
+        <div class="acceptInput"> вес новорожденного был менее 2500г или более 4000г</div>
+        <div class="acceptInput"> неврологические нарушения</div>
+        <div class="acceptInput"> ВПР</div>
+        <div class="acceptInput"> перинатальные потери</div>
+    </div>
+</div>
+
+    <h3>Экстрагенитальные заболевания</h3>
+
+<div class="default">
+    <div class="jqxWidget">Инфекционные болезни:
+        <div class="acceptInput"> грипп</div>
+        <div class="acceptInput"> ОРВИ</div>
+        <div class="acceptInput"> сифилис</div>
+        <div class="acceptInput"> туберкулез</div>
+        <div class="acceptInput"> ВИЧ-инфекция</div>
+        <div class="acceptInput"> вирусный гепатит</div>
+        <div class="acceptInput"> краснуха</div>
+        <div class="acceptInput"> токсоплазмоз</div>
+        <div class="acceptInput"> ЦМВИ</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Злокачественные новообразования:
+        <div class="acceptInput"> наличик в прошлом или настоящем</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Болезни эндокринной системы:
+        <div>сахарный диабет:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>гестационный сахарный диабет:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>заболевания щитовидной железы:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>АКО:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div class="acceptInput"> диэнцефальный синдром</div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Болезни крови и кроветворных органов:
+        <div>анемия всех степеней:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>тромбоцитопения:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>тромбозы:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>коагулопатия:
+            <div class="jqxComboBox"></div>
+        </div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="jqxWidget">Психические расстройства:
+        <div>психозы:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>шизофрения:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>нарушения личности:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>умственная отсталость:
+            <div class="jqxComboBox"></div>
+        </div>
+    </div>
+</div>
+
+<div class="default">
+    <div class="text">Болезни нервной системы и органов чувств:</div>
+        <div>наследственные и дегенератичные болезни ЦНС:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>воспалительные болезни ЦНС:
+            <div class="jqxComboBox"></div>
+        </div>
+        <div>миопия высокой степени или миопия с дистрофическими изменениями:
+            <div class="jqxComboBox"></div>
+        </div>
+</div>
+</body>
+</html>
