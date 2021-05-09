@@ -384,6 +384,14 @@ function render_okno_redaktirovanie_pazienta() {
 }
 
 $(function () {
+    // fetch('url').then(function (response) {
+    //     response.json().then( function (data) {
+    //         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
+    //             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
+    //             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
+    //    })
+    // });
+
     //Всплывающее окно Window
     render_okno_redaktirovanie_pazienta().init();
 });
@@ -393,28 +401,23 @@ $(function () {
 
 
 $(document).ready(function () {
-    var source = [
-        "Нет",
-        "Есть"
-    ];
+    var source = [];
     $(".jqxWidgetDropDoctor").jqxDropDownList({source: source, placeHolder: "Выбрать врача", width: 250, height: 30});
 });
-
-
-
 
 
 function render_okno_mkb10() {
     //Adding event listeners
     function _addEventListeners() {
+        var toggled = null;
         $(".jqxButton17").jqxToggleButton({toggled: false});
         $(".jqxButton17").click(function () {
-            var toggled = $(".jqxButton17").jqxToggleButton('toggled');
+            toggled = $(".jqxButton17").jqxToggleButton('toggled');
             toggleCheck()
         });
 
         function toggleCheck() {
-            if (toggled = true) {
+            if (toggled == true) {
                 $('.window2').jqxWindow('open');
                 $('.window2').jqxWindow('resizable', true);
             } else {
@@ -423,7 +426,6 @@ function render_okno_mkb10() {
             }
         }
     };
-
 
 
     //Creating the demo window
