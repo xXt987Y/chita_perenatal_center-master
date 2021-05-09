@@ -2,67 +2,71 @@
 $(document).ready(function () {
     $(".jqxButton1").jqxToggleButton({toggled: false});
     $(".jqxButton1").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton1").jqxToggleButton('toggled');
     });
     $(".jqxButton2").jqxToggleButton({toggled: false});
     $(".jqxButton2").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton2").jqxToggleButton('toggled');
     });
     $(".jqxButton3").jqxToggleButton({toggled: false});
     $(".jqxButton3").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton3").jqxToggleButton('toggled');
     });
     $(".jqxButton4").jqxToggleButton({toggled: false});
     $(".jqxButton4").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton4").jqxToggleButton('toggled');
     });
     $(".jqxButton5").jqxToggleButton({toggled: false});
     $(".jqxButton5").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton5").jqxToggleButton('toggled');
     });
     $(".jqxButton6").jqxToggleButton({toggled: false});
     $(".jqxButton6").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton6").jqxToggleButton('toggled');
     });
     $(".jqxButton7").jqxToggleButton({toggled: false});
     $(".jqxButton7").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton7").jqxToggleButton('toggled');
     });
     $(".jqxButton8").jqxToggleButton({toggled: false});
     $(".jqxButton8").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton8").jqxToggleButton('toggled');
     });
     $(".jqxButton9").jqxToggleButton({toggled: false});
     $(".jqxButton9").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton9").jqxToggleButton('toggled');
     });
     $(".jqxButton10").jqxToggleButton({toggled: false});
     $(".jqxButton10").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton10").jqxToggleButton('toggled');
     });
     $(".jqxButton11").jqxToggleButton({toggled: false});
     $(".jqxButton11").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton11").jqxToggleButton('toggled');
     });
     $(".jqxButton12").jqxToggleButton({toggled: false});
     $(".jqxButton12").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton12").jqxToggleButton('toggled');
     });
     $(".jqxButton13").jqxToggleButton({toggled: false});
     $(".jqxButton13").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton13").jqxToggleButton('toggled');
     });
     $(".jqxButton14").jqxToggleButton({toggled: false});
     $(".jqxButton14").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton14").jqxToggleButton('toggled');
     });
     $(".jqxButton15").jqxToggleButton({toggled: false});
     $(".jqxButton15").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton15").jqxToggleButton('toggled');
     });
     $(".jqxButton16").jqxToggleButton({toggled: false});
     $(".jqxButton16").on('click', function () {
-        var toggled = $("#jqxButton").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton16").jqxToggleButton('toggled');
+    });
+    $(".jqxButton18").jqxToggleButton({toggled: false});
+    $(".jqxButton18").on('click', function () {
+        var toggled = $(".jqxButton16").jqxToggleButton('toggled');
     });
 
 });
@@ -408,23 +412,22 @@ function render_okno_mkb10() {
     function _addEventListeners() {
         $(".jqxButton17").jqxToggleButton({toggled: false});
         $(".jqxButton17").click(function () {
-
-            $('.window2').jqxWindow('open');
-            $('.window2').jqxWindow('resizable', true);
-            var toggled = $("#jqxButton").jqxToggleButton('toggled');
+            var toggled = $(".jqxButton17").jqxToggleButton('toggled');
+            toggleCheck()
         });
-        // $(".jqx").click(function () {
-        //     $('.window2').jqxWindow('close');
-        //     $('.window2').jqxWindow('draggable', true);
-        //     toggled: false;
-        // });
+
+        function toggleCheck() {
+            if (toggled = true) {
+                $('.window2').jqxWindow('open');
+                $('.window2').jqxWindow('resizable', true);
+            } else {
+                $('.window2').jqxWindow('close');
+                $('.window2').jqxWindow('draggable', true);
+            }
+        }
     };
 
-    //Creating all page elements which are jqxWidgets
-    function _createElements() {
-        $('.showWindowButton2').jqxButton({width: '70px'});
-        $('.hideWindowButton2').jqxButton({width: '65px'});
-    };
+
 
     //Creating the demo window
     function _createWindow() {
@@ -450,8 +453,6 @@ function render_okno_mkb10() {
             dragArea: null
         },
         init: function () {
-            //Creating all jqxWindgets except the window
-            _createElements();
             //Attaching event listeners
             _addEventListeners();
             //Adding jqxWindow
@@ -462,6 +463,5 @@ function render_okno_mkb10() {
 }
 
 $(function () {
-    //Всплывающее окно Window
     render_okno_mkb10().init();
 });
