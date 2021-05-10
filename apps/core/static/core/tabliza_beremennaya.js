@@ -53,7 +53,7 @@ class TablizaBeremennaya {
             showstatusbar: true,
             statusbarheight: 25,
             pagesizeoptions: ['5', '10', '30', '50', '100'],
-            pagesize: 10,
+            pagesize: 30,
         }
     }
 
@@ -76,7 +76,7 @@ class TablizaBeremennaya {
                 datafield: 'id',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '4%',
 
             },
             {
@@ -84,7 +84,7 @@ class TablizaBeremennaya {
                 datafield: 'nomer_oms',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '10%',
 
             },
             {
@@ -92,7 +92,7 @@ class TablizaBeremennaya {
                 datafield: 'fio',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '16%',
 
             },
             {
@@ -100,7 +100,7 @@ class TablizaBeremennaya {
                 datafield: 'nomer',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '15%',
 
             },
 
@@ -109,7 +109,7 @@ class TablizaBeremennaya {
                 datafield: 'data_vzyatiya',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '10%',
                  cellsformat: 'dd.mm.yyyy'
 
 
@@ -118,8 +118,8 @@ class TablizaBeremennaya {
                 text: 'Жк, ведущая беременную',
                 datafield: 'jk_beremennoy_title',
                 align: 'center',
-                cellsalign: 'center',
-                width: '200',
+                cellsalign: 'left',
+                width: '45%',
 
             },
         ];

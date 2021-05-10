@@ -329,6 +329,11 @@ admin.site.register(OslojneniyaRodov, OslojneniyaRodovModelAdmin)
 
 
 class BeremennayaModelAdmin(ImportExportModelAdmin):
+    search_fields = ['jk_beremennoy', 'nomer','data_rojdeniya']
+    list_filter =  ['stepen_riska', 'data_rojdeniya']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "jk_beremennoy", "nomer", "stepen_riska", "data_vzyatiya", "vrach", "fio", "data_rojdeniya",
                     "vozrast", "mesto_postoyannogo_projivaniya", "nomer_telefona", "nomer_oms",
                     "vrednie_privichki_kurenie",

@@ -53,7 +53,7 @@ class TablizaMKB10 {
             showstatusbar: true,
             statusbarheight: 25,
             pagesizeoptions: ['5', '10', '30', '50', '100'],
-            pagesize: 10,
+            pagesize: 30,
         }
     }
 
@@ -75,7 +75,7 @@ class TablizaMKB10 {
                 datafield: 'id',
                 align: 'center',
                 cellsalign: 'center',
-                width: '50'
+                width: '5%'
             },
 
             {
@@ -83,7 +83,7 @@ class TablizaMKB10 {
                 datafield: 'kod',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '40%',
 
             },
 
@@ -93,7 +93,7 @@ class TablizaMKB10 {
                 datafield: 'nazvanie',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '55%',
 
             },
 

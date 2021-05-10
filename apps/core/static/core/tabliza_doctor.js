@@ -60,10 +60,9 @@ class TablizaDoctor {
     get fields() {
         return [
             {name: 'id', type: 'number'},
-            // {name: 'data_zaivlenia', type: 'date'},
             {name: 'fio', type: 'string'},
-            // {name: 'razmer_restruc', type: 'number'},
             {name: 'rabotaet', type: 'string'},
+            {name: 'med_organiizaciya_title', type: 'string'}
 
         ]
     }
@@ -71,29 +70,37 @@ class TablizaDoctor {
     get colums() {
         return [
             {
-                text: '№',
+                text: 'id',
                 datafield: 'id',
                 align: 'center',
                 cellsalign: 'center',
-                width: '50'
+                width: '5%'
             },
 
             {
-                text: 'Степень риска',
+                text: 'ФИО Врача',
                 datafield: 'fio',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '30%',
 
             },
 
 
             {
-                text: 'Врач',
+                text: 'Работает',
                 datafield: 'rabotaet',
                 align: 'center',
                 cellsalign: 'center',
-                width: '200',
+                width: '30%',
+
+            },
+            {
+                text: 'Название Мед.Организации',
+                datafield: 'med_organiizaciya_title',
+                align: 'center',
+                cellsalign: 'center',
+                width: '35%',
 
             },
 

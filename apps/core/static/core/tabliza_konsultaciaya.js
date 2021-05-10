@@ -61,8 +61,8 @@ class TablizaKonsultaciaya {
         return [
             {name: 'id', type: 'number'},
             {name: 'otpravleno', type: 'data'},
-            {name: 'otpravitel', type: 'string'},
             // {name: 'otpravitel_title', type: 'string'},
+            {name: 'med_organiizaciya', type: 'string'},
         ]
     }
 
@@ -84,22 +84,22 @@ class TablizaKonsultaciaya {
                 width: '200',
 
             },
-            {
-                text: 'Отправитель',
-                datafield: 'otpravitel',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
             // {
-            //     text: 'Учреждение отправителя',
-            //     datafield: 'otpravitel_title ',
+            //     text: 'Отправитель',
+            //     datafield: 'otpravitel_title',
             //     align: 'center',
             //     cellsalign: 'center',
             //     width: '200',
             //
             // },
+            {
+                text: 'Учреждение отправителя',
+                datafield: 'med_organiizaciya_title',
+                align: 'center',
+                cellsalign: 'center',
+                width: '200',
+
+            },
 
         ];
     }

@@ -422,7 +422,7 @@ function render_okno_mkb10() {
             showCollapseButton: true,
             maxHeight: 1000,
             maxWidth: 2200,
-            minHeight: 400,
+            minHeight: 600,
             minWidth: 700,
             height: 400,
             width: 700,
@@ -451,5 +451,69 @@ function render_okno_mkb10() {
 
 $(function () {
     render_okno_mkb10().init();
+
+});
+
+//ОКНО Доктора
+function render_okno_doctor() {
+    //Adding event listeners
+    function _addEventListeners() {
+        var toggled = null;
+        $(".jqxButton6").jqxToggleButton({toggled: false});
+        $(".jqxButton6").click(function () {
+            toggled = $(".jqxButton6").jqxToggleButton('toggled');
+            toggleCheck()
+        });
+
+        function toggleCheck() {
+            if (toggled == true) {
+                $('.window3').jqxWindow('open');
+                $('.window3').jqxWindow('resizable', true);
+            } else {
+                $('.window3').jqxWindow('close');
+                $('.window3').jqxWindow('draggable', true);
+            }
+        }
+    };
+
+
+    //Creating the demo window
+    function _createWindow() {
+        var jqxWidget = $('.jqxWidgetWindow3');
+        var offset = jqxWidget.offset();
+        $('.window3').jqxWindow({
+            position: {x: offset.left + 50, y: offset.top + 50},
+            showCollapseButton: true,
+            maxHeight: 1000,
+            maxWidth: 2200,
+            minHeight: 600,
+            minWidth: 700,
+            height: 400,
+            width: 700,
+            autoOpen: false,
+            initContent: function () {
+                $('#tab').jqxTabs({height: '100%', width: '100%'});
+                $('.window3').jqxWindow('focus');
+
+            }
+        });
+    };
+
+
+    return {
+        config: {
+            dragArea: null
+        },
+        init: function () {
+            //Attaching event listeners
+            _addEventListeners();
+            _createWindow();
+        }
+    };
+
+}
+
+$(function () {
+    render_okno_doctor().init();
 
 });

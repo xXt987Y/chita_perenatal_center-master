@@ -35,10 +35,15 @@ class BeremennayaSerializer(serializers.ModelSerializer):
     def get_data_vzyatiya(self, obj):
         return obj.data_vzyatiya.strftime("%d.%m.%Y")
 
+
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = '__all__'
+    med_organiizaciya_title = serializers.SerializerMethodField()
+
+    def get_med_organiizaciya_title(self, obj):
+        return obj.med_organiizaciya.nazvanie
 
 
 class NovorojdenniySerializer(serializers.ModelSerializer):
@@ -46,21 +51,38 @@ class NovorojdenniySerializer(serializers.ModelSerializer):
         model = Novorojdenniy
         fields = '__all__'
 
+    pol_novorojdennogo_title = serializers.SerializerMethodField()
+
+    def get_pol_novorojdennogo_title(self, obj):
+        return obj.get_pol_novorojdennogo_display()
+
 
 class NapravlenieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Napravlenie
         fields = '__all__'
 
+    punkt_napravleniya_title = serializers.SerializerMethodField()
+
+    def get_punkt_napravleniya_title(self, obj):
+        return obj.punkt_napravleniya.nazvanie
 
 class KonsultaciayaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Konsultaciaya
         fields = '__all__'
-    # otpravitel_title = serializers.SerializerMethodField()
+
+    otpravitel_title = serializers.SerializerMethodField()
+    med_organiizaciya_title = serializers.SerializerMethodField()
+
     #
-    # def get_otpravitel_title(self, obj):
-    #     return obj.otpravitel.med_organiizaciya
+    def get_otpravitel_title(self, obj):
+        if __name__ == '__main__':
+            return obj.otpravitel.rol.nazvanie
+
+    def get_med_organiizaciya_title(self, obj):
+        return obj.otpravitel.med_organiizaciya.nazvanie
+
 
 class MKB10Serializer(serializers.ModelSerializer):
     class Meta:

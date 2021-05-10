@@ -61,7 +61,7 @@ class TablizaNapravlenie {
         return [
             {name: 'id', type: 'number'},
             {name: 'data', type: 'data'},
-            {name: 'punkt_napravleniya', type: 'string'},
+            {name: 'punkt_napravleniya_title', type: 'string'},
             {name: 'cel_napravleniya', type: 'string'},
             {name: 'diagnoz_podtverjden', type: 'boolean'},
         ]
@@ -87,7 +87,7 @@ class TablizaNapravlenie {
             },
             {
                 text: 'Учреждение',
-                datafield: 'punkt_napravleniya',
+                datafield: 'punkt_napravleniya_title',
                 align: 'center',
                 cellsalign: 'center',
                 width: '200',

@@ -59,7 +59,7 @@ class TablizaNovorojdenniy {
 
     get fields() {
         return [
-            {name: 'pol_novorojdennogo', type: 'string'},
+            {name: 'pol_novorojdennogo_title', type: 'string'},
             {name: 'ves_novorojdennogo', type: 'string'},
             {name: 'rost_novorojdennogo', type: 'string'},
             {name: 'ocenka_po_shkale_apgar_na1_min', type: 'string'},
@@ -73,7 +73,7 @@ class TablizaNovorojdenniy {
         return [
             {
                 text: 'Пол',
-                datafield: 'pol_novorojdennogo',
+                datafield: 'pol_novorojdennogo_title',
                 align: 'center',
                 cellsalign: 'center',
                 width: '200',

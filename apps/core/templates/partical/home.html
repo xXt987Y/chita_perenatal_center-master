@@ -6,12 +6,14 @@
 {% endblock %}
 
 {% block body %}
-<body>
+<body style="height: 100%">
     <div class='openwindow'></div>
     {% include 'partical/menu.html' %}
     {% include 'partical/beremennaya.html' %}
     {% include 'partical/beremennaya/mkb10.html' %}
-    <div id="tabliza_beremennaya"></div>
+    {% include 'partical/beremennaya/Doctor.html' %}
+
+    <div class="tab" id="tabliza_beremennaya"></div>
 
 
 </body>
