@@ -47,7 +47,7 @@ class TablizaBeremennaya {
             scrollmode: 'logical',
             rowsheight: 40,
             toolbarheight: 40,
-            theme: 'light',
+            theme: 'arctic',
             altrows: true,
             sortable: true,
             showstatusbar: true,
@@ -110,6 +110,8 @@ class TablizaBeremennaya {
                 align: 'center',
                 cellsalign: 'center',
                 width: '200',
+                 cellsformat: 'dd.mm.yyyy'
+
 
             },
             {

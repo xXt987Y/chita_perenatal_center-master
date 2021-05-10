@@ -24,12 +24,16 @@ class BeremennayaSerializer(serializers.ModelSerializer):
 
     stepen_riska_title = serializers.SerializerMethodField()
     jk_beremennoy_title = serializers.SerializerMethodField()
+    data_vzyatiya = serializers.SerializerMethodField()
 
     def get_stepen_riska_title(self, obj):
         return obj.stepen_riska.nazvanie
 
     def get_jk_beremennoy_title(self, obj):
         return obj.jk_beremennoy.nazvanie
+
+    def get_data_vzyatiya(self, obj):
+        return obj.data_vzyatiya.strftime("%d.%m.%Y")
 
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:

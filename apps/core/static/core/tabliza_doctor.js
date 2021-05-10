@@ -47,7 +47,7 @@ class TablizaDoctor {
             scrollmode: 'logical',
             rowsheight: 40,
             toolbarheight: 40,
-            theme: 'light',
+            theme: 'arctic',
             altrows: true,
             sortable: true,
             showstatusbar: true,
