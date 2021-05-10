@@ -23,10 +23,13 @@ class BeremennayaSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     stepen_riska_title = serializers.SerializerMethodField()
+    jk_beremennoy_title = serializers.SerializerMethodField()
 
     def get_stepen_riska_title(self, obj):
         return obj.stepen_riska.nazvanie
 
+    def get_jk_beremennoy_title(self, obj):
+        return obj.jk_beremennoy.nazvanie
 
 class DoctorSerializer(serializers.ModelSerializer):
     class Meta:

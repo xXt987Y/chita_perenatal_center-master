@@ -350,6 +350,7 @@ function render_okno_redaktirovanie_pazienta() {
             minWidth: 700,
             height: 400,
             width: 700,
+            autoOpen: false,
             initContent: function () {
                 $('#tab').jqxTabs({height: '100%', width: '100%'});
                 $('.window1').jqxWindow('focus');
@@ -363,8 +364,8 @@ function render_okno_redaktirovanie_pazienta() {
         init: function () {
             //Attaching event listeners
             _addEventListeners();
-            //Adding jqxWindow
             _createWindow();
+            $('.window1').jqxWindow('close');
         }
     };
 }
@@ -425,12 +426,16 @@ function render_okno_mkb10() {
             minWidth: 700,
             height: 400,
             width: 700,
+            autoOpen: false,
             initContent: function () {
                 $('#tab').jqxTabs({height: '100%', width: '100%'});
                 $('.window2').jqxWindow('focus');
+
             }
         });
     };
+
+
     return {
         config: {
             dragArea: null
@@ -438,7 +443,6 @@ function render_okno_mkb10() {
         init: function () {
             //Attaching event listeners
             _addEventListeners();
-            //Adding jqxWindow
             _createWindow();
         }
     };
@@ -447,4 +451,5 @@ function render_okno_mkb10() {
 
 $(function () {
     render_okno_mkb10().init();
+
 });

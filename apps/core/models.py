@@ -394,9 +394,11 @@ class Beremennaya(models.Model):
         verbose_name = 'Беременная'
         verbose_name_plural = 'Беременные'
 
-    nomer = models.CharField('Номер', max_length=255, null=True, blank=True, unique=True)
+    nomer = models.CharField('Номер карты', max_length=255, null=True, blank=True, unique=True)
     stepen_riska = models.ForeignKey(StepenRiska, verbose_name='Степень риска', on_delete=models.CASCADE, null=True,
                                      blank=True)
+    jk_beremennoy = models.ForeignKey(MedOrganizacia, verbose_name='ЖК ведущая организацию', on_delete=models.CASCADE,
+                                      null=True, blank=True)
     data_vzyatiya = models.DateField('Дата взятия', null=True, blank=True)
     vrach = models.ForeignKey(Doctor, verbose_name='Врач', on_delete=models.CASCADE, null=True,
                               blank=True)
@@ -897,7 +899,9 @@ class Novorojdenniy(models.Model):
     class Meta:
         verbose_name = 'Новорожденный'
         verbose_name_plural = 'Новорожденныe'
-    nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Беременная', on_delete=models.CASCADE, max_length=255, null=True, blank=True)
+
+    nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Беременная', on_delete=models.CASCADE,
+                                         max_length=255, null=True, blank=True)
     nomer_novorojdennogo = models.CharField('Номер новорожденного', max_length=255, null=True, blank=True)
     pol_novorojdennogo = models.IntegerField('Пол новорожденного', choices=POL, null=True, blank=True)
     ves_novorojdennogo = models.CharField('Вес новорожденного', max_length=255, null=True, blank=True)
