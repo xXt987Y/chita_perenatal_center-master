@@ -318,45 +318,34 @@ $(document).ready(function () {
 function render_okno_redaktirovanie_pazienta() {
     //Adding event listeners
     function _addEventListeners() {
-        $('.resizeCheckBox').on('change', function (event) {
-            if (event.args.checked) {
+        var toggled = null;
+        $(".jqxButton7").jqxToggleButton({toggled: false});
+        $(".jqxButton7").click(function () {
+            toggled = $(".jqxButton7").jqxToggleButton('toggled');
+            toggleCheck()
+        });
+
+        function toggleCheck() {
+            if (toggled == true) {
+                $('.window1').jqxWindow('open');
                 $('.window1').jqxWindow('resizable', true);
             } else {
-                $('.window1').jqxWindow('resizable', false);
-            }
-        });
-        $('.dragCheckBox').on('change', function (event) {
-            if (event.args.checked) {
+                $('.window1').jqxWindow('close');
                 $('.window1').jqxWindow('draggable', true);
-            } else {
-                $('.window1').jqxWindow('draggable', false);
             }
-        });
-        $('.showWindowButton1').click(function () {
-            $('.window1').jqxWindow('open');
-        });
-        $('.hideWindowButton1').click(function () {
-            $('.window1').jqxWindow('close');
-        });
+        }
     };
 
-    //Creating all page elements which are jqxWidgets
-    function _createElements() {
-        $('.showWindowButton1').jqxButton({width: '70px'});
-        $('.hideWindowButton1').jqxButton({width: '65px'});
-        $('.resizeCheckBox1').jqxCheckBox({width: '185px', checked: true});
-        $('.dragCheckBox1').jqxCheckBox({width: '185px', checked: true});
-    };
 
     //Creating the demo window
     function _createWindow() {
-        var jqxWidget = $('.jqxWidgetWindow');
+        var jqxWidget = $('.jqxWidgetWindow1');
         var offset = jqxWidget.offset();
         $('.window1').jqxWindow({
             position: {x: offset.left + 50, y: offset.top + 50},
             showCollapseButton: true,
             maxHeight: 1000,
-            maxWidth: 1200,
+            maxWidth: 2200,
             minHeight: 400,
             minWidth: 700,
             height: 400,
@@ -372,30 +361,25 @@ function render_okno_redaktirovanie_pazienta() {
             dragArea: null
         },
         init: function () {
-            //Creating all jqxWindgets except the window
-            _createElements();
             //Attaching event listeners
             _addEventListeners();
             //Adding jqxWindow
             _createWindow();
         }
     };
-
 }
 
 $(function () {
-    // fetch('url').then(function (response) {
+    //Всплывающее окно Window
+    render_okno_redaktirovanie_pazienta().init();
+});
+ // fetch('url').then(function (response) {
     //     response.json().then( function (data) {
     //         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
     //             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
     //             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
     //    })
     // });
-
-    //Всплывающее окно Window
-    render_okno_redaktirovanie_pazienta().init();
-});
-
 
 //выбор доктора
 
@@ -405,7 +389,7 @@ $(document).ready(function () {
     $(".jqxWidgetDropDoctor").jqxDropDownList({source: source, placeHolder: "Выбрать врача", width: 250, height: 30});
 });
 
-
+//ОКНО МБК10
 function render_okno_mkb10() {
     //Adding event listeners
     function _addEventListeners() {
@@ -430,7 +414,7 @@ function render_okno_mkb10() {
 
     //Creating the demo window
     function _createWindow() {
-        var jqxWidget = $('.jqxWidgetWindow');
+        var jqxWidget = $('.jqxWidgetWindow2');
         var offset = jqxWidget.offset();
         $('.window2').jqxWindow({
             position: {x: offset.left + 50, y: offset.top + 50},
