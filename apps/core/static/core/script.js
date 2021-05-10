@@ -25,9 +25,9 @@ $(document).ready(function () {
     $(".jqxButton6").on('click', function () {
         var toggled = $(".jqxButton6").jqxToggleButton('toggled');
     });
-    $(".jqxButton7").jqxToggleButton({toggled: false});
-    $(".jqxButton7").on('click', function () {
-        var toggled = $(".jqxButton7").jqxToggleButton('toggled');
+    $(".jqxButton17").jqxToggleButton({toggled: false});
+    $(".jqxButton17").on('click', function () {
+        var toggled = $(".jqxButton17").jqxToggleButton('toggled');
     });
     $(".jqxButton8").jqxToggleButton({toggled: false});
     $(".jqxButton8").on('click', function () {
@@ -78,81 +78,6 @@ $(document).ready(function () {
         var toggled = $(".jqxButtonYdalitNapravlenie").jqxToggleButton('toggled');
     });
 
-});
-
-//Таблица Grid
-$(document).ready(function () {
-    var url = "../sampledata/products.xml";
-    // prepare the data
-    var source =
-        {
-            datatype: "xml",
-            datafields: [
-                {name: 'ID', type: 'integer'},
-                {name: 'ОМС', type: 'char'},
-                {name: 'ФИО', type: 'char'},
-                {name: 'Номер карты', type: 'char'},
-                {name: 'Год', type: 'date'},
-                {name: 'Учет с', type: 'date'},
-                {name: 'ЖК, ведущая беременную', type: 'char'}
-            ],
-            root: "Products",
-            record: "Product",
-            id: 'ProductID',
-            url: url
-        };
-    var cellsrenderer = function (row, columnfield, value, defaulthtml, columnproperties, rowdata) {
-        if (value < 20) {
-            return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #ff0000;">' + value + '</span>';
-        } else {
-            return '<span style="margin: 4px; margin-top:8px; float: ' + columnproperties.cellsalign + '; color: #008000;">' + value + '</span>';
-        }
-    }
-
-    // initialize jqxGrid
-    $("#grid").jqxGrid(
-        {
-            width: getWidth('Grid'),
-            source: dataAdapter,
-            pageable: true,
-            autoheight: true,
-            sortable: true,
-            altrows: true,
-            enabletooltips: true,
-            editable: true,
-            selectionmode: 'multiplecellsadvanced',
-            columns: [
-                {text: 'Product Name', columngroup: 'ProductDetails', datafield: 'ProductName', width: 250},
-                {
-                    text: 'Quantity per Unit',
-                    columngroup: 'ProductDetails',
-                    datafield: 'QuantityPerUnit',
-                    cellsalign: 'right',
-                    align: 'right',
-                    width: 200
-                },
-                {
-                    text: 'Unit Price',
-                    columngroup: 'ProductDetails',
-                    datafield: 'UnitPrice',
-                    align: 'right',
-                    cellsalign: 'right',
-                    cellsformat: 'c2',
-                    width: 200
-                },
-                {
-                    text: 'Units In Stock',
-                    datafield: 'UnitsInStock',
-                    cellsalign: 'right',
-                    cellsrenderer: cellsrenderer,
-                    width: 100
-                },
-                {text: 'Discontinued', columntype: 'checkbox', datafield: 'Discontinued'}
-            ],
-            columngroups: [
-                {text: 'Product Details', align: 'center', name: 'ProductDetails'}
-            ]
-        });
 });
 
 //Дата
@@ -331,10 +256,12 @@ function render_okno_redaktirovanie_pazienta() {
         $(".jqxButton7").jqxToggleButton({toggled: false});
         $(".jqxButton7").click(function () {
             toggled = $(".jqxButton7").jqxToggleButton('toggled');
-            toggleCheck()
+            toggleCheck();
+
         });
 
         function toggleCheck() {
+
             if (toggled == true) {
                 $('.window1').jqxWindow('open');
                 $('.window1').jqxWindow('resizable', true);

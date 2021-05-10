@@ -22,7 +22,7 @@ function checkStatus(res) {
 }
 
 
-class TablizaKonsultaciaya {
+class TablizaSmenaJK {
 
     constructor() {
         let self = this;
@@ -60,7 +60,7 @@ class TablizaKonsultaciaya {
     get fields() {
         return [
             {name: 'id', type: 'number'},
-            {name: 'nomer_beremennoy_title', type: 'data'},
+            {name: 'nomer_beremennoy', type: 'data'},
             {name: 'prichina', type: 'string'},
             {name: 'med_organiizaciya_title', type: 'string'},
         ]
@@ -77,8 +77,8 @@ class TablizaKonsultaciaya {
 
             },
             {
-                text: 'ФИО беременной',
-                datafield: 'nomer_beremennoy_title',
+                text: 'Номер беременной',
+                datafield: 'nomer_beremennoy',
                 align: 'center',
                 cellsalign: 'center',
                 width: '30%',
@@ -119,6 +119,6 @@ class TablizaKonsultaciaya {
 
 
 $(document).ready(function () {
-    new TablizaKonsultaciaya();
+    new TablizaSmenaJK();
 
 });
