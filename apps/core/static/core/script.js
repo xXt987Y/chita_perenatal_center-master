@@ -3,10 +3,15 @@ $(document).ready(function () {
     $(".jqxButton1").jqxToggleButton({toggled: false});
     $(".jqxButton1").on('click', function () {
         var toggled = $(".jqxButton1").jqxToggleButton('toggled');
+        $('#pole').show();
+        $('#poisk').hide();
     });
-    $(".jqxButton2").jqxToggleButton({toggled: false});
-    $(".jqxButton2").on('click', function () {
-        var toggled = $(".jqxButton2").jqxToggleButton('toggled');
+    //КНОПКА ПОИСКА
+    $(".jqxButton21").jqxToggleButton({toggled: false});
+    $(".jqxButton21").on('click', function () {
+        var toggled = $(".jqxButton21").jqxToggleButton('toggled');
+        $('#pole').hide();
+        $('#poisk').show();
     });
     $(".jqxButton3").jqxToggleButton({toggled: false});
     $(".jqxButton3").on('click', function () {
@@ -374,13 +379,13 @@ $(function () {
     //Всплывающее окно Window
     render_okno_redaktirovanie_pazienta().init();
 });
- // fetch('url').then(function (response) {
-    //     response.json().then( function (data) {
-    //         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
-    //             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
-    //             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
-    //    })
-    // });
+// fetch('url').then(function (response) {
+//     response.json().then( function (data) {
+//         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
+//             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
+//             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
+//    })
+// });
 
 //выбор доктора
 
@@ -452,4 +457,7 @@ function render_okno_mkb10() {
 $(function () {
     render_okno_mkb10().init();
 
+
 });
+
+

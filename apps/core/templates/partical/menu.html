@@ -8,44 +8,37 @@
 <script src="{% static 'core/TabMenu.js' %}"></script>
 <div class="default">
     <input class="topmenu jqxButton1" type="button" value="Регистрация беременных"/>
-    <input class="topmenu jqxButton2" type="button" value="Поиск"/>
+    <input class="topmenu jqxButton21" type="button" value="Поиск"/>
     <input class="topmenu jqxButton3" type="button" value="Консультации"/>
     <input class="topmenu jqxButton4" type="button" value="Переводы"/>
     <input class="topmenu jqxButton5" type="button" value="Отчеты"/>
     <input class="topmenu jqxButton6" type="button" value="Врачи"/>
     <input class="topmenu jqxButton17" type="button" value="МКБ"/>
 </div>
-
-<div class="tab">
-    <button class="tablinks" onclick="openMenu(event, 'Karta')">Обменная карта</button>
-    <button class="tablinks" onclick="openMenu(event, 'OMS')">Номер ОМС</button>
-    <button class="tablinks" onclick="openMenu(event, 'FIO')">ФИО беременной</button>
-</div>
-
-<!-- Tab content -->
-<div id="Karta" class="tabcontent">
-
-    <div class="default">
-        <div>Карта №</div>
-        <input class="input6"/>
-        <div>Год</div>
-        <div style="width: 200px;" class='jqxDateTimeInput'></div>
+<div id="pole">
+    <div class="tab">
+        <button class="tablinks" onclick="openMenu(event, 'Karta')">Обменная карта</button>
+        <button class="tablinks" onclick="openMenu(event, 'OMS')">Номер ОМС</button>
+        <button class="tablinks" onclick="openMenu(event, 'FIO')">ФИО беременной</button>
     </div>
-
-
-</div>
-
-<div id="OMS" class="tabcontent">
-    <div>Номер ОМС</div>
-    <input class="input7"/>
-</div>
-
-<div id="FIO" class="tabcontent">
-    <div>ФИО беременной</div>
-    <input class="input8"/>
-</div>
-
-<div class="default">
+    <!-- Tab content -->
+    <div id="Karta" class="tabcontent">
+        <div class="default">
+            <div>Карта №</div>
+            <input class="input6"/>
+            <div>Год</div>
+            <div style="width: 200px;" class='jqxDateTimeInput'></div>
+        </div>
+    </div>
+    <div id="OMS" class="tabcontent">
+        <div>Номер ОМС</div>
+        <input class="input7"/>
+    </div>
+    <div id="FIO" class="tabcontent">
+        <div>ФИО беременной</div>
+        <input class="input8"/>
+    </div>
+    <div class="default">
         <input class="topmenu jqxButton7" type="button" value="Новая беременная"/>
         <input class="topmenu jqxButton8" type="button" value="Редактировать беременную"/>
         <input class="topmenu jqxButton9" type="button" value="Новая анкета"/>
@@ -53,6 +46,8 @@
         <input class="topmenu jqxButton11" type="button" value="Новая консультация"/>
         <input class="topmenu jqxButton12" type="button" value="Исход беременности"/>
         <input class="topmenu jqxButton13" type="button" value="Запрос на перевод"/>
+    </div>
 </div>
+{% include 'partical/poisk.html' %}
 </body>
 </html>
