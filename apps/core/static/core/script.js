@@ -8,10 +8,6 @@ $(document).ready(function () {
     $(".jqxButton2").on('click', function () {
         var toggled = $(".jqxButton2").jqxToggleButton('toggled');
     });
-    $(".jqxButton3").jqxToggleButton({toggled: false});
-    $(".jqxButton3").on('click', function () {
-        var toggled = $(".jqxButton3").jqxToggleButton('toggled');
-    });
     $(".jqxButton4").jqxToggleButton({toggled: false});
     $(".jqxButton4").on('click', function () {
         var toggled = $(".jqxButton4").jqxToggleButton('toggled');
@@ -66,7 +62,15 @@ $(document).ready(function () {
     });
     $(".jqxButton18").jqxToggleButton({toggled: false});
     $(".jqxButton18").on('click', function () {
-        var toggled = $(".jqxButton16").jqxToggleButton('toggled');
+        var toggled = $(".jqxButton18").jqxToggleButton('toggled');
+    });
+    $(".jqxButtonNovoeNapravlenie").jqxToggleButton({toggled: false});
+    $(".jqxButtonNovoeNapravlenie").on('click', function () {
+        var toggled = $(".jqxButtonNovoeNapravlenie").jqxToggleButton('toggled');
+    });
+    $(".jqxButtonYdalitNapravlenie").jqxToggleButton({toggled: false});
+    $(".jqxButtonYdalitNapravlenie").on('click', function () {
+        var toggled = $(".jqxButtonYdalitNapravlenie").jqxToggleButton('toggled');
     });
 
 });
@@ -374,13 +378,13 @@ $(function () {
     //Всплывающее окно Window
     render_okno_redaktirovanie_pazienta().init();
 });
- // fetch('url').then(function (response) {
-    //     response.json().then( function (data) {
-    //         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
-    //             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
-    //             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
-    //    })
-    // });
+// fetch('url').then(function (response) {
+//     response.json().then( function (data) {
+//         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
+//             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
+//             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
+//    })
+// });
 
 //выбор доктора
 
@@ -515,5 +519,133 @@ function render_okno_doctor() {
 
 $(function () {
     render_okno_doctor().init();
+
+});
+
+//ОКНО Консультации
+function render_okno_konsultacii() {
+    //Adding event listeners
+    function _addEventListeners() {
+        var toggled = null;
+        $(".jqxButton3").jqxToggleButton({toggled: false});
+        $(".jqxButton3").click(function () {
+            toggled = $(".jqxButton3").jqxToggleButton('toggled');
+            toggleCheck()
+        });
+
+        function toggleCheck() {
+            if (toggled == true) {
+                $('.window4').jqxWindow('open');
+                $('.window4').jqxWindow('resizable', true);
+            } else {
+                $('.window4').jqxWindow('close');
+                $('.window4').jqxWindow('draggable', true);
+            }
+        }
+    };
+
+
+    //Creating the demo window
+    function _createWindow() {
+        var jqxWidget = $('.jqxWidgetWindow4');
+        var offset = jqxWidget.offset();
+        $('.window4').jqxWindow({
+            position: {x: offset.left + 50, y: offset.top + 50},
+            showCollapseButton: true,
+            maxHeight: 1000,
+            maxWidth: 2200,
+            minHeight: 600,
+            minWidth: 700,
+            height: 400,
+            width: 700,
+            autoOpen: false,
+            initContent: function () {
+                $('#tab').jqxTabs({height: '100%', width: '100%'});
+                $('.window4').jqxWindow('focus');
+
+            }
+        });
+    };
+
+
+    return {
+        config: {
+            dragArea: null
+        },
+        init: function () {
+            //Attaching event listeners
+            _addEventListeners();
+            _createWindow();
+        }
+    };
+
+}
+
+$(function () {
+    render_okno_konsultacii().init();
+
+});
+
+//ОКНО Смены ЖК
+function render_okno_smenaJK() {
+    //Adding event listeners
+    function _addEventListeners() {
+        var toggled = null;
+        $(".jqxButton4").jqxToggleButton({toggled: false});
+        $(".jqxButton4").click(function () {
+            toggled = $(".jqxButton4").jqxToggleButton('toggled');
+            toggleCheck()
+        });
+
+        function toggleCheck() {
+            if (toggled == true) {
+                $('.window5').jqxWindow('open');
+                $('.window5').jqxWindow('resizable', true);
+            } else {
+                $('.window5').jqxWindow('close');
+                $('.window5').jqxWindow('draggable', true);
+            }
+        }
+    };
+
+
+    //Creating the demo window
+    function _createWindow() {
+        var jqxWidget = $('.jqxWidgetWindow5');
+        var offset = jqxWidget.offset();
+        $('.window5').jqxWindow({
+            position: {x: offset.left + 50, y: offset.top + 50},
+            showCollapseButton: true,
+            maxHeight: 1000,
+            maxWidth: 2200,
+            minHeight: 600,
+            minWidth: 700,
+            height: 400,
+            width: 700,
+            autoOpen: false,
+            initContent: function () {
+                $('#tab').jqxTabs({height: '100%', width: '100%'});
+                $('.window5').jqxWindow('focus');
+
+            }
+        });
+    };
+
+
+    return {
+        config: {
+            dragArea: null
+        },
+        init: function () {
+            //Attaching event listeners
+            _addEventListeners();
+            _createWindow();
+        }
+    };
+
+}
+
+$(function () {
+    render_okno_smenaJK().init();
 
 });

@@ -999,7 +999,7 @@ class Smena_JK_u_beremennoy(models.Model):
     class Meta:
         verbose_name_plural = 'Смена ЖК у беременной'
 
-    nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Номер анкеты',
+    nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
                                          on_delete=models.CASCADE, null=True,
                                          blank=True)
     novaya_JK = models.ForeignKey(MedOrganizacia, verbose_name='Новая ЖК',

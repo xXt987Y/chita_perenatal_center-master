@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
-from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10
+from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
+    Smena_JK_u_beremennoy
 
 
 class RayonSerializer(serializers.ModelSerializer):
@@ -40,6 +41,7 @@ class DoctorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = '__all__'
+
     med_organiizaciya_title = serializers.SerializerMethodField()
 
     def get_med_organiizaciya_title(self, obj):
@@ -67,18 +69,17 @@ class NapravlenieSerializer(serializers.ModelSerializer):
     def get_punkt_napravleniya_title(self, obj):
         return obj.punkt_napravleniya.nazvanie
 
+
 class KonsultaciayaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Konsultaciaya
         fields = '__all__'
 
-    otpravitel_title = serializers.SerializerMethodField()
+    rol_otpavitelia_title = serializers.SerializerMethodField()
     med_organiizaciya_title = serializers.SerializerMethodField()
 
-    #
-    def get_otpravitel_title(self, obj):
-        if __name__ == '__main__':
-            return obj.otpravitel.rol.nazvanie
+    def get_rol_otpavitelia_title(self, obj):
+        return obj.otpravitel.rol.nazvanie
 
     def get_med_organiizaciya_title(self, obj):
         return obj.otpravitel.med_organiizaciya.nazvanie
@@ -88,3 +89,19 @@ class MKB10Serializer(serializers.ModelSerializer):
     class Meta:
         model = MKB10
         fields = '__all__'
+
+
+class SmenaJKSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Smena_JK_u_beremennoy
+        fields = '__all__'
+
+    nomer_beremennoy_title = serializers.SerializerMethodField()
+    med_organiizaciya_title = serializers.SerializerMethodField()
+
+    def get_nomer_beremennoy_title(self, obj):
+        if __name__ == '__main__':
+            return obj.nomer_beremennoy.nomer
+
+    def get_med_organiizaciya_title(self, obj):
+        return obj.novaya_JK.nazvanie

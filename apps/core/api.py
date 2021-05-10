@@ -6,9 +6,10 @@ from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10
+from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
+    Smena_JK_u_beremennoy
 from apps.core.serializers import RayonSerializer, BeremennayaSerializer, DoctorSerializer, NovorojdenniySerializer, \
-    NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer
+    NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer, SmenaJKSerializer
 
 
 # class RayonViewSet(viewsets.ModelViewSet):
@@ -202,4 +203,27 @@ class MKB10ViewSetDV(APIView):
     def get(self, request, pk):
         mkb10 = MKB10.objects.get(pk=pk)
         serializer = MKB10Serializer(mkb10, many=False)
+        return Response(serializer.data)
+
+class SmenaJKViewSetLV(APIView):
+
+    def get(self, request):
+        or_condition = Q()
+
+        spisok_polei = list(map(lambda x: x.attname, Doctor._meta.fields))
+        for key, value in dict(request.query_params).items():
+            if key in spisok_polei:
+                tmp_key = f'{key}__contains'
+                or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
+
+        smenaJK = Smena_JK_u_beremennoy.objects.filter(or_condition)
+
+        serializer = SmenaJKSerializer(smenaJK, many=True)
+        return Response(serializer.data)
+
+class SmenaJKViewSetDV(APIView):
+
+    def get(self, request, pk):
+        smenaJK = Smena_JK_u_beremennoy.objects.get(pk=pk)
+        serializer = SmenaJKSerializer(smenaJK, many=False)
         return Response(serializer.data)

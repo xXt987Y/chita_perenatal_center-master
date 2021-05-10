@@ -26,7 +26,7 @@ class TablizaKonsultaciaya {
 
     constructor() {
         let self = this;
-        this.$grid = $('.tabliza_konsultaciaya');
+        this.$grid = $('#tabliza_smenaJK');
         this.$grid.jqxGrid(self.nastroiki_grida);
     }
 
@@ -60,8 +60,8 @@ class TablizaKonsultaciaya {
     get fields() {
         return [
             {name: 'id', type: 'number'},
-            {name: 'otpravleno', type: 'data'},
-            {name: 'rol_otpavitelia_title', type: 'string'},
+            {name: 'nomer_beremennoy_title', type: 'data'},
+            {name: 'prichina', type: 'string'},
             {name: 'med_organiizaciya_title', type: 'string'},
         ]
     }
@@ -77,23 +77,23 @@ class TablizaKonsultaciaya {
 
             },
             {
-                text: 'Отправлено',
-                datafield: 'otpravleno',
+                text: 'ФИО беременной',
+                datafield: 'nomer_beremennoy_title',
                 align: 'center',
                 cellsalign: 'center',
                 width: '30%',
 
             },
             {
-                text: 'Отправитель',
-                datafield: 'rol_otpavitelia_title',
+                text: 'Причина перевода',
+                datafield: 'prichina',
                 align: 'center',
                 cellsalign: 'center',
                 width: '30%',
 
             },
             {
-                text: 'Учреждение отправителя',
+                text: 'Новая ЖК',
                 datafield: 'med_organiizaciya_title',
                 align: 'center',
                 cellsalign: 'center',
@@ -109,7 +109,7 @@ class TablizaKonsultaciaya {
         return new $.jqx.dataAdapter({
             datatype: "json",
             data: 'data',
-            url: '/api/konsultaciaya/',
+            url: '/api/smenaJK/',
             datafields: this.fields,
             sortcolumn: 'id',
             sortdirection: 'desc'
