@@ -1,0 +1,84 @@
+<div class="window_beremennya">
+
+    <div class="tab_beremennya">
+        <ul>
+            <li>Основные данные</li>
+            <li>Анкеты</li>
+            <li>Направление</li>
+            <li>Консультация</li>
+            <li>Исход</li>
+        </ul>
+        <div>
+            {% include 'beremennya/beremennaya_tabs/osnovnie_dannie.html' %}
+        </div>
+        <div>
+            {% include 'beremennya/beremennaya_tabs/anketi.html' %}
+        </div>
+        <div>
+            {% include 'beremennya/beremennaya_tabs/napravleniya.html' %}
+        </div>
+        <div>
+            {% include 'beremennya/beremennaya_tabs/konsultaciya.html' %}
+        </div>
+        <div>
+            {% include 'beremennya/beremennaya_tabs/ishod.html' %}
+        </div>
+    </div>
+</div>
+
+
+<style>
+</style>
+
+
+<script>
+
+
+    class WindowBeremennya {
+        constructor($window_beremennya, $tab, $btn_open_window_beremennya) {
+            let self = this;
+            this.$window = $($window_beremennya);
+            this.$tab = $tab;
+            this.$btn_open_window = $btn_open_window_beremennya;
+            this.$window.jqxWindow({
+                position: {x: '15%', y: '10%'},
+
+                maxHeight: 1000,
+                maxWidth: 2200,
+                minHeight: 400,
+                minWidth: 700,
+                theme: 'arctic',
+                height: 500,
+                width: 1200,
+                title: 'Беременная',
+                autoOpen: false,
+                resizable: true,
+                draggable: true,
+                initContent: function () {
+                    $(self.$tab).jqxTabs({
+                        height: '100%',
+                        width: '100%',
+                        theme: 'arctic',
+                    });
+                }
+            });
+
+            this.on_close();
+        }
+
+        on_close() {
+            let self = this;
+            this.$window.on('close', function (){
+                self.$btn_open_window.jqxToggleButton('toggled', false);
+            });
+        }
+
+    }
+
+
+    let $window_beremennya = $('.window_beremennya');
+    let $tab_beremennya = $('.tab_beremennya');
+    $(function () {
+        new WindowBeremennya($window_beremennya, $tab_beremennya, $btn_open_window_beremennya)
+    })
+</script>

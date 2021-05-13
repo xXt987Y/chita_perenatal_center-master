@@ -6,7 +6,7 @@ from apps.core.serializers import DoctorSerializer
 
 
 def home(request):
-    return render(request, "partical/home.html")
+    return render(request, "home.html")
 
 
 def sbor_znachenii_spravocnix_tabliz():

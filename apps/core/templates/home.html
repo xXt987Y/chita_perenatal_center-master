@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru" style="height: 100%">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная</title>
+    <link rel="stylesheet" href="{% static 'core/jqwidgets-scripts/jqwidgets/styles/jqx.base.css' %}" type="text/css"/>
+    <link rel="stylesheet" href="{% static 'core/jqwidgets-scripts/jqwidgets/styles/jqx.arctic.css' %}"
+          type="text/css"/>
+    <link rel="stylesheet" href="{% static 'core/style.css' %}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'core/jqwidgets-scripts/jqwidgets/jqx-all.js' %}"></script>
+
+</head>
+<body style="height: 100%">
+
+
+<div class="wrap h100">
+    {% include 'partical/menu.html' %}
+    {% include 'beremennya/window_beremennya.html' %}
+    {% include 'beremennya/tabliza_beremennya.html' %}
+</div>
+
+
+{##}
+{#{% include 'partical/beremennaya/mkb10.html' %}#}
+{#{% include 'partical/beremennaya/Doctor.html' %}#}
+{#{% include 'partical/beremennaya/StranizaKonsultacii.html' %}#}
+{#{% include 'partical/beremennaya/SmenaJK.html' %}#}
+{#{% include 'partical/poisk.html' %}#}
+{##}
+{##}
+<script src="{% static 'core/script.js' %}"></script>
+{##}
+{#<script src="{% static 'beremenie/okno_beremennaya.js' %}"></script>#}
+{##}
+{##}
+{#<script src="{% static 'core/tabliza_mkb10.js' %}"></script>#}
+{#<script src="{% static 'core/tabliza_novorojdenniy.js' %}"></script>#}
+{#<script src="{% static 'core/tabliza_napravlenie.js' %}"></script>#}
+{#<script src="{% static 'core/tabliza_konsultaciaya.js' %}"></script>#}
+{#<script src="{% static 'core/Poisk.js' %}"></script>#}
+{#<script src="{% static 'core/tabliza_doctor.js' %}"></script>#}
+{#<script src="{% static 'core/tabliza_smenaJK.js' %}"></script>#}
+
+</body>
