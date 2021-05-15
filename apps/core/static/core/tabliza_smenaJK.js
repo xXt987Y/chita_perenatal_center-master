@@ -1,27 +1,5 @@
 'use strict';
 
-// Для преобразование инмпутов модели в объект
-function objectifyForm(formArray) {//serialize data function
-    let data = new FormData();
-    for (let i = 0; i < formArray.length; i++) {
-        data.append(formArray[i]['name'], formArray[i]['value']);
-    }
-    return data;
-}
-
-// Для коректной обработки статуса сервера
-function checkStatus(res) {
-    if (res.status >= 200 && res.status < 300) {
-        return res
-    } else {
-        let err = new Error(res.statusText);
-        err.response = res;
-        console.error('Ошибка в адресе сервера', res);
-        throw err
-    }
-}
-
-
 class TablizaSmenaJK {
 
     constructor() {

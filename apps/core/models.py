@@ -68,8 +68,11 @@ class MedOrganizacia(models.Model):
 
     nazvanie = models.CharField(verbose_name='Название', max_length=255, null=True, blank=True)
     rayon = models.ForeignKey(Rayon, verbose_name='Район', on_delete=models.CASCADE, null=True, blank=True)
-    tip_organizacii = models.ForeignKey(TipOrganizacii, on_delete=models.CASCADE, default=True, blank=True)
-    uroven_med_obclujivaniya = models.ForeignKey(UrovenMedObsluzivaniya, on_delete=models.CASCADE, null=True,
+    tip_organizacii = models.ForeignKey(TipOrganizacii, verbose_name='Тип организации', on_delete=models.CASCADE,
+                                        default=True, blank=True)
+    uroven_med_obclujivaniya = models.ForeignKey(UrovenMedObsluzivaniya,
+                                                 verbose_name='Уровень медецинского обслуживания',
+                                                 on_delete=models.CASCADE, null=True,
                                                  blank=True)
     ZKPC = models.BooleanField('ЗКПЦ? Да/Нет', default=True, blank=True)
     email = models.CharField(verbose_name='Электронная почта', max_length=255, null=True, blank=True)
@@ -100,7 +103,7 @@ class Polzovateli(models.Model):
     med_organiizaciya = models.ForeignKey(MedOrganizacia, verbose_name='Медицинская организация',
                                           on_delete=models.CASCADE, null=True, blank=True)
     # выпадающие списки из таблицы роли
-    rol = models.ForeignKey(Roli, null=True, blank=True, on_delete=models.CASCADE)
+    rol = models.ForeignKey(Roli, verbose_name='Роль', null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.user.username} - {self.rol.nazvanie}'

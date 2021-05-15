@@ -17,6 +17,11 @@ from apps.core.models import Rayon, UrovenMedObsluzivaniya, TipOrganizacii, MedO
 
 
 class RayonModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'nazvanie', 'korotkoe_nazvanie']
+    list_filter = ['v_chite']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "nazvanie", "korotkoe_nazvanie", "v_chite"]
 
     class Meta:
@@ -47,6 +52,11 @@ admin.site.register(TipOrganizacii, TipOrganizaciiModelAdmin)
 
 
 class MedOrganizaciaModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'nazvanie', 'rayon__nazvanie']
+    list_filter = ['tip_organizacii', 'uroven_med_obclujivaniya', 'ZKPC']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "nazvanie", "rayon", "tip_organizacii",
                     "uroven_med_obclujivaniya", "ZKPC",
                     "email", "kontaktnaya_informaciya", ]
@@ -69,7 +79,12 @@ admin.site.register(Roli, RoliModelAdmin)
 
 
 class PolzovateliModelAdmin(ImportExportModelAdmin):
-    list_display = ["id", "user", "med_organiizaciya", "rol", ]
+    search_fields = ['id', 'user__username']
+    list_filter = ['rol']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
+    list_display = ["id", "user", "med_organiizaciya", "rol"]
 
     class Meta:
         model = Polzovateli
@@ -79,6 +94,11 @@ admin.site.register(Polzovateli, PolzovateliModelAdmin)
 
 
 class DoctorModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'med_organiizaciya__nazvanie', 'fio']
+    list_filter = ['rabotaet', 'med_organiizaciya']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "med_organiizaciya", "fio", "rabotaet", ]
 
     class Meta:
@@ -89,6 +109,10 @@ admin.site.register(Doctor, DoctorModelAdmin)
 
 
 class MKB10ModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'kod', 'nazvanie']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "kod", "nazvanie"]
 
     class Meta:
@@ -329,49 +353,13 @@ admin.site.register(OslojneniyaRodov, OslojneniyaRodovModelAdmin)
 
 
 class BeremennayaModelAdmin(ImportExportModelAdmin):
-    search_fields = ['jk_beremennoy', 'nomer','data_rojdeniya']
-    list_filter =  ['stepen_riska', 'data_rojdeniya']
+    search_fields = ['jk_beremennoy__nazvanie', 'fio', 'nomer_telefona', 'nomer_oms', 'nomer', 'data_rojdeniya']
+    list_filter = ['stepen_riska', 'data_vzyatiya', 'vozrast']
     save_as_continue = True
     save_on_top = True
     save_as = True
     list_display = ["id", "jk_beremennoy", "nomer", "stepen_riska", "data_vzyatiya", "vrach", "fio", "data_rojdeniya",
-                    "vozrast", "mesto_postoyannogo_projivaniya", "nomer_telefona", "nomer_oms",
-                    "vrednie_privichki_kurenie",
-                    "vrednie_privichki_alco", "vrednie_privichki_narko", "vrednie_privichki_toxi",
-                    "vrednie_factori_truda_himicheskie", "vrednie_factori_truda_radioactiv",
-                    "vrednie_factori_truda_priem_lekarstvennih_sredstv", "vrednie_factori_truda_neudvl_jil_ysloviya",
-                    "socialno_ugrojaemaya", "semeynoe_polojenie", "somaticheskie_pokazateli_muzskoy",
-                    "somaticheskie_pokazateli_girsutizm", "ves", "rost", "index", "razmer_taza_ds", "razmer_taza_dc",
-                    "razmer_taza_dt", "razmer_taza_cd",
-                    "razmer_taza_ce", "razmer_taza_cv", "forma_sujeniya_taza", "stepen_sujeniya_taza",
-                    "rezus_faktori_beremennoy_otca", "vzyata_pod_nabludenie", "geneticheskie_faktori",
-                    "menstrualnaya_funkciya", "zabolevanie_vnut_pol_organov_vospalenie_neroj",
-                    "zabolevanie_vnut_pol_organov_vospalenie_roj", "zabolevanie_vnut_pol_organov_opuhl",
-                    "zabolevanie_vnut_pol_organov_mioma", "zabolevanie_vnut_pol_organov_gipoplaziya",
-                    "zabolevanie_vnut_pol_organov_poroki", "zabolevanie_vnut_pol_organov_operacii_pred",
-                    "zabolevanie_vnut_pol_organov_operacii_matk", "zabolevanie_vnut_pol_organov_istmiko",
-                    "zabolevanie_vnut_pol_organov_onkologiya", "besplodie", "tip_besplodiya",
-                    "nastuplenie_beremennosti_v_rezultate_eco", "nastuplenie_beremennosti_v_rezultate_ovulyacii",
-                    "data_pervogo_dnya_posledney_menstruacii",
-                    "paritet_beremennosti", "samoproizvolniy_abort", "vnematochnaya_beremennost",
-                    "rezus_konfliktnaya_beremennost", "gemoliticheskaya_bolezn", "iskustvenniy_abort",
-                    "iskustvenniy_abort_oslojneniya", "oslojneniya_beremennosti_anemez",
-                    "oslojneniya_beremennosti_anemez_fetoplacent", "oslojneniya_beremennosti_anemez_obostrenie",
-                    "oslojneniya_beremennosti_anemez_prejdevremennoy", "oslojneniya_rodov",
-                    "oslojneniya_rodov_osl_razrivom", "oslojneniya_rodov_osl_krovotech", "oslojneniya_rodov_osl_gnoyno",
-                    "oslojneniya_rodov_osl_mertvoroj", "kesarevo_sechenie",
-                    "oslojneniya_anomaliyami_rodovoy_deyatelnosti", "klinicheski_uzkiy_taz",
-                    "plodorazrushayushaya_operaciya", "novorojdenniy_plod_smert", "novorojdenniy_plod_ves",
-                    "novorojdenniy_plod_nevrolgiych", "novorojdenniy_plod_vpr", "novorojdenniy_plod_perinatalnie",
-                    "infekcionnie_bolezni_gripp", "infekcionnie_bolezni_sifilis", "infekcionnie_bolezni_vich",
-                    "infekcionnie_bolezni_krasnuha", "infekcionnie_bolezni_orvi", "infekcionnie_bolezni_tuberkulez",
-                    "infekcionnie_bolezni_virusniy_gepatit", "zlokachestvennie_obrazovaniya", "saharniy_diabed",
-                    "gestacionniy_saharniy_diabed", "zabolevanie_shitovidnoy", "ako", "deincifalniy_sindrom",
-                    "bolezni_krovi_anemiya", "bolezni_krovi_trombocitopeniya", "bolezni_krovi_trombozi",
-                    "koagulopatiya", "psih_rastroystva_psihozi", "psih_rastroystva_narusheniya_lich",
-                    "psih_rastroystva_shizofreniya", "psih_rastroystva_umstvennaya_otstalost",
-                    "bolezni_nervnoy_sistemi_nasledstvennie", "bolezni_nervnoy_sistemi_vospalitelnie",
-                    "bolezni_nervnoy_sistemi_miopiya"]
+                    "vozrast", "mesto_postoyannogo_projivaniya", "nomer_telefona", "nomer_oms"]
 
     class Meta:
         model = Beremennaya
@@ -481,24 +469,13 @@ admin.site.register(NalichieVprPoRezultatamUzi, NalichieVprPoRezultatamUziModelA
 
 
 class AnketaModelAdmin(ImportExportModelAdmin):
-    list_display = ["id", "nomer_anketi", "data_zapolneniya_anketi_vrachem", "familiya_vracha", "ves_beremennoy",
-                    "srok_beremennosti_po_obektivnim_dannim", "srok_beremennosti_po_dannim_uzi",
-                    "srok_beremennosti_po_pervomu", "osobennosti_protekaniya_beremennosti_krovynistie",
-                    "osobennosti_protekaniya_beremennosti_virazenniy_toxikoz",
-                    "osobennosti_protekaniya_beremennosti_krovotechenie",
-                    "ugroza_prerivaniya_do_22", "ugroza_prerivaniya_posle_22", "antifosfolipidniy_sindrom",
-                    "preeklampsiya", "rezus_sensibilizaciya", "abo_sensibilizaciya",
-                    "fetoplacentarnaya_nedostatochnost", "narushenie_okoplodnih_vod_mnogovodie",
-                    "narushenie_okoplodnih_vod_malovodie", "narushenie_okoplodnih_vod_mekonialnie",
-                    "nepravilnoe_polojenie_ploda", "obvitie_pupovini", "mnogoplodie", "krupniy_plod",
-                    "predlejanie_placenti", "uroven_papp_a", "uroven_beta_hgch", "fakt_provedeniya_uzi_10_14",
-                    "fakt_provedeniya_uzi_20_24",
-                    "fakt_provedeniya_uzi_32_34", "fakt_provedeniya_uzi_32_34", "nesootvetstvie_dannih_uzi_soot",
-                    "nesootvetstvie_dannih_uzi_fetomerii", "nesootvetstvie_dannih_uzi_placenti",
-                    "nalichie_vpr_po_rezultatam_uzi",
-                    "data_provedeniya_prenatalnogo_konsiliuma", "nomer_protokola", "obshee_sostoyanie_ploda",
-                    "napravlena_na_extrennoe_rodorazreshenie", "diagnoz_osnovnoy_mkb10",
-                    "dopolnitelnie_zamechaniya_vracha"]
+    search_fields = ['id', 'nomer_anketi__nomer', 'familiya_vracha__fio', 'nomer_protokola']
+    list_filter = ['data_zapolneniya_anketi_vrachem', 'data_provedeniya_prenatalnogo_konsiliuma']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
+    list_display = ["id", "nomer_anketi", "data_zapolneniya_anketi_vrachem", "familiya_vracha",
+                    "data_provedeniya_prenatalnogo_konsiliuma", "nomer_protokola", "diagnoz_osnovnoy_mkb10"]
 
     class Meta:
         model = Anketa
@@ -578,13 +555,13 @@ admin.site.register(KesarevoSechenie3, KesarevoSechenie3ModelAdmin)
 
 
 class IshodModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id']
+    list_filter = ['stepen_riska_posle_ishoda', 'data_ishoda', 'smert_materi', 'gibel_ploda']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "data_ishoda", "mesto_ishoda", "stepen_riska_posle_ishoda", "gibel_ploda",
-                    "ishod_beremennosti",
-                    "kesarevo_sechenie1", "kesarevo_sechenie2", "kesarevo_sechenie3", "preeklampsiya",
-                    "predlejanie_placenti",
-                    "prejdevrem_otsloyka", "anomalii_rodovoy_deyatelnosti", "klinicheski_uzkiy_taz", "razriv_matki",
-                    "dvc_sindrom",
-                    "emboliya", "smert_materi", "data_smerti_materi", "prichina_smerti_materi_mkb10"]
+                    "ishod_beremennosti", "smert_materi", "data_smerti_materi", "prichina_smerti_materi_mkb10"]
 
     class Meta:
         model = Ishod
@@ -604,9 +581,14 @@ admin.site.register(SmertNovorojdennogo, SmertNovorojdennogoModelAdmin)
 
 
 class NovorojdenniyModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'nomer_beremennoy__nomer', 'nomer_novorojdennogo']
+    list_filter = ['pol_novorojdennogo', 'ocenka_po_shkale_apgar_na1_min', 'ocenka_po_shkale_apgar_na5_min',
+                   'smert_novorojdennogo']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "nomer_beremennoy", "nomer_novorojdennogo", "pol_novorojdennogo", "ves_novorojdennogo",
-                    "rost_novorojdennogo",
-                    "ocenka_po_shkale_apgar_na1_min", "ocenka_po_shkale_apgar_na5_min",
+                    "rost_novorojdennogo", "ocenka_po_shkale_apgar_na1_min", "ocenka_po_shkale_apgar_na5_min",
                     "vpr_novorojdennogo_po_mkb10", "smert_novorojdennogo", "prichina_smerti_materi_po_mkb10"]
 
     class Meta:
@@ -627,6 +609,11 @@ admin.site.register(CelNapravleniya, CelNapravleniyaModelAdmin)
 
 
 class NapravlenieModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'nomer_beremennoy__nomer']
+    list_filter = ['diagnoz_podtverjden', 'data', 'cel_napravleniya']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "nomer_beremennoy", "cel_napravleniya", "punkt_napravleniya", "predpolagaemyi_diagnoz",
                     "diagnoz_podtverjden", "data"]
 
@@ -638,8 +625,12 @@ admin.site.register(Napravlenie, NapravlenieModelAdmin)
 
 
 class KonsultaciayaModelAdmin(ImportExportModelAdmin):
-    list_display = ["id", "nomer_beremennoy", "otpravleno", "otpravitel", "tema", "soobshenie", "egp", "oaa",
-                    "rubec_na_matke", "rh_sensibilizaciya", "prochie"]
+    search_fields = ['id', 'nomer_beremennoy__nomer', 'otpravitel__rol__nazvanie']
+    list_filter = ['otpravleno']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
+    list_display = ["id", "nomer_beremennoy", "otpravleno", "otpravitel", "tema", "soobshenie", "prochie"]
 
     class Meta:
         model = Konsultaciaya
@@ -649,6 +640,10 @@ admin.site.register(Konsultaciaya, KonsultaciayaModelAdmin)
 
 
 class Smena_JK_u_beremennoyModelAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'nomer_beremennoy__nomer']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
     list_display = ["id", "nomer_beremennoy", "novaya_JK", "prichina"]
 
     class Meta:
