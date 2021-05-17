@@ -59,6 +59,22 @@ const RUS_LOCALIZ = {
     todaystring: "Сегодня"
 };
 
+const URL_MEGA_JSON = './api/sbor_znachenii_spravocnix_tabliz/'
+let MEGA_DANIE_SPRAVOCHNIX_TABLIZ;
+function get_mega_json() {
+    fetch(URL_MEGA_JSON).then(function (response) {
+        response.json().then(function (data) {
+            MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
+            console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
+        })
+    });
+}
+
+
+$(function (){
+    get_mega_json();
+});
+
 //
 //
 // //Кнопки для меню
@@ -315,13 +331,7 @@ const RUS_LOCALIZ = {
 // $(function () {
 //     //Всплывающее окно Window
 // });
-// // fetch('url').then(function (response) {
-// //     response.json().then( function (data) {
-// //         const MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
-// //             console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
-// //             MEGA_DANIE_SPRAVOCHNIX_TABLIZ['mkb10'][0]
-// //    })
-// // });
+
 //
 // //выбор доктора
 //

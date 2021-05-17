@@ -9,7 +9,7 @@ class RayonSerializer(serializers.ModelSerializer):
         model = Rayon
         fields = '__all__'
 
-    stepen_riska = serializers.SerializerMethodField()
+    # stepen_riska = serializers.SerializerMethodField()
     # uroven_type_name = serializers.SerializerMethodField()
     #
 
