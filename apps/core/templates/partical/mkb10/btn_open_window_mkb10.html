@@ -1,0 +1,35 @@
+<input class="topmenu btn_open_window_mkb10" type="button" value="МКБ 10"/>
+
+<script>
+
+    class BtnWindowMkb10 {
+        constructor($btn_open_window_mkb10, $window) {
+            this.$btn = $btn_open_window_mkb10;
+            this.$window = $window;
+            this.$btn.jqxToggleButton({
+                toggled: false
+            });
+            this.on_click_toogle_btn();
+
+        }
+
+        on_click_toogle_btn() {
+            let self = this;
+            this.$btn.click(function () {
+                let toggled = self.$btn.jqxToggleButton('toggled');
+                if (toggled === true) {
+                    self.$window.jqxWindow('open');
+                } else {
+                    self.$window.jqxWindow('close');
+                }
+            });
+        }
+    }
+
+    $btn_open_window_mkb10 = $('.btn_open_window_mkb10')
+    $(function () {
+         new BtnWindowMkb10($btn_open_window_mkb10, $window_mkb10);
+    })
+
+
+</script>

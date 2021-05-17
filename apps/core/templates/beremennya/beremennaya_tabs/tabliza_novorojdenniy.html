@@ -1,61 +1,48 @@
-'use strict';
+<div class="h100 tabliza_beremennaya"></div>
 
-// Для преобразование инмпутов модели в объект
-function objectifyForm(formArray) {//serialize data function
-    let data = new FormData();
-    for (let i = 0; i < formArray.length; i++) {
-        data.append(formArray[i]['name'], formArray[i]['value']);
-    }
-    return data;
-}
+<style>
 
-// Для коректной обработки статуса сервера
-function checkStatus(res) {
-    if (res.status >= 200 && res.status < 300) {
-        return res
-    } else {
-        let err = new Error(res.statusText);
-        err.response = res;
-        console.error('Ошибка в адресе сервера', res);
-        throw err
-    }
-}
+</style>
+
+<script>
+    'use strict';
 
 
 class TablizaNovorojdenniy {
 
-    constructor() {
-        let self = this;
-        this.$grid = $('#tabliza_novorojdenniy');
-        this.$grid.jqxGrid(self.nastroiki_grida);
-    }
-
-    get nastroiki_grida() {
-        let self = this;
-        return {
-            width: '100%',
-            height: '100%',
-            source: this.data_adapter,
-            columns: this.colums,
-            enabletooltips: true,
-            // localization: RUS_LOCALIZ,
-            filterable: true,
-            showtoolbar: true,
-            pageable: true,
-            columnsresize: true,
-            autorowheight: true,
-            scrollmode: 'logical',
-            rowsheight: 40,
-            toolbarheight: 40,
-            theme: 'arctic',
-            altrows: true,
-            sortable: true,
-            showstatusbar: true,
-            statusbarheight: 25,
-            pagesizeoptions: ['5', '10', '30', '50', '100'],
-            pagesize: 10,
+   constructor($grid) {
+            let self = this;
+            this.$grid = $grid;
+            this.$grid.jqxGrid(self.nastroiki_grida);
         }
-    }
+
+        get nastroiki_grida() {
+            let self = this;
+            return {
+                width: '100%',
+                height: '100%',
+                source: this.data_adapter,
+                columns: this.colums,
+                enabletooltips: true,
+                localization: RUS_LOCALIZ,
+                filterable: true,
+                showtoolbar: true,
+                pageable: true,
+                columnsresize: true,
+                autorowheight: true,
+                scrollmode: 'logical',
+                rowsheight: 40,
+                toolbarheight: 40,
+                theme: 'arctic',
+                altrows: true,
+                sortable: true,
+                showstatusbar: true,
+                statusbarheight: 25,
+                pagesizeoptions: ['5', '10', '30', '50', '100'],
+                pagesize: 30,
+            }
+        }
+
 
     get fields() {
         return [
@@ -143,8 +130,9 @@ class TablizaNovorojdenniy {
     }
 }
 
+   let $tabliza_nocorojdenniy = $('.tabliza_novorojdenniy');
+    $(document).ready(function () {
+        new TablizaNovorojdenniy($tabliza_nocorojdenniy);
+    });
 
-$(document).ready(function () {
-    new TablizaNovorojdenniy();
-
-});
+</script>
