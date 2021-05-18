@@ -1,4 +1,4 @@
-<div class="window_mkb10">
+<div class="window_smenaJK">
 
     <div class="mainDemoContainer2">
         <div class="window2 h100">
@@ -8,7 +8,7 @@
                     </span>
             </div>
             <div style="overflow: hidden" class="windowContent2 h100">
-                {% include 'partical/mkb10/tabliza_mkb10.html' %}
+                {% include 'partical/smenaJK/tabliza_smenaJK.html' %}
             </div>
         </div>
     </div>
@@ -18,12 +18,12 @@
 
 <script>
 
-    class WindowMkb10 {
-        constructor($window_mkb10, $tab, $btn_open_window_mkb10) {
+    class WindowSmenaJK {
+        constructor($window_smenaJK, $tab, $btn_open_window_smenaJK) {
             let self = this;
-            this.$window = $window_mkb10;
+            this.$window = $window_smenaJK;
             this.$tab = $tab;
-            this.$btn_open_window = $btn_open_window_mkb10;
+            this.$btn_open_window = $btn_open_window_smenaJK;
             this.$window.jqxWindow({
                 position: {x: '15%', y: '10%'},
 
@@ -60,10 +60,10 @@
     }
 
 
-    let $window_mkb10 = $('.window_mkb10');
-    let $tab_mkb10 = $('.tab_mkb10');
+    let $window_smenaJK = $('.window_smenaJK');
+    let $tab_smenaJK = $('.tab_smenaJK');
     $(function () {
-        new WindowMkb10($window_mkb10, $tab_mkb10, $btn_open_window_mkb10)
+        new WindowSmenaJK($window_smenaJK, $tab_smenaJK, $btn_open_window_smenaJK)
     })
 
 </script>

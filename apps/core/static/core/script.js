@@ -61,19 +61,44 @@ const RUS_LOCALIZ = {
 
 const URL_MEGA_JSON = './api/sbor_znachenii_spravocnix_tabliz/'
 let MEGA_DANIE_SPRAVOCHNIX_TABLIZ;
-function get_mega_json() {
-    fetch(URL_MEGA_JSON).then(function (response) {
-        response.json().then(function (data) {
-            MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
-            console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
-        })
-    });
+let FLAG_ZAGRUZKI = false;
+
+
+async function get_mega_json() {
+    let response = await fetch(URL_MEGA_JSON);
+    if (response.ok) {
+        let data = await response.json();
+        MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
+        FLAG_ZAGRUZKI = true;
+        console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
+    } else {
+        alert('Не могу получить справочные таблицы');
+    }
 }
 
 
-$(function (){
-    get_mega_json();
+$(async function () {
+    await get_mega_json();
+
 });
+
+$(function () {
+    timer = window.setInterval(function () {
+        if (FLAG_ZAGRUZKI === true) {
+            let source = [
+                "Нет",
+                "Есть"
+            ];
+            // Create a jqxComboBox
+            console.log('Было', source);
+            sourse = MEGA_DANIE_SPRAVOCHNIX_TABLIZ['tip_besplodie'].map(item => item.nazvanie)
+            console.log('Станет', sourse);
+            clearInterval(timer);
+        }
+    }, 1000);
+
+
+})
 
 //
 //
@@ -175,14 +200,10 @@ $(function (){
 // });
 //
 // //комбобокс
-// $(document).ready(function () {
-//     var source = [
-//         "Нет",
-//         "Есть"
-//     ];
-//     // Create a jqxComboBox
-//     $(".jqxComboBox").jqxComboBox({selectedIndex: 1, source: source, width: '200px', height: '30px'});
-// });
+$(document).ready(function () {
+
+    // $(".jqxComboBox").jqxComboBox({selectedIndex: 1, source: source, width: '200px', height: '30px'});
+});
 //
 // //галочка(чекбокс)
 // $(document).ready(function () {
