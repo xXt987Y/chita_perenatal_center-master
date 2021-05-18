@@ -2,7 +2,7 @@
     <input class="topmenu btn_registr_beremennyh" type="button" value="Регистрация беременных"/>
     <input class="topmenu btn_Poisk" type="button" value="Поиск"/>
     <input class="topmenu btn_konsultacii" type="button" value="Консультации"/>
-    <input class="topmenu btn_perevody" type="button" value="Переводы"/>
+    {% include 'partical/smenaJK/btn_open_window_smenaJK.html' %}
     <input class="topmenu btn_otchety" type="button" value="Отчеты"/>
     <input class="topmenu btn_doctor" type="button" value="Врачи"/>
     {% include 'partical/mkb10/btn_open_window_mkb10.html' %}
@@ -61,11 +61,6 @@
         $(".btn_konsultacii").jqxToggleButton({toggled: false});
         $(".btn_konsultacii").on('click', function () {
             var toggled = $(".btn_konsultacii").jqxToggleButton('toggled');
-        });
-        //КНОПКА Переводы
-        $(".btn_perevody").jqxToggleButton({toggled: false});
-        $(".btn_perevody").on('click', function () {
-            var toggled = $(".btn_perevody").jqxToggleButton('toggled');
         });
         //Отчеты
         $(".btn_otchety").jqxToggleButton({toggled: false});

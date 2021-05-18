@@ -64,42 +64,49 @@ let MEGA_DANIE_SPRAVOCHNIX_TABLIZ;
 let FLAG_ZAGRUZKI = false;
 
 
-async function get_mega_json() {
-    let response = await fetch(URL_MEGA_JSON);
-    if (response.ok) {
-        let data = await response.json();
-        MEGA_DANIE_SPRAVOCHNIX_TABLIZ = data;
-        FLAG_ZAGRUZKI = true;
-        console.log(MEGA_DANIE_SPRAVOCHNIX_TABLIZ);
-    } else {
-        alert('Не могу получить справочные таблицы');
-    }
-}
+let get_mega_json = new Promise(function (resolve, reject) {
+    fetch(URL_MEGA_JSON).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (data) {
+                resolve(data);
+            }).catch(function () {
+                alert('Не могу получить JSON справочные таблицы');
+            })
 
-
-$(async function () {
-    await get_mega_json();
+        } else {
+            alert('Не могу получить справочные таблицы');
+        }
+    })
 
 });
 
+
+
+
+
+
+// let mega_json = new Promise((resolve, reject) => {
+//
+//     setTimeout(() => {
+//         // переведёт промис в состояние fulfilled с результатом "result"
+//         resolve("result");
+//     }, 1000);
+//
+//     timer = window.setInterval(function () {
+//         if (FLAG_ZAGRUZKI === true) {
+//             sourse = MEGA_DANIE_SPRAVOCHNIX_TABLIZ[nazvanie_tablizi].map(item => item.nazvanie)
+//             clearInterval(timer);
+//             resolve(re)
+//         }
+//     }, 1000);
+//
+// });
+
+
 $(function () {
-    timer = window.setInterval(function () {
-        if (FLAG_ZAGRUZKI === true) {
-            let source = [
-                "Нет",
-                "Есть"
-            ];
-            // Create a jqxComboBox
-            console.log('Было', source);
-            sourse = MEGA_DANIE_SPRAVOCHNIX_TABLIZ['tip_besplodie'].map(item => item.nazvanie)
-            console.log('Станет', sourse);
-            clearInterval(timer);
-        }
-    }, 1000);
 
 
 })
-
 
 
 // //inputы

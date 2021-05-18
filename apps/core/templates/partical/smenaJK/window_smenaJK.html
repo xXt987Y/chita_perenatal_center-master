@@ -1,0 +1,69 @@
+<div class="window_smenaJK">
+
+    <div style="margin:0" class="mainDemoContainer2">
+        <div class="window2 h100">
+            <div class="windowHeader2">
+                    <span>
+                        Смена ЖК
+                    </span>
+            </div>
+            <div style="overflow: hidden" class="windowContent2 h100">
+                {% include 'partical/smenaJK/tabliza_smenaJK.html' %}
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<script>
+
+    class WindowSmenaJK {
+        constructor($window_smenaJK, $tab, $btn_open_window_smenaJK) {
+            let self = this;
+            this.$window = $window_smenaJK;
+            this.$tab = $tab;
+            this.$btn_open_window = $btn_open_window_smenaJK;
+            this.$window.jqxWindow({
+                position: {x: '15%', y: '10%'},
+
+                maxHeight: 1000,
+                maxWidth: 2200,
+                minHeight: 400,
+                minWidth: 700,
+                theme: 'arctic',
+                height: 500,
+                width: 1200,
+                title: 'Смена ЖК',
+                autoOpen: false,
+                resizable: true,
+                draggable: true,
+                initContent: function () {
+                    $(self.$tab).jqxTabs({
+                        height: '100%',
+                        width: '100%',
+                        theme: 'arctic',
+                    });
+                }
+            });
+
+            this.on_close();
+        }
+
+        on_close() {
+            let self = this;
+            this.$window.on('close', function () {
+                self.$btn_open_window.jqxToggleButton('toggled', false);
+            });
+        }
+
+    }
+
+
+    let $window_smenaJK = $('.window_smenaJK');
+    let $tab_smenaJK = $('.tab_smenaJK');
+    $(function () {
+        new WindowSmenaJK($window_smenaJK, $tab_smenaJK, $btn_open_window_smenaJK)
+    })
+
+</script>

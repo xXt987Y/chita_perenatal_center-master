@@ -394,19 +394,30 @@
     </div>
 </div>
 <script>
-    $(document).ready(function () {
-        var source = [
-            "Да",
-            "Нет",
-        ];
+    $(document).ready(async function () {
+        let sourse_stepen_riska;
+        let sourse_tip_besplodie;
+
+
+        await get_mega_json.then(function (data) {
+            sourse_stepen_riska = data['stepen_riska'].map(item => item['nazvanie']);
+            sourse_tip_besplodie = data['tip_besplodie'].map(item => item['nazvanie']);
+        })
+
+        console.log(sourse_stepen_riska);
+        console.log(sourse_tip_besplodie);
+
+
         $(".stepen_riska").jqxComboBox({
             selectedIndex: 1,
-            source: source,
+            source: sourse_stepen_riska,
             width: '200px',
             height: '30px',
             theme: 'arctic'
         });
+
         $(".data_vzyatiya_na_uchet").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+
         $(".uchastk_vrach").jqxComboBox({
             selectedIndex: 1,
             source: source,
@@ -414,7 +425,9 @@
             height: '30px',
             theme: 'arctic'
         });
+
         $(".data_rozdeniya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+
         $(".mesto_post_prozivaniya_beremennoy").jqxComboBox({
             selectedIndex: 1,
             source: source,
@@ -422,6 +435,7 @@
             height: '30px',
             theme: 'arctic'
         });
+
         //номер телефона с маской
         $(".phone_beremennoy").jqxMaskedInput({
             width: '250px',
@@ -429,6 +443,7 @@
             mask: '#(###)###-##-##',
             theme: 'arctic'
         });
+
         //номер ОМС с маской
         $(".nomer_oms_beremennoy").jqxMaskedInput({
             width: '250px',
@@ -436,15 +451,25 @@
             mask: '## ## ########',
             theme: 'arctic'
         });
+
         $('.vp_kurenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vp_alkogolism').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vp_narkomaniya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vp_toksikomaniya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vftib_himicheskie').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vftib_radioactive').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vftib_neud_jil_usloviya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.vftib_priem_lek_sredstv_v_ran_sroki').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $(".semeynoe_polojenie").jqxComboBox({
             selectedIndex: 1,
             source: source,
@@ -452,7 +477,9 @@
             height: '30px',
             theme: 'arctic'
         });
+
         $('.mujskoi_tip_telosloj').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
         $('.girsutism').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
 

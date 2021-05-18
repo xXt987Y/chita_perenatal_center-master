@@ -81,6 +81,11 @@ ul {
     padding: 0;
 }
 
+span{
+    margin: 0;
+    padding: 0;
+}
+
 .topmenu {
     margin-top: 3px;
     margin-bottom: 3px;
