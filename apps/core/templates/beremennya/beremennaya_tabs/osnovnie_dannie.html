@@ -1,47 +1,47 @@
 <div class="default">
     <div class="text">Степень риска:</div>
-    <div class="jqxComboBox"></div>
+    <div class="stepen_riska"></div>
 </div>
 
 <div class="default">
     <div class="text">Дата взятия на учет:</div>
-    <div style="width: 200px;" class='jqxDateTimeInput'></div>
+    <div class='data_vzyatiya_na_uchet'></div>
 </div>
 
 <div class="default">
     <div class="text">Участковый врач:</div>
-    <div class="jqxComboBox"></div>
+    <div class="uchastk_vrach"></div>
 </div>
 
 <div class="default">
     <div class="text">ФИО беременной:</div>
-    <input type="text" class="input"/>
+    <input type="text" class="input fio_beremennoy"/>
 </div>
 
 <div class="default">
     <div class="text">Дата рождения:</div>
     </br>
-    <div style="width: 200px;" class='jqxDateTimeInput'></div>
+    <div class='data_rozdeniya'></div>
 </div>
 
 <div class="default">
     <div class="text">Возраст беременной:</div>
-    <input style='margin-top: 3px;' type="number" class='input' min="0"/>
+    <input type="number" class='input vozrast' min="0"/>
 </div>
 
 <div class="default">
     <div class="text">Место постоянного проживания беременной:</div>
-    <div class="jqxComboBox"></div>
+    <div class="mesto_post_prozivaniya_beremennoy"></div>
 </div>
 
 <div class="default">
     <div class="text">№ телефона беременной:</div>
-    <input type="text" class='numericInput'/>
+    <input type="text" class='phone_beremennoy'/>
 </div>
 
 <div class="default">
     <div class="text">№ ОМС беременной:</div>
-    <input type="text" class="input"/>
+    <input type="text" class="nomer_oms_beremennoy"/>
 </div>
 
 
@@ -49,99 +49,97 @@
 
 <div class="default">
     <div class="text">Вредные привычки:</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->курение</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->алкоголизм</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->наркомания</div>
-    <div class="acceptInput"><!--style="margin-left: 50px;"-->токсикомания</div>
+    <div class="vp_kurenie"> курение</div>
+    <div class="vp_alkogolism"> алкоголизм</div>
+    <div class="vp_narkomaniya"> наркомания</div>
+    <div class="vp_toksikomaniya"> токсикомания</div>
 </div>
 
 <div class="default">
     <div class="text">Вредные факторы труда и быта:</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->химические</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->радиоактивные</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->неудовл. жил. условия</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"-->приём лекарств. средств в ранние сроки беременности
+    <div class="vftib_himicheskie"> химические</div>
+    <div class="vftib_radioactive"> радиоактивные</div>
+    <div class="vftib_neud_jil_usloviya"> неудовл. жил. условия</div>
+    <div class="vftib_priem_lek_sredstv_v_ran_sroki"> приём лекарств. средств в ранние сроки беременности
     </div>
 </div>
 
 <div class="default">
     <div class="text">Социально-угрожаемая:</div>
-    <div class="acceptInput"> <!--style="margin-left: 50px;"--></div>
+    <div class="socialno_ugrojaemaya"></div>
 </div>
 
 <div class="default">
     <div class="text">Семейное положение:</div>
-    <div class="jqxComboBox"></div>
+    <div class="semeynoe_polojenie"></div>
 </div>
 
 <div class="default">
-    <div class="text">Соматические показатели:
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->мужской тип телосложения</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->гирсутизм</div>
-    </div>
+    <div class="text">Соматические показатели:</div>
+    <div class="mujskoi_tip_telosloj"> мужской тип телосложения</div>
+    <div class="girsutism"> гирсутизм</div>
 </div>
 
 <div class="default">
     <div class="text">Вес беременной, кг:
     </div>
-    <input style='margin-top: 3px;' type="number" class='input' min="0"/>
+    <input style='margin-top: 3px;' type="number" class='input ves_beremennoy' min="0"/>
 </div>
 
 <div class="default">
     <div class="text">Рост беременной, см:
     </div>
-    <input style='margin-top: 3px;' type="number" class='input' min="0"/>
+    <input style='margin-top: 3px;' type="number" class='input rost_beremennoy' min="0"/>
 </div>
 
 <div class="default">
-    <div class="text">Размеры таза (пельвиометрия), см:
-        <div>Distantia spinarum (D.s):
-            <div class="ctrl">
-                <span id="viewds">0</span>
-                <input id="rangeds" type="range" min="0" max="50" step="0.1" value="0">
-                <input id="numds" type=number min="0" max="50" step="0,1" value="0">
-            </div>
+    <div style="display: inline-table">Размеры таза (пельвиометрия), см:</div>
+    <div>Distantia spinarum (D.s):
+        <div class="ctrl">
+            <span id="viewds">0</span>
+            <input id="rangeds" type="range" min="0" max="50" step="0.1" value="0">
+            <input id="numds" type=number min="0" max="50" step="0,1" value="0" style="width:100px">
         </div>
-        <div>Distantia cristarum (D.c.):
-            <div class="ctrl">
-                <span id="viewdc">0</span>
-                <input id="rangedc" type="range" min="0" max="50" step="1" value="0">
-                <input id="numdc" type=number min="0" max="50" step="1" value="0">
-            </div>
+    </div>
+    <div>Distantia cristarum (D.c.):
+        <div class="ctrl">
+            <span id="viewdc">0</span>
+            <input id="rangedc" type="range" min="0" max="50" step="1" value="0">
+            <input id="numdc" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
-        <div>Distantia trochanterica (D.t.):
-            <div class="ctrl">
-                <span id="viewdt">0</span>
-                <input id="rangedt" type="range" min="0" max="50" step="1" value="0">
-                <input id="numdt" type=number min="0" max="50" step="1" value="0">
-            </div>
+    </div>
+    <div>Distantia trochanterica (D.t.):
+        <div class="ctrl">
+            <span id="viewdt">0</span>
+            <input id="rangedt" type="range" min="0" max="50" step="1" value="0">
+            <input id="numdt" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
-        <div>Conjugata diagonalis (C.d.):
-            <div class="ctrl">
-                <span id="viewcd">0</span>
-                <input id="rangecd" type="range" min="0" max="50" step="10" value="0">
-                <input id="numcd" type=number min="0" max="50" step="1" value="0">
-            </div>
+    </div>
+    <div>Conjugata diagonalis (C.d.):
+        <div class="ctrl">
+            <span id="viewcd">0</span>
+            <input id="rangecd" type="range" min="0" max="50" step="10" value="0">
+            <input id="numcd" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
-        <div>Conjugata externa (C.e.):
-            <div class="ctrl">
-                <span id="viewce">0</span>
-                <input id="rangece" type="range" min="0" max="50" step="1" value="0">
-                <input id="numce" type=number min="0" max="50" step="1" value="0">
-            </div>
+    </div>
+    <div>Conjugata externa (C.e.):
+        <div class="ctrl">
+            <span id="viewce">0</span>
+            <input id="rangece" type="range" min="0" max="50" step="1" value="0">
+            <input id="numce" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
-        <div>Conjugata vera (C.v.):
-            <div class="ctrl">
-                <span id="viewcv">0</span>
-                <input id="rangecv" type="range" min="0" max="50" step="1" value="0">
-                <input id="numcv" type=number min="0" max="50" step="1" value="0">
-            </div>
+    </div>
+    <div>Conjugata vera (C.v.):
+        <div class="ctrl">
+            <span id="viewcv">0</span>
+            <input id="rangecv" type="range" min="0" max="50" step="1" value="0">
+            <input id="numcv" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
     </div>
 </div>
 
 <div class="default">
-    <div class='jqxWidget' style='font-family: Verdana Arial; font-size: 12px; width: 400px;'>
+    <div class="jqxWidget" style='font-family: Verdana Arial; font-size: 12px; width: 400px;'>
 
         <h4>Резус-факторы беременной/отца</h4>
         <div style='margin-top: 10px;' class='jqxRadioButton'>
@@ -157,7 +155,7 @@
 
 <div class="default">
     <div class="jqxWidget">Взята под наблюдение:
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->после 12 нед. берем-сти</div>
+        <div class="acceptInput"> после 12 нед. берем-сти</div>
     </div>
 </div>
 
@@ -262,13 +260,13 @@
 
 <div class="default">
     <div class="jqxWidget">Осложнения беременности(анамнез):
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->нет</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. преэклампсией умеренной</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. преэклампсией тяжелой</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. эклампсией</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. фетоплацент. недостаточностью</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. обост. экстрагенит. патологии</div>
-        <div class="acceptInput"> <!--style="margin-left: 50px;"-->осложн. преждеврем. отслойкой плаценты</div>
+        <div class="acceptInput"> нет</div>
+        <div class="acceptInput"> осложн. преэклампсией умеренной</div>
+        <div class="acceptInput"> осложн. преэклампсией тяжелой</div>
+        <div class="acceptInput"> осложн. эклампсией</div>
+        <div class="acceptInput"> осложн. фетоплацент. недостаточностью</div>
+        <div class="acceptInput"> осложн. обост. экстрагенит. патологии</div>
+        <div class="acceptInput"> осложн. преждеврем. отслойкой плаценты</div>
     </div>
 </div>
 
@@ -395,3 +393,188 @@
         <div class="jqxComboBox"></div>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        var source = [
+            "Да",
+            "Нет",
+        ];
+        $(".stepen_riska").jqxComboBox({
+            selectedIndex: 1,
+            source: source,
+            width: '200px',
+            height: '30px',
+            theme: 'arctic'
+        });
+        $(".data_vzyatiya_na_uchet").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".uchastk_vrach").jqxComboBox({
+            selectedIndex: 1,
+            source: source,
+            width: '200px',
+            height: '30px',
+            theme: 'arctic'
+        });
+        $(".data_rozdeniya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".mesto_post_prozivaniya_beremennoy").jqxComboBox({
+            selectedIndex: 1,
+            source: source,
+            width: '200px',
+            height: '30px',
+            theme: 'arctic'
+        });
+        //номер телефона с маской
+        $(".phone_beremennoy").jqxMaskedInput({
+            width: '250px',
+            height: '25px',
+            mask: '#(###)###-##-##',
+            theme: 'arctic'
+        });
+        //номер ОМС с маской
+        $(".nomer_oms_beremennoy").jqxMaskedInput({
+            width: '250px',
+            height: '25px',
+            mask: '## ## ########',
+            theme: 'arctic'
+        });
+        $('.vp_kurenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vp_alkogolism').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vp_narkomaniya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vp_toksikomaniya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vftib_himicheskie').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vftib_radioactive').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vftib_neud_jil_usloviya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vftib_priem_lek_sredstv_v_ran_sroki').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".semeynoe_polojenie").jqxComboBox({
+            selectedIndex: 1,
+            source: source,
+            width: '200px',
+            height: '30px',
+            theme: 'arctic'
+        });
+        $('.mujskoi_tip_telosloj').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.girsutism').jqxCheckBox({width: 'auto', theme: 'arctic'});
+
+
+        //ползунок ds
+        $(document).ready(function () {
+            const num = document.getElementById('numds');
+            const rng = document.getElementById('rangeds');
+            const view = document.getElementById('viewds');
+            const goods = document.querySelectorAll('.good');
+            const set = val => {
+                num.value = val;
+                rng.value = val;
+                view.textContent = val;
+                [...goods].forEach(good => {
+                    const options = good.querySelectorAll('.option');
+                    [...options].forEach(option => {
+                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
+                    });
+                });
+            }
+            rng.addEventListener('input', () => set(rng.value));
+            num.addEventListener('change', () => set(num.value));
+        });
+        //ползунок dc
+        $(document).ready(function () {
+            const num = document.getElementById('numdc');
+            const rng = document.getElementById('rangedc');
+            const view = document.getElementById('viewdc');
+            const goods = document.querySelectorAll('.good');
+            const set = val => {
+                num.value = val;
+                rng.value = val;
+                view.textContent = val;
+                [...goods].forEach(good => {
+                    const options = good.querySelectorAll('.option');
+                    [...options].forEach(option => {
+                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
+                    });
+                });
+            }
+            rng.addEventListener('input', () => set(rng.value));
+            num.addEventListener('change', () => set(num.value));
+        });
+        //ползунок dt
+        $(document).ready(function () {
+            const num = document.getElementById('numdt');
+            const rng = document.getElementById('rangedt');
+            const view = document.getElementById('viewdt');
+            const goods = document.querySelectorAll('.good');
+            const set = val => {
+                num.value = val;
+                rng.value = val;
+                view.textContent = val;
+                [...goods].forEach(good => {
+                    const options = good.querySelectorAll('.option');
+                    [...options].forEach(option => {
+                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
+                    });
+                });
+            }
+            rng.addEventListener('input', () => set(rng.value));
+            num.addEventListener('change', () => set(num.value));
+        });
+        //ползунок cd
+        $(document).ready(function () {
+            const num = document.getElementById('numcd');
+            const rng = document.getElementById('rangecd');
+            const view = document.getElementById('viewcd');
+            const goods = document.querySelectorAll('.good');
+            const set = val => {
+                num.value = val;
+                rng.value = val;
+                view.textContent = val;
+                [...goods].forEach(good => {
+                    const options = good.querySelectorAll('.option');
+                    [...options].forEach(option => {
+                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
+                    });
+                });
+            }
+            rng.addEventListener('input', () => set(rng.value));
+            num.addEventListener('change', () => set(num.value));
+        });
+        //ползунок ce
+        $(document).ready(function () {
+            const num = document.getElementById('numce');
+            const rng = document.getElementById('rangece');
+            const view = document.getElementById('viewce');
+            const goods = document.querySelectorAll('.good');
+            const set = val => {
+                num.value = val;
+                rng.value = val;
+                view.textContent = val;
+                [...goods].forEach(good => {
+                    const options = good.querySelectorAll('.option');
+                    [...options].forEach(option => {
+                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
+                    });
+                });
+            }
+            rng.addEventListener('input', () => set(rng.value));
+            num.addEventListener('change', () => set(num.value));
+        });
+        //ползунок cv
+        $(document).ready(function () {
+            const num = document.getElementById('numcv');
+            const rng = document.getElementById('rangecv');
+            const view = document.getElementById('viewcv');
+            const goods = document.querySelectorAll('.good');
+            const set = val => {
+                num.value = val;
+                rng.value = val;
+                view.textContent = val;
+                [...goods].forEach(good => {
+                    const options = good.querySelectorAll('.option');
+                    [...options].forEach(option => {
+                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
+                    });
+                });
+            }
+            rng.addEventListener('input', () => set(rng.value));
+            num.addEventListener('change', () => set(num.value));
+        });
+    });
+</script>

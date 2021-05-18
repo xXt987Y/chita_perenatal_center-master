@@ -101,11 +101,7 @@ $(function () {
 })
 
 
-// //Дата
-// $(document).ready(function () {
-//     $(".jqxDateTimeInput").jqxDateTimeInput({width: '125px', height: '25px'});
-// });
-//
+
 // //inputы
 // $(document).ready(function () {
 //     $(".input1").jqxInput({height: 23, width: 40, minLength: 1});
@@ -123,146 +119,13 @@ $(function () {
 //     $('.acceptInput').jqxCheckBox({width: 'auto'});
 // });
 //
-// //номер телефона
-// $(document).ready(function () {
-//     // Create jqxMaskedInput
-//     $(".numericInput").jqxMaskedInput({width: '250px', height: '25px', mask: '#(###)###-##-##'});
-//
-// });
-// $(document).ready(function () {
-//     $(".ds").on("input", function () {
-//         $(".in_ds").val(this.value);
-//     });
-// });
 //
 // //радиобаттоны
 // $(document).ready(function () {
 //     $(".jqxRadioButton").jqxRadioButton({width: 250, height: 25});
 // });
 //
-// //ползунок ds
-// $(document).ready(function () {
-//     const num = document.getElementById('numds');
-//     const rng = document.getElementById('rangeds');
-//     const view = document.getElementById('viewds');
-//     const goods = document.querySelectorAll('.good');
-//     const set = val => {
-//         num.value = val;
-//         rng.value = val;
-//         view.textContent = val;
-//         [...goods].forEach(good => {
-//             const options = good.querySelectorAll('.option');
-//             [...options].forEach(option => {
-//                 option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-//             });
-//         });
-//     }
-//     rng.addEventListener('input', () => set(rng.value));
-//     num.addEventListener('change', () => set(num.value));
-// });
-// //ползунок dc
-// $(document).ready(function () {
-//     const num = document.getElementById('numdc');
-//     const rng = document.getElementById('rangedc');
-//     const view = document.getElementById('viewdc');
-//     const goods = document.querySelectorAll('.good');
-//     const set = val => {
-//         num.value = val;
-//         rng.value = val;
-//         view.textContent = val;
-//         [...goods].forEach(good => {
-//             const options = good.querySelectorAll('.option');
-//             [...options].forEach(option => {
-//                 option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-//             });
-//         });
-//     }
-//     rng.addEventListener('input', () => set(rng.value));
-//     num.addEventListener('change', () => set(num.value));
-// });
-// //ползунок dt
-// $(document).ready(function () {
-//     const num = document.getElementById('numdt');
-//     const rng = document.getElementById('rangedt');
-//     const view = document.getElementById('viewdt');
-//     const goods = document.querySelectorAll('.good');
-//     const set = val => {
-//         num.value = val;
-//         rng.value = val;
-//         view.textContent = val;
-//         [...goods].forEach(good => {
-//             const options = good.querySelectorAll('.option');
-//             [...options].forEach(option => {
-//                 option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-//             });
-//         });
-//     }
-//     rng.addEventListener('input', () => set(rng.value));
-//     num.addEventListener('change', () => set(num.value));
-// });
-// //ползунок cd
-// $(document).ready(function () {
-//     const num = document.getElementById('numcd');
-//     const rng = document.getElementById('rangecd');
-//     const view = document.getElementById('viewcd');
-//     const goods = document.querySelectorAll('.good');
-//     const set = val => {
-//         num.value = val;
-//         rng.value = val;
-//         view.textContent = val;
-//         [...goods].forEach(good => {
-//             const options = good.querySelectorAll('.option');
-//             [...options].forEach(option => {
-//                 option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-//             });
-//         });
-//     }
-//     rng.addEventListener('input', () => set(rng.value));
-//     num.addEventListener('change', () => set(num.value));
-// });
-// //ползунок ce
-// $(document).ready(function () {
-//     const num = document.getElementById('numce');
-//     const rng = document.getElementById('rangece');
-//     const view = document.getElementById('viewce');
-//     const goods = document.querySelectorAll('.good');
-//     const set = val => {
-//         num.value = val;
-//         rng.value = val;
-//         view.textContent = val;
-//         [...goods].forEach(good => {
-//             const options = good.querySelectorAll('.option');
-//             [...options].forEach(option => {
-//                 option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-//             });
-//         });
-//     }
-//     rng.addEventListener('input', () => set(rng.value));
-//     num.addEventListener('change', () => set(num.value));
-// });
-// //ползунок cv
-// $(document).ready(function () {
-//     const num = document.getElementById('numcv');
-//     const rng = document.getElementById('rangecv');
-//     const view = document.getElementById('viewcv');
-//     const goods = document.querySelectorAll('.good');
-//     const set = val => {
-//         num.value = val;
-//         rng.value = val;
-//         view.textContent = val;
-//         [...goods].forEach(good => {
-//             const options = good.querySelectorAll('.option');
-//             [...options].forEach(option => {
-//                 option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-//             });
-//         });
-//     }
-//     rng.addEventListener('input', () => set(rng.value));
-//     num.addEventListener('change', () => set(num.value));
-// });
-//
-//
-//
+
 // //выбор доктора
 //
 //
