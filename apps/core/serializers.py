@@ -1,7 +1,14 @@
 from rest_framework import serializers
 
 from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
-    Smena_JK_u_beremennoy
+    Smena_JK_u_beremennoy, UrovenMedObsluzivaniya, TipOrganizacii, MedOrganizacia, StepenRiska, SemeynoePolojenie, \
+    GeneticheskieFaktori, MenstrualnayaFunkciya, Besplodie, TipBesplodiya, NastuplenieBeremennostiVRezultate, \
+    ParitetBeremennosti, SamoproizvolniyAbort, IskustvenniyAbort, OslojneniyaIskustvenniyAbort, KesarevoSechenie, \
+    SaharniyDiabed, GestacionniySaharniyDiabed, ZabolevanieShitovidnoy, AKO, Koagulopatiya, FormaSujeniyaTaza, \
+    StepenSujeniyaTaza, VzyataPodNabludenie, OslojneniyaRodov, Mnogoplodie, NepravilnoePolojeniePloda, \
+    FetoplacentarnayaNedostatochnost, RezusSensibilizaciya, Preeklampsiya, PredlejaniePlacenti, UrovenPappa, \
+    UrovenBetaHgch, NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, \
+    CelNapravleniya, SmertNovorojdennogo, KesarevoSechenie3, KesarevoSechenie2, KesarevoSechenie1
 
 
 class RayonSerializer(serializers.ModelSerializer):
@@ -9,15 +16,234 @@ class RayonSerializer(serializers.ModelSerializer):
         model = Rayon
         fields = '__all__'
 
-    # stepen_riska = serializers.SerializerMethodField()
-    # uroven_type_name = serializers.SerializerMethodField()
-    #
 
-    #
-    # def get_uroven_type_name(self, obj):
-    #     return obj.get_uroven_type_display()
+class UrovenMedObsluzivaniyaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UrovenMedObsluzivaniya
+        fields = '__all__'
 
 
+class TipOrganizaciiSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TipOrganizacii
+        fields = '__all__'
+
+
+class MedOrganizaciaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MedOrganizacia
+        fields = '__all__'
+
+
+class StepenRiskaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StepenRiska
+        fields = '__all__'
+
+
+class SemeynoePolojenieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SemeynoePolojenie
+        fields = '__all__'
+
+
+class GeneticheskieFaktoriSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GeneticheskieFaktori
+        fields = '__all__'
+
+
+class MenstrualnayaFunkciyaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MenstrualnayaFunkciya
+        fields = '__all__'
+
+
+class BesplodieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Besplodie
+        fields = '__all__'
+
+
+class TipBesplodiyaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TipBesplodiya
+        fields = '__all__'
+
+
+class NastuplenieBeremennostiVRezultateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NastuplenieBeremennostiVRezultate
+        fields = '__all__'
+
+
+class ParitetBeremennostiSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ParitetBeremennosti
+        fields = '__all__'
+
+
+class SamoproizvolniyAbortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SamoproizvolniyAbort
+        fields = '__all__'
+
+
+class IskustvenniyAbortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IskustvenniyAbort
+        fields = '__all__'
+
+
+class OslojneniyaIskustvenniyAbortSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OslojneniyaIskustvenniyAbort
+        fields = '__all__'
+
+
+class KesarevoSechenieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = KesarevoSechenie
+        fields = '__all__'
+
+
+class SaharniyDiabedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SaharniyDiabed
+        fields = '__all__'
+
+
+class GestacionniySaharniyDiabedSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GestacionniySaharniyDiabed
+        fields = '__all__'
+
+
+class ZabolevanieShitovidnoySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ZabolevanieShitovidnoy
+        fields = '__all__'
+
+
+class AKOSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AKO
+        fields = '__all__'
+
+class KoagulopatiyaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Koagulopatiya
+        fields = '__all__'
+
+class FormaSujeniyaTazaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FormaSujeniyaTaza
+        fields = '__all__'
+
+class StepenSujeniyaTazaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StepenSujeniyaTaza
+        fields = '__all__'
+
+class VzyataPodNabludenieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VzyataPodNabludenie
+        fields = '__all__'
+
+class OslojneniyaRodovSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = OslojneniyaRodov
+        fields = '__all__'
+
+class PreeklampsiyaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Preeklampsiya
+        fields = '__all__'
+
+class RezusSensibilizaciyaRodovSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RezusSensibilizaciya
+        fields = '__all__'
+
+class FetoplacentarnayaNedostatochnostSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FetoplacentarnayaNedostatochnost
+        fields = '__all__'
+
+class NepravilnoePolojeniePlodaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NepravilnoePolojeniePloda
+        fields = '__all__'
+
+class MnogoplodieSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Mnogoplodie
+        fields = '__all__'
+
+class PredlejaniePlacentiSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PredlejaniePlacenti
+        fields = '__all__'
+
+class UrovenPappaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UrovenPappa
+        fields = '__all__'
+
+class UrovenBetaHgchSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = UrovenBetaHgch
+        fields = '__all__'
+
+class NalichieVprPoRezultatamUziSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NalichieVprPoRezultatamUzi
+        fields = '__all__'
+
+class ObsheeSostoyaniePlodaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ObsheeSostoyaniePloda
+        fields = '__all__'
+
+class MestoIshodaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MestoIshoda
+        fields = '__all__'
+
+class GibelPlodaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = GibelPloda
+        fields = '__all__'
+
+class IshodBeremennostiPappaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = IshodBeremennosti
+        fields = '__all__'
+
+class KesarevoSechenie1Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = KesarevoSechenie1
+        fields = '__all__'
+
+class KesarevoSechenie2Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = KesarevoSechenie2
+        fields = '__all__'
+
+class KesarevoSechenie3Serializer(serializers.ModelSerializer):
+    class Meta:
+        model = KesarevoSechenie3
+        fields = '__all__'
+
+class SmertNovorojdennogoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SmertNovorojdennogo
+        fields = '__all__'
+
+class CelNapravleniyaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CelNapravleniya
+        fields = '__all__'
 class BeremennayaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Beremennaya

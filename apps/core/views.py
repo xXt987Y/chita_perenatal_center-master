@@ -11,7 +11,20 @@ from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOr
     NepravilnoePolojeniePloda, Mnogoplodie, PredlejaniePlacenti, UrovenPappa, UrovenBetaHgch, \
     NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, KesarevoSechenie1, \
     KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya
-from apps.core.serializers import DoctorSerializer, RayonSerializer
+from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedObsluzivaniyaSerializer, \
+    TipOrganizaciiSerializer, MedOrganizaciaSerializer, MKB10Serializer, StepenRiskaSerializer, \
+    SemeynoePolojenieSerializer, GeneticheskieFaktoriSerializer, MenstrualnayaFunkciyaSerializer, BesplodieSerializer, \
+    TipBesplodiyaSerializer, NastuplenieBeremennostiVRezultateSerializer, ParitetBeremennostiSerializer, \
+    SamoproizvolniyAbortSerializer, IskustvenniyAbortSerializer, OslojneniyaIskustvenniyAbortSerializer, \
+    KesarevoSechenieSerializer, SaharniyDiabedSerializer, GestacionniySaharniyDiabedSerializer, \
+    ZabolevanieShitovidnoySerializer, AKOSerializer, KoagulopatiyaSerializer, FormaSujeniyaTazaSerializer, \
+    StepenSujeniyaTazaSerializer, VzyataPodNabludenieSerializer, OslojneniyaRodovSerializer, PreeklampsiyaSerializer, \
+    RezusSensibilizaciyaRodovSerializer, FetoplacentarnayaNedostatochnostSerializer, \
+    NepravilnoePolojeniePlodaSerializer, MnogoplodieSerializer, PredlejaniePlacentiSerializer, UrovenPappaSerializer, \
+    UrovenBetaHgchSerializer, NalichieVprPoRezultatamUziSerializer, MestoIshodaSerializer, \
+    ObsheeSostoyaniePlodaSerializer, GibelPlodaSerializer, IshodBeremennostiPappaSerializer, \
+    KesarevoSechenie1Serializer, KesarevoSechenie2Serializer, KesarevoSechenie3Serializer, \
+    SmertNovorojdennogoSerializer, CelNapravleniyaSerializer
 
 
 def home(request):
@@ -19,7 +32,6 @@ def home(request):
 
 
 def sbor_znachenii_spravocnix_tabliz(request):
-
     rayon = Rayon.objects.all()
     uroven_med_obsluzivaniya = UrovenMedObsluzivaniya.objects.all()
     tip_organizacii = TipOrganizacii.objects.all()
@@ -54,7 +66,6 @@ def sbor_znachenii_spravocnix_tabliz(request):
     preeklampsiya = Preeklampsiya.objects.all()
     rezus_sensibilizaciya = RezusSensibilizaciya.objects.all()
     fetoplacentarnaya_nedostatochnost = FetoplacentarnayaNedostatochnost.objects.all()
-
     nepravilnoe_polojenie_ploda = NepravilnoePolojeniePloda.objects.all()
     mnogoplodie = Mnogoplodie.objects.all()
     predlejanie_placenti = PredlejaniePlacenti.objects.all()
@@ -72,54 +83,51 @@ def sbor_znachenii_spravocnix_tabliz(request):
     cel_napravleniya = CelNapravleniya.objects.all()
 
     data = {
-        'rayon':RayonSerializer(rayon, many=True).data,
-        # 'uroven_med_obsluzivaniya':uroven_med_obsluzivaniya,
-        # 'tip_organizacii':tip_organizacii,
-        # 'med_organizacia':med_organizacia,
-        # 'doctor':doctor,
-        # 'mkb10':mkb10,
-        # 'stepen_riska':stepen_riska,
-        # 'semeynoe_polojenie':semeynoe_polojenie,
-        # 'geneticheskie_faktori':geneticheskie_faktori,
-        # 'menstrualnaya_funkciya':menstrualnaya_funkciya,
-        # 'besplodie':besplodie,
-        # 'tip_besplodie':tip_besplodie,
-        # 'nastuplenie_beremennosti_v_rezultate':nastuplenie_beremennosti_v_rezultate,
-        # 'paritet_beremennosti':paritet_beremennosti,
-        # 'samoproizvolniy_abort':samoproizvolniy_abort,
-        # 'iskustvenniy_abort':iskustvenniy_abort,
-        # 'oslojneniya_iskustvenniy_abort':oslojneniya_iskustvenniy_abort,
-        # 'kesarevo_sechenie':kesarevo_sechenie,
-        # 'saharniy_diabed':saharniy_diabed,
-        # 'gestacionniy_saharniy_diabed':gestacionniy_saharniy_diabed,
-        # 'zabolevanie_shitovidnoy':zabolevanie_shitovidnoy,
-        # 'ako':ako,
-        # 'koagulopatiya':koagulopatiya,
-        # 'forma_sujeniya_taza':forma_sujeniya_taza,
-        # 'stepen_sujeniya_taza':stepen_sujeniya_taza,
-        # 'vzyata_pod_nabludenie':vzyata_pod_nabludenie,
-        # 'oslojneniya_rodov':oslojneniya_rodov,
-        # 'fetoplacentarnaya_nedostatochnost':fetoplacentarnaya_nedostatochnost,
-        # 'preeklampsiya':preeklampsiya,
-        # 'rezus_sensibilizaciya':rezus_sensibilizaciya,
-        # 'nepravilnoe_polojenie_ploda':nepravilnoe_polojenie_ploda,
-        # 'mnogoplodie':mnogoplodie,
-        # 'predlejanie_placenti':predlejanie_placenti,
-        # 'uroven_pappa':uroven_pappa,
-        # 'uroven_beta_hgch':uroven_beta_hgch,
-        # 'nalichie_vpr_po_rezultatamUzi':nalichie_vpr_po_rezultatamUzi,
-        # 'obshee_sostoyanie_ploda':obshee_sostoyanie_ploda,
-        # 'mesto_ishoda':mesto_ishoda,
-        # 'gibel_ploda':gibel_ploda,
-        # 'ishod_beremennosti':ishod_beremennosti,
-        # 'kesarevo_sechenie1':kesarevo_sechenie1,
-        # 'kesarevo_sechenie2':kesarevo_sechenie2,
-        # 'kesarevo_sechenie3':kesarevo_sechenie3,
-        # 'smert_novorojdennogo':smert_novorojdennogo,
-        # 'cel_napravleniya':cel_napravleniya,
+        'rayon': RayonSerializer(rayon, many=True).data,
+        'uroven_med_obsluzivaniya': UrovenMedObsluzivaniyaSerializer(uroven_med_obsluzivaniya, many=True).data,
+        'tip_organizacii': TipOrganizaciiSerializer(tip_organizacii, many=True).data,
+        'med_organizacia': MedOrganizaciaSerializer(med_organizacia, many=True).data,
+        'doctor': DoctorSerializer(doctor, many=True).data,
+        'mkb10': MKB10Serializer(mkb10, many=True).data,
+        'stepen_riska': StepenRiskaSerializer(stepen_riska, many=True).data,
+        'semeynoe_polojenie': SemeynoePolojenieSerializer(semeynoe_polojenie, many=True).data,
+        'geneticheskie_faktori': GeneticheskieFaktoriSerializer(geneticheskie_faktori, many=True).data,
+        'menstrualnaya_funkciya': MenstrualnayaFunkciyaSerializer(menstrualnaya_funkciya, many=True).data,
+        'besplodie': BesplodieSerializer(besplodie, many=True).data,
+        'tip_besplodie': TipBesplodiyaSerializer(tip_besplodie, many=True).data,
+        'nastuplenie_beremennosti_v_rezultate': NastuplenieBeremennostiVRezultateSerializer(nastuplenie_beremennosti_v_rezultate, many=True).data,
+        'paritet_beremennosti': ParitetBeremennostiSerializer(paritet_beremennosti, many=True).data,
+        'samoproizvolniy_abort': SamoproizvolniyAbortSerializer(samoproizvolniy_abort, many=True).data,
+        'iskustvenniy_abort': IskustvenniyAbortSerializer(iskustvenniy_abort, many=True).data,
+        'oslojneniya_iskustvenniy_abort': OslojneniyaIskustvenniyAbortSerializer(oslojneniya_iskustvenniy_abort, many=True).data,
+        'kesarevo_sechenie': KesarevoSechenieSerializer(kesarevo_sechenie, many=True).data,
+        'saharniy_diabed': SaharniyDiabedSerializer(saharniy_diabed, many=True).data,
+        'gestacionniy_saharniy_diabed': GestacionniySaharniyDiabedSerializer(gestacionniy_saharniy_diabed, many=True).data,
+        'zabolevanie_shitovidnoy': ZabolevanieShitovidnoySerializer(zabolevanie_shitovidnoy, many=True).data,
+        'ako': AKOSerializer(ako, many=True).data,
+        'koagulopatiya': KoagulopatiyaSerializer(koagulopatiya, many=True).data,
+        'forma_sujeniya_taza': FormaSujeniyaTazaSerializer(forma_sujeniya_taza, many=True).data,
+        'stepen_sujeniya_taza': StepenSujeniyaTazaSerializer(stepen_sujeniya_taza, many=True).data,
+        'vzyata_pod_nabludenie': VzyataPodNabludenieSerializer(vzyata_pod_nabludenie, many=True).data,
+        'oslojneniya_rodov': OslojneniyaRodovSerializer(oslojneniya_rodov, many=True).data,
+        'fetoplacentarnaya_nedostatochnost': PreeklampsiyaSerializer(fetoplacentarnaya_nedostatochnost, many=True).data,
+        'preeklampsiya': RezusSensibilizaciyaRodovSerializer(preeklampsiya, many=True).data,
+        'rezus_sensibilizaciya': FetoplacentarnayaNedostatochnostSerializer(rezus_sensibilizaciya, many=True).data,
+        'nepravilnoe_polojenie_ploda': NepravilnoePolojeniePlodaSerializer(nepravilnoe_polojenie_ploda, many=True).data,
+        'mnogoplodie': MnogoplodieSerializer(mnogoplodie, many=True).data,
+        'predlejanie_placenti': PredlejaniePlacentiSerializer(predlejanie_placenti, many=True).data,
+        'uroven_pappa': UrovenPappaSerializer(uroven_pappa, many=True).data,
+        'uroven_beta_hgch': UrovenBetaHgchSerializer(uroven_beta_hgch, many=True).data,
+        'nalichie_vpr_po_rezultatamUzi': NalichieVprPoRezultatamUziSerializer(nalichie_vpr_po_rezultatamUzi, many=True).data,
+        'obshee_sostoyanie_ploda': ObsheeSostoyaniePlodaSerializer(obshee_sostoyanie_ploda, many=True).data,
+        'mesto_ishoda': MestoIshodaSerializer(mesto_ishoda, many=True).data,
+        'gibel_ploda': GibelPlodaSerializer(gibel_ploda, many=True).data,
+        'ishod_beremennosti': IshodBeremennostiPappaSerializer(ishod_beremennosti, many=True).data,
+        'kesarevo_sechenie1': KesarevoSechenie1Serializer(kesarevo_sechenie1, many=True).data,
+        'kesarevo_sechenie2': KesarevoSechenie2Serializer(kesarevo_sechenie2, many=True).data,
+        'kesarevo_sechenie3': KesarevoSechenie3Serializer(kesarevo_sechenie3, many=True).data,
+        'smert_novorojdennogo': SmertNovorojdennogoSerializer(smert_novorojdennogo, many=True).data,
+        'cel_napravleniya': CelNapravleniyaSerializer(cel_napravleniya, many=True).data,
     }
-
-
-
 
     return JsonResponse(data)
