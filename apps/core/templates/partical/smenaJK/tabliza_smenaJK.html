@@ -1,102 +1,102 @@
-'use strict';
-
-class TablizaSmenaJK {
-
-    constructor() {
-        let self = this;
-        this.$grid = $('#tabliza_smenaJK');
-        this.$grid.jqxGrid(self.nastroiki_grida);
-    }
-
-    get nastroiki_grida() {
-        let self = this;
-        return {
-            width: '100%',
-            height: '100%',
-            source: this.data_adapter,
-            columns: this.colums,
-            enabletooltips: true,
-            // localization: RUS_LOCALIZ,
-            filterable: true,
-            showtoolbar: true,
-            pageable: true,
-            columnsresize: true,
-            autorowheight: true,
-            scrollmode: 'logical',
-            rowsheight: 40,
-            toolbarheight: 40,
-            theme: 'arctic',
-            altrows: true,
-            sortable: true,
-            showstatusbar: true,
-            statusbarheight: 25,
-            pagesizeoptions: ['5', '10', '30', '50', '100'],
-            pagesize: 10,
-        }
-    }
-
-    get fields() {
-        return [
-            {name: 'id', type: 'number'},
-            {name: 'nomer_beremennoy', type: 'data'},
-            {name: 'prichina', type: 'string'},
-            {name: 'med_organiizaciya_title', type: 'string'},
-        ]
-    }
-
-    get colums() {
-        return [
-            {
-                text: 'ID',
-                datafield: 'id',
-                align: 'center',
-                cellsalign: 'center',
-                width: '10%',
-
-            },
-            {
-                text: 'Номер беременной',
-                datafield: 'nomer_beremennoy',
-                align: 'center',
-                cellsalign: 'center',
-                width: '30%',
-
-            },
-            {
-                text: 'Причина перевода',
-                datafield: 'prichina',
-                align: 'center',
-                cellsalign: 'center',
-                width: '30%',
-
-            },
-            {
-                text: 'Новая ЖК',
-                datafield: 'med_organiizaciya_title',
-                align: 'center',
-                cellsalign: 'center',
-                width: '30%',
-
-            },
-
-        ];
-    }
-
-    get data_adapter() {
-
-        return new $.jqx.dataAdapter({
-            datatype: "json",
-            data: 'data',
-            url: '/api/smenaJK/',
-            datafields: this.fields,
-            sortcolumn: 'id',
-            sortdirection: 'desc'
-        });
-    }
-}
-
-
-$(document).ready(function () {
-    new TablizaSmenaJK();
-
-});
+{#'use strict';#}
+{##}
+{#class TablizaSmenaJK {#}
+{##}
+{#    constructor() {#}
+{#        let self = this;#}
+{#        this.$grid = $('#tabliza_smenaJK');#}
+{#        this.$grid.jqxGrid(self.nastroiki_grida);#}
+{#    }#}
+{##}
+{#    get nastroiki_grida() {#}
+{#        let self = this;#}
+{#        return {#}
+{#            width: '100%',#}
+{#            height: '100%',#}
+{#            source: this.data_adapter,#}
+{#            columns: this.colums,#}
+{#            enabletooltips: true,#}
+{#            // localization: RUS_LOCALIZ,#}
+{#            filterable: true,#}
+{#            showtoolbar: true,#}
+{#            pageable: true,#}
+{#            columnsresize: true,#}
+{#            autorowheight: true,#}
+{#            scrollmode: 'logical',#}
+{#            rowsheight: 40,#}
+{#            toolbarheight: 40,#}
+{#            theme: 'arctic',#}
+{#            altrows: true,#}
+{#            sortable: true,#}
+{#            showstatusbar: true,#}
+{#            statusbarheight: 25,#}
+{#            pagesizeoptions: ['5', '10', '30', '50', '100'],#}
+{#            pagesize: 10,#}
+{#        }#}
+{#    }#}
+{##}
+{#    get fields() {#}
+{#        return [#}
+{#            {name: 'id', type: 'number'},#}
+{#            {name: 'nomer_beremennoy', type: 'data'},#}
+{#            {name: 'prichina', type: 'string'},#}
+{#            {name: 'med_organiizaciya_title', type: 'string'},#}
+{#        ]#}
+{#    }#}
+{##}
+{#    get colums() {#}
+{#        return [#}
+{#            {#}
+{#                text: 'ID',#}
+{#                datafield: 'id',#}
+{#                align: 'center',#}
+{#                cellsalign: 'center',#}
+{#                width: '10%',#}
+{##}
+{#            },#}
+{#            {#}
+{#                text: 'Номер беременной',#}
+{#                datafield: 'nomer_beremennoy',#}
+{#                align: 'center',#}
+{#                cellsalign: 'center',#}
+{#                width: '30%',#}
+{##}
+{#            },#}
+{#            {#}
+{#                text: 'Причина перевода',#}
+{#                datafield: 'prichina',#}
+{#                align: 'center',#}
+{#                cellsalign: 'center',#}
+{#                width: '30%',#}
+{##}
+{#            },#}
+{#            {#}
+{#                text: 'Новая ЖК',#}
+{#                datafield: 'med_organiizaciya_title',#}
+{#                align: 'center',#}
+{#                cellsalign: 'center',#}
+{#                width: '30%',#}
+{##}
+{#            },#}
+{##}
+{#        ];#}
+{#    }#}
+{##}
+{#    get data_adapter() {#}
+{##}
+{#        return new $.jqx.dataAdapter({#}
+{#            datatype: "json",#}
+{#            data: 'data',#}
+{#            url: '/api/smenaJK/',#}
+{#            datafields: this.fields,#}
+{#            sortcolumn: 'id',#}
+{#            sortdirection: 'desc'#}
+{#        });#}
+{#    }#}
+{#}#}
+{##}
+{##}
+{#$(document).ready(function () {#}
+{#    new TablizaSmenaJK();#}
+{##}
+{#});#}

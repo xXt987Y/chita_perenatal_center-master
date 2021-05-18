@@ -100,90 +100,7 @@ $(function () {
 
 })
 
-//
-//
-// //Кнопки для меню
-// $(document).ready(function () {
-//     $(".jqxButton1").jqxToggleButton({toggled: false});
-//     $(".jqxButton1").on('click', function () {
-//         var toggled = $(".jqxButton1").jqxToggleButton('toggled');
-//         $('#pole').show();
-//         $('#poisk').hide();
-//     });
-//     //КНОПКА ПОИСКА
-//     $(".jqxButton21").jqxToggleButton({toggled: false});
-//     $(".jqxButton21").on('click', function () {
-//         var toggled = $(".jqxButton21").jqxToggleButton('toggled');
-//         $('#pole').hide();
-//         $('#poisk').show();
-//     });
-//     $(".jqxButton4").jqxToggleButton({toggled: false});
-//     $(".jqxButton4").on('click', function () {
-//         var toggled = $(".jqxButton4").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton5").jqxToggleButton({toggled: false});
-//     $(".jqxButton5").on('click', function () {
-//         var toggled = $(".jqxButton5").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton6").jqxToggleButton({toggled: false});
-//     $(".jqxButton6").on('click', function () {
-//         var toggled = $(".jqxButton6").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton17").jqxToggleButton({toggled: false});
-//     $(".jqxButton17").on('click', function () {
-//         var toggled = $(".jqxButton17").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton8").jqxToggleButton({toggled: false});
-//     $(".jqxButton8").on('click', function () {
-//         var toggled = $(".jqxButton8").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton9").jqxToggleButton({toggled: false});
-//     $(".jqxButton9").on('click', function () {
-//         var toggled = $(".jqxButton9").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton10").jqxToggleButton({toggled: false});
-//     $(".jqxButton10").on('click', function () {
-//         var toggled = $(".jqxButton10").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton11").jqxToggleButton({toggled: false});
-//     $(".jqxButton11").on('click', function () {
-//         var toggled = $(".jqxButton11").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton12").jqxToggleButton({toggled: false});
-//     $(".jqxButton12").on('click', function () {
-//         var toggled = $(".jqxButton12").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton13").jqxToggleButton({toggled: false});
-//     $(".jqxButton13").on('click', function () {
-//         var toggled = $(".jqxButton13").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton14").jqxToggleButton({toggled: false});
-//     $(".jqxButton14").on('click', function () {
-//         var toggled = $(".jqxButton14").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton15").jqxToggleButton({toggled: false});
-//     $(".jqxButton15").on('click', function () {
-//         var toggled = $(".jqxButton15").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton16").jqxToggleButton({toggled: false});
-//     $(".jqxButton16").on('click', function () {
-//         var toggled = $(".jqxButton16").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButton18").jqxToggleButton({toggled: false});
-//     $(".jqxButton18").on('click', function () {
-//         var toggled = $(".jqxButton18").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButtonNovoeNapravlenie").jqxToggleButton({toggled: false});
-//     $(".jqxButtonNovoeNapravlenie").on('click', function () {
-//         var toggled = $(".jqxButtonNovoeNapravlenie").jqxToggleButton('toggled');
-//     });
-//     $(".jqxButtonYdalitNapravlenie").jqxToggleButton({toggled: false});
-//     $(".jqxButtonYdalitNapravlenie").on('click', function () {
-//         var toggled = $(".jqxButtonYdalitNapravlenie").jqxToggleButton('toggled');
-//     });
-//
-// });
-//
+
 // //Дата
 // $(document).ready(function () {
 //     $(".jqxDateTimeInput").jqxDateTimeInput({width: '125px', height: '25px'});
@@ -199,11 +116,7 @@ $(function () {
 //     $(".input6").jqxInput({height: 23, width: 40, minLength: 1});
 // });
 //
-// //комбобокс
-$(document).ready(function () {
 
-    // $(".jqxComboBox").jqxComboBox({selectedIndex: 1, source: source, width: '200px', height: '30px'});
-});
 //
 // //галочка(чекбокс)
 // $(document).ready(function () {
@@ -349,10 +262,6 @@ $(document).ready(function () {
 // });
 //
 //
-// $(function () {
-//     //Всплывающее окно Window
-// });
-
 //
 // //выбор доктора
 //
