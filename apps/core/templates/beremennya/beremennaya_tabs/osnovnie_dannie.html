@@ -5,43 +5,43 @@
 
 <div class="default">
     <div class="text">Дата взятия на учет:</div>
-    <div class='data_vzyatiya_na_uchet'></div>
+    <div class='data_vzyatiya'></div>
 </div>
 
 <div class="default">
     <div class="text">Участковый врач:</div>
-    <div class="uchastk_vrach"></div>
+    <div class="vrach"></div>
 </div>
 
 <div class="default">
     <div class="text">ФИО беременной:</div>
-    <input type="text" class="input fio_beremennoy"/>
+    <input type="text" class="fio"/>
 </div>
 
 <div class="default">
     <div class="text">Дата рождения:</div>
     </br>
-    <div class='data_rozdeniya'></div>
+    <div class='data_rojdeniya'></div>
 </div>
 
 <div class="default">
     <div class="text">Возраст беременной:</div>
-    <input type="number" class='input vozrast' min="0"/>
+    <input type="number" class='vozrast' min="0"/>
 </div>
 
 <div class="default">
     <div class="text">Место постоянного проживания беременной:</div>
-    <div class="mesto_post_prozivaniya_beremennoy"></div>
+    <div class="mesto_postoyannogo_projivaniya"></div>
 </div>
 
 <div class="default">
     <div class="text">№ телефона беременной:</div>
-    <input type="text" class='phone_beremennoy'/>
+    <input type="text" class='nomer_telefona'/>
 </div>
 
 <div class="default">
     <div class="text">№ ОМС беременной:</div>
-    <input type="text" class="nomer_oms_beremennoy"/>
+    <input type="text" class="nomer_oms"/>
 </div>
 
 
@@ -49,18 +49,18 @@
 
 <div class="default">
     <div class="text">Вредные привычки:</div>
-    <div class="vp_kurenie"> курение</div>
-    <div class="vp_alkogolism"> алкоголизм</div>
-    <div class="vp_narkomaniya"> наркомания</div>
-    <div class="vp_toksikomaniya"> токсикомания</div>
+    <div class="vrednie_privichki_kurenie"> курение</div>
+    <div class="vrednie_privichki_alco"> алкоголизм</div>
+    <div class="vrednie_privichki_narko"> наркомания</div>
+    <div class="vrednie_privichki_toxi"> токсикомания</div>
 </div>
 
 <div class="default">
     <div class="text">Вредные факторы труда и быта:</div>
-    <div class="vftib_himicheskie"> химические</div>
-    <div class="vftib_radioactive"> радиоактивные</div>
-    <div class="vftib_neud_jil_usloviya"> неудовл. жил. условия</div>
-    <div class="vftib_priem_lek_sredstv_v_ran_sroki"> приём лекарств. средств в ранние сроки беременности
+    <div class="vrednie_factori_truda_himicheskie"> химические</div>
+    <div class="vrednie_factori_truda_radioactiv"> радиоактивные</div>
+    <div class="vrednie_factori_truda_neudvl_jil_ysloviya"> неудовл. жил. условия</div>
+    <div class="vrednie_factori_truda_priem_lekarstvennih_sredstv"> приём лекарств. средств в ранние сроки беременности
     </div>
 </div>
 
@@ -76,20 +76,26 @@
 
 <div class="default">
     <div class="text">Соматические показатели:</div>
-    <div class="mujskoi_tip_telosloj"> мужской тип телосложения</div>
-    <div class="girsutism"> гирсутизм</div>
+    <div class="somaticheskie_pokazateli_muzskoy"> мужской тип телосложения</div>
+    <div class="somaticheskie_pokazateli_girsutizm"> гирсутизм</div>
 </div>
 
 <div class="default">
     <div class="text">Вес беременной, кг:
     </div>
-    <input style='margin-top: 3px;' type="number" class='input ves_beremennoy' min="0"/>
+    <input style='margin-top: 3px;' type="number" class='ves' min="0"/>
 </div>
 
 <div class="default">
     <div class="text">Рост беременной, см:
     </div>
-    <input style='margin-top: 3px;' type="number" class='input rost_beremennoy' min="0"/>
+    <input style='margin-top: 3px;' type="number" class='rost' min="0"/>
+</div>
+
+<div class="default">
+    <div class="text">Индекс массы тела:
+    </div>
+    <input style='margin-top: 3px;' type="number" class='index' min="0"/>
 </div>
 
 <div class="default">
@@ -98,47 +104,47 @@
         <div class="ctrl">
             <span id="viewds">0</span>
             <input id="rangeds" type="range" min="0" max="50" step="0.1" value="0">
-            <input id="numds" type=number min="0" max="50" step="0,1" value="0" style="width:100px">
+            <input id="numds" class="razmer_taza_ds" type=number min="0" max="50" step="0,1" value="0" style="width:100px">
         </div>
     </div>
     <div>Distantia cristarum (D.c.):
         <div class="ctrl">
             <span id="viewdc">0</span>
             <input id="rangedc" type="range" min="0" max="50" step="1" value="0">
-            <input id="numdc" type=number min="0" max="50" step="1" value="0" style="width:100px">
+            <input id="numdc" class="razmer_taza_dc" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
     </div>
     <div>Distantia trochanterica (D.t.):
         <div class="ctrl">
             <span id="viewdt">0</span>
             <input id="rangedt" type="range" min="0" max="50" step="1" value="0">
-            <input id="numdt" type=number min="0" max="50" step="1" value="0" style="width:100px">
+            <input id="numdt" class="razmer_taza_dt" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
     </div>
     <div>Conjugata diagonalis (C.d.):
         <div class="ctrl">
             <span id="viewcd">0</span>
             <input id="rangecd" type="range" min="0" max="50" step="10" value="0">
-            <input id="numcd" type=number min="0" max="50" step="1" value="0" style="width:100px">
+            <input id="numcd" class="razmer_taza_cd" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
     </div>
     <div>Conjugata externa (C.e.):
         <div class="ctrl">
             <span id="viewce">0</span>
             <input id="rangece" type="range" min="0" max="50" step="1" value="0">
-            <input id="numce" type=number min="0" max="50" step="1" value="0" style="width:100px">
+            <input id="numce" class="razmer_taza_ce" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
     </div>
     <div>Conjugata vera (C.v.):
         <div class="ctrl">
             <span id="viewcv">0</span>
             <input id="rangecv" type="range" min="0" max="50" step="1" value="0">
-            <input id="numcv" type=number min="0" max="50" step="1" value="0" style="width:100px">
+            <input id="numcv" class="razmer_taza_cv" type=number min="0" max="50" step="1" value="0" style="width:100px">
         </div>
     </div>
 </div>
 <div class="default">
-    <div class="text">Резус-факторы беременной/отца:</div>
+    <div class="text rezus_faktori_beremennoy_otca">Резус-факторы беременной/отца:</div>
     <div class='rezus_factor_p_p'>
         +/+
     </div>
@@ -155,7 +161,7 @@
 
 <div class="default">
     <div class="text">Взята под наблюдение:</div>
-    <div class="vz_pod_nabl_posle_12"> после 12 нед. берем-сти</div>
+    <div class="vzyata_pod_nabludenie"> после 12 нед. берем-сти</div>
 </div>
 
 <div class="default">
@@ -173,16 +179,16 @@
 <div class="default">
     <div class="text">Заболевания внутренних половых органов:</div>
     <div style="display: table-column">
-        <div class="zvpo_vosp_pridatkov_u_nerojavshey"> воспаление придатков у нерожавшей</div>
-        <div class="zvpo_opuholevoe_obrazovanie_pridatkov"> опухолевое образование придатков</div>
-        <div class="zvpo_gipoplaziya_matki"> гипоплазия матки</div>
-        <div class="zvpo_operacii_na_pridatkah"> операции на придатках</div>
-        <div class="zvpo_istmiko_cervikal_nedostatochnost"> истмико-цервикальная недостаточность</div>
-        <div class="zvpo_vospalenie_pridatkov_u_rojavshey"> воспаление придатков у рожавшей</div>
-        <div class="zvpo_mioma_matki"> миома матки</div>
-        <div class="zvpo_poroki_razvitiya_matki"> пороки развития матки</div>
-        <div class="zvpo_operacii_na_matke"> операции на матке (кроме кес/сеч)</div>
-        <div class="zvpo_onkologiya_v_anamneze"> онкология в анамнезе</div>
+        <div class="zabolevanie_vnut_pol_organov_vospalenie_neroj"> воспаление придатков у нерожавшей</div>
+        <div class="zabolevanie_vnut_pol_organov_opuhl"> опухолевое образование придатков</div>
+        <div class="zabolevanie_vnut_pol_organov_gipoplaziya"> гипоплазия матки</div>
+        <div class="zabolevanie_vnut_pol_organov_operacii_pred"> операции на придатках</div>
+        <div class="zabolevanie_vnut_pol_organov_istmiko"> истмико-цервикальная недостаточность</div>
+        <div class="zabolevanie_vnut_pol_organov_vospalenie_roj"> воспаление придатков у рожавшей</div>
+        <div class="zabolevanie_vnut_pol_organov_mioma"> миома матки</div>
+        <div class="zabolevanie_vnut_pol_organov_poroki"> пороки развития матки</div>
+        <div class="zabolevanie_vnut_pol_organov_operacii_matk"> операции на матке (кроме кес/сеч)</div>
+        <div class="zabolevanie_vnut_pol_organov_onkologiya"> онкология в анамнезе</div>
     </div>
 </div>
 
@@ -201,15 +207,15 @@
 <div class="default">
     <div>Наступление беременности:</div>
     <div>В результате ЭКО:</div>
-    <div class="nastuplenie_beremennosti_v_rezultate"></div>
-    <div class="v_result_stimul_ovulyacii_med_sredstvami">
+    <div class="nastuplenie_beremennosti_v_rezultate_eco"></div>
+    <div class="nastuplenie_beremennosti_v_rezultate_ovulyacii">
         в результате стимуляции овуляции медикаментозными средствами
     </div>
 </div>
 
 <div class="default">
     <diV class="text">Дата первого дня последн. менс-ции:</div>
-    <div style="width: 200px;" class='data_1_dnya_posled_menstr'></div>
+    <div style="width: 200px;" class='data_pervogo_dnya_posledney_menstruacii'></div>
 </div>
 
 <div class="default">
@@ -229,93 +235,93 @@
 
 <div class="default">
     <div class="text">Резус-конфликтная беременность:</div>
-    <div class="rezus_conflikt_beremennost"></div>
+    <div class="rezus_konfliktnaya_beremennost"></div>
 </div>
 
 <div class="default">
     <div class="text">Гемолитическая болезнь:</div>
-    <div class="gemolit_bolezn_ploda_ili_novorojd"> плода или новорожденного</div>
+    <div class="gemoliticheskaya_bolezn"> плода или новорожденного</div>
 </div>
 
 <div class="default">
     <div class="text">Искуственный аборт:</div>
     <div class="iskustvenniy_abort"></div>
     <div> Осложнения:</div>
-    <div class="oslojneniya_iskustvenniy_abort"></div>
+    <div class="iskustvenniy_abort_oslojneniya"></div>
 </div>
 
 <div class="default">
     <div class="text">Осложнения беременности(анамнез):</div>
-    <div style="display: table-column">
+    <div style="display: table-column" class="oslojneniya_beremennosti_anemez">
         <div class="oba_net"> нет</div>
         <div class="oba_oslojn_preaklamps_umerennoy"> осложн. преэклампсией умеренной</div>
         <div class="oba_oslojn_preaklamps_tyajeloy"> осложн. преэклампсией тяжелой</div>
         <div class="oba_oslojn_aklamps"> осложн. эклампсией</div>
     </div>
     <div style="display: table-column">
-        <div class="oba_oslojn_fetoplacent_nedostatochnocty"> осложн. фетоплацент. недостаточностью</div>
-        <div class="oba_oslojn_obost_extragenit_patologii"> осложн. обост. экстрагенит. патологии</div>
-        <div class="oba_oslojn_prejdevrem_otsloikoi_placenty"> осложн. преждеврем. отслойкой плаценты</div>
+        <div class="oslojneniya_beremennosti_anemez_fetoplacent"> осложн. фетоплацент. недостаточностью</div>
+        <div class="oslojneniya_beremennosti_anemez_obostrenie"> осложн. обост. экстрагенит. патологии</div>
+        <div class="oslojneniya_beremennosti_anemez_prejdevremennoy"> осложн. преждеврем. отслойкой плаценты</div>
     </div>
 </div>
 
 <div class="default">
     <div class="text">Осложнения родов(анамнез):</div>
     <div style="display: table-column">
-        <div class='osl_rodov_net'>
+        <div class='osl_rodov_net oslojneniya_rodov'>
             нет
         </div>
-        <div class='osl_rodov_svoevremen'>
+        <div class='osl_rodov_svoevremen oslojneniya_rodov'>
             своевременные
         </div>
-        <div class='osl_rodov_prejdevremen'>
+        <div class='osl_rodov_prejdevremen oslojneniya_rodov'>
             преждевременные
         </div>
-        <div class='osl_rodov_zapozdalye'>
+        <div class='osl_rodov_zapozdalye oslojneniya_rodov'>
             запоздалые
         </div>
     </div>
     <div style="display: table-column">
-        <div class="osl_rodov_razryv_2_3_st">осложн. разрывом мягких родовых путей 2-3 степени</div>
-        <div class="osl_rodov_krovotecheniem"> осложн. кровотечением</div>
-        <div class="osl_rodov_gnoino_sept_infekciey"> осложн. гнойно-септической инфекцией</div>
-        <div class="osl_rodov_mertvorojdeniem"> осложн. мертворождением</div>
+        <div class="oslojneniya_rodov_osl_razrivom">осложн. разрывом мягких родовых путей 2-3 степени</div>
+        <div class="oslojneniya_rodov_osl_krovotech"> осложн. кровотечением</div>
+        <div class="oslojneniya_rodov_osl_gnoyno"> осложн. гнойно-септической инфекцией</div>
+        <div class="oslojneniya_rodov_osl_mertvoroj"> осложн. мертворождением</div>
         <div>кесарево сечение:</div>
         <div class="kesarevo_sechenie"></div>
-        <div class="osl_rodov_rubec_na_matke"> рубец на матке после миомэктомии</div>
-        <div class="osl_rodov_anomaliyami_rod_deyatelnosty"> осложн. аномалиями родовой деятельности</div>
-        <div class="osl_rodov_klinichesky_uzkiy_taz"> клинически узкий таз</div>
-        <div class="osl_rodov_plodorazrushayshaya_operaciya"> плодоразрушающая операция</div>
+        <div class="rubec_na_matke"> рубец на матке после миомэктомии</div>
+        <div class="oslojneniya_anomaliyami_rodovoy_deyatelnosti"> осложн. аномалиями родовой деятельности</div>
+        <div class="klinicheski_uzkiy_taz"> клинически узкий таз</div>
+        <div class="plodorazrushayushaya_operaciya"> плодоразрушающая операция</div>
     </div>
 </div>
 <div class="default">
     <div class="text">Новорожденный или плод(анамнез):</div>
     <div style="display: table-column">
-        <div class="nip_smert_v_neonatal_periode"> смерть в неонатальном периоде</div>
-        <div class="nip_ves_novorojd_2500_ili_4000"> вес новорожденного был менее 2500г или более 4000г</div>
-        <div class="nip_nevrolog_narusheniya"> неврологические нарушения</div>
-        <div class="nip_vpr"> ВПР</div>
-        <div class="nip_perinat_poteri"> перинатальные потери</div>
+        <div class="novorojdenniy_plod_smert"> смерть в неонатальном периоде</div>
+        <div class="novorojdenniy_plod_ves"> вес новорожденного был менее 2500г или более 4000г</div>
+        <div class="novorojdenniy_plod_nevrolgiych"> неврологические нарушения</div>
+        <div class="novorojdenniy_plod_vpr"> ВПР</div>
+        <div class="novorojdenniy_plod_perinatalnie"> перинатальные потери</div>
     </div>
 </div>
 <h3>Экстрагенитальные заболевания</h3>
 <div class="default">
     <div class="text">Инфекционные болезни:</div>
     <div style="display: table-column">
-        <div class="extragenit_zab_gripp"> грипп</div>
-        <div class="extragenit_zab_orvi"> ОРВИ</div>
-        <div class="extragenit_zab_sifilis"> сифилис</div>
-        <div class="extragenit_zab_tuberkulez"> туберкулез</div>
-        <div class="extragenit_zab_vich"> ВИЧ-инфекция</div>
-        <div class="extragenit_zab_virus_gepatit"> вирусный гепатит</div>
-        <div class="extragenit_zab_krasnuha"> краснуха</div>
-        <div class="extragenit_zab_toksoplazmoz"> токсоплазмоз</div>
-        <div class="extragenit_zab_cmvi"> ЦМВИ</div>
+        <div class="infekcionnie_bolezni_gripp"> грипп</div>
+        <div class="infekcionnie_bolezni_orvi"> ОРВИ</div>
+        <div class="infekcionnie_bolezni_sifilis"> сифилис</div>
+        <div class="infekcionnie_bolezni_tuberkulez"> туберкулез</div>
+        <div class="infekcionnie_bolezni_vich"> ВИЧ-инфекция</div>
+        <div class="infekcionnie_bolezni_virusniy_gepatit"> вирусный гепатит</div>
+        <div class="infekcionnie_bolezni_krasnuha"> краснуха</div>
+        !<div class="infekcionnie_bolezni_toksoplazmoz"> токсоплазмоз</div>
+        !<div class="infekcionnie_bolezni_virusniy_cmvi"> ЦМВИ</div>
     </div>
 </div>
 <div class="default">
     <div class="text">Злокачественные новообразования:</div>
-    <div class="zlokach_novoobr_nalichie"> наличие в прошлом или настоящем</div>
+    <div class="zlokachestvennie_obrazovaniya"> наличие в прошлом или настоящем</div>
 </div>
 <div class="default">
     <div class="text">Болезни эндокринной системы:</div>
@@ -332,15 +338,15 @@
         <div>АКО:
             <div class="ako"></div>
         </div>
-        <div class="diencef_sindrom"> диэнцефальный синдром</div>
+        <div class="deincifalniy_sindrom"> диэнцефальный синдром</div>
     </div>
 </div>
 <div class="default">
     <div class="text">Болезни крови и кроветворных органов:</div>
     <div style="display: table-column">
-        <div class="anemiya">анемия всех степеней</div>
-        <div class="trombocitopeniya">тромбоцитопения</div>
-            <div class="trombozy">тромбозы</div>
+        <div class="bolezni_krovi_anemiya">анемия всех степеней</div>
+        <div class="bolezni_krovi_trombocitopeniya">тромбоцитопения</div>
+            <div class="bolezni_krovi_trombozi">тромбозы</div>
         <div>коагулопатия:
             <div class="koagulopatiya"></div>
         </div>
@@ -349,19 +355,19 @@
 <div class="default">
     <div class="text">Психические расстройства:</div>
     <div style="display: table-column">
-            <div class="psihosy">психозы</div>
-            <div class="shisofreniya">шизофрения</div>
-            <div class="narusheniya_lichnosty">нарушения личности</div>
-            <div class="umstven_otstalost">умственная отсталость</div>
+            <div class="psih_rastroystva_psihozi">психозы</div>
+            <div class="psih_rastroystva_shizofreniya">шизофрения</div>
+            <div class="psih_rastroystva_narusheniya_lich">нарушения личности</div>
+            <div class="psih_rastroystva_umstvennaya_otstalost">умственная отсталость</div>
     </div>
 </div>
 
 <div class="default">
     <div class="text">Болезни нервной системы и органов чувств:</div>
     <div style="display: table-column">
-            <div class="nasled_i_degenerat_bolesni_cns">наследственные и дегенератичные болезни ЦНС</div>
-            <div class="vospalit_bolesni_cns">воспалительные болезни ЦНС</div>
-            <div class="miopiya">миопия высокой степени или миопия с дистрофическими изменениями</div>
+            <div class="bolezni_nervnoy_sistemi_nasledstvennie">наследственные и дегенератичные болезни ЦНС</div>
+            <div class="bolezni_nervnoy_sistemi_vospalitelnie">воспалительные болезни ЦНС</div>
+            <div class="bolezni_nervnoy_sistemi_miopiya">миопия высокой степени или миопия с дистрофическими изменениями</div>
     </div>
 </div>
 
@@ -422,9 +428,9 @@
             theme: 'arctic'
         });
 
-        $(".data_vzyatiya_na_uchet").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".data_vzyatiya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
 
-        $(".uchastk_vrach").jqxComboBox({
+        $(".vrach").jqxComboBox({
             selectedIndex: 1,
             source: sourse_doctor,
             width: '200px',
@@ -432,9 +438,9 @@
             theme: 'arctic'
         });
 
-        $(".data_rozdeniya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".data_rojdeniya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
 
-        $(".mesto_post_prozivaniya_beremennoy").jqxComboBox({
+        $(".mesto_postoyannogo_projivaniya").jqxComboBox({
             selectedIndex: 1,
             source: sourse_rayon,
             width: '200px',
@@ -443,7 +449,7 @@
         });
 
         //номер телефона с маской
-        $(".phone_beremennoy").jqxMaskedInput({
+        $(".nomer_telefona").jqxMaskedInput({
             width: '250px',
             height: '25px',
             mask: '#(###)###-##-##',
@@ -451,28 +457,28 @@
         });
 
         //номер ОМС с маской
-        $(".nomer_oms_beremennoy").jqxMaskedInput({
+        $(".nomer_oms").jqxMaskedInput({
             width: '250px',
             height: '25px',
             mask: '## ## ########',
             theme: 'arctic'
         });
 
-        $('.vp_kurenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_privichki_kurenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vp_alkogolism').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_privichki_alco').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vp_narkomaniya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_privichki_narko').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vp_toksikomaniya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_privichki_toxi').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vftib_himicheskie').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_factori_truda_himicheskie').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vftib_radioactive').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_factori_truda_radioactiv').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vftib_neud_jil_usloviya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_factori_truda_neudvl_jil_ysloviya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.vftib_priem_lek_sredstv_v_ran_sroki').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vrednie_factori_truda_priem_lekarstvennih_sredstv').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
@@ -484,9 +490,9 @@
             theme: 'arctic'
         });
 
-        $('.mujskoi_tip_telosloj').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.somaticheskie_pokazateli_muzskoy').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $('.girsutism').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.somaticheskie_pokazateli_girsutizm').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //ползунок ds
         $(document).ready(function () {
@@ -615,7 +621,7 @@
         $(".rezus_factor_m_p").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});
         $(".rezus_factor_m_m").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});
 
-        $('.vz_pod_nabl_posle_12').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.vzyata_pod_nabludenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
         //Генетические факторы комбобокс
         $(".geneticheskie_faktori").jqxComboBox({
             selectedIndex: 1,
@@ -633,16 +639,16 @@
             theme: 'arctic'
         });
         //Заболевания внутренних половых органов:
-        $('.zvpo_vosp_pridatkov_u_nerojavshey').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_opuholevoe_obrazovanie_pridatkov').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_gipoplaziya_matki').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_operacii_na_pridatkah').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_istmiko_cervikal_nedostatochnost').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_vospalenie_pridatkov_u_rojavshey').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_mioma_matki').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_poroki_razvitiya_matki').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_operacii_na_matke').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zvpo_onkologiya_v_anamneze').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_vospalenie_neroj').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_opuhl').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_gipoplaziya').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_operacii_pred').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_istmiko').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_vospalenie_roj').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_mioma').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_poroki').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_operacii_matk').jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $('.zabolevanie_vnut_pol_organov_onkologiya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         $(".besplodie").jqxComboBox({
             selectedIndex: 1,
@@ -659,7 +665,7 @@
             theme: 'arctic'
         });
         //наступление текущей беременности
-        $(".nastuplenie_beremennosti_v_rezultate").jqxComboBox({
+        $(".nastuplenie_beremennosti_v_rezultate_eco").jqxComboBox({
             selectedIndex: 1,
             source: sourse_nastuplenie_beremennosti_v_rezultate,
             width: '250px',
@@ -667,8 +673,8 @@
             theme: 'arctic'
         });
 
-        $(".v_result_stimul_ovulyacii_med_sredstvami").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".data_1_dnya_posled_menstr").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".nastuplenie_beremennosti_v_rezultate_ovulyacii").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".data_pervogo_dnya_posledney_menstruacii").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
 
         $(".paritet_beremennosti").jqxComboBox({
             selectedIndex: 1,
@@ -686,8 +692,8 @@
             theme: 'arctic'
         });
         $(".vnematochnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".rezus_conflikt_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".gemolit_bolezn_ploda_ili_novorojd").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".rezus_konfliktnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".gemoliticheskaya_bolezn").jqxCheckBox({width: 'auto', theme: 'arctic'});
         //Искусственный аборт
         $(".iskustvenniy_abort").jqxComboBox({
             selectedIndex: 1,
@@ -696,7 +702,7 @@
             height: '30px',
             theme: 'arctic'
         });
-        $(".oslojneniya_iskustvenniy_abort").jqxComboBox({
+        $(".iskustvenniy_abort_oslojneniya").jqxComboBox({
             selectedIndex: 1,
             source: sourse_oslojneniya_iskustvenniy_abort,
             width: '250px',
@@ -711,9 +717,9 @@
         $(".oba_oslojn_aklamps").jqxRadioButton({width: 250, height: 25});
 
         //Осложнения беременности(анамнез) - чекбоксы
-        $(".oba_oslojn_fetoplacent_nedostatochnocty").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oba_oslojn_obost_extragenit_patologii").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oba_oslojn_prejdevrem_otsloikoi_placenty").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_beremennosti_anemez_fetoplacent").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_beremennosti_anemez_obostrenie").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_beremennosti_anemez_prejdevremennoy").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //осложнения родов(анамнез) - радиокнопки
         $(".osl_rodov_net").jqxRadioButton({width: 250, height: 25});
@@ -722,10 +728,10 @@
         $(".osl_rodov_zapozdalye").jqxRadioButton({width: 250, height: 25});
 
         //осложнения родов(анамнез) - чекбоксы
-        $(".osl_rodov_razryv_2_3_st").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".osl_rodov_krovotecheniem").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".osl_rodov_gnoino_sept_infekciey").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".osl_rodov_mertvorojdeniem").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_rodov_osl_razrivom").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_rodov_osl_krovotech").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_rodov_osl_gnoyno").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_rodov_osl_mertvoroj").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //кесарево комбобокс
         $(".kesarevo_sechenie").jqxComboBox({
@@ -737,32 +743,32 @@
         });
 
         //осложнения родов(анамнез) - чекбоксы2
-        $(".osl_rodov_rubec_na_matke").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".osl_rodov_anomaliyami_rod_deyatelnosty").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".osl_rodov_klinichesky_uzkiy_taz").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".osl_rodov_plodorazrushayshaya_operaciya").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".rubec_na_matke").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".oslojneniya_anomaliyami_rodovoy_deyatelnosti").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".klinicheski_uzkiy_taz").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".plodorazrushayushaya_operaciya").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Новорожденный или плод(анамнез) - чекбоксы
-        $(".nip_smert_v_neonatal_periode").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".nip_ves_novorojd_2500_ili_4000").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".nip_nevrolog_narusheniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".nip_vpr").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".nip_perinat_poteri").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".novorojdenniy_plod_smert").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".novorojdenniy_plod_ves").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".novorojdenniy_plod_nevrolgiych").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".novorojdenniy_plod_vpr").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".novorojdenniy_plod_perinatalnie").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //экстрагенитальные заболевания
         //инфекционные болезни - чекбоксы
-        $(".extragenit_zab_gripp").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_orvi").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_sifilis").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_tuberkulez").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_vich").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_virus_gepatit").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_krasnuha").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_toksoplazmoz").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".extragenit_zab_cmvi").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_gripp").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_orvi").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_sifilis").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_tuberkulez").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_vich").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_virusniy_gepatit").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_krasnuha").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_toksoplazmoz").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".infekcionnie_bolezni_virusniy_cmvi").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //злокачественные образования
-        $(".zlokach_novoobr_nalichie").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".zlokachestvennie_obrazovaniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //болезни эндокринной системы
         $(".saharniy_diabed").jqxComboBox({
@@ -793,12 +799,12 @@
             height: '30px',
             theme: 'arctic'
         });
-        $(".diencef_sindrom").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".deincifalniy_sindrom").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //болезни крови и кроветворных органов
-        $(".anemiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".trombocitopeniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".trombozy").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".bolezni_krovi_anemiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".bolezni_krovi_trombocitopeniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".bolezni_krovi_trombozi").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //болезни крови и кроветворных органов - коагулопатия чекбокс
         $(".koagulopatiya").jqxComboBox({
@@ -809,15 +815,15 @@
             theme: 'arctic'
         });
         //психические расстройства
-        $(".psihosy").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".shisofreniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".narusheniya_lichnosty").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".umstven_otstalost").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".psih_rastroystva_psihozi").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".psih_rastroystva_shizofreniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".psih_rastroystva_narusheniya_lich").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".psih_rastroystva_umstvennaya_otstalost").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //болезни нервной системы и органов чувств
-        $(".nasled_i_degenerat_bolesni_cns").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".vospalit_bolesni_cns").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".miopiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".bolezni_nervnoy_sistemi_nasledstvennie").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".bolezni_nervnoy_sistemi_vospalitelnie").jqxCheckBox({width: 'auto', theme: 'arctic'});
+        $(".bolezni_nervnoy_sistemi_miopiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //кнопка сохранить
         //Кнопка Консультации
