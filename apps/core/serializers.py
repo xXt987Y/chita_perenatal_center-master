@@ -8,7 +8,8 @@ from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravle
     StepenSujeniyaTaza, VzyataPodNabludenie, OslojneniyaRodov, Mnogoplodie, NepravilnoePolojeniePloda, \
     FetoplacentarnayaNedostatochnost, RezusSensibilizaciya, Preeklampsiya, PredlejaniePlacenti, UrovenPappa, \
     UrovenBetaHgch, NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, \
-    CelNapravleniya, SmertNovorojdennogo, KesarevoSechenie3, KesarevoSechenie2, KesarevoSechenie1, Anketa
+    CelNapravleniya, SmertNovorojdennogo, KesarevoSechenie3, KesarevoSechenie2, KesarevoSechenie1, Anketa, \
+    StepenRiskaPosleIshoda
 
 
 class RayonSerializer(serializers.ModelSerializer):
@@ -230,6 +231,12 @@ class MestoIshodaSerializer(serializers.ModelSerializer):
 class GibelPlodaSerializer(serializers.ModelSerializer):
     class Meta:
         model = GibelPloda
+        fields = '__all__'
+
+
+class StepenRiskaPosleIshodaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StepenRiskaPosleIshoda
         fields = '__all__'
 
 

@@ -10,7 +10,7 @@ from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOr
     VzyataPodNabludenie, OslojneniyaRodov, Preeklampsiya, RezusSensibilizaciya, FetoplacentarnayaNedostatochnost, \
     NepravilnoePolojeniePloda, Mnogoplodie, PredlejaniePlacenti, UrovenPappa, UrovenBetaHgch, \
     NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, KesarevoSechenie1, \
-    KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya
+    KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya, StepenRiskaPosleIshoda
 from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedObsluzivaniyaSerializer, \
     TipOrganizaciiSerializer, MedOrganizaciaSerializer, MKB10Serializer, StepenRiskaSerializer, \
     SemeynoePolojenieSerializer, GeneticheskieFaktoriSerializer, MenstrualnayaFunkciyaSerializer, BesplodieSerializer, \
@@ -24,7 +24,7 @@ from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedOb
     UrovenBetaHgchSerializer, NalichieVprPoRezultatamUziSerializer, MestoIshodaSerializer, \
     ObsheeSostoyaniePlodaSerializer, GibelPlodaSerializer, IshodBeremennostiPappaSerializer, \
     KesarevoSechenie1Serializer, KesarevoSechenie2Serializer, KesarevoSechenie3Serializer, \
-    SmertNovorojdennogoSerializer, CelNapravleniyaSerializer
+    SmertNovorojdennogoSerializer, CelNapravleniyaSerializer, StepenRiskaPosleIshodaSerializer
 
 
 def home(request):
@@ -81,6 +81,7 @@ def sbor_znachenii_spravocnix_tabliz(request):
     kesarevo_sechenie3 = KesarevoSechenie3.objects.all()
     smert_novorojdennogo = SmertNovorojdennogo.objects.all()
     cel_napravleniya = CelNapravleniya.objects.all()
+    stepen_riska_posle_ishoda = StepenRiskaPosleIshoda.objects.all()
 
     data = {
         'rayon': RayonSerializer(rayon, many=True).data,
@@ -128,6 +129,7 @@ def sbor_znachenii_spravocnix_tabliz(request):
         'kesarevo_sechenie3': KesarevoSechenie3Serializer(kesarevo_sechenie3, many=True).data,
         'smert_novorojdennogo': SmertNovorojdennogoSerializer(smert_novorojdennogo, many=True).data,
         'cel_napravleniya': CelNapravleniyaSerializer(cel_napravleniya, many=True).data,
+        'stepen_riska_posle_ishoda': StepenRiskaPosleIshodaSerializer(stepen_riska_posle_ishoda, many=True).data,
     }
 
     return JsonResponse(data)
