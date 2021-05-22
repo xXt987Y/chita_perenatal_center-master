@@ -7,7 +7,8 @@ from rest_framework import routers
 # router.register(r'rayon', RayonViewSet)
 from apps.core.api import RayonViewSetLV, RayonViewSetDV, BeremennayaViewSetLV, BeremennayaViewSetDV, DoctorViewSetLV, \
     DoctorViewSetDV, NovorojdenniyViewSetLV, NovorojdenniyViewSetDV, NapravlenieViewSetLV, NapravlenieViewSetDV, \
-    KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV
+    KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV, \
+    AnketaViewSetLV, AnketaViewSetDV
 
 from apps.core.views import home, sbor_znachenii_spravocnix_tabliz
 
@@ -29,6 +30,8 @@ urlpatterns = [
     path('api/mkb10/<int:pk>', MKB10ViewSetDV.as_view()),
     path('api/smenaJK/', SmenaJKViewSetLV.as_view()),
     path('api/smenaJK/<int:pk>', SmenaJKViewSetDV.as_view()),
+    path('api/anketa/', AnketaViewSetLV.as_view()),
+    path('api/anketa/<int:pk>', AnketaViewSetDV.as_view()),
     # path('api/', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', home, name='home'),

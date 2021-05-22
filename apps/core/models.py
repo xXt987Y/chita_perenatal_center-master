@@ -759,6 +759,14 @@ class Anketa(models.Model):
                                                verbose_name='Диагноз основной (код по МКБ-10)',
                                                on_delete=models.CASCADE, null=True,
                                                blank=True)
+    diagnoz_oslojneniya_mkb10 = models.ForeignKey(MKB10, related_name='diagnoz_oslojneniya_mkb10',
+                                                        verbose_name='Причина смерти матери по МКБ-10',
+                                                        on_delete=models.CASCADE, null=True,
+                                                        blank=True)
+    diagnoz_soputstvuyshiy_mkb10 = models.ForeignKey(MKB10, related_name='diagnoz_soputstvuyshiy_mkb10',
+                                                        verbose_name='Причина смерти матери по МКБ-10',
+                                                        on_delete=models.CASCADE, null=True,
+                                                        blank=True)
     dopolnitelnie_zamechaniya_vracha = models.TextField('Текст рекомендации', null=True, blank=True)
 
     def __str__(self):

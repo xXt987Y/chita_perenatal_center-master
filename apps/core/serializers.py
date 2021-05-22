@@ -8,7 +8,7 @@ from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravle
     StepenSujeniyaTaza, VzyataPodNabludenie, OslojneniyaRodov, Mnogoplodie, NepravilnoePolojeniePloda, \
     FetoplacentarnayaNedostatochnost, RezusSensibilizaciya, Preeklampsiya, PredlejaniePlacenti, UrovenPappa, \
     UrovenBetaHgch, NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, \
-    CelNapravleniya, SmertNovorojdennogo, KesarevoSechenie3, KesarevoSechenie2, KesarevoSechenie1
+    CelNapravleniya, SmertNovorojdennogo, KesarevoSechenie3, KesarevoSechenie2, KesarevoSechenie1, Anketa
 
 
 class RayonSerializer(serializers.ModelSerializer):
@@ -130,120 +130,145 @@ class AKOSerializer(serializers.ModelSerializer):
         model = AKO
         fields = '__all__'
 
+
 class KoagulopatiyaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Koagulopatiya
         fields = '__all__'
+
 
 class FormaSujeniyaTazaSerializer(serializers.ModelSerializer):
     class Meta:
         model = FormaSujeniyaTaza
         fields = '__all__'
 
+
 class StepenSujeniyaTazaSerializer(serializers.ModelSerializer):
     class Meta:
         model = StepenSujeniyaTaza
         fields = '__all__'
+
 
 class VzyataPodNabludenieSerializer(serializers.ModelSerializer):
     class Meta:
         model = VzyataPodNabludenie
         fields = '__all__'
 
+
 class OslojneniyaRodovSerializer(serializers.ModelSerializer):
     class Meta:
         model = OslojneniyaRodov
         fields = '__all__'
+
 
 class PreeklampsiyaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Preeklampsiya
         fields = '__all__'
 
+
 class RezusSensibilizaciyaRodovSerializer(serializers.ModelSerializer):
     class Meta:
         model = RezusSensibilizaciya
         fields = '__all__'
+
 
 class FetoplacentarnayaNedostatochnostSerializer(serializers.ModelSerializer):
     class Meta:
         model = FetoplacentarnayaNedostatochnost
         fields = '__all__'
 
+
 class NepravilnoePolojeniePlodaSerializer(serializers.ModelSerializer):
     class Meta:
         model = NepravilnoePolojeniePloda
         fields = '__all__'
+
 
 class MnogoplodieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mnogoplodie
         fields = '__all__'
 
+
 class PredlejaniePlacentiSerializer(serializers.ModelSerializer):
     class Meta:
         model = PredlejaniePlacenti
         fields = '__all__'
+
 
 class UrovenPappaSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrovenPappa
         fields = '__all__'
 
+
 class UrovenBetaHgchSerializer(serializers.ModelSerializer):
     class Meta:
         model = UrovenBetaHgch
         fields = '__all__'
+
 
 class NalichieVprPoRezultatamUziSerializer(serializers.ModelSerializer):
     class Meta:
         model = NalichieVprPoRezultatamUzi
         fields = '__all__'
 
+
 class ObsheeSostoyaniePlodaSerializer(serializers.ModelSerializer):
     class Meta:
         model = ObsheeSostoyaniePloda
         fields = '__all__'
+
 
 class MestoIshodaSerializer(serializers.ModelSerializer):
     class Meta:
         model = MestoIshoda
         fields = '__all__'
 
+
 class GibelPlodaSerializer(serializers.ModelSerializer):
     class Meta:
         model = GibelPloda
         fields = '__all__'
+
 
 class IshodBeremennostiPappaSerializer(serializers.ModelSerializer):
     class Meta:
         model = IshodBeremennosti
         fields = '__all__'
 
+
 class KesarevoSechenie1Serializer(serializers.ModelSerializer):
     class Meta:
         model = KesarevoSechenie1
         fields = '__all__'
+
 
 class KesarevoSechenie2Serializer(serializers.ModelSerializer):
     class Meta:
         model = KesarevoSechenie2
         fields = '__all__'
 
+
 class KesarevoSechenie3Serializer(serializers.ModelSerializer):
     class Meta:
         model = KesarevoSechenie3
         fields = '__all__'
+
 
 class SmertNovorojdennogoSerializer(serializers.ModelSerializer):
     class Meta:
         model = SmertNovorojdennogo
         fields = '__all__'
 
+
 class CelNapravleniyaSerializer(serializers.ModelSerializer):
     class Meta:
         model = CelNapravleniya
         fields = '__all__'
+
+
 class BeremennayaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Beremennaya
@@ -331,3 +356,18 @@ class SmenaJKSerializer(serializers.ModelSerializer):
 
     def get_med_organiizaciya_title(self, obj):
         return obj.novaya_JK.nazvanie
+
+
+class AnketaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Anketa
+        fields = '__all__'
+
+    familiya_vracha_title = serializers.SerializerMethodField()
+    nomer_anketi_title = serializers.SerializerMethodField()
+
+    def get_familiya_vracha_title(self, obj):
+        return obj.familiya_vracha.fio
+
+    def get_nomer_anketi_title(self, obj):
+        return obj.nomer_anketi.nomer

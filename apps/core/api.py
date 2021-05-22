@@ -7,9 +7,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
-    Smena_JK_u_beremennoy
+    Smena_JK_u_beremennoy, Anketa
 from apps.core.serializers import RayonSerializer, BeremennayaSerializer, DoctorSerializer, NovorojdenniySerializer, \
-    NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer, SmenaJKSerializer
+    NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer, SmenaJKSerializer, AnketaSerializer
 
 
 # class RayonViewSet(viewsets.ModelViewSet):
@@ -226,4 +226,28 @@ class SmenaJKViewSetDV(APIView):
     def get(self, request, pk):
         smenaJK = Smena_JK_u_beremennoy.objects.get(pk=pk)
         serializer = SmenaJKSerializer(smenaJK, many=False)
+        return Response(serializer.data)
+
+
+class AnketaViewSetLV(APIView):
+
+    def get(self, request):
+        or_condition = Q()
+
+        spisok_polei = list(map(lambda x: x.attname, Doctor._meta.fields))
+        for key, value in dict(request.query_params).items():
+            if key in spisok_polei:
+                tmp_key = f'{key}__contains'
+                or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
+
+        anketa = Anketa.objects.filter(or_condition)
+
+        serializer = AnketaSerializer(anketa, many=True)
+        return Response(serializer.data)
+
+class AnketaViewSetDV(APIView):
+
+    def get(self, request, pk):
+        anketa = Anketa.objects.get(pk=pk)
+        serializer = AnketaSerializer(anketa, many=False)
         return Response(serializer.data)

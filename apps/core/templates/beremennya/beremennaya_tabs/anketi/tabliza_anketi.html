@@ -1,0 +1,110 @@
+<div class="h100 tabliza_anketi"></div>
+
+<style>
+
+</style>
+
+<script>
+    'use strict';
+
+    class TablizaAnketi {
+
+        constructor($grid) {
+            let self = this;
+            this.$grid = $grid;
+            this.$grid.jqxGrid(self.nastroiki_grida);
+        }
+
+         get nastroiki_grida() {
+            let self = this;
+            return {
+                width: '100%',
+                height: '100%',
+                source: this.data_adapter,
+                columns: this.colums,
+                enabletooltips: true,
+                localization: RUS_LOCALIZ,
+                filterable: true,
+                showtoolbar: true,
+                pageable: true,
+                columnsresize: true,
+                autorowheight: true,
+                scrollmode: 'logical',
+                rowsheight: 40,
+                toolbarheight: 40,
+                theme: 'arctic',
+                altrows: true,
+                sortable: true,
+                showstatusbar: true,
+                statusbarheight: 25,
+                pagesizeoptions: ['5', '10', '30', '50', '100'],
+                pagesize: 30,
+            }
+        }
+
+        get fields() {
+            return [
+                {name: 'nomer_anketi_title', type: 'number'},
+                {name: 'data_zapolneniya_anketi_vrachem', type: 'data'},
+                {name: 'familiya_vracha_title', type: 'string'},
+                {name: 'nomer_protokola', type: 'string'},
+            ]
+        }
+
+        get colums() {
+            return [
+                {
+                    text: 'Номер анкеты',
+                    datafield: 'nomer_anketi_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '10%',
+
+                },
+                {
+                    text: 'Дата заполнения анкеты врачем',
+                    datafield: 'data_zapolneniya_anketi_vrachem',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '30%',
+
+                },
+                {
+                    text: 'Фамилия врача',
+                    datafield: 'familiya_vracha_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '30%',
+
+                },
+                {
+                    text: 'Номер протокола',
+                    datafield: 'nomer_protokola',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '30%',
+
+                },
+
+            ];
+        }
+
+        get data_adapter() {
+
+            return new $.jqx.dataAdapter({
+                datatype: "json",
+                data: 'data',
+                url: '/api/anketa/',
+                datafields: this.fields,
+                sortcolumn: 'id',
+                sortdirection: 'desc'
+            });
+        }
+    }
+
+
+    let $tabliza_anketi = $('.tabliza_anketi');
+    $(document).ready(function () {
+        new TablizaAnketi($tabliza_anketi);
+    });
+</script>
