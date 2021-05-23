@@ -1,19 +1,15 @@
 <div class="window_doctor">
-
-    <div class="mainDemoContainer2">
-        <div class="window2 h100">
-
-            <div style="overflow: hidden" class="windowContent2 h100">
-                {% include 'partical/doctor/tabliza_doctor.html' %}
-            </div>
-        </div>
+    <div class="tab_doctor">
+         <ul>
+            <li></li>
+        </ul>
+        <div>
+            {% include 'partical/doctor/tabliza_doctor.html' %}</div>
     </div>
-
-
 </div>
 
 <script>
-     class WindowDoctor {
+    class WindowDoctor {
         constructor($window_doctor, $tab, $btn_open_window_doctor) {
             let self = this;
             this.$window = $window_doctor;
