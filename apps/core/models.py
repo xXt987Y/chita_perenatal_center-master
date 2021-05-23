@@ -515,6 +515,8 @@ class Beremennaya(models.Model):
     kesarevo_sechenie = models.ForeignKey(KesarevoSechenie, verbose_name='Кесарево сечение',
                                           on_delete=models.CASCADE, null=True,
                                           blank=True)
+    rubec_na_matke = models.BooleanField('рубец на матке после миомэктомии',
+                                                                       default=False)
     oslojneniya_anomaliyami_rodovoy_deyatelnosti = models.BooleanField('Ослож. аномалиями родовой деятельности',
                                                                        default=False)
     klinicheski_uzkiy_taz = models.BooleanField('Клинически узкий таз', default=False)
@@ -531,6 +533,9 @@ class Beremennaya(models.Model):
     infekcionnie_bolezni_orvi = models.BooleanField('ОРВИ', default=False)
     infekcionnie_bolezni_tuberkulez = models.BooleanField('Туберкулез', default=False)
     infekcionnie_bolezni_virusniy_gepatit = models.BooleanField('Вирусный гепатит', default=False)
+    infekcionnie_bolezni_toksoplazmoz = models.BooleanField('Токсоплазмоз', default=False)
+    infekcionnie_bolezni_virusniy_cmvi = models.BooleanField('ЦМВИ', default=False)
+
     zlokachestvennie_obrazovaniya = models.BooleanField('Наличие в прошлом и настоящем', default=False)
     saharniy_diabed = models.ForeignKey(SaharniyDiabed, verbose_name='Сахарный диабед',
                                         on_delete=models.CASCADE, null=True,
