@@ -7,7 +7,7 @@
             <li>Консультация</li>
             <li>Исход</li>
         </ul>
-        <div>
+        <div class="tab_osnovnie_danie">
             {% include 'beremennya/beremennaya_tabs/osnovnie_dannie.html' %}
         </div>
         <div>
@@ -71,9 +71,9 @@
                     if (response.ok) {
                         response.json().then(function (data) {
                             console.log(data);
-                            self.$window.find('input.fio').val(data['fio']);
-                            self.$window.find('.semeynoe_polojenie').jqxComboBox('selectItem', data['semeynoe_polojenie']);
-                            self.$window.find('.vrednie_privichki_kurenie').jqxCheckBox({ checked:data['vrednie_privichki_kurenie'] });
+                            self.$window.find('.tab_osnovnie_danie input.fio').val(data['fio']);
+                            self.$window.find('.tab_osnovnie_danie .semeynoe_polojenie').jqxComboBox('selectItem', data['semeynoe_polojenie']);
+                            self.$window.find('.tab_osnovnie_danie .vrednie_privichki_kurenie').jqxCheckBox({ checked:data['vrednie_privichki_kurenie'] });
 
                             self.$window.jqxWindow('open');
                         }).catch(function () {
