@@ -15,7 +15,7 @@
 
 <div class="default">
     <div class="text">ФИО беременной:</div>
-    <input type="text" class="fio"/>
+    <input type="text" name="fio" class="fio"/>
 </div>
 
 <div class="default">
@@ -401,7 +401,10 @@
             sourse_stepen_riska = data['stepen_riska'].map(item => item['nazvanie']);
             sourse_doctor = data['doctor'].map(item => item['fio']);
             sourse_rayon = data['rayon'].map(item => item['nazvanie']);
-            sourse_semeynoe_polojenie = data['semeynoe_polojenie'].map(item => item['nazvanie']);
+            sourse_semeynoe_polojenie = data['semeynoe_polojenie'].map(function (item){
+                return {'id':item['id'], 'nazvanie':item['nazvanie']}
+            });
+            console.log(sourse_semeynoe_polojenie);
             sourse_geneticheskie_faktori = data['geneticheskie_faktori'].map(item => item['nazvanie']);
             sourse_menstrualnaya_funkciya = data['menstrualnaya_funkciya'].map(item => item['nazvanie']);
             sourse_besplodie = data['besplodie'].map(item => item['nazvanie']);
@@ -483,12 +486,15 @@
         $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         $(".semeynoe_polojenie").jqxComboBox({
-            selectedIndex: 1,
             source: sourse_semeynoe_polojenie,
             width: '200px',
             height: '30px',
-            theme: 'arctic'
+            theme: 'arctic',
+            displayMember: "nazvanie",
+            valueMember: "id"
         });
+
+
 
         $('.somaticheskie_pokazateli_muzskoy').jqxCheckBox({width: 'auto', theme: 'arctic'});
 

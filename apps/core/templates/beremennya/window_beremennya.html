@@ -64,9 +64,34 @@
             this.on_close();
         }
 
+        open(id = 0) {
+            let self = this;
+            if (id) {
+                fetch(`/api/beremennaya/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            console.log(data);
+                            self.$window.find('input.fio').val(data['fio']);
+                            self.$window.find('.semeynoe_polojenie').jqxComboBox('selectItem', data['semeynoe_polojenie']);
+                            self.$window.find('.vrednie_privichki_kurenie').jqxCheckBox({ checked:data['vrednie_privichki_kurenie'] });
+
+                            self.$window.jqxWindow('open');
+                        }).catch(function () {
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            }
+
+        }
+
         on_close() {
             let self = this;
-            this.$window.on('close', function (){
+            this.$window.on('close', function () {
                 self.$btn_open_window.jqxToggleButton('toggled', false);
             });
         }
@@ -76,7 +101,5 @@
 
     let $window_beremennya = $('.window_beremennya');
     let $tab_beremennya = $('.tab_beremennya');
-    $(function () {
-        new WindowBeremennya($window_beremennya, $tab_beremennya, $btn_open_window_beremennya)
-    })
+    let obj_window_beremennya = new WindowBeremennya($window_beremennya, $tab_beremennya, $btn_open_window_beremennya);
 </script>

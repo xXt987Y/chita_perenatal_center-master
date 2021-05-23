@@ -10,10 +10,19 @@
 
     class TablizaBeremennaya {
 
-        constructor($grid) {
+        constructor($grid, obj_window_beremennya) {
             let self = this;
             this.$grid = $grid;
+            this.obj_window_beremennya = obj_window_beremennya;
+            this.$window_beremennya = $window_beremennya;
             this.$grid.jqxGrid(self.nastroiki_grida);
+
+            this.$grid.on('rowdoubleclick', function (event) {
+
+                self.otkrit_okno_prosmotra(event);
+            });
+
+
         }
 
         get nastroiki_grida() {
@@ -122,10 +131,19 @@
                 sortdirection: 'desc'
             });
         }
+
+        otkrit_okno_prosmotra(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.obj_window_beremennya.open(id)
+            {#open_modal_redaktirovania(id);#}
+        }
+
+
     }
 
     let $tabliza_beremennaya = $('.tabliza_beremennaya');
     $(document).ready(function () {
-        new TablizaBeremennaya($tabliza_beremennaya);
+        new TablizaBeremennaya($tabliza_beremennaya, obj_window_beremennya);
     });
 </script>
