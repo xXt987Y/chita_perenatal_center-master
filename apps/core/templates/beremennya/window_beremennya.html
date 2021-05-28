@@ -14,7 +14,7 @@
             {% include 'beremennya/beremennaya_tabs/anketi/anketi.html' %}
         </div>
         <div>
-            {% include 'beremennya/beremennaya_tabs/napravleniya.html' %}
+            {% include 'beremennya/beremennaya_tabs/napravlenie/napravleniya.html' %}
         </div>
         <div>
             {% include 'beremennya/beremennaya_tabs/konsultaciya.html' %}
@@ -70,10 +70,21 @@
                 fetch(`/api/beremennaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-                            console.log(data);
+                            self.$window.find('.tab_osnovnie_danie .stepen_riska').jqxComboBox('selectItem', data['stepen_riska']);
+                            {#self.$window.find('.tab_osnovnie_danie .data_vzyatiya').jqxDateTimeInput(data['data_vzyatiya']);#}
+                            self.$window.find('.tab_osnovnie_danie .vrach').jqxComboBox('selectItem', data['vrach']);
                             self.$window.find('.tab_osnovnie_danie input.fio').val(data['fio']);
+                            {#self.$window.find('.tab_osnovnie_danie .data_rojdeniya').jqxDateTimeInput(value['jqxDateTimeInput']);#}
+                            self.$window.find('.tab_osnovnie_danie input.vozrast').val(data['vozrast']);
+                            self.$window.find('.tab_osnovnie_danie .mesto_postoyannogo_projivaniya').jqxComboBox('selectItem', data['mesto_postoyannogo_projivaniya']);
+                            self.$window.find('.tab_osnovnie_danie input.nomer_telefona').val(data['nomer_telefona']);
+                            self.$window.find('.tab_osnovnie_danie input.nomer_oms').val(data['nomer_oms']);
+
                             self.$window.find('.tab_osnovnie_danie .semeynoe_polojenie').jqxComboBox('selectItem', data['semeynoe_polojenie']);
-                            self.$window.find('.tab_osnovnie_danie .vrednie_privichki_kurenie').jqxCheckBox({ checked:data['vrednie_privichki_kurenie'] });
+                            self.$window.find('.tab_osnovnie_danie .vrednie_privichki_kurenie').jqxCheckBox({checked: data['vrednie_privichki_kurenie']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_privichki_alco').jqxCheckBox({checked: data['vrednie_privichki_alco']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_privichki_narko').jqxCheckBox({checked: data['vrednie_privichki_narko']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_privichki_toxi').jqxCheckBox({checked: data['vrednie_privichki_toxi']});
 
                             self.$window.jqxWindow('open');
                         }).catch(function () {
