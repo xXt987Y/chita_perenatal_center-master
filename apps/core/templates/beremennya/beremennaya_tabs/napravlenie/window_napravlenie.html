@@ -1,0 +1,139 @@
+<div class="window_napravlenie">
+    <div class="tab_napravlenie">
+        <ul>
+            <li></li>
+        </ul>
+        <div class="wrap_anketi">
+            <div class="default">
+                <div class="text">Пункт направления</div>
+                <div class='punkt_napravleniya'></div>
+            </div>
+
+            <div class="default">
+                <div class="text cel_napravleniya_title">Цель направления:</div>
+                <div class='cel_napravleniya'>
+                    консультация
+                </div>
+                <div class='cel_napravleniya'>
+                    госпитализация
+                </div>
+            </div>
+
+            <div class="default">
+                <div class="text">Предпологаемый диагноз</div>
+                <div class='predpolagaemyi_diagnoz'></div>
+            </div>
+
+            <div class="default">
+                <div class="text diagnoz_podtverjden_title">Диагноз подтвержден:</div>
+                <div class='diagnoz_podtverjden'>
+                    да
+                </div>
+                <div class='diagnoz_podtverjden'>
+                    нет
+                </div>
+            </div>
+
+            <div class="default">
+                <div class="text"> Дата:</div>
+                <div class='data'></div>
+                <div class="doptext">(Дата явки беременной в ЖК с результатом направления)</div>
+            </div>
+
+            <div class="default">
+                <div class="Save">Сохранить</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    class WindowNapravlenie {
+        constructor($window_napravlenie, $tab, $btn_open_window_napravlenie) {
+            let self = this;
+            this.$window = $window_napravlenie;
+            this.$tab = $tab;
+            this.$btn_open_window = $btn_open_window_napravlenie;
+            this.$window.jqxWindow({
+                position: {x: '15%', y: '10%'},
+                maxHeight: 1000,
+                maxWidth: 2200,
+                minHeight: 400,
+                minWidth: 700,
+                theme: 'arctic',
+                height: 400,
+                width: 1200,
+                title: 'Новое направление',
+                autoOpen: false,
+                resizable: true,
+                draggable: true,
+                initContent: function () {
+                    $(self.$tab).jqxTabs({
+                        height: '100%',
+                        width: '100%',
+                        theme: 'arctic',
+                    });
+                }
+            });
+
+            this.on_close();
+        }
+
+        on_close() {
+            let self = this;
+            this.$window.on('close', function () {
+                self.$btn_open_window.jqxToggleButton('toggled', false);
+            });
+        }
+
+    }
+
+    let $window_napravlenie = $('.window_napravlenie');
+    let $tab_napravlenie = $('.tab_napravlenie');
+    $(function () {
+        new WindowNapravlenie($window_napravlenie, $tab_napravlenie, $btn_open_window_napravlenie)
+    })
+
+    $(document).ready(async function () {
+        let sourse_med_organizacia;
+
+
+        await get_mega_json.then(function (data) {
+            sourse_med_organizacia = data['med_organizacia'].map(item => item['nazvanie']);
+        })
+
+
+        //Пункт направления
+        $(".punkt_napravleniya").jqxComboBox({
+            selectedIndex: 1,
+            source: sourse_med_organizacia,
+            width: '300px',
+            height: '30px',
+            theme: 'arctic'
+        });
+
+        //Цель направления
+        $(".cel_napravleniya").jqxRadioButton({width: 200, height: 25, theme: 'arctic'});
+
+        $('.predpolagaemyi_diagnoz').jqxTextArea({
+            placeHolder: '',
+            height: 90,
+            width: '50%',
+            minLength: 1,
+        });
+
+        //Диагноз подтвержден
+        $(".diagnoz_podtverjden").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});
+
+
+        //Дата
+        $(".data").jqxDateTimeInput({width: '120px', height: '25px', theme: 'arctic'});
+
+
+    });
+
+
+</script>
