@@ -66,7 +66,7 @@
 
 <div class="default">
     <div class="text">Социально-угрожаемая:</div>
-    <div class="socialno_ugrojaemaya"></div>
+    <div class="socialno_ugrojaemaya">Да</div>
 </div>
 
 <div class="default">
@@ -150,18 +150,18 @@
     </div>
 </div>
 <div class="default">
-    <div >Резус-факторы беременной/отца:</div>
-    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=1  checked>
-        +/+
+    <div>Резус-факторы беременной/отца:</div>
+    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=1>
+    +/+
     </input>
     <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=2>
-        +/-
+    +/-
     </input>
     <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=3>
-        -/+
+    -/+
     </input>
     <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=4>
-        -/-
+    -/-
     </input>
 </div>
 
@@ -236,12 +236,12 @@
 
 <div class="default">
     <div class="text">Внематочная беременность:</div>
-    <div class="vnematochnaya_beremennost"></div>
+    <div class="vnematochnaya_beremennost">Есть</div>
 </div>
 
 <div class="default">
     <div class="text">Резус-конфликтная беременность:</div>
-    <div class="rezus_konfliktnaya_beremennost"></div>
+    <div class="rezus_konfliktnaya_beremennost">Есть</div>
 </div>
 
 <div class="default">
@@ -259,10 +259,14 @@
 <div class="default">
     <div class="text">Осложнения беременности(анамнез):</div>
     <div style="display: table-column">
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="net" checked> нет</input>
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_umerennoy" > осложн. преэклампсией умеренной</input>
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_tyajoloy"> осложн. преэклампсией тяжелой</input>
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="ekl"> осложн. эклампсией</input>
+        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="net" checked>
+        нет</input>
+        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_umerennoy">
+        осложн. преэклампсией умеренной</input>
+        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_tyajoloy">
+        осложн. преэклампсией тяжелой</input>
+        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="ekl"> осложн.
+        эклампсией</input>
     </div>
     <div style="display: table-column">
         <div class="oslojneniya_beremennosti_anemez_fetoplacent"> осложн. фетоплацент. недостаточностью</div>
@@ -275,16 +279,16 @@
     <div class="text">Осложнения родов(анамнез):</div>
     <div style="display: table-column">
         <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=1 checked>
-            нет
+        нет
         </input>
         <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=2>
-            своевременные
+        своевременные
         </input>
         <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=3>
-            преждевременные
+        преждевременные
         </input>
-        <input class='oslojneniya_rodov' name='oslojneniya_rodov'value=4>
-            запоздалые
+        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=4>
+        запоздалые
         </input>
     </div>
     <div style="display: table-column">
@@ -494,7 +498,12 @@
             valueMember: "id"
         });
 
-        $(".data_vzyatiya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".data_vzyatiya").jqxDateTimeInput({
+            width: '250px',
+            height: '25px',
+            formatString: 'dd.MM.yyyy',
+            theme: 'arctic'
+        });
 
         $(".vrach").jqxComboBox({
             selectedIndex: 1,
@@ -506,7 +515,11 @@
             valueMember: "id"
         });
 
-        $(".data_rojdeniya").jqxDateTimeInput({width: '250px', height: '25px', theme: 'arctic'});
+        $(".data_rojdeniya").jqxDateTimeInput({
+            width: '250px',
+            formatString: 'dd.MM.yyyy',
+            height: '25px', theme: 'arctic'
+        });
 
         $(".mesto_postoyannogo_projivaniya").jqxComboBox({
             selectedIndex: 1,
@@ -756,7 +769,8 @@
         $(".data_pervogo_dnya_posledney_menstruacii").jqxDateTimeInput({
             width: '250px',
             height: '25px',
-            theme: 'arctic'
+            theme: 'arctic',
+            formatString: 'dd.MM.yyyy'
         });
 
         $(".paritet_beremennosti").jqxComboBox({
@@ -810,7 +824,7 @@
         $(".oslojneniya_beremennosti_anemez_prejdevremennoy").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //осложнения родов(анамнез) - радиокнопки
-        $(".oslojneniya_rodov").jqxRadioButton({width: 250, height: 25, theme:'arctic'});
+        $(".oslojneniya_rodov").jqxRadioButton({width: 250, height: 25, theme: 'arctic'});
 
         //осложнения родов(анамнез) - чекбоксы
         $(".oslojneniya_rodov_osl_razrivom").jqxCheckBox({width: 'auto', theme: 'arctic'});
