@@ -71,21 +71,122 @@
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('.tab_osnovnie_danie .stepen_riska').jqxComboBox('selectItem', data['stepen_riska']);
-                            {#self.$window.find('.tab_osnovnie_danie .data_vzyatiya').jqxDateTimeInput(data['data_vzyatiya']);#}
+
+
+                            var parts_vzyatiya = data['data_vzyatiya'].split('.');
+                            var data_vzyatiya_date = new Date(parts_vzyatiya[2], parts_vzyatiya[1] - 1, parts_vzyatiya[0]);
+                            self.$window.find('.tab_osnovnie_danie .data_vzyatiya').jqxDateTimeInput({'value': data_vzyatiya_date});
                             self.$window.find('.tab_osnovnie_danie .vrach').jqxComboBox('selectItem', data['vrach']);
                             self.$window.find('.tab_osnovnie_danie input.fio').val(data['fio']);
-                            {#self.$window.find('.tab_osnovnie_danie .data_rojdeniya').jqxDateTimeInput(value['jqxDateTimeInput']);#}
+
+                            var parts_rojdeniya = data['data_rojdeniya'].split('.');
+                            var data_rojdeniya_date = new Date(parts_rojdeniya[2], parts_rojdeniya[1] - 1, parts_rojdeniya[0]);
+                            self.$window.find('.tab_osnovnie_danie .data_rojdeniya').jqxDateTimeInput({'value': data_rojdeniya_date});
+
                             self.$window.find('.tab_osnovnie_danie input.vozrast').val(data['vozrast']);
                             self.$window.find('.tab_osnovnie_danie .mesto_postoyannogo_projivaniya').jqxComboBox('selectItem', data['mesto_postoyannogo_projivaniya']);
                             self.$window.find('.tab_osnovnie_danie input.nomer_telefona').val(data['nomer_telefona']);
                             self.$window.find('.tab_osnovnie_danie input.nomer_oms').val(data['nomer_oms']);
-
                             self.$window.find('.tab_osnovnie_danie .semeynoe_polojenie').jqxComboBox('selectItem', data['semeynoe_polojenie']);
                             self.$window.find('.tab_osnovnie_danie .vrednie_privichki_kurenie').jqxCheckBox({checked: data['vrednie_privichki_kurenie']});
                             self.$window.find('.tab_osnovnie_danie .vrednie_privichki_alco').jqxCheckBox({checked: data['vrednie_privichki_alco']});
                             self.$window.find('.tab_osnovnie_danie .vrednie_privichki_narko').jqxCheckBox({checked: data['vrednie_privichki_narko']});
                             self.$window.find('.tab_osnovnie_danie .vrednie_privichki_toxi').jqxCheckBox({checked: data['vrednie_privichki_toxi']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_factori_truda_himicheskie').jqxCheckBox({checked: data['vrednie_factori_truda_himicheskie']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_factori_truda_radioactiv').jqxCheckBox({checked: data['vrednie_factori_truda_radioactiv']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_factori_truda_neudvl_jil_ysloviya').jqxCheckBox({checked: data['vrednie_factori_truda_neudvl_jil_ysloviya']});
+                            self.$window.find('.tab_osnovnie_danie .vrednie_factori_truda_priem_lekarstvennih_sredstv').jqxCheckBox({checked: data['vrednie_factori_truda_priem_lekarstvennih_sredstv']});
+                            self.$window.find('.tab_osnovnie_danie .socialno_ugrojaemaya').jqxCheckBox({checked: data['socialno_ugrojaemaya']});
+                            self.$window.find('.tab_osnovnie_danie .somaticheskie_pokazateli_muzskoy').jqxCheckBox({checked: data['somaticheskie_pokazateli_muzskoy']});
+                            self.$window.find('.tab_osnovnie_danie .somaticheskie_pokazateli_girsutizm').jqxCheckBox({checked: data['somaticheskie_pokazateli_girsutizm']});
+                            self.$window.find('.tab_osnovnie_danie input.ves').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.rost').val(data['rost']);
+                            self.$window.find('.tab_osnovnie_danie input.index').val(data['index']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_ds').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_dc').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_dt').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_cd').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_ce').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_cv').val(data['ves']);
 
+                            {#self.$window.find('.tab_osnovnie_danie .rezus_faktori_beremennoy_otca').jqxRadioButton({'value': data['rezus_faktori_beremennoy_otca']});#}
+
+                            self.$window.find('.tab_osnovnie_danie .vzyata_pod_nabludenie').jqxCheckBox({checked: data['vzyata_pod_nabludenie']});
+                            self.$window.find('.tab_osnovnie_danie .geneticheskie_faktori').jqxComboBox('selectItem', data['geneticheskie_faktori']);
+                            self.$window.find('.tab_osnovnie_danie .menstrualnaya_funkciya').jqxComboBox('selectItem', data['menstrualnaya_funkciya']);
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_vospalenie_neroj').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_vospalenie_neroj']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_opuhl').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_opuhl']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_gipoplaziya').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_gipoplaziya']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_operacii_pred').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_operacii_pred']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_istmiko').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_istmiko']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_vospalenie_roj').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_vospalenie_roj']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_mioma').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_mioma']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_poroki').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_poroki']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_operacii_matk').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_operacii_matk']});
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_vnut_pol_organov_onkologiya').jqxCheckBox({checked: data['zabolevanie_vnut_pol_organov_onkologiya']});
+                            self.$window.find('.tab_osnovnie_danie .besplodie').jqxComboBox('selectItem', data['besplodie']);
+
+                            {#self.$window.find('.tab_osnovnie_danie .tip_besplodie').jqxComboBox('selectItem', data['tip_besplodie']);#}
+
+                            self.$window.find('.tab_osnovnie_danie .nastuplenie_beremennosti_v_rezultate_eco').jqxComboBox('selectItem', data['nastuplenie_beremennosti_v_rezultate_eco']);
+                            self.$window.find('.tab_osnovnie_danie .nastuplenie_beremennosti_v_rezultate_ovulyacii').jqxCheckBox({checked: data['nastuplenie_beremennosti_v_rezultate_ovulyacii']});
+
+                            var parts_pervogo = data['data_pervogo_dnya_posledney_menstruacii'].split('.');
+                            var data_pervogo_dnya_posledney_menstruacii_date = new Date(parts_pervogo[2], parts_pervogo[1] - 1, parts_pervogo[0]);
+                            self.$window.find('.tab_osnovnie_danie .data_pervogo_dnya_posledney_menstruacii').jqxDateTimeInput({'value': data_pervogo_dnya_posledney_menstruacii_date});
+
+                            self.$window.find('.tab_osnovnie_danie .vnematochnaya_beremennost').jqxCheckBox({checked: data['vnematochnaya_beremennost']});
+                            self.$window.find('.tab_osnovnie_danie .rezus_konfliktnaya_beremennost').jqxCheckBox({checked: data['rezus_konfliktnaya_beremennost']});
+                            self.$window.find('.tab_osnovnie_danie .gemoliticheskaya_bolezn').jqxCheckBox({checked: data['gemoliticheskaya_bolezn']});
+                            self.$window.find('.tab_osnovnie_danie .iskustvenniy_abort').jqxComboBox('selectItem', data['iskustvenniy_abort']);
+                            self.$window.find('.tab_osnovnie_danie .iskustvenniy_abort_oslojneniya').jqxComboBox('selectItem', data['iskustvenniy_abort_oslojneniya']);
+
+                            {#self.$window.find('.tab_osnovnie_danie .oslojneniya_beremennosti_anemez').jqxRadioButton({'value': data['oslojneniya_beremennosti_anemez']});#}
+
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_beremennosti_anemez_fetoplacent').jqxCheckBox({checked: data['oslojneniya_beremennosti_anemez_fetoplacent']});
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_beremennosti_anemez_obostrenie').jqxCheckBox({checked: data['oslojneniya_beremennosti_anemez_obostrenie']});
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_beremennosti_anemez_prejdevremennoy').jqxCheckBox({checked: data['oslojneniya_beremennosti_anemez_prejdevremennoy']});
+                            {#self.$window.find('.tab_osnovnie_danie .oslojneniya_rodov').jqxRadioButton({'value': data['oslojneniya_rodov']});#}
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_rodov_osl_razrivom').jqxCheckBox({checked: data['oslojneniya_rodov_osl_razrivom']});
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_rodov_osl_krovotech').jqxCheckBox({checked: data['oslojneniya_rodov_osl_krovotech']});
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_rodov_osl_gnoyno').jqxCheckBox({checked: data['oslojneniya_rodov_osl_gnoyno']});
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_rodov_osl_mertvoroj').jqxCheckBox({checked: data['oslojneniya_rodov_osl_mertvoroj']});
+                            self.$window.find('.tab_osnovnie_danie .kesarevo_sechenie').jqxComboBox('selectItem', data['kesarevo_sechenie']);
+                            self.$window.find('.tab_osnovnie_danie .rubec_na_matke').jqxCheckBox({checked: data['rubec_na_matke']});
+                            self.$window.find('.tab_osnovnie_danie .oslojneniya_anomaliyami_rodovoy_deyatelnosti').jqxCheckBox({checked: data['oslojneniya_anomaliyami_rodovoy_deyatelnosti']});
+                            self.$window.find('.tab_osnovnie_danie .klinicheski_uzkiy_taz').jqxCheckBox({checked: data['klinicheski_uzkiy_taz']});
+                            self.$window.find('.tab_osnovnie_danie .plodorazrushayushaya_operaciya').jqxCheckBox({checked: data['plodorazrushayushaya_operaciya']});
+                            self.$window.find('.tab_osnovnie_danie .novorojdenniy_plod_smert').jqxCheckBox({checked: data['novorojdenniy_plod_smert']});
+                            self.$window.find('.tab_osnovnie_danie .novorojdenniy_plod_ves').jqxCheckBox({checked: data['novorojdenniy_plod_ves']});
+                            self.$window.find('.tab_osnovnie_danie .novorojdenniy_plod_nevrolgiych').jqxCheckBox({checked: data['novorojdenniy_plod_nevrolgiych']});
+                            self.$window.find('.tab_osnovnie_danie .novorojdenniy_plod_vpr').jqxCheckBox({checked: data['novorojdenniy_plod_vpr']});
+                            self.$window.find('.tab_osnovnie_danie .novorojdenniy_plod_perinatalnie').jqxCheckBox({checked: data['novorojdenniy_plod_perinatalnie']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_gripp').jqxCheckBox({checked: data['infekcionnie_bolezni_gripp']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_orvi').jqxCheckBox({checked: data['infekcionnie_bolezni_orvi']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_sifilis').jqxCheckBox({checked: data['infekcionnie_bolezni_sifilis']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_tuberkulez').jqxCheckBox({checked: data['infekcionnie_bolezni_tuberkulez']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_vich').jqxCheckBox({checked: data['infekcionnie_bolezni_vich']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_virusniy_gepatit').jqxCheckBox({checked: data['infekcionnie_bolezni_virusniy_gepatit']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_krasnuha').jqxCheckBox({checked: data['infekcionnie_bolezni_krasnuha']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_toksoplazmoz').jqxCheckBox({checked: data['infekcionnie_bolezni_toksoplazmoz']});
+                            self.$window.find('.tab_osnovnie_danie .infekcionnie_bolezni_virusniy_cmvi').jqxCheckBox({checked: data['infekcionnie_bolezni_virusniy_cmvi']});
+                            self.$window.find('.tab_osnovnie_danie .zlokachestvennie_obrazovaniya').jqxCheckBox({checked: data['zlokachestvennie_obrazovaniya']});
+                            self.$window.find('.tab_osnovnie_danie .saharniy_diabed').jqxComboBox('selectItem', data['saharniy_diabed']);
+                            self.$window.find('.tab_osnovnie_danie .gestacionniy_saharniy_diabed').jqxComboBox('selectItem', data['gestacionniy_saharniy_diabed']);
+                            self.$window.find('.tab_osnovnie_danie .zabolevanie_shitovidnoy').jqxComboBox('selectItem', data['zabolevanie_shitovidnoy']);
+                            self.$window.find('.tab_osnovnie_danie .ako').jqxComboBox('selectItem', data['ako']);
+                            self.$window.find('.tab_osnovnie_danie .deincifalniy_sindrom').jqxCheckBox({checked: data['deincifalniy_sindrom']});
+                            self.$window.find('.tab_osnovnie_danie .bolezni_krovi_anemiya').jqxCheckBox({checked: data['bolezni_krovi_anemiya']});
+                            self.$window.find('.tab_osnovnie_danie .bolezni_krovi_trombocitopeniya').jqxCheckBox({checked: data['bolezni_krovi_trombocitopeniya']});
+                            self.$window.find('.tab_osnovnie_danie .bolezni_krovi_trombozi').jqxCheckBox({checked: data['bolezni_krovi_trombozi']});
+                            self.$window.find('.tab_osnovnie_danie .koagulopatiya').jqxComboBox('selectItem', data['koagulopatiya']);
+                            self.$window.find('.tab_osnovnie_danie .psih_rastroystva_psihozi').jqxCheckBox({checked: data['psih_rastroystva_psihozi']});
+                            self.$window.find('.tab_osnovnie_danie .psih_rastroystva_shizofreniya').jqxCheckBox({checked: data['psih_rastroystva_shizofreniya']});
+                            self.$window.find('.tab_osnovnie_danie .psih_rastroystva_narusheniya_lich').jqxCheckBox({checked: data['psih_rastroystva_narusheniya_lich']});
+                            self.$window.find('.tab_osnovnie_danie .psih_rastroystva_umstvennaya_otstalost').jqxCheckBox({checked: data['psih_rastroystva_umstvennaya_otstalost']});
+                            self.$window.find('.tab_osnovnie_danie .bolezni_nervnoy_sistemi_nasledstvennie').jqxCheckBox({checked: data['bolezni_nervnoy_sistemi_nasledstvennie']});
+                            self.$window.find('.tab_osnovnie_danie .bolezni_nervnoy_sistemi_vospalitelnie').jqxCheckBox({checked: data['bolezni_nervnoy_sistemi_vospalitelnie']});
+                            self.$window.find('.tab_osnovnie_danie .bolezni_nervnoy_sistemi_miopiya').jqxCheckBox({checked: data['bolezni_nervnoy_sistemi_miopiya']});
                             self.$window.jqxWindow('open');
                         }).catch(function () {
                             alert('Не могу получить JSON ');
