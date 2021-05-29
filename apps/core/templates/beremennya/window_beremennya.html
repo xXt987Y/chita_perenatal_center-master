@@ -1,5 +1,5 @@
 <div class="window_beremennya">
-    <div class="tab_beremennya">
+    <div style="overflow: hidden" class="tab_beremennya">
         <ul>
             <li>Основные данные</li>
             <li>Анкеты</li>
@@ -22,7 +22,11 @@
         <div>
             {% include 'beremennya/beremennaya_tabs/ishod.html' %}
         </div>
+        <div class="pechat">123</div>
     </div>
+    {#    <div class="pechat">#}
+    {#    <div class="text">Печать</div>#}
+    {#    </div>#}
 </div>
 
 
@@ -34,27 +38,28 @@
 
 
     class WindowBeremennya {
-        constructor($window_beremennya, $tab, $btn_open_window_beremennya) {
+        constructor($window_beremennya, $tab, $btn_open_window_beremennya, $pechat) {
             let self = this;
+            this.$pechat = $pechat;
             this.$window = $($window_beremennya);
             this.$tab = $tab;
             this.$btn_open_window = $btn_open_window_beremennya;
             this.$window.jqxWindow({
-                position: {x: '15%', y: '10%'},
+                position: {x: '10%', y: '10%'},
                 maxHeight: 1000,
                 maxWidth: 2200,
                 minHeight: 400,
                 minWidth: 700,
                 theme: 'arctic',
-                height: 500,
-                width: 1200,
+                height: 750,
+                width: 1400,
                 title: 'Беременная',
                 autoOpen: false,
                 resizable: true,
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '100%',
+                        height: '93%',
                         width: '100%',
                         theme: 'arctic',
                     });
@@ -79,8 +84,8 @@
                             self.$window.find('.tab_osnovnie_danie .vrach').jqxComboBox('selectItem', data['vrach']);
                             self.$window.find('.tab_osnovnie_danie input.fio').val(data['fio']);
 
-                            var parts_rojdeniya = data['data_rojdeniya'].split('.');
-                            var data_rojdeniya_date = new Date(parts_rojdeniya[2], parts_rojdeniya[1] - 1, parts_rojdeniya[0]);
+                            var parts_rojdeniya = data['data_rojdeniya'].split('-');
+                            var data_rojdeniya_date = new Date(parts_rojdeniya[0], parts_rojdeniya[1] - 1, parts_rojdeniya[2]);
                             self.$window.find('.tab_osnovnie_danie .data_rojdeniya').jqxDateTimeInput({'value': data_rojdeniya_date});
 
                             self.$window.find('.tab_osnovnie_danie input.vozrast').val(data['vozrast']);
@@ -102,12 +107,12 @@
                             self.$window.find('.tab_osnovnie_danie input.ves').val(data['ves']);
                             self.$window.find('.tab_osnovnie_danie input.rost').val(data['rost']);
                             self.$window.find('.tab_osnovnie_danie input.index').val(data['index']);
-                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_ds').val(data['ves']);
-                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_dc').val(data['ves']);
-                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_dt').val(data['ves']);
-                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_cd').val(data['ves']);
-                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_ce').val(data['ves']);
-                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_cv').val(data['ves']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_ds').val(data['razmer_taza_ds']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_dc').val(data['razmer_taza_dc']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_dt').val(data['razmer_taza_dt']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_cd').val(data['razmer_taza_cd']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_ce').val(data['razmer_taza_ce']);
+                            self.$window.find('.tab_osnovnie_danie input.razmer_taza_cv').val(data['razmer_taza_cv']);
 
                             {#self.$window.find('.tab_osnovnie_danie .rezus_faktori_beremennoy_otca').jqxRadioButton({'value': data['rezus_faktori_beremennoy_otca']});#}
 
@@ -131,7 +136,7 @@
                             self.$window.find('.tab_osnovnie_danie .nastuplenie_beremennosti_v_rezultate_eco').jqxComboBox('selectItem', data['nastuplenie_beremennosti_v_rezultate_eco']);
                             self.$window.find('.tab_osnovnie_danie .nastuplenie_beremennosti_v_rezultate_ovulyacii').jqxCheckBox({checked: data['nastuplenie_beremennosti_v_rezultate_ovulyacii']});
 
-                            var parts_pervogo = data['data_pervogo_dnya_posledney_menstruacii'].split('.');
+                            var parts_pervogo = data['data_pervogo_dnya_posledney_menstruacii'].split('-');
                             var data_pervogo_dnya_posledney_menstruacii_date = new Date(parts_pervogo[2], parts_pervogo[1] - 1, parts_pervogo[0]);
                             self.$window.find('.tab_osnovnie_danie .data_pervogo_dnya_posledney_menstruacii').jqxDateTimeInput({'value': data_pervogo_dnya_posledney_menstruacii_date});
 
@@ -213,5 +218,6 @@
 
     let $window_beremennya = $('.window_beremennya');
     let $tab_beremennya = $('.tab_beremennya');
-    let obj_window_beremennya = new WindowBeremennya($window_beremennya, $tab_beremennya, $btn_open_window_beremennya);
+    let $pechat = $('.pechat')
+    let obj_window_beremennya = new WindowBeremennya($window_beremennya, $tab_beremennya, $btn_open_window_beremennya, $pechat);
 </script>

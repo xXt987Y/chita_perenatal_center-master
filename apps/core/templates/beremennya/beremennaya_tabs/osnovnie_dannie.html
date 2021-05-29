@@ -15,7 +15,7 @@
 
 <div class="default">
     <div class="text">ФИО беременной:</div>
-    <input type="text" name="fio" class="fio"/>
+    <input type="text" name="fio" class="fio width240"/>
 </div>
 
 <div class="default">
@@ -26,7 +26,7 @@
 
 <div class="default">
     <div class="text">Возраст беременной:</div>
-    <input type="number" class='vozrast' min="0"/>
+    <input type="number" class='vozrast width240' min="0"/>
 </div>
 
 <div class="default">
@@ -57,12 +57,18 @@
 
 <div class="default">
     <div class="text">Вредные факторы труда и быта:</div>
-    <div class="vrednie_factori_truda_himicheskie"> химические</div>
-    <div class="vrednie_factori_truda_radioactiv"> радиоактивные</div>
-    <div class="vrednie_factori_truda_neudvl_jil_ysloviya"> неудовл. жил. условия</div>
-    <div class="vrednie_factori_truda_priem_lekarstvennih_sredstv"> приём лекарств. средств в ранние сроки беременности
+    <div style="display: table-column">
+        <div class="vrednie_factori_truda_himicheskie"> химические</div>
+        <div class="vrednie_factori_truda_radioactiv"> радиоактивные</div>
+    </div>
+    <div style="display: table-column">
+        <div class="vrednie_factori_truda_neudvl_jil_ysloviya"> неудовл. жил. условия</div>
+        <div class="vrednie_factori_truda_priem_lekarstvennih_sredstv"> приём лекарств. средств в ранние сроки
+            беременности
+        </div>
     </div>
 </div>
+
 
 <div class="default">
     <div class="text">Социально-угрожаемая:</div>
@@ -99,58 +105,62 @@
 </div>
 
 <div class="default">
-    <div style="display: inline-table">Размеры таза (пельвиометрия), см:</div>
-    <div>Distantia spinarum (D.s):
-        <div class="ctrl">
-            <span id="viewds">0</span>
-            <input id="rangeds" type="range" min="0" max="50" step="0.1" value="0">
-            <input id="numds" class="razmer_taza_ds" type=number min="0" max="50" step="0,1" value="0"
-                   style="width:100px">
+    <div style="display: inline-table" class="text">Размеры таза (пельвиометрия), см:</div>
+    <div style="display: table-column">
+        <div style="margin: 5px 5px 10px 10px;">Distantia spinarum (D.s):
+            <div class="ctrl">
+                <span id="viewds">0</span>
+                <input id="rangeds" type="range" min="0" max="100" step="0.1" value="0">
+                <input id="numds" class="razmer_taza_ds" type=number min="0" max="100" step="0,1" value="0"
+                       style="width:100px">
+            </div>
+        </div>
+        <div style="margin: 5px 5px 10px 10px;">Distantia cristarum (D.c.):
+            <div class="ctrl">
+                <span id="viewdc">0</span>
+                <input id="rangedc" type="range" min="0" max="100" step="0.1" value="0">
+                <input id="numdc" class="razmer_taza_dc" type=number min="0" max="100" step="0.1" value="0"
+                       style="width:100px">
+            </div>
+        </div>
+        <div style="margin: 5px 5px 10px 10px;">Distantia trochanterica (D.t.):
+            <div class="ctrl">
+                <span id="viewdt">0</span>
+                <input id="rangedt" type="range" min="0" max="100" step="0.1" value="0">
+                <input id="numdt" class="razmer_taza_dt" type=number min="0" max="100" step="0.1" value="0"
+                       style="width:100px">
+            </div>
         </div>
     </div>
-    <div>Distantia cristarum (D.c.):
-        <div class="ctrl">
-            <span id="viewdc">0</span>
-            <input id="rangedc" type="range" min="0" max="50" step="1" value="0">
-            <input id="numdc" class="razmer_taza_dc" type=number min="0" max="50" step="1" value="0"
-                   style="width:100px">
+    <div style="display: table-column">
+        <div style="margin: 5px 5px 10px 10px;">Conjugata diagonalis (C.d.):
+            <div class="ctrl">
+                <span id="viewcd">0</span>
+                <input id="rangecd" type="range" min="0" max="100" step="10" value="0">
+                <input id="numcd" class="razmer_taza_cd" type=number min="0" max="100" step="0.1" value="0"
+                       style="width:100px">
+            </div>
         </div>
-    </div>
-    <div>Distantia trochanterica (D.t.):
-        <div class="ctrl">
-            <span id="viewdt">0</span>
-            <input id="rangedt" type="range" min="0" max="50" step="1" value="0">
-            <input id="numdt" class="razmer_taza_dt" type=number min="0" max="50" step="1" value="0"
-                   style="width:100px">
+        <div style="margin: 5px 5px 10px 10px;">Conjugata externa (C.e.):
+            <div class="ctrl">
+                <span id="viewce">0</span>
+                <input id="rangece" type="range" min="0" max="100" step="0.1" value="0">
+                <input id="numce" class="razmer_taza_ce" type=number min="0" max="100" step="0.1" value="0"
+                       style="width:100px">
+            </div>
         </div>
-    </div>
-    <div>Conjugata diagonalis (C.d.):
-        <div class="ctrl">
-            <span id="viewcd">0</span>
-            <input id="rangecd" type="range" min="0" max="50" step="10" value="0">
-            <input id="numcd" class="razmer_taza_cd" type=number min="0" max="50" step="1" value="0"
-                   style="width:100px">
-        </div>
-    </div>
-    <div>Conjugata externa (C.e.):
-        <div class="ctrl">
-            <span id="viewce">0</span>
-            <input id="rangece" type="range" min="0" max="50" step="1" value="0">
-            <input id="numce" class="razmer_taza_ce" type=number min="0" max="50" step="1" value="0"
-                   style="width:100px">
-        </div>
-    </div>
-    <div>Conjugata vera (C.v.):
-        <div class="ctrl">
-            <span id="viewcv">0</span>
-            <input id="rangecv" type="range" min="0" max="50" step="1" value="0">
-            <input id="numcv" class="razmer_taza_cv" type=number min="0" max="50" step="1" value="0"
-                   style="width:100px">
+        <div style="margin: 5px 5px 10px 10px;">Conjugata vera (C.v.):
+            <div class="ctrl">
+                <span id="viewcv">0</span>
+                <input id="rangecv" type="range" min="0" max="100" step="0.1" value="0">
+                <input id="numcv" class="razmer_taza_cv" type=number min="0" max="100" step="0.1" value="0"
+                       style="width:100px">
+            </div>
         </div>
     </div>
 </div>
 <div class="default">
-    <div>Резус-факторы беременной/отца:</div>
+    <div class="text">Резус-факторы беременной/отца:</div>
     <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=1>
     +/+
     </input>
@@ -210,13 +220,24 @@
 
 <h3>Наступление текущей беременности</h3>
 
-<div class="default">
-    <div>Наступление беременности:</div>
-    <div>В результате ЭКО:</div>
-    <div class="nastuplenie_beremennosti_v_rezultate_eco"></div>
-    <div class="nastuplenie_beremennosti_v_rezultate_ovulyacii">
+<div class="default" style="position: relative; padding-bottom: 25px">
+
+    <div class="text">Наступление беременности:</div>
+    <div class="mt ml" style="width:150px; display: inline;">
+        <div>В результате ЭКО:</div>
+
+
+    </div>
+    <div style="display: inline">
+        <div style="" class="nastuplenie_beremennosti_v_rezultate_eco"></div>
+        <p></p>
+
+    </div>
+    <div style="display: block; position: absolute; left: 40%; top:40px"
+         class="nastuplenie_beremennosti_v_rezultate_ovulyacii">
         в результате стимуляции овуляции медикаментозными средствами
     </div>
+
 </div>
 
 <div class="default">
@@ -252,7 +273,7 @@
 <div class="default">
     <div class="text">Искуственный аборт:</div>
     <div class="iskustvenniy_abort"></div>
-    <div> Осложнения:</div>
+    <div class="mt ml"> Осложнения:</div>
     <div class="iskustvenniy_abort_oslojneniya"></div>
 </div>
 
@@ -336,16 +357,16 @@
 <div class="default">
     <div class="text">Болезни эндокринной системы:</div>
     <div style="display: table-column">
-        <div>сахарный диабет:
+        <div class="ml">сахарный диабет:
             <div class="saharniy_diabed"></div>
         </div>
-        <div>гестационный сахарный диабет:
+        <div class="ml">гестационный сахарный диабет:
             <div class="gestacionniy_saharniy_diabed"></div>
         </div>
-        <div>заболевания щитовидной железы:
+        <div class="ml">заболевания щитовидной железы:
             <div class="zabolevanie_shitovidnoy"></div>
         </div>
-        <div>АКО:
+        <div class="ml">АКО:
             <div class="ako"></div>
         </div>
         <div class="deincifalniy_sindrom"> диэнцефальный синдром</div>
@@ -383,7 +404,8 @@
 </div>
 
 <div class="default">
-    <input class="osnovnie_dannie_btn_save" type="button" value="Сохранить"/>
+    <input style="position: relative; left: 45%;     width: 200px;
+    margin: 3px;" class="osnovnie_dannie_btn_save" type="button" value="Сохранить"/>
 </div>
 
 <script>
@@ -491,7 +513,7 @@
         $(".stepen_riska").jqxComboBox({
             selectedIndex: 1,
             source: sourse_stepen_riska,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic',
             displayMember: "nazvanie",
@@ -508,7 +530,7 @@
         $(".vrach").jqxComboBox({
             selectedIndex: 1,
             source: sourse_doctor,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic',
             displayMember: "fio",
@@ -517,14 +539,15 @@
 
         $(".data_rojdeniya").jqxDateTimeInput({
             width: '250px',
+            height: '25px',
             formatString: 'dd.MM.yyyy',
-            height: '25px', theme: 'arctic'
+            theme: 'arctic'
         });
 
         $(".mesto_postoyannogo_projivaniya").jqxComboBox({
             selectedIndex: 1,
             source: sourse_rayon,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic',
             displayMember: "nazvanie",
@@ -535,7 +558,7 @@
         $(".nomer_telefona").jqxMaskedInput({
             width: '250px',
             height: '25px',
-            mask: '#(###)###-##-##',
+            mask: '###########',
             theme: 'arctic'
         });
 
@@ -543,7 +566,7 @@
         $(".nomer_oms").jqxMaskedInput({
             width: '250px',
             height: '25px',
-            mask: '## ## ########',
+            mask: '################',
             theme: 'arctic'
         });
 
@@ -567,7 +590,7 @@
 
         $(".semeynoe_polojenie").jqxComboBox({
             source: sourse_semeynoe_polojenie,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic',
             displayMember: "nazvanie",
@@ -769,8 +792,8 @@
         $(".data_pervogo_dnya_posledney_menstruacii").jqxDateTimeInput({
             width: '250px',
             height: '25px',
-            theme: 'arctic',
-            formatString: 'dd.MM.yyyy'
+            formatString: 'dd.MM.yyyy',
+            theme: 'arctic'
         });
 
         $(".paritet_beremennosti").jqxComboBox({
@@ -937,7 +960,6 @@
         $(".bolezni_nervnoy_sistemi_miopiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //кнопка сохранить
-        //Кнопка Консультации
         $(".osnovnie_dannie_btn_save").jqxToggleButton({toggled: false, theme: 'arctic'});
         $(".osnovnie_dannie_btn_save").on('click', function () {
             var toggled = $(".osnovnie_dannie_btn_save").jqxToggleButton('toggled');
