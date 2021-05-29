@@ -1,6 +1,6 @@
-<div  class="default">
+<div class="default">
     <div class="text"> Дата исхода:</div>
-    <div class='data_ishoda' ></div>
+    <div class='data_ishoda'></div>
 </div>
 
 <div class="default">
@@ -25,9 +25,9 @@
 
 <div class="default">
     <div class="text">Кесарево сечение:</div>
-    <div class="kesarevo_sechenie1"></div>
-    <div class="kesarevo_sechenie2"></div>
-    <div class="kesarevo_sechenie3"></div>
+    <div class="ml kesarevo_sechenie1"></div>
+    <div class="ml kesarevo_sechenie2"></div>
+    <div class="ml kesarevo_sechenie3"></div>
 </div>
 
 <h3>Осложнения при родоразрешении</h3>
@@ -132,7 +132,12 @@
             sourse_mkb10 = data['mkb10'].map(item => item['nazvanie']);
         })
         //Дата заполения анкеты врачем
-        $(".data_ishoda").jqxDateTimeInput({width: '120px', height: '25px', theme: 'arctic'});
+        $(".data_ishoda").jqxDateTimeInput({
+            width: '250px',
+            height: '25px',
+            formatString: 'dd.MM.yyyy',
+            theme: 'arctic'
+        });
 
         //Место исхода
         $(".mesto_ishoda").jqxComboBox({
@@ -174,7 +179,7 @@
         $(".kesarevo_sechenie1").jqxComboBox({
             selectedIndex: 1,
             source: sourse_kesarevo_sechenie1,
-            width: '150px',
+            width: '250px',
             height: '30px',
             theme: 'arctic',
         });
@@ -182,7 +187,7 @@
         $(".kesarevo_sechenie2").jqxComboBox({
             selectedIndex: 1,
             source: sourse_kesarevo_sechenie2,
-            width: '150px',
+            width: '250px',
             height: '30px',
             theme: 'arctic',
         });
@@ -221,7 +226,12 @@
         $('.smert_materi').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Дата смерти матери
-        $(".data_smerti_materi").jqxDateTimeInput({width: '120px', height: '25px', theme: 'arctic'});
+        $(".data_smerti_materi").jqxDateTimeInput({
+            width: '250px',
+            height: '25px',
+            formatString: 'dd.MM.yyyy',
+            theme: 'arctic'
+        });
 
         //Причина смерти по МКБ10
         $(".prichina_smerti_materi_mkb10").jqxComboBox({

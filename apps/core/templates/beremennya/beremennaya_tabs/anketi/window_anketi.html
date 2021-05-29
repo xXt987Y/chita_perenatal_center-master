@@ -1,5 +1,5 @@
 <div class="window_anketi">
-    <div class="tab_anketi">
+    <div style="overflow: hidden" class="tab_anketi">
         <ul>
             <li></li>
         </ul>
@@ -143,14 +143,17 @@
 
             <div class="default">
                 <div class="text">Несоответствие данных УЗИ сроку гестации:</div>
-                <div class="nesootvetstvie_dannih_uzi_soot">сост. ок. -плод.вод. (количество(ИАЖ), прозрачность, наличие
-                    взвеси,
-                    примес.
-                </div>
-                <div class="nesootvetstvie_dannih_uzi_fetomerii">фетомерии (размеры плодного яйца, эмбриона, плода)
-                </div>
-                <div class="nesootvetstvie_dannih_uzi_placenti">плаценты/хориона (толщина, структура, степень
-                    зрелости)
+                <div style="display: table-column">
+                    <div class="nesootvetstvie_dannih_uzi_soot">сост. ок. -плод.вод. (количество(ИАЖ), прозрачность,
+                        наличие
+                        взвеси,
+                        примес.
+                    </div>
+                    <div class="nesootvetstvie_dannih_uzi_fetomerii">фетомерии (размеры плодного яйца, эмбриона, плода)
+                    </div>
+                    <div class="nesootvetstvie_dannih_uzi_placenti">плаценты/хориона (толщина, структура, степень
+                        зрелости)
+                    </div>
                 </div>
             </div>
 
@@ -162,8 +165,8 @@
             <div class="default">
                 <div class="text">Дата проведения пренатального консилиума:</div>
                 <div class="data_provedeniya_prenatalnogo_konsiliuma"></div>
-                <div class="text">Номер протокола</div>
-                <input style="width: 100px" type="text" class="nomer_protokola"/>
+                <div class="ml mt">Номер протокола</div>
+                <input style="width: 100px; margin-left: 5px;" type="text" class="nomer_protokola "/>
             </div>
 
             <div class="default">
@@ -200,9 +203,8 @@
 
 
             <div class="default">
-                <div>
-                    <input class=" jqxButton14" type="button" value="Сохранить"/>
-                </div>
+                    <input style="position: relative; left: 40%;     width: 200px;
+    margin: 3px;" class="anketi_btn_save" type="button" value="Сохранить"/>
             </div>
 
         </div>
@@ -236,7 +238,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '100%',
+                        height: '93%',
                         width: '100%',
                         theme: 'arctic',
                     });
@@ -293,13 +295,18 @@
         })
 
         //Дата заполения анкеты врачем
-        $(".data_zapolneniya_anketi_vrachem").jqxDateTimeInput({width: '120px', height: '25px', theme: 'arctic'});
+        $(".data_zapolneniya_anketi_vrachem").jqxDateTimeInput({
+            width: '250px',
+            height: '25px',
+            formatString: 'dd.MM.yyyy',
+            theme: 'arctic'
+        });
 
         //Фамилия врача заполневшего анкету
         $(".familiya_vracha").jqxComboBox({
             selectedIndex: 1,
             source: sourse_doctor,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic'
         });
@@ -320,7 +327,7 @@
         $(".preeklampsiya").jqxComboBox({
             selectedIndex: 1,
             source: source_preeklampsiya,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic'
         });
@@ -329,7 +336,7 @@
         $(".rezus_sensibilizaciya").jqxComboBox({
             selectedIndex: 1,
             source: source_rezus_sensibilizaciya,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic'
         });
@@ -341,7 +348,7 @@
         $(".fetoplacentarnaya_nedostatochnost").jqxComboBox({
             selectedIndex: 1,
             source: sourse_fetoplacentarnaya_nedostatochnost,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic'
         });
@@ -355,7 +362,7 @@
         $(".nepravilnoe_polojenie_ploda").jqxComboBox({
             selectedIndex: 1,
             source: sourse_nepravilnoe_polojenie_ploda,
-            width: '200px',
+            width: '250px',
             height: '30px',
             theme: 'arctic'
         });
@@ -416,14 +423,14 @@
         $(".nalichie_vpr_po_rezultatam_uzi").jqxComboBox({
             selectedIndex: 1,
             source: sourse_nalichie_vpr_po_rezultatam_uzi,
-            width: '400px',
+            width: '250px',
             height: '30px',
             theme: 'arctic'
         });
 
         //Дата проведения пренатального консилиума
         $(".data_provedeniya_prenatalnogo_konsiliuma").jqxDateTimeInput({
-            width: '120px',
+            width: '250px',
             height: '25px',
             theme: 'arctic'
         });
@@ -475,7 +482,15 @@
             width: '50%',
             minLength: 1,
         });
+
+        //Кнопка сохранить
+        $(".anketi_btn_save").jqxToggleButton({toggled: false, theme: 'arctic'});
+        $(".anketi_btn_save").on('click', function () {
+            var toggled = $(".anketi_btn_save").jqxToggleButton('toggled');
+        });
     });
+
+
 
 
 </script>
