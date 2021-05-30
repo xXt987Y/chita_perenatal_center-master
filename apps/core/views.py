@@ -31,10 +31,12 @@ def home(request):
     form = BeremennayaFormPart1()
     beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki
     beremennaya_vrednie_factori_form = BeremennayaVrednieFactori
+    beremennaya_form = BeremennayaForm
     return render(request, "home.html", {
         'form': form,
         'beremennaya_vrednie_privichki_form': beremennaya_vrednie_privichki_form,
         'beremennaya_vrednie_factori_form': beremennaya_vrednie_factori_form,
+        'beremennaya_form': beremennaya_form,
     })
 
 

@@ -42,12 +42,8 @@ class BeremennayaVrednieFactori(forms.ModelForm):
             'vrednie_factori_truda_neudvl_jil_ysloviya',
         ]
 
-class BeremennayaVrednieFactori(forms.ModelForm):
+
+class BeremennayaForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
-        fields = [
-            'vrednie_factori_truda_himicheskie',
-            'vrednie_factori_truda_radioactiv',
-            'vrednie_factori_truda_priem_lekarstvennih_sredstv',
-            'vrednie_factori_truda_neudvl_jil_ysloviya',
-        ]
+        fields = '__all__'

@@ -56,6 +56,11 @@
         margin: 7px 5px 7px 0;
     }
 
+    .novaya_beremennaya .doptext {
+        float: right;
+        text-align: left;
+        margin-left: 2px;
+    }
 
 </style>
 <form class="novaya_beremennaya" action="{% url 'home' %}" method="post">
@@ -68,10 +73,18 @@
         <div class="fixP">{{ beremennaya_vrednie_privichki_form.as_p }}</div>
     </div>
 
-     <div class="default">
+    <div class="default">
         <div class="text">Вредные факторы труда и быта:</div>
         <div class="fixP">{{ beremennaya_vrednie_factori_form.as_p }}</div>
     </div>
+
+
+    <div class="default">
+            {{ beremennaya_form.socialno_ugrojaemaya.label_tag }}
+            {{ beremennaya_form.socialno_ugrojaemaya }}
+        <div class="doptext">Да</div>
+    </div>
+
 
     <div class="default">
         <button class="save_beremennaya" type="submit">Сохранить</button>
