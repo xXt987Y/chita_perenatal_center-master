@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.core.models import Beremennaya
+from apps.core.models import Beremennaya, Anketa
 
 
 class BeremennayaFormPart1(forms.ModelForm):
@@ -31,7 +31,6 @@ class BeremennayaVredniePrivichki(forms.ModelForm):
             'vrednie_privichki_toxi',
         ]
 
-
 class BeremennayaVrednieFactori(forms.ModelForm):
     class Meta:
         model = Beremennaya
@@ -41,6 +40,11 @@ class BeremennayaVrednieFactori(forms.ModelForm):
             'vrednie_factori_truda_priem_lekarstvennih_sredstv',
             'vrednie_factori_truda_neudvl_jil_ysloviya',
         ]
+
+class AnketaForm(forms.ModelForm):
+    class Meta:
+        model = Anketa
+        fields = '__all__'
 
 
 class BeremennayaForm(forms.ModelForm):

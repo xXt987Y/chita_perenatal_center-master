@@ -35,6 +35,7 @@ def home(request):
     beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm
     beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm
     beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm
+    anketa_form = AnketaForm()
     return render(request, "home.html", {
         'form': form,
         'beremennaya_vrednie_privichki_form': beremennaya_vrednie_privichki_form,
@@ -43,7 +44,9 @@ def home(request):
         'beremennaya_infekcionnie_bolezni_form': beremennaya_infekcionnie_bolezni_form,
         'beremennaya_razmer_taza_form': beremennaya_razmer_taza_form,
         'beremennaya_zabolevanie_vnut_form': beremennaya_zabolevanie_vnut_form,
+        'anketa_form': anketa_form,
     })
+
 
 
 def sbor_znachenii_spravocnix_tabliz(request):
