@@ -16,19 +16,19 @@
     <script type="text/javascript" src="{% static 'core/jqwidgets-scripts/jqwidgets/jqx-all.js' %}"></script>
 
 </head>
-<body style="height: 100%">
+<body>
 
 
-<div class="wrap h100">
+
     {% include 'partical/menu.html' %}
     {% include 'beremennya/window_beremennya.html' %}
-    {% include 'beremennya/tabliza_beremennya.html' %}
+ <div  style="height: 89%;">  {% include 'beremennya/tabliza_beremennya.html' %}</div>
     {% include 'partical/mkb10/window_mkb10.html' %}
     {% include 'partical/smenaJK/window_smenaJK.html' %}
     {% include 'partical/doctor/window_doktor.html' %}
     {% include 'beremennya/beremennaya_tabs/anketi/window_anketi.html' %}
     {% include 'beremennya/beremennaya_tabs/napravlenie/window_napravlenie.html' %}
-</div>
+
 
 <script src="{% static 'core/script.js' %}"></script>
 <script src="{% static 'core/Poisk.js' %}"></script>

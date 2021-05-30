@@ -18,19 +18,19 @@
 
             <div class="default">
                 <div class="text">Вес беременной:</div>
-                <input style="width: 30px" type="text" class="ves_beremennoy"/>
+                <input style="width: 30px; margin:3px 0px 3px 0px;" type="text" class="ves_beremennoy"/>
                 <div class="doptext">кг</div>
             </div>
 
             <div class="default">
                 <div class="text">Срок беременности, нед.:</div>
-                <input style="width: 30px" type="text" class="srok_beremennosti_po_obektivnim_dannim"/>
+                <input style="width: 30px;   margin:3px 0px 3px 0px;" type="text" class="srok_beremennosti_po_obektivnim_dannim"/>
                 <div class="doptext">по объективным данным</div>
             </div>
 
             <div class="default1">
                 <div class="text"></div>
-                <input style="width: 30px; margin-left: 4px; margin-bottom: 4px;" type="text"
+                <input style="width: 30px; margin:3px 0px 3px 0px;" type="text"
                        class="srok_beremennosti_po_dannim_uzi"/>
                 <div class="doptext">по данным УЗИ</div>
 
@@ -38,7 +38,7 @@
 
             <div class="default1">
                 <div class="combo">
-                    <input style="width: 30px; margin-left: 4px;    margin-bottom: 4px;" type="text"
+                    <input style="width: 30px; margin:3px 0px 3px 0px;" type="text"
                            class="srok_beremennosti_po_pervomu"/>
                     <div class="doptext">по первому шевелению плода</div>
                 </div>
@@ -238,7 +238,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '93%',
+                        height: '90%',
                         width: '100%',
                         theme: 'arctic',
                     });
@@ -304,7 +304,8 @@
 
         //Фамилия врача заполневшего анкету
         $(".familiya_vracha").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_doctor,
             width: '250px',
@@ -326,7 +327,8 @@
 
         //Проэклампсия
         $(".preeklampsiya").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: source_preeklampsiya,
             width: '250px',
@@ -336,7 +338,8 @@
 
         //Резус сенсибилизация
         $(".rezus_sensibilizaciya").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: source_rezus_sensibilizaciya,
             width: '250px',
@@ -349,7 +352,8 @@
 
         //Фетоплацентарная недостаточность
         $(".fetoplacentarnaya_nedostatochnost").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_fetoplacentarnaya_nedostatochnost,
             width: '250px',
@@ -364,7 +368,8 @@
 
         //Неправильное положение плода
         $(".nepravilnoe_polojenie_ploda").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_nepravilnoe_polojenie_ploda,
             width: '250px',
@@ -377,7 +382,8 @@
 
         //Многоплодие
         $(".mnogoplodie").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_mnogoplodie,
             width: '250px',
@@ -390,7 +396,8 @@
 
         //Предлежание плаценты
         $(".predlejanie_placenti").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_predlejanie_placenti,
             width: '250px',
@@ -400,7 +407,8 @@
 
         //Уровень РРАР-А
         $(".uroven_papp_a").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_uroven_papp_a,
             width: '250px',
@@ -410,7 +418,8 @@
 
         //Уровень бета ХГЧ
         $(".uroven_beta_hgch").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_uroven_beta_hgch,
             width: '250px',
@@ -430,7 +439,8 @@
 
         //Наличие ВПР по результатам УЗИ
         $(".nalichie_vpr_po_rezultatam_uzi").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_nalichie_vpr_po_rezultatam_uzi,
             width: '250px',
@@ -448,7 +458,8 @@
 
         //Общее состояние плода
         $(".obshee_sostoyanie_ploda").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_obshee_sostoyanie_ploda,
             width: '250px',
@@ -461,7 +472,8 @@
 
         //Диагноз основной (код по МКБ-10)
         $(".diagnoz_osnovnoy_mkb10").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_mkb10,
             width: '250px',
@@ -471,7 +483,8 @@
 
         //Диагноз осложнения (код по МКБ-10)
         $(".diagnoz_oslojneniya_mkb10").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_mkb10,
             width: '250px',
@@ -481,7 +494,8 @@
 
         //Диагноз сопутствующий (код по МКБ-10)
         $(".diagnoz_soputstvuyshiy_mkb10").jqxDropDownList({
-            filterable: true,
+            filterable:true,
+            filterPlaceHolder:"Найти",
             selectedIndex: 1,
             source: sourse_mkb10,
             width: '250px',
