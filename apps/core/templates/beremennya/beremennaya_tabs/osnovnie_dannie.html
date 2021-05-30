@@ -62,6 +62,12 @@
         margin-left: 2px;
     }
 
+    .novaya_beremennaya h3 {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+    }
+
 </style>
 <form class="novaya_beremennaya" action="{% url 'home' %}" method="post">
     {% csrf_token %}
@@ -80,9 +86,192 @@
 
 
     <div class="default">
-            {{ beremennaya_form.socialno_ugrojaemaya.label_tag }}
-            {{ beremennaya_form.socialno_ugrojaemaya }}
+        {{ beremennaya_form.socialno_ugrojaemaya.label_tag }}
+        {{ beremennaya_form.socialno_ugrojaemaya }}
         <div class="doptext">Да</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.semeynoe_polojenie.label_tag }}
+        {{ beremennaya_form.semeynoe_polojenie }}
+    </div>
+
+    <div class="default">
+        <div class="text">Соматические показатели</div>
+        {{ beremennaya_form.somaticheskie_pokazateli_muzskoy.label_tag }}
+        {{ beremennaya_form.somaticheskie_pokazateli_muzskoy }}
+        {{ beremennaya_form.somaticheskie_pokazateli_girsutizm.label_tag }}
+        {{ beremennaya_form.somaticheskie_pokazateli_girsutizm }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.ves.label_tag }}
+        {{ beremennaya_form.ves }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.rost.label_tag }}
+        {{ beremennaya_form.rost }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.index.label_tag }}
+        {{ beremennaya_form.index }}
+    </div>
+
+    <div class="default">
+        <div class="text">Размеры таза (пельвиометрия),см</div>
+        <div class="fixP">{{  beremennaya_razmer_taza_form.as_p }}</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.forma_sujeniya_taza.label_tag }}
+        {{ beremennaya_form.forma_sujeniya_taza }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.stepen_sujeniya_taza.label_tag }}
+        {{ beremennaya_form.stepen_sujeniya_taza }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.rezus_faktori_beremennoy_otca.label_tag }}
+        {{ beremennaya_form.rezus_faktori_beremennoy_otca }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.vzyata_pod_nabludenie.label_tag }}
+        {{ beremennaya_form.vzyata_pod_nabludenie }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.geneticheskie_faktori.label_tag }}
+        {{ beremennaya_form.geneticheskie_faktori }}
+    </div>
+
+    <h3>Акушерско-гинекологический анамнез</h3>
+
+    <div class="default">
+        {{ beremennaya_form.menstrualnaya_funkciya.label_tag }}
+        {{ beremennaya_form.menstrualnaya_funkciya }}
+    </div>
+
+    <div class="default">
+         <div class="text">Размеры таза (пельвиометрия),см</div>
+        <div class="fixP">{{  beremennaya_razmer_taza_form.as_p }}</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.besplodie.label_tag }}
+        {{ beremennaya_form.besplodie }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.tip_besplodiya.label_tag }}
+        {{ beremennaya_form.tip_besplodiya }}
+    </div>
+
+    <h3>Наступление текущей беременности</h3>
+
+    <div class="default">
+        {{ beremennaya_form.nastuplenie_beremennosti_v_rezultate_eco.label_tag }}
+        {{ beremennaya_form.nastuplenie_beremennosti_v_rezultate_eco }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.nastuplenie_beremennosti_v_rezultate_ovulyacii.label_tag }}
+        {{ beremennaya_form.nastuplenie_beremennosti_v_rezultate_ovulyacii }}
+        <div class="doptext">да</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.data_pervogo_dnya_posledney_menstruacii.label_tag }}
+        {{ beremennaya_form.data_pervogo_dnya_posledney_menstruacii }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.paritet_beremennosti.label_tag }}
+        {{ beremennaya_form.paritet_beremennosti }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.samoproizvolniy_abort.label_tag }}
+        {{ beremennaya_form.samoproizvolniy_abort }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.vnematochnaya_beremennost.label_tag }}
+        {{ beremennaya_form.vnematochnaya_beremennost }}
+        <div class="doptext">да</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.rezus_konfliktnaya_beremennost.label_tag }}
+        {{ beremennaya_form.rezus_konfliktnaya_beremennost }}
+        <div class="doptext">да</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.gemoliticheskaya_bolezn.label_tag }}
+        {{ beremennaya_form.gemoliticheskaya_bolezn }}
+        <div class="doptext">да</div>
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.iskustvenniy_abort.label_tag }}
+        {{ beremennaya_form.iskustvenniy_abort }}
+        {{ beremennaya_form.iskustvenniy_abort_oslojneniya.label_tag }}
+        {{ beremennaya_form.iskustvenniy_abort_oslojneniya }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez.label_tag }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez_fetoplacent.label_tag }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez_fetoplacent }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez_obostrenie.label_tag }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez_obostrenie }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez_prejdevremennoy.label_tag }}
+        {{ beremennaya_form.oslojneniya_beremennosti_anemez_prejdevremennoy }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.oslojneniya_rodov.label_tag }}
+        {{ beremennaya_form.oslojneniya_rodov }}
+        {{ beremennaya_form.oslojneniya_rodov_osl_razrivom.label_tag }}
+        {{ beremennaya_form.oslojneniya_rodov_osl_razrivom }}
+        {{ beremennaya_form.oslojneniya_rodov_osl_gnoyno.label_tag }}
+        {{ beremennaya_form.oslojneniya_rodov_osl_gnoyno }}
+        {{ beremennaya_form.oslojneniya_rodov_osl_mertvoroj.label_tag }}
+        {{ beremennaya_form.oslojneniya_rodov_osl_mertvoroj }}
+        {{ beremennaya_form.kesarevo_sechenie.label_tag }}
+        {{ beremennaya_form.kesarevo_sechenie }}
+        {{ beremennaya_form.rubec_na_matke.label_tag }}
+        {{ beremennaya_form.rubec_na_matke }}
+        {{ beremennaya_form.oslojneniya_anomaliyami_rodovoy_deyatelnosti.label_tag }}
+        {{ beremennaya_form.oslojneniya_anomaliyami_rodovoy_deyatelnosti }}
+        {{ beremennaya_form.klinicheski_uzkiy_taz.label_tag }}
+        {{ beremennaya_form.klinicheski_uzkiy_taz }}
+        {{ beremennaya_form.plodorazrushayushaya_operaciya.label_tag }}
+        {{ beremennaya_form.plodorazrushayushaya_operaciya }}
+    </div>
+
+    <div class="default">
+        {{ beremennaya_form.novorojdenniy_plod_smert.label_tag }}
+        {{ beremennaya_form.novorojdenniy_plod_smert }}
+        {{ beremennaya_form.novorojdenniy_plod_ves.label_tag }}
+        {{ beremennaya_form.novorojdenniy_plod_ves }}
+        {{ beremennaya_form.novorojdenniy_plod_nevrolgiych.label_tag }}
+        {{ beremennaya_form.novorojdenniy_plod_nevrolgiych }}
+        {{ beremennaya_form.novorojdenniy_plod_vpr.label_tag }}
+        {{ beremennaya_form.novorojdenniy_plod_vpr }}
+    </div>
+
+    <h3>Экстрагенитальные заболевания</h3>
+
+    <div class="default">
+        <div class="text">Инфекционные болезни:</div>
+        <div class="fixP">{{ beremennaya_infekcionnie_bolezni_form.as_p }}</div>
     </div>
 
 

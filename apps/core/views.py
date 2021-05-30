@@ -32,11 +32,17 @@ def home(request):
     beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki
     beremennaya_vrednie_factori_form = BeremennayaVrednieFactori
     beremennaya_form = BeremennayaForm
+    beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm
+    beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm
+    beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm
     return render(request, "home.html", {
         'form': form,
         'beremennaya_vrednie_privichki_form': beremennaya_vrednie_privichki_form,
         'beremennaya_vrednie_factori_form': beremennaya_vrednie_factori_form,
         'beremennaya_form': beremennaya_form,
+        'beremennaya_infekcionnie_bolezni_form': beremennaya_infekcionnie_bolezni_form,
+        'beremennaya_razmer_taza_form': beremennaya_razmer_taza_form,
+        'beremennaya_zabolevanie_vnut_form': beremennaya_zabolevanie_vnut_form,
     })
 
 
