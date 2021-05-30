@@ -1,1006 +1,1015 @@
-<div class="default">
-    <div class="text">Степень риска:</div>
-    <div class="stepen_riska"></div>
-</div>
-
-<div class="default">
-    <div class="text">Дата взятия на учет:</div>
-    <div class='data_vzyatiya'></div>
-</div>
-
-<div class="default">
-    <div class="text">Участковый врач:</div>
-    <div class="vrach"></div>
-</div>
-
-<div class="default">
-    <div class="text">ФИО беременной:</div>
-    <input type="text" name="fio" class="fio width240"/>
-</div>
-
-<div class="default">
-    <div class="text">Дата рождения:</div>
-    </br>
-    <div class='data_rojdeniya'></div>
-</div>
-
-<div class="default">
-    <div class="text">Возраст беременной:</div>
-    <input type="number" class='vozrast width240' min="0"/>
-</div>
-
-<div class="default">
-    <div class="text">Место постоянного проживания беременной:</div>
-    <div class="mesto_postoyannogo_projivaniya"></div>
-</div>
-
-<div class="default">
-    <div class="text">№ телефона беременной:</div>
-    <input type="text" class='nomer_telefona'/>
-</div>
-
-<div class="default">
-    <div class="text">№ ОМС беременной:</div>
-    <input type="text" class="nomer_oms"/>
-</div>
-
-
-<h3>Социально-биологические факторы</h3>
-
-<div class="default">
-    <div class="text">Вредные привычки:</div>
-    <div class="vrednie_privichki_kurenie"> курение</div>
-    <div class="vrednie_privichki_alco"> алкоголизм</div>
-    <div class="vrednie_privichki_narko"> наркомания</div>
-    <div class="vrednie_privichki_toxi"> токсикомания</div>
-</div>
-
-<div class="default">
-    <div class="text">Вредные факторы труда и быта:</div>
-    <div style="display: table-column">
-        <div class="vrednie_factori_truda_himicheskie"> химические</div>
-        <div class="vrednie_factori_truda_radioactiv"> радиоактивные</div>
-    </div>
-    <div style="display: table-column">
-        <div class="vrednie_factori_truda_neudvl_jil_ysloviya"> неудовл. жил. условия</div>
-        <div class="vrednie_factori_truda_priem_lekarstvennih_sredstv"> приём лекарств. средств в ранние сроки
-            беременности
-        </div>
-    </div>
-</div>
-
-
-<div class="default">
-    <div class="text">Социально-угрожаемая:</div>
-    <div class="socialno_ugrojaemaya">Да</div>
-</div>
-
-<div class="default">
-    <div class="text">Семейное положение:</div>
-    <div class="semeynoe_polojenie"></div>
-</div>
-
-<div class="default">
-    <div class="text">Соматические показатели:</div>
-    <div class="somaticheskie_pokazateli_muzskoy"> мужской тип телосложения</div>
-    <div class="somaticheskie_pokazateli_girsutizm"> гирсутизм</div>
-</div>
-
-<div class="default">
-    <div class="text">Вес беременной, кг:
-    </div>
-    <input style='margin-top: 3px;' type="number" class='ves' min="0"/>
-</div>
-
-<div class="default">
-    <div class="text">Рост беременной, см:
-    </div>
-    <input style='margin-top: 3px;' type="number" class='rost' min="0"/>
-</div>
-
-<div class="default">
-    <div class="text">Индекс массы тела:
-    </div>
-    <input style='margin-top: 3px;' type="number" class='index' min="0"/>
-</div>
-
-<div class="default">
-    <div style="display: inline-table" class="text">Размеры таза (пельвиометрия), см:</div>
-    <div style="display: table-column">
-        <div style="margin: 5px 5px 10px 10px;">Distantia spinarum (D.s):
-            <div class="ctrl">
-                <span id="viewds">0</span>
-                <input id="rangeds" type="range" min="0" max="100" step="0.1" value="0">
-                <input id="numds" class="razmer_taza_ds" type=number min="0" max="100" step="0,1" value="0"
-                       style="width:100px">
-            </div>
-        </div>
-        <div style="margin: 5px 5px 10px 10px;">Distantia cristarum (D.c.):
-            <div class="ctrl">
-                <span id="viewdc">0</span>
-                <input id="rangedc" type="range" min="0" max="100" step="0.1" value="0">
-                <input id="numdc" class="razmer_taza_dc" type=number min="0" max="100" step="0.1" value="0"
-                       style="width:100px">
-            </div>
-        </div>
-        <div style="margin: 5px 5px 10px 10px;">Distantia trochanterica (D.t.):
-            <div class="ctrl">
-                <span id="viewdt">0</span>
-                <input id="rangedt" type="range" min="0" max="100" step="0.1" value="0">
-                <input id="numdt" class="razmer_taza_dt" type=number min="0" max="100" step="0.1" value="0"
-                       style="width:100px">
-            </div>
-        </div>
-    </div>
-    <div style="display: table-column">
-        <div style="margin: 5px 5px 10px 10px;">Conjugata diagonalis (C.d.):
-            <div class="ctrl">
-                <span id="viewcd">0</span>
-                <input id="rangecd" type="range" min="0" max="100" step="10" value="0">
-                <input id="numcd" class="razmer_taza_cd" type=number min="0" max="100" step="0.1" value="0"
-                       style="width:100px">
-            </div>
-        </div>
-        <div style="margin: 5px 5px 10px 10px;">Conjugata externa (C.e.):
-            <div class="ctrl">
-                <span id="viewce">0</span>
-                <input id="rangece" type="range" min="0" max="100" step="0.1" value="0">
-                <input id="numce" class="razmer_taza_ce" type=number min="0" max="100" step="0.1" value="0"
-                       style="width:100px">
-            </div>
-        </div>
-        <div style="margin: 5px 5px 10px 10px;">Conjugata vera (C.v.):
-            <div class="ctrl">
-                <span id="viewcv">0</span>
-                <input id="rangecv" type="range" min="0" max="100" step="0.1" value="0">
-                <input id="numcv" class="razmer_taza_cv" type=number min="0" max="100" step="0.1" value="0"
-                       style="width:100px">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="default">
-    <div class="text">Резус-факторы беременной/отца:</div>
-    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=1>
-    +/+
-    </input>
-    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=2>
-    +/-
-    </input>
-    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=3>
-    -/+
-    </input>
-    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=4>
-    -/-
-    </input>
-</div>
-
-<div class="default">
-    <div class="text">Взята под наблюдение:</div>
-    <div class="vzyata_pod_nabludenie"> после 12 нед. берем-сти</div>
-</div>
-
-<div class="default">
-    <div class="text">Генетические факторы:</div>
-    <div class="geneticheskie_faktori"></div>
-</div>
-
-<h3>Акушерско-гинекологический анамнез</h3>
-
-<div class="default">
-    <div class="text">Менструальная функция:</div>
-    <div class="menstrualnaya_funkciya"></div>
-</div>
-
-<div class="default">
-    <div class="text">Заболевания внутренних половых органов:</div>
-    <div style="display: table-column">
-        <div class="zabolevanie_vnut_pol_organov_vospalenie_neroj"> воспаление придатков у нерожавшей</div>
-        <div class="zabolevanie_vnut_pol_organov_opuhl"> опухолевое образование придатков</div>
-        <div class="zabolevanie_vnut_pol_organov_gipoplaziya"> гипоплазия матки</div>
-        <div class="zabolevanie_vnut_pol_organov_operacii_pred"> операции на придатках</div>
-        <div class="zabolevanie_vnut_pol_organov_istmiko"> истмико-цервикальная недостаточность</div>
-        <div class="zabolevanie_vnut_pol_organov_vospalenie_roj"> воспаление придатков у рожавшей</div>
-        <div class="zabolevanie_vnut_pol_organov_mioma"> миома матки</div>
-        <div class="zabolevanie_vnut_pol_organov_poroki"> пороки развития матки</div>
-        <div class="zabolevanie_vnut_pol_organov_operacii_matk"> операции на матке (кроме кес/сеч)</div>
-        <div class="zabolevanie_vnut_pol_organov_onkologiya"> онкология в анамнезе</div>
-    </div>
-</div>
-
-<div class="default">
-    <div class="text">Бесплодие:</div>
-    <div class="besplodie"></div>
-</div>
-
-<div class="default">
-    <div class="text">Тип бесплодия:</div>
-    <div class="tip_besplodie"></div>
-</div>
-
-<h3>Наступление текущей беременности</h3>
-
-<div class="default" style="position: relative; padding-bottom: 25px">
-
-    <div class="text">Наступление беременности:</div>
-    <div class="mt ml" style="width:150px; display: inline;">
-        <div>В результате ЭКО:</div>
-
-
-    </div>
-    <div style="display: inline">
-        <div style="" class="nastuplenie_beremennosti_v_rezultate_eco"></div>
-        <p></p>
-
-    </div>
-    <div style="display: block; position: absolute; left: 40%; top:40px"
-         class="nastuplenie_beremennosti_v_rezultate_ovulyacii">
-        в результате стимуляции овуляции медикаментозными средствами
-    </div>
-
-</div>
-
-<div class="default">
-    <diV class="text">Дата первого дня последн. менс-ции:</div>
-    <div style="width: 200px;" class='data_pervogo_dnya_posledney_menstruacii'></div>
-</div>
-
-<div class="default">
-    <div class="text">Паритет беременности:</div>
-    <div class="paritet_beremennosti"></div>
-</div>
-
-<div class="default">
-    <div class="text">Самопроизвольный аборт:</div>
-    <div class="samoproizvolniy_abort"></div>
-</div>
-
-<div class="default">
-    <div class="text">Внематочная беременность:</div>
-    <div class="vnematochnaya_beremennost">Есть</div>
-</div>
-
-<div class="default">
-    <div class="text">Резус-конфликтная беременность:</div>
-    <div class="rezus_konfliktnaya_beremennost">Есть</div>
-</div>
-
-<div class="default">
-    <div class="text">Гемолитическая болезнь:</div>
-    <div class="gemoliticheskaya_bolezn"> плода или новорожденного</div>
-</div>
-
-<div class="default">
-    <div class="text">Искуственный аборт:</div>
-    <div class="iskustvenniy_abort"></div>
-    <div class="mt ml"> Осложнения:</div>
-    <div class="iskustvenniy_abort_oslojneniya"></div>
-</div>
-
-<div class="default">
-    <div class="text">Осложнения беременности(анамнез):</div>
-    <div style="display: table-column">
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="net" checked>
-        нет</input>
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_umerennoy">
-        осложн. преэклампсией умеренной</input>
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_tyajoloy">
-        осложн. преэклампсией тяжелой</input>
-        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="ekl"> осложн.
-        эклампсией</input>
-    </div>
-    <div style="display: table-column">
-        <div class="oslojneniya_beremennosti_anemez_fetoplacent"> осложн. фетоплацент. недостаточностью</div>
-        <div class="oslojneniya_beremennosti_anemez_obostrenie"> осложн. обост. экстрагенит. патологии</div>
-        <div class="oslojneniya_beremennosti_anemez_prejdevremennoy"> осложн. преждеврем. отслойкой плаценты</div>
-    </div>
-</div>
-
-<div class="default">
-    <div class="text">Осложнения родов(анамнез):</div>
-    <div style="display: table-column">
-        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=1 checked>
-        нет
-        </input>
-        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=2>
-        своевременные
-        </input>
-        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=3>
-        преждевременные
-        </input>
-        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=4>
-        запоздалые
-        </input>
-    </div>
-    <div style="display: table-column">
-        <div class="oslojneniya_rodov_osl_razrivom">осложн. разрывом мягких родовых путей 2-3 степени</div>
-        <div class="oslojneniya_rodov_osl_krovotech"> осложн. кровотечением</div>
-        <div class="oslojneniya_rodov_osl_gnoyno"> осложн. гнойно-септической инфекцией</div>
-        <div class="oslojneniya_rodov_osl_mertvoroj"> осложн. мертворождением</div>
-        <div>кесарево сечение:</div>
-        <div class="kesarevo_sechenie"></div>
-        <div class="rubec_na_matke"> рубец на матке после миомэктомии</div>
-        <div class="oslojneniya_anomaliyami_rodovoy_deyatelnosti"> осложн. аномалиями родовой деятельности</div>
-        <div class="klinicheski_uzkiy_taz"> клинически узкий таз</div>
-        <div class="plodorazrushayushaya_operaciya"> плодоразрушающая операция</div>
-    </div>
-</div>
-<div class="default">
-    <div class="text">Новорожденный или плод(анамнез):</div>
-    <div style="display: table-column">
-        <div class="novorojdenniy_plod_smert"> смерть в неонатальном периоде</div>
-        <div class="novorojdenniy_plod_ves"> вес новорожденного был менее 2500г или более 4000г</div>
-        <div class="novorojdenniy_plod_nevrolgiych"> неврологические нарушения</div>
-        <div class="novorojdenniy_plod_vpr"> ВПР</div>
-        <div class="novorojdenniy_plod_perinatalnie"> перинатальные потери</div>
-    </div>
-</div>
-<h3>Экстрагенитальные заболевания</h3>
-<div class="default">
-    <div class="text">Инфекционные болезни:</div>
-    <div style="display: table-column">
-        <div class="infekcionnie_bolezni_gripp"> грипп</div>
-        <div class="infekcionnie_bolezni_orvi"> ОРВИ</div>
-        <div class="infekcionnie_bolezni_sifilis"> сифилис</div>
-        <div class="infekcionnie_bolezni_tuberkulez"> туберкулез</div>
-        <div class="infekcionnie_bolezni_vich"> ВИЧ-инфекция</div>
-        <div class="infekcionnie_bolezni_virusniy_gepatit"> вирусный гепатит</div>
-        <div class="infekcionnie_bolezni_krasnuha"> краснуха</div>
-        <div class="infekcionnie_bolezni_toksoplazmoz"> токсоплазмоз</div>
-        <div class="infekcionnie_bolezni_virusniy_cmvi"> ЦМВИ</div>
-    </div>
-</div>
-<div class="default">
-    <div class="text">Злокачественные новообразования:</div>
-    <div class="zlokachestvennie_obrazovaniya"> наличие в прошлом или настоящем</div>
-</div>
-<div class="default">
-    <div class="text">Болезни эндокринной системы:</div>
-    <div style="display: table-column">
-        <div class="ml">сахарный диабет:
-            <div class="saharniy_diabed"></div>
-        </div>
-        <div class="ml">гестационный сахарный диабет:
-            <div class="gestacionniy_saharniy_diabed"></div>
-        </div>
-        <div class="ml">заболевания щитовидной железы:
-            <div class="zabolevanie_shitovidnoy"></div>
-        </div>
-        <div class="ml">АКО:
-            <div class="ako"></div>
-        </div>
-        <div class="deincifalniy_sindrom"> диэнцефальный синдром</div>
-    </div>
-</div>
-<div class="default">
-    <div class="text">Болезни крови и кроветворных органов:</div>
-    <div style="display: table-column">
-        <div class="bolezni_krovi_anemiya">анемия всех степеней</div>
-        <div class="bolezni_krovi_trombocitopeniya">тромбоцитопения</div>
-        <div class="bolezni_krovi_trombozi">тромбозы</div>
-        <div>коагулопатия:
-            <div class="koagulopatiya"></div>
-        </div>
-    </div>
-</div>
-<div class="default">
-    <div class="text">Психические расстройства:</div>
-    <div style="display: table-column">
-        <div class="psih_rastroystva_psihozi">психозы</div>
-        <div class="psih_rastroystva_shizofreniya">шизофрения</div>
-        <div class="psih_rastroystva_narusheniya_lich">нарушения личности</div>
-        <div class="psih_rastroystva_umstvennaya_otstalost">умственная отсталость</div>
-    </div>
-</div>
-
-<div class="default">
-    <div class="text">Болезни нервной системы и органов чувств:</div>
-    <div style="display: table-column">
-        <div class="bolezni_nervnoy_sistemi_nasledstvennie">наследственные и дегенератичные болезни ЦНС</div>
-        <div class="bolezni_nervnoy_sistemi_vospalitelnie">воспалительные болезни ЦНС</div>
-        <div class="bolezni_nervnoy_sistemi_miopiya">миопия высокой степени или миопия с дистрофическими изменениями
-        </div>
-    </div>
-</div>
-
-<div class="default">
-    <input style="position: relative; left: 45%;     width: 200px;
-    margin: 3px;" class="osnovnie_dannie_btn_save" type="button" value="Сохранить"/>
-</div>
-
-<script>
-    $(document).ready(async function () {
-        let sourse_stepen_riska;
-        let sourse_doctor;
-        let sourse_rayon;
-        let sourse_semeynoe_polojenie;
-        let sourse_geneticheskie_faktori;
-        let sourse_menstrualnaya_funkciya;
-        let sourse_besplodie;
-        let sourse_tip_besplodie;
-        let sourse_nastuplenie_beremennosti_v_rezultate;
-        let sourse_paritet_beremennosti;
-        let sourse_samoproizvolniy_abort;
-        let sourse_iskustvenniy_abort;
-        let sourse_oslojneniya_iskustvenniy_abort;
-        let sourse_kesarevo_sechenie;
-        let sourse_saharniy_diabed;
-        let sourse_gestacionniy_saharniy_diabed;
-        let sourse_zabolevanie_shitovidnoy;
-        let sourse_ako;
-        let sourse_koagulopatiya;
-
-        await get_mega_json.then(function (data) {
-            sourse_stepen_riska = data['stepen_riska'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_doctor = data['doctor'].map(function (item) {
-                return {'id': item['id'], 'fio': item['fio']}
-            });
-
-            sourse_rayon = data['rayon'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_semeynoe_polojenie = data['semeynoe_polojenie'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_geneticheskie_faktori = data['geneticheskie_faktori'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_menstrualnaya_funkciya = data['menstrualnaya_funkciya'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_besplodie = data['besplodie'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_tip_besplodie = data['tip_besplodie'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_nastuplenie_beremennosti_v_rezultate = data['nastuplenie_beremennosti_v_rezultate'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_paritet_beremennosti = data['paritet_beremennosti'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_samoproizvolniy_abort = data['samoproizvolniy_abort'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_iskustvenniy_abort = data['iskustvenniy_abort'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_oslojneniya_iskustvenniy_abort = data['oslojneniya_iskustvenniy_abort'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_kesarevo_sechenie = data['kesarevo_sechenie'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_saharniy_diabed = data['saharniy_diabed'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_gestacionniy_saharniy_diabed = data['gestacionniy_saharniy_diabed'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_zabolevanie_shitovidnoy = data['zabolevanie_shitovidnoy'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_ako = data['ako'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-            sourse_koagulopatiya = data['koagulopatiya'].map(function (item) {
-                return {'id': item['id'], 'nazvanie': item['nazvanie']}
-            });
-
-        })
-
-
-        $(".stepen_riska").jqxDropDownList({
-            selectedIndex: 1,
-            source: sourse_stepen_riska,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id",
-            filterable:true,
-            filterPlaceHolder:"Найти",
-        });
-
-        $(".data_vzyatiya").jqxDateTimeInput({
-            width: '250px',
-            height: '25px',
-            formatString: 'dd.MM.yyyy',
-            theme: 'arctic'
-        });
-
-        $(".vrach").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_doctor,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "fio",
-            valueMember: "id"
-        });
-
-        $(".data_rojdeniya").jqxDateTimeInput({
-            width: '250px',
-            height: '25px',
-            formatString: 'dd.MM.yyyy',
-            theme: 'arctic'
-        });
-
-        $(".mesto_postoyannogo_projivaniya").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_rayon,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-
-        //номер телефона с маской
-        $(".nomer_telefona").jqxMaskedInput({
-            width: '250px',
-            height: '25px',
-            mask: '###########',
-            theme: 'arctic'
-        });
-
-        //номер ОМС с маской
-        $(".nomer_oms").jqxMaskedInput({
-            width: '250px',
-            height: '25px',
-            mask: '################',
-            theme: 'arctic'
-        });
-
-        $('.vrednie_privichki_kurenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_privichki_alco').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_privichki_narko').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_privichki_toxi').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_factori_truda_himicheskie').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_factori_truda_radioactiv').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_factori_truda_neudvl_jil_ysloviya').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.vrednie_factori_truda_priem_lekarstvennih_sredstv').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $(".semeynoe_polojenie").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            source: sourse_semeynoe_polojenie,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-
-
-        $('.somaticheskie_pokazateli_muzskoy').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $('.somaticheskie_pokazateli_girsutizm').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //ползунок ds
-        $(document).ready(function () {
-            const num = document.getElementById('numds');
-            const rng = document.getElementById('rangeds');
-            const view = document.getElementById('viewds');
-            const goods = document.querySelectorAll('.good');
-            const set = val => {
-                num.value = val;
-                rng.value = val;
-                view.textContent = val;
-                [...goods].forEach(good => {
-                    const options = good.querySelectorAll('.option');
-                    [...options].forEach(option => {
-                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-                    });
-                });
-            }
-            rng.addEventListener('input', () => set(rng.value));
-            num.addEventListener('change', () => set(num.value));
-        });
-        //ползунок dc
-        $(document).ready(function () {
-            const num = document.getElementById('numdc');
-            const rng = document.getElementById('rangedc');
-            const view = document.getElementById('viewdc');
-            const goods = document.querySelectorAll('.good');
-            const set = val => {
-                num.value = val;
-                rng.value = val;
-                view.textContent = val;
-                [...goods].forEach(good => {
-                    const options = good.querySelectorAll('.option');
-                    [...options].forEach(option => {
-                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-                    });
-                });
-            }
-            rng.addEventListener('input', () => set(rng.value));
-            num.addEventListener('change', () => set(num.value));
-        });
-        //ползунок dt
-        $(document).ready(function () {
-            const num = document.getElementById('numdt');
-            const rng = document.getElementById('rangedt');
-            const view = document.getElementById('viewdt');
-            const goods = document.querySelectorAll('.good');
-            const set = val => {
-                num.value = val;
-                rng.value = val;
-                view.textContent = val;
-                [...goods].forEach(good => {
-                    const options = good.querySelectorAll('.option');
-                    [...options].forEach(option => {
-                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-                    });
-                });
-            }
-            rng.addEventListener('input', () => set(rng.value));
-            num.addEventListener('change', () => set(num.value));
-        });
-        //ползунок cd
-        $(document).ready(function () {
-            const num = document.getElementById('numcd');
-            const rng = document.getElementById('rangecd');
-            const view = document.getElementById('viewcd');
-            const goods = document.querySelectorAll('.good');
-            const set = val => {
-                num.value = val;
-                rng.value = val;
-                view.textContent = val;
-                [...goods].forEach(good => {
-                    const options = good.querySelectorAll('.option');
-                    [...options].forEach(option => {
-                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-                    });
-                });
-            }
-            rng.addEventListener('input', () => set(rng.value));
-            num.addEventListener('change', () => set(num.value));
-        });
-        //ползунок ce
-        $(document).ready(function () {
-            const num = document.getElementById('numce');
-            const rng = document.getElementById('rangece');
-            const view = document.getElementById('viewce');
-            const goods = document.querySelectorAll('.good');
-            const set = val => {
-                num.value = val;
-                rng.value = val;
-                view.textContent = val;
-                [...goods].forEach(good => {
-                    const options = good.querySelectorAll('.option');
-                    [...options].forEach(option => {
-                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-                    });
-                });
-            }
-            rng.addEventListener('input', () => set(rng.value));
-            num.addEventListener('change', () => set(num.value));
-        });
-        //ползунок cv
-        $(document).ready(function () {
-            const num = document.getElementById('numcv');
-            const rng = document.getElementById('rangecv');
-            const view = document.getElementById('viewcv');
-            const goods = document.querySelectorAll('.good');
-            const set = val => {
-                num.value = val;
-                rng.value = val;
-                view.textContent = val;
-                [...goods].forEach(good => {
-                    const options = good.querySelectorAll('.option');
-                    [...options].forEach(option => {
-                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';
-                    });
-                });
-            }
-            rng.addEventListener('input', () => set(rng.value));
-            num.addEventListener('change', () => set(num.value));
-        });
-
-        //радиобтн
-        $(".rezus_faktori_beremennoy_otca").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});
-
-        $('.vzyata_pod_nabludenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        //Генетические факторы комбобокс
-        $(".geneticheskie_faktori").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_geneticheskie_faktori,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        //менструальная функция
-        $(".menstrualnaya_funkciya").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_menstrualnaya_funkciya,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        //Заболевания внутренних половых органов:
-        $('.zabolevanie_vnut_pol_organov_vospalenie_neroj').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_opuhl').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_gipoplaziya').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_operacii_pred').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_istmiko').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_vospalenie_roj').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_mioma').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_poroki').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_operacii_matk').jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $('.zabolevanie_vnut_pol_organov_onkologiya').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        $(".besplodie").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_besplodie,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".tip_besplodie").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_tip_besplodie,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        //наступление текущей беременности
-        $(".nastuplenie_beremennosti_v_rezultate_eco").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_nastuplenie_beremennosti_v_rezultate,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-
-        $(".nastuplenie_beremennosti_v_rezultate_ovulyacii").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".data_pervogo_dnya_posledney_menstruacii").jqxDateTimeInput({
-            width: '250px',
-            height: '25px',
-            formatString: 'dd.MM.yyyy',
-            theme: 'arctic'
-        });
-
-        $(".paritet_beremennosti").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_paritet_beremennosti,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-
-        $(".samoproizvolniy_abort").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_samoproizvolniy_abort,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".vnematochnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".rezus_konfliktnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".gemoliticheskaya_bolezn").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        //Искусственный аборт
-        $(".iskustvenniy_abort").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_iskustvenniy_abort,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".iskustvenniy_abort_oslojneniya").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_oslojneniya_iskustvenniy_abort,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-
-        //Осложнения беременности(анамнез) - радиокнопки
-        $(".oslojneniya_beremennosti_anemez").jqxRadioButton({width: 250, height: 25, theme: 'arctic'});
-
-        //Осложнения беременности(анамнез) - чекбоксы
-        $(".oslojneniya_beremennosti_anemez_fetoplacent").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oslojneniya_beremennosti_anemez_obostrenie").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oslojneniya_beremennosti_anemez_prejdevremennoy").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //осложнения родов(анамнез) - радиокнопки
-        $(".oslojneniya_rodov").jqxRadioButton({width: 250, height: 25, theme: 'arctic'});
-
-        //осложнения родов(анамнез) - чекбоксы
-        $(".oslojneniya_rodov_osl_razrivom").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oslojneniya_rodov_osl_krovotech").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oslojneniya_rodov_osl_gnoyno").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oslojneniya_rodov_osl_mertvoroj").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //кесарево комбобокс
-        $(".kesarevo_sechenie").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_kesarevo_sechenie,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-
-        //осложнения родов(анамнез) - чекбоксы2
-        $(".rubec_na_matke").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".oslojneniya_anomaliyami_rodovoy_deyatelnosti").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".klinicheski_uzkiy_taz").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".plodorazrushayushaya_operaciya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Новорожденный или плод(анамнез) - чекбоксы
-        $(".novorojdenniy_plod_smert").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".novorojdenniy_plod_ves").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".novorojdenniy_plod_nevrolgiych").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".novorojdenniy_plod_vpr").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".novorojdenniy_plod_perinatalnie").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //экстрагенитальные заболевания
-        //инфекционные болезни - чекбоксы
-        $(".infekcionnie_bolezni_gripp").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_orvi").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_sifilis").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_tuberkulez").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_vich").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_virusniy_gepatit").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_krasnuha").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_toksoplazmoz").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".infekcionnie_bolezni_virusniy_cmvi").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //злокачественные образования
-        $(".zlokachestvennie_obrazovaniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //болезни эндокринной системы
-        $(".saharniy_diabed").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_saharniy_diabed,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".gestacionniy_saharniy_diabed").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_gestacionniy_saharniy_diabed,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".zabolevanie_shitovidnoy").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_zabolevanie_shitovidnoy,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".ako").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_ako,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        $(".deincifalniy_sindrom").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //болезни крови и кроветворных органов
-        $(".bolezni_krovi_anemiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".bolezni_krovi_trombocitopeniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".bolezni_krovi_trombozi").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //болезни крови и кроветворных органов - коагулопатия чекбокс
-        $(".koagulopatiya").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_koagulopatiya,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-            displayMember: "nazvanie",
-            valueMember: "id"
-        });
-        //психические расстройства
-        $(".psih_rastroystva_psihozi").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".psih_rastroystva_shizofreniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".psih_rastroystva_narusheniya_lich").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".psih_rastroystva_umstvennaya_otstalost").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //болезни нервной системы и органов чувств
-        $(".bolezni_nervnoy_sistemi_nasledstvennie").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".bolezni_nervnoy_sistemi_vospalitelnie").jqxCheckBox({width: 'auto', theme: 'arctic'});
-        $(".bolezni_nervnoy_sistemi_miopiya").jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //кнопка сохранить
-        $(".osnovnie_dannie_btn_save").jqxToggleButton({toggled: false, theme: 'arctic'});
-        $(".osnovnie_dannie_btn_save").on('click', function () {
-            var toggled = $(".osnovnie_dannie_btn_save").jqxToggleButton('toggled');
-        });
-    });
-</script>
+<style>
+
+</style>
+<form class="novaya_beremennaya" action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+
+{#<div class="default">#}
+{#    <div class="text">Степень риска:</div>#}
+{#    <div class="stepen_riska"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Дата взятия на учет:</div>#}
+{#    <div class='data_vzyatiya'></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Участковый врач:</div>#}
+{#    <div class="vrach"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">ФИО беременной:</div>#}
+{#    <input type="text" name="fio" class="fio width240"/>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Дата рождения:</div>#}
+{#    </br>#}
+{#    <div class='data_rojdeniya'></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Возраст беременной:</div>#}
+{#    <input type="number" class='vozrast width240' min="0"/>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Место постоянного проживания беременной:</div>#}
+{#    <div class="mesto_postoyannogo_projivaniya"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">№ телефона беременной:</div>#}
+{#    <input type="text" class='nomer_telefona'/>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">№ ОМС беременной:</div>#}
+{#    <input type="text" class="nomer_oms"/>#}
+{#</div>#}
+{##}
+{##}
+{#<h3>Социально-биологические факторы</h3>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Вредные привычки:</div>#}
+{#    <div class="vrednie_privichki_kurenie"> курение</div>#}
+{#    <div class="vrednie_privichki_alco"> алкоголизм</div>#}
+{#    <div class="vrednie_privichki_narko"> наркомания</div>#}
+{#    <div class="vrednie_privichki_toxi"> токсикомания</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Вредные факторы труда и быта:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="vrednie_factori_truda_himicheskie"> химические</div>#}
+{#        <div class="vrednie_factori_truda_radioactiv"> радиоактивные</div>#}
+{#    </div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="vrednie_factori_truda_neudvl_jil_ysloviya"> неудовл. жил. условия</div>#}
+{#        <div class="vrednie_factori_truda_priem_lekarstvennih_sredstv"> приём лекарств. средств в ранние сроки#}
+{#            беременности#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Социально-угрожаемая:</div>#}
+{#    <div class="socialno_ugrojaemaya">Да</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Семейное положение:</div>#}
+{#    <div class="semeynoe_polojenie"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Соматические показатели:</div>#}
+{#    <div class="somaticheskie_pokazateli_muzskoy"> мужской тип телосложения</div>#}
+{#    <div class="somaticheskie_pokazateli_girsutizm"> гирсутизм</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Вес беременной, кг:#}
+{#    </div>#}
+{#    <input style='margin-top: 3px;' type="number" class='ves' min="0"/>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Рост беременной, см:#}
+{#    </div>#}
+{#    <input style='margin-top: 3px;' type="number" class='rost' min="0"/>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Индекс массы тела:#}
+{#    </div>#}
+{#    <input style='margin-top: 3px;' type="number" class='index' min="0"/>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div style="display: inline-table" class="text">Размеры таза (пельвиометрия), см:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div style="margin: 5px 5px 10px 10px;">Distantia spinarum (D.s):#}
+{#            <div class="ctrl">#}
+{#                <span id="viewds">0</span>#}
+{#                <input id="rangeds" type="range" min="0" max="100" step="0.1" value="0">#}
+{#                <input id="numds" class="razmer_taza_ds" type=number min="0" max="100" step="0,1" value="0"#}
+{#                       style="width:100px">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div style="margin: 5px 5px 10px 10px;">Distantia cristarum (D.c.):#}
+{#            <div class="ctrl">#}
+{#                <span id="viewdc">0</span>#}
+{#                <input id="rangedc" type="range" min="0" max="100" step="0.1" value="0">#}
+{#                <input id="numdc" class="razmer_taza_dc" type=number min="0" max="100" step="0.1" value="0"#}
+{#                       style="width:100px">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div style="margin: 5px 5px 10px 10px;">Distantia trochanterica (D.t.):#}
+{#            <div class="ctrl">#}
+{#                <span id="viewdt">0</span>#}
+{#                <input id="rangedt" type="range" min="0" max="100" step="0.1" value="0">#}
+{#                <input id="numdt" class="razmer_taza_dt" type=number min="0" max="100" step="0.1" value="0"#}
+{#                       style="width:100px">#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#    <div style="display: table-column">#}
+{#        <div style="margin: 5px 5px 10px 10px;">Conjugata diagonalis (C.d.):#}
+{#            <div class="ctrl">#}
+{#                <span id="viewcd">0</span>#}
+{#                <input id="rangecd" type="range" min="0" max="100" step="10" value="0">#}
+{#                <input id="numcd" class="razmer_taza_cd" type=number min="0" max="100" step="0.1" value="0"#}
+{#                       style="width:100px">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div style="margin: 5px 5px 10px 10px;">Conjugata externa (C.e.):#}
+{#            <div class="ctrl">#}
+{#                <span id="viewce">0</span>#}
+{#                <input id="rangece" type="range" min="0" max="100" step="0.1" value="0">#}
+{#                <input id="numce" class="razmer_taza_ce" type=number min="0" max="100" step="0.1" value="0"#}
+{#                       style="width:100px">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div style="margin: 5px 5px 10px 10px;">Conjugata vera (C.v.):#}
+{#            <div class="ctrl">#}
+{#                <span id="viewcv">0</span>#}
+{#                <input id="rangecv" type="range" min="0" max="100" step="0.1" value="0">#}
+{#                <input id="numcv" class="razmer_taza_cv" type=number min="0" max="100" step="0.1" value="0"#}
+{#                       style="width:100px">#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="default">#}
+{#    <div class="text">Резус-факторы беременной/отца:</div>#}
+{#    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=1>#}
+{#    +/+#}
+{#    </input>#}
+{#    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=2>#}
+{#    +/-#}
+{#    </input>#}
+{#    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=3>#}
+{#    -/+#}
+{#    </input>#}
+{#    <input class="rezus_faktori_beremennoy_otca" name="rezus_faktori_beremennoy_otca" value=4>#}
+{#    -/-#}
+{#    </input>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Взята под наблюдение:</div>#}
+{#    <div class="vzyata_pod_nabludenie"> после 12 нед. берем-сти</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Генетические факторы:</div>#}
+{#    <div class="geneticheskie_faktori"></div>#}
+{#</div>#}
+{##}
+{#<h3>Акушерско-гинекологический анамнез</h3>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Менструальная функция:</div>#}
+{#    <div class="menstrualnaya_funkciya"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Заболевания внутренних половых органов:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="zabolevanie_vnut_pol_organov_vospalenie_neroj"> воспаление придатков у нерожавшей</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_opuhl"> опухолевое образование придатков</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_gipoplaziya"> гипоплазия матки</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_operacii_pred"> операции на придатках</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_istmiko"> истмико-цервикальная недостаточность</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_vospalenie_roj"> воспаление придатков у рожавшей</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_mioma"> миома матки</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_poroki"> пороки развития матки</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_operacii_matk"> операции на матке (кроме кес/сеч)</div>#}
+{#        <div class="zabolevanie_vnut_pol_organov_onkologiya"> онкология в анамнезе</div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Бесплодие:</div>#}
+{#    <div class="besplodie"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Тип бесплодия:</div>#}
+{#    <div class="tip_besplodie"></div>#}
+{#</div>#}
+{##}
+{#<h3>Наступление текущей беременности</h3>#}
+{##}
+{#<div class="default" style="position: relative; padding-bottom: 25px">#}
+{##}
+{#    <div class="text">Наступление беременности:</div>#}
+{#    <div class="mt ml" style="width:150px; display: inline;">#}
+{#        <div>В результате ЭКО:</div>#}
+{##}
+{##}
+{#    </div>#}
+{#    <div style="display: inline">#}
+{#        <div style="" class="nastuplenie_beremennosti_v_rezultate_eco"></div>#}
+{#        <p></p>#}
+{##}
+{#    </div>#}
+{#    <div style="display: block; position: absolute; left: 40%; top:40px"#}
+{#         class="nastuplenie_beremennosti_v_rezultate_ovulyacii">#}
+{#        в результате стимуляции овуляции медикаментозными средствами#}
+{#    </div>#}
+{##}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <diV class="text">Дата первого дня последн. менс-ции:</div>#}
+{#    <div style="width: 200px;" class='data_pervogo_dnya_posledney_menstruacii'></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Паритет беременности:</div>#}
+{#    <div class="paritet_beremennosti"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Самопроизвольный аборт:</div>#}
+{#    <div class="samoproizvolniy_abort"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Внематочная беременность:</div>#}
+{#    <div class="vnematochnaya_beremennost">Есть</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Резус-конфликтная беременность:</div>#}
+{#    <div class="rezus_konfliktnaya_beremennost">Есть</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Гемолитическая болезнь:</div>#}
+{#    <div class="gemoliticheskaya_bolezn"> плода или новорожденного</div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Искуственный аборт:</div>#}
+{#    <div class="iskustvenniy_abort"></div>#}
+{#    <div class="mt ml"> Осложнения:</div>#}
+{#    <div class="iskustvenniy_abort_oslojneniya"></div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Осложнения беременности(анамнез):</div>#}
+{#    <div style="display: table-column">#}
+{#        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="net" checked>#}
+{#        нет</input>#}
+{#        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_umerennoy">#}
+{#        осложн. преэклампсией умеренной</input>#}
+{#        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="preekl_tyajoloy">#}
+{#        осложн. преэклампсией тяжелой</input>#}
+{#        <input class="oslojneniya_beremennosti_anemez" name="oslojneniya_beremennosti_anemez" value="ekl"> осложн.#}
+{#        эклампсией</input>#}
+{#    </div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="oslojneniya_beremennosti_anemez_fetoplacent"> осложн. фетоплацент. недостаточностью</div>#}
+{#        <div class="oslojneniya_beremennosti_anemez_obostrenie"> осложн. обост. экстрагенит. патологии</div>#}
+{#        <div class="oslojneniya_beremennosti_anemez_prejdevremennoy"> осложн. преждеврем. отслойкой плаценты</div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Осложнения родов(анамнез):</div>#}
+{#    <div style="display: table-column">#}
+{#        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=1 checked>#}
+{#        нет#}
+{#        </input>#}
+{#        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=2>#}
+{#        своевременные#}
+{#        </input>#}
+{#        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=3>#}
+{#        преждевременные#}
+{#        </input>#}
+{#        <input class='oslojneniya_rodov' name='oslojneniya_rodov' value=4>#}
+{#        запоздалые#}
+{#        </input>#}
+{#    </div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="oslojneniya_rodov_osl_razrivom">осложн. разрывом мягких родовых путей 2-3 степени</div>#}
+{#        <div class="oslojneniya_rodov_osl_krovotech"> осложн. кровотечением</div>#}
+{#        <div class="oslojneniya_rodov_osl_gnoyno"> осложн. гнойно-септической инфекцией</div>#}
+{#        <div class="oslojneniya_rodov_osl_mertvoroj"> осложн. мертворождением</div>#}
+{#        <div>кесарево сечение:</div>#}
+{#        <div class="kesarevo_sechenie"></div>#}
+{#        <div class="rubec_na_matke"> рубец на матке после миомэктомии</div>#}
+{#        <div class="oslojneniya_anomaliyami_rodovoy_deyatelnosti"> осложн. аномалиями родовой деятельности</div>#}
+{#        <div class="klinicheski_uzkiy_taz"> клинически узкий таз</div>#}
+{#        <div class="plodorazrushayushaya_operaciya"> плодоразрушающая операция</div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="default">#}
+{#    <div class="text">Новорожденный или плод(анамнез):</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="novorojdenniy_plod_smert"> смерть в неонатальном периоде</div>#}
+{#        <div class="novorojdenniy_plod_ves"> вес новорожденного был менее 2500г или более 4000г</div>#}
+{#        <div class="novorojdenniy_plod_nevrolgiych"> неврологические нарушения</div>#}
+{#        <div class="novorojdenniy_plod_vpr"> ВПР</div>#}
+{#        <div class="novorojdenniy_plod_perinatalnie"> перинатальные потери</div>#}
+{#    </div>#}
+{#</div>#}
+{#<h3>Экстрагенитальные заболевания</h3>#}
+{#<div class="default">#}
+{#    <div class="text">Инфекционные болезни:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="infekcionnie_bolezni_gripp"> грипп</div>#}
+{#        <div class="infekcionnie_bolezni_orvi"> ОРВИ</div>#}
+{#        <div class="infekcionnie_bolezni_sifilis"> сифилис</div>#}
+{#        <div class="infekcionnie_bolezni_tuberkulez"> туберкулез</div>#}
+{#        <div class="infekcionnie_bolezni_vich"> ВИЧ-инфекция</div>#}
+{#        <div class="infekcionnie_bolezni_virusniy_gepatit"> вирусный гепатит</div>#}
+{#        <div class="infekcionnie_bolezni_krasnuha"> краснуха</div>#}
+{#        <div class="infekcionnie_bolezni_toksoplazmoz"> токсоплазмоз</div>#}
+{#        <div class="infekcionnie_bolezni_virusniy_cmvi"> ЦМВИ</div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="default">#}
+{#    <div class="text">Злокачественные новообразования:</div>#}
+{#    <div class="zlokachestvennie_obrazovaniya"> наличие в прошлом или настоящем</div>#}
+{#</div>#}
+{#<div class="default">#}
+{#    <div class="text">Болезни эндокринной системы:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="ml">сахарный диабет:#}
+{#            <div class="saharniy_diabed"></div>#}
+{#        </div>#}
+{#        <div class="ml">гестационный сахарный диабет:#}
+{#            <div class="gestacionniy_saharniy_diabed"></div>#}
+{#        </div>#}
+{#        <div class="ml">заболевания щитовидной железы:#}
+{#            <div class="zabolevanie_shitovidnoy"></div>#}
+{#        </div>#}
+{#        <div class="ml">АКО:#}
+{#            <div class="ako"></div>#}
+{#        </div>#}
+{#        <div class="deincifalniy_sindrom"> диэнцефальный синдром</div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="default">#}
+{#    <div class="text">Болезни крови и кроветворных органов:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="bolezni_krovi_anemiya">анемия всех степеней</div>#}
+{#        <div class="bolezni_krovi_trombocitopeniya">тромбоцитопения</div>#}
+{#        <div class="bolezni_krovi_trombozi">тромбозы</div>#}
+{#        <div>коагулопатия:#}
+{#            <div class="koagulopatiya"></div>#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{#<div class="default">#}
+{#    <div class="text">Психические расстройства:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="psih_rastroystva_psihozi">психозы</div>#}
+{#        <div class="psih_rastroystva_shizofreniya">шизофрения</div>#}
+{#        <div class="psih_rastroystva_narusheniya_lich">нарушения личности</div>#}
+{#        <div class="psih_rastroystva_umstvennaya_otstalost">умственная отсталость</div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <div class="text">Болезни нервной системы и органов чувств:</div>#}
+{#    <div style="display: table-column">#}
+{#        <div class="bolezni_nervnoy_sistemi_nasledstvennie">наследственные и дегенератичные болезни ЦНС</div>#}
+{#        <div class="bolezni_nervnoy_sistemi_vospalitelnie">воспалительные болезни ЦНС</div>#}
+{#        <div class="bolezni_nervnoy_sistemi_miopiya">миопия высокой степени или миопия с дистрофическими изменениями#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+{##}
+{#<div class="default">#}
+{#    <input style="position: relative; left: 45%;     width: 200px;#}
+{#    margin: 3px;" class="osnovnie_dannie_btn_save" type="button" value="Сохранить"/>#}
+{#</div>#}
+{##}
+{#<script>#}
+{#    $(document).ready(async function () {#}
+{#        let sourse_stepen_riska;#}
+{#        let sourse_doctor;#}
+{#        let sourse_rayon;#}
+{#        let sourse_semeynoe_polojenie;#}
+{#        let sourse_geneticheskie_faktori;#}
+{#        let sourse_menstrualnaya_funkciya;#}
+{#        let sourse_besplodie;#}
+{#        let sourse_tip_besplodie;#}
+{#        let sourse_nastuplenie_beremennosti_v_rezultate;#}
+{#        let sourse_paritet_beremennosti;#}
+{#        let sourse_samoproizvolniy_abort;#}
+{#        let sourse_iskustvenniy_abort;#}
+{#        let sourse_oslojneniya_iskustvenniy_abort;#}
+{#        let sourse_kesarevo_sechenie;#}
+{#        let sourse_saharniy_diabed;#}
+{#        let sourse_gestacionniy_saharniy_diabed;#}
+{#        let sourse_zabolevanie_shitovidnoy;#}
+{#        let sourse_ako;#}
+{#        let sourse_koagulopatiya;#}
+{##}
+{#        await get_mega_json.then(function (data) {#}
+{#            sourse_stepen_riska = data['stepen_riska'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_doctor = data['doctor'].map(function (item) {#}
+{#                return {'id': item['id'], 'fio': item['fio']}#}
+{#            });#}
+{##}
+{#            sourse_rayon = data['rayon'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_semeynoe_polojenie = data['semeynoe_polojenie'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_geneticheskie_faktori = data['geneticheskie_faktori'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_menstrualnaya_funkciya = data['menstrualnaya_funkciya'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_besplodie = data['besplodie'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_tip_besplodie = data['tip_besplodie'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_nastuplenie_beremennosti_v_rezultate = data['nastuplenie_beremennosti_v_rezultate'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_paritet_beremennosti = data['paritet_beremennosti'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_samoproizvolniy_abort = data['samoproizvolniy_abort'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_iskustvenniy_abort = data['iskustvenniy_abort'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_oslojneniya_iskustvenniy_abort = data['oslojneniya_iskustvenniy_abort'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_kesarevo_sechenie = data['kesarevo_sechenie'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_saharniy_diabed = data['saharniy_diabed'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_gestacionniy_saharniy_diabed = data['gestacionniy_saharniy_diabed'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_zabolevanie_shitovidnoy = data['zabolevanie_shitovidnoy'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_ako = data['ako'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#            sourse_koagulopatiya = data['koagulopatiya'].map(function (item) {#}
+{#                return {'id': item['id'], 'nazvanie': item['nazvanie']}#}
+{#            });#}
+{##}
+{#        })#}
+
+
+{#        $(".stepen_riska").jqxDropDownList({#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_stepen_riska,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id",#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#        });#}
+{##}
+{#        $(".data_vzyatiya").jqxDateTimeInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            formatString: 'dd.MM.yyyy',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        $(".vrach").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_doctor,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "fio",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{#        $(".data_rojdeniya").jqxDateTimeInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            formatString: 'dd.MM.yyyy',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        $(".mesto_postoyannogo_projivaniya").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_rayon,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{#        //номер телефона с маской#}
+{#        $(".nomer_telefona").jqxMaskedInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            mask: '###########',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //номер ОМС с маской#}
+{#        $(".nomer_oms").jqxMaskedInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            mask: '################',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        $('.vrednie_privichki_kurenie').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_privichki_alco').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_privichki_narko').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_privichki_toxi').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_factori_truda_himicheskie').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_factori_truda_radioactiv').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_factori_truda_neudvl_jil_ysloviya').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.vrednie_factori_truda_priem_lekarstvennih_sredstv').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $(".semeynoe_polojenie").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            source: sourse_semeynoe_polojenie,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{##}
+{#        $('.somaticheskie_pokazateli_muzskoy').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $('.somaticheskie_pokazateli_girsutizm').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //ползунок ds#}
+{#        $(document).ready(function () {#}
+{#            const num = document.getElementById('numds');#}
+{#            const rng = document.getElementById('rangeds');#}
+{#            const view = document.getElementById('viewds');#}
+{#            const goods = document.querySelectorAll('.good');#}
+{#            const set = val => {#}
+{#                num.value = val;#}
+{#                rng.value = val;#}
+{#                view.textContent = val;#}
+{#                [...goods].forEach(good => {#}
+{#                    const options = good.querySelectorAll('.option');#}
+{#                    [...options].forEach(option => {#}
+{#                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            rng.addEventListener('input', () => set(rng.value));#}
+{#            num.addEventListener('change', () => set(num.value));#}
+{#        });#}
+{#        //ползунок dc#}
+{#        $(document).ready(function () {#}
+{#            const num = document.getElementById('numdc');#}
+{#            const rng = document.getElementById('rangedc');#}
+{#            const view = document.getElementById('viewdc');#}
+{#            const goods = document.querySelectorAll('.good');#}
+{#            const set = val => {#}
+{#                num.value = val;#}
+{#                rng.value = val;#}
+{#                view.textContent = val;#}
+{#                [...goods].forEach(good => {#}
+{#                    const options = good.querySelectorAll('.option');#}
+{#                    [...options].forEach(option => {#}
+{#                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            rng.addEventListener('input', () => set(rng.value));#}
+{#            num.addEventListener('change', () => set(num.value));#}
+{#        });#}
+{#        //ползунок dt#}
+{#        $(document).ready(function () {#}
+{#            const num = document.getElementById('numdt');#}
+{#            const rng = document.getElementById('rangedt');#}
+{#            const view = document.getElementById('viewdt');#}
+{#            const goods = document.querySelectorAll('.good');#}
+{#            const set = val => {#}
+{#                num.value = val;#}
+{#                rng.value = val;#}
+{#                view.textContent = val;#}
+{#                [...goods].forEach(good => {#}
+{#                    const options = good.querySelectorAll('.option');#}
+{#                    [...options].forEach(option => {#}
+{#                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            rng.addEventListener('input', () => set(rng.value));#}
+{#            num.addEventListener('change', () => set(num.value));#}
+{#        });#}
+{#        //ползунок cd#}
+{#        $(document).ready(function () {#}
+{#            const num = document.getElementById('numcd');#}
+{#            const rng = document.getElementById('rangecd');#}
+{#            const view = document.getElementById('viewcd');#}
+{#            const goods = document.querySelectorAll('.good');#}
+{#            const set = val => {#}
+{#                num.value = val;#}
+{#                rng.value = val;#}
+{#                view.textContent = val;#}
+{#                [...goods].forEach(good => {#}
+{#                    const options = good.querySelectorAll('.option');#}
+{#                    [...options].forEach(option => {#}
+{#                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            rng.addEventListener('input', () => set(rng.value));#}
+{#            num.addEventListener('change', () => set(num.value));#}
+{#        });#}
+{#        //ползунок ce#}
+{#        $(document).ready(function () {#}
+{#            const num = document.getElementById('numce');#}
+{#            const rng = document.getElementById('rangece');#}
+{#            const view = document.getElementById('viewce');#}
+{#            const goods = document.querySelectorAll('.good');#}
+{#            const set = val => {#}
+{#                num.value = val;#}
+{#                rng.value = val;#}
+{#                view.textContent = val;#}
+{#                [...goods].forEach(good => {#}
+{#                    const options = good.querySelectorAll('.option');#}
+{#                    [...options].forEach(option => {#}
+{#                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            rng.addEventListener('input', () => set(rng.value));#}
+{#            num.addEventListener('change', () => set(num.value));#}
+{#        });#}
+{#        //ползунок cv#}
+{#        $(document).ready(function () {#}
+{#            const num = document.getElementById('numcv');#}
+{#            const rng = document.getElementById('rangecv');#}
+{#            const view = document.getElementById('viewcv');#}
+{#            const goods = document.querySelectorAll('.good');#}
+{#            const set = val => {#}
+{#                num.value = val;#}
+{#                rng.value = val;#}
+{#                view.textContent = val;#}
+{#                [...goods].forEach(good => {#}
+{#                    const options = good.querySelectorAll('.option');#}
+{#                    [...options].forEach(option => {#}
+{#                        option.style.display = val >= +option.dataset.from ? 'block' : 'none';#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            rng.addEventListener('input', () => set(rng.value));#}
+{#            num.addEventListener('change', () => set(num.value));#}
+{#        });#}
+{##}
+{#        //радиобтн#}
+{#        $(".rezus_faktori_beremennoy_otca").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});#}
+{##}
+{#        $('.vzyata_pod_nabludenie').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        //Генетические факторы комбобокс#}
+{#        $(".geneticheskie_faktori").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_geneticheskie_faktori,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        //менструальная функция#}
+{#        $(".menstrualnaya_funkciya").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_menstrualnaya_funkciya,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        //Заболевания внутренних половых органов:#}
+{#        $('.zabolevanie_vnut_pol_organov_vospalenie_neroj').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_opuhl').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_gipoplaziya').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_operacii_pred').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_istmiko').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_vospalenie_roj').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_mioma').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_poroki').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_operacii_matk').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $('.zabolevanie_vnut_pol_organov_onkologiya').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        $(".besplodie").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_besplodie,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".tip_besplodie").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_tip_besplodie,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        //наступление текущей беременности#}
+{#        $(".nastuplenie_beremennosti_v_rezultate_eco").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_nastuplenie_beremennosti_v_rezultate,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{#        $(".nastuplenie_beremennosti_v_rezultate_ovulyacii").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".data_pervogo_dnya_posledney_menstruacii").jqxDateTimeInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            formatString: 'dd.MM.yyyy',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        $(".paritet_beremennosti").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_paritet_beremennosti,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{#        $(".samoproizvolniy_abort").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_samoproizvolniy_abort,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".vnematochnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".rezus_konfliktnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".gemoliticheskaya_bolezn").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        //Искусственный аборт#}
+{#        $(".iskustvenniy_abort").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_iskustvenniy_abort,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".iskustvenniy_abort_oslojneniya").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_oslojneniya_iskustvenniy_abort,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{#        //Осложнения беременности(анамнез) - радиокнопки#}
+{#        $(".oslojneniya_beremennosti_anemez").jqxRadioButton({width: 250, height: 25, theme: 'arctic'});#}
+{##}
+{#        //Осложнения беременности(анамнез) - чекбоксы#}
+{#        $(".oslojneniya_beremennosti_anemez_fetoplacent").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".oslojneniya_beremennosti_anemez_obostrenie").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".oslojneniya_beremennosti_anemez_prejdevremennoy").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //осложнения родов(анамнез) - радиокнопки#}
+{#        $(".oslojneniya_rodov").jqxRadioButton({width: 250, height: 25, theme: 'arctic'});#}
+{##}
+{#        //осложнения родов(анамнез) - чекбоксы#}
+{#        $(".oslojneniya_rodov_osl_razrivom").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".oslojneniya_rodov_osl_krovotech").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".oslojneniya_rodov_osl_gnoyno").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".oslojneniya_rodov_osl_mertvoroj").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //кесарево комбобокс#}
+{#        $(".kesarevo_sechenie").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_kesarevo_sechenie,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{##}
+{#        //осложнения родов(анамнез) - чекбоксы2#}
+{#        $(".rubec_na_matke").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".oslojneniya_anomaliyami_rodovoy_deyatelnosti").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".klinicheski_uzkiy_taz").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".plodorazrushayushaya_operaciya").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Новорожденный или плод(анамнез) - чекбоксы#}
+{#        $(".novorojdenniy_plod_smert").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".novorojdenniy_plod_ves").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".novorojdenniy_plod_nevrolgiych").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".novorojdenniy_plod_vpr").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".novorojdenniy_plod_perinatalnie").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //экстрагенитальные заболевания#}
+{#        //инфекционные болезни - чекбоксы#}
+{#        $(".infekcionnie_bolezni_gripp").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_orvi").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_sifilis").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_tuberkulez").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_vich").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_virusniy_gepatit").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_krasnuha").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_toksoplazmoz").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".infekcionnie_bolezni_virusniy_cmvi").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //злокачественные образования#}
+{#        $(".zlokachestvennie_obrazovaniya").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //болезни эндокринной системы#}
+{#        $(".saharniy_diabed").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_saharniy_diabed,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".gestacionniy_saharniy_diabed").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_gestacionniy_saharniy_diabed,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".zabolevanie_shitovidnoy").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_zabolevanie_shitovidnoy,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".ako").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_ako,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        $(".deincifalniy_sindrom").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //болезни крови и кроветворных органов#}
+{#        $(".bolezni_krovi_anemiya").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".bolezni_krovi_trombocitopeniya").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".bolezni_krovi_trombozi").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //болезни крови и кроветворных органов - коагулопатия чекбокс#}
+{#        $(".koagulopatiya").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_koagulopatiya,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#            displayMember: "nazvanie",#}
+{#            valueMember: "id"#}
+{#        });#}
+{#        //психические расстройства#}
+{#        $(".psih_rastroystva_psihozi").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".psih_rastroystva_shizofreniya").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".psih_rastroystva_narusheniya_lich").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".psih_rastroystva_umstvennaya_otstalost").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //болезни нервной системы и органов чувств#}
+{#        $(".bolezni_nervnoy_sistemi_nasledstvennie").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".bolezni_nervnoy_sistemi_vospalitelnie").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{#        $(".bolezni_nervnoy_sistemi_miopiya").jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //кнопка сохранить#}
+{#        $(".osnovnie_dannie_btn_save").jqxToggleButton({toggled: false, theme: 'arctic'});#}
+{#        $(".osnovnie_dannie_btn_save").on('click', function () {#}
+{#            var toggled = $(".osnovnie_dannie_btn_save").jqxToggleButton('toggled');#}
+{#        });#}
+{#    });#}
+{#</script>#}

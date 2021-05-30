@@ -1,9 +1,8 @@
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import render
-from rest_framework.response import Response
 
-from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOrganizacii, MedOrganizacia, Roli, \
-    Polzovateli, Autorecomendacii, StepenRiska, SemeynoePolojenie, Besplodie, MenstrualnayaFunkciya, \
+from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOrganizacii, MedOrganizacia, StepenRiska, \
+    SemeynoePolojenie, Besplodie, MenstrualnayaFunkciya, \
     GeneticheskieFaktori, TipBesplodiya, NastuplenieBeremennostiVRezultate, ParitetBeremennosti, SamoproizvolniyAbort, \
     IskustvenniyAbort, OslojneniyaIskustvenniyAbort, OslojneniyaBeremennostiAnamez, KesarevoSechenie, SaharniyDiabed, \
     GestacionniySaharniyDiabed, ZabolevanieShitovidnoy, AKO, Koagulopatiya, FormaSujeniyaTaza, StepenSujeniyaTaza, \
@@ -25,11 +24,12 @@ from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedOb
     ObsheeSostoyaniePlodaSerializer, GibelPlodaSerializer, IshodBeremennostiPappaSerializer, \
     KesarevoSechenie1Serializer, KesarevoSechenie2Serializer, KesarevoSechenie3Serializer, \
     SmertNovorojdennogoSerializer, CelNapravleniyaSerializer, StepenRiskaPosleIshodaSerializer
+from .forms import *
 
 
 def home(request):
-    return render(request, "home.html")
-
+    form = BeremennayaForm()
+    return render(request, "home.html", {'form': form})
 
 def sbor_znachenii_spravocnix_tabliz(request):
     rayon = Rayon.objects.all()
@@ -96,14 +96,17 @@ def sbor_znachenii_spravocnix_tabliz(request):
         'menstrualnaya_funkciya': MenstrualnayaFunkciyaSerializer(menstrualnaya_funkciya, many=True).data,
         'besplodie': BesplodieSerializer(besplodie, many=True).data,
         'tip_besplodie': TipBesplodiyaSerializer(tip_besplodie, many=True).data,
-        'nastuplenie_beremennosti_v_rezultate': NastuplenieBeremennostiVRezultateSerializer(nastuplenie_beremennosti_v_rezultate, many=True).data,
+        'nastuplenie_beremennosti_v_rezultate': NastuplenieBeremennostiVRezultateSerializer(
+            nastuplenie_beremennosti_v_rezultate, many=True).data,
         'paritet_beremennosti': ParitetBeremennostiSerializer(paritet_beremennosti, many=True).data,
         'samoproizvolniy_abort': SamoproizvolniyAbortSerializer(samoproizvolniy_abort, many=True).data,
         'iskustvenniy_abort': IskustvenniyAbortSerializer(iskustvenniy_abort, many=True).data,
-        'oslojneniya_iskustvenniy_abort': OslojneniyaIskustvenniyAbortSerializer(oslojneniya_iskustvenniy_abort, many=True).data,
+        'oslojneniya_iskustvenniy_abort': OslojneniyaIskustvenniyAbortSerializer(oslojneniya_iskustvenniy_abort,
+                                                                                 many=True).data,
         'kesarevo_sechenie': KesarevoSechenieSerializer(kesarevo_sechenie, many=True).data,
         'saharniy_diabed': SaharniyDiabedSerializer(saharniy_diabed, many=True).data,
-        'gestacionniy_saharniy_diabed': GestacionniySaharniyDiabedSerializer(gestacionniy_saharniy_diabed, many=True).data,
+        'gestacionniy_saharniy_diabed': GestacionniySaharniyDiabedSerializer(gestacionniy_saharniy_diabed,
+                                                                             many=True).data,
         'zabolevanie_shitovidnoy': ZabolevanieShitovidnoySerializer(zabolevanie_shitovidnoy, many=True).data,
         'ako': AKOSerializer(ako, many=True).data,
         'koagulopatiya': KoagulopatiyaSerializer(koagulopatiya, many=True).data,
@@ -119,7 +122,8 @@ def sbor_znachenii_spravocnix_tabliz(request):
         'predlejanie_placenti': PredlejaniePlacentiSerializer(predlejanie_placenti, many=True).data,
         'uroven_pappa': UrovenPappaSerializer(uroven_pappa, many=True).data,
         'uroven_beta_hgch': UrovenBetaHgchSerializer(uroven_beta_hgch, many=True).data,
-        'nalichie_vpr_po_rezultatamUzi': NalichieVprPoRezultatamUziSerializer(nalichie_vpr_po_rezultatamUzi, many=True).data,
+        'nalichie_vpr_po_rezultatamUzi': NalichieVprPoRezultatamUziSerializer(nalichie_vpr_po_rezultatamUzi,
+                                                                              many=True).data,
         'obshee_sostoyanie_ploda': ObsheeSostoyaniePlodaSerializer(obshee_sostoyanie_ploda, many=True).data,
         'mesto_ishoda': MestoIshodaSerializer(mesto_ishoda, many=True).data,
         'gibel_ploda': GibelPlodaSerializer(gibel_ploda, many=True).data,
