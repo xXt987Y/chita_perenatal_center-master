@@ -20,7 +20,8 @@ class BeremennayaFormPart1(forms.ModelForm):
             'nomer_oms',
         ]
 
-class BeremennayaFormPart2(forms.ModelForm):
+
+class BeremennayaVredniePrivichki(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
@@ -28,4 +29,25 @@ class BeremennayaFormPart2(forms.ModelForm):
             'vrednie_privichki_alco',
             'vrednie_privichki_narko',
             'vrednie_privichki_toxi',
+        ]
+
+
+class BeremennayaVrednieFactori(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'vrednie_factori_truda_himicheskie',
+            'vrednie_factori_truda_radioactiv',
+            'vrednie_factori_truda_priem_lekarstvennih_sredstv',
+            'vrednie_factori_truda_neudvl_jil_ysloviya',
+        ]
+
+class BeremennayaVrednieFactori(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'vrednie_factori_truda_himicheskie',
+            'vrednie_factori_truda_radioactiv',
+            'vrednie_factori_truda_priem_lekarstvennih_sredstv',
+            'vrednie_factori_truda_neudvl_jil_ysloviya',
         ]

@@ -1,5 +1,9 @@
 <style>
-    p {
+    .novaya_beremennaya .fixP p {
+        display: inline;
+    }
+
+    .novaya_beremennaya p {
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
         float: left;
@@ -7,7 +11,7 @@
         display: inline-flex;
     }
 
-    label {
+    .novaya_beremennaya label {
         margin: 7px 5px 7px 0;
         width: 40%;
         float: left;
@@ -15,44 +19,65 @@
         height: auto;
     }
 
-    select {
+    .novaya_beremennaya select {
         margin: 4px 3px 4px 3px;
         width: 250px;
     }
 
-    input {
+    .novaya_beremennaya input {
         width: 250px;
     }
 
-    input[type="checkbox"] {
-        width: 13px;
-        height: 13px;
+    .novaya_beremennaya input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
     }
 
-    .save_beremennaya {
+    .novaya_beremennaya .save_beremennaya {
         position: relative;
         left: 40%;
         width: 200px;
         margin: 3px;
     }
 
-    .default {
+    .novaya_beremennaya .default {
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
         float: left;
         width: 100%;
         display: inline-flex;
     }
+
+    .novaya_beremennaya .text {
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+        margin: 7px 5px 7px 0;
+    }
+
+
 </style>
 <form class="novaya_beremennaya" action="{% url 'home' %}" method="post">
     {% csrf_token %}
+
     {{ form.as_p }}
+
     <div class="default">
-        {{ beremennaya_form_part2.vrednie_privichki_kurenie.as_p }}
+        <div class="text">Вредные привычки:</div>
+        <div class="fixP">{{ beremennaya_vrednie_privichki_form.as_p }}</div>
     </div>
+
+     <div class="default">
+        <div class="text">Вредные факторы труда и быта:</div>
+        <div class="fixP">{{ beremennaya_vrednie_factori_form.as_p }}</div>
+    </div>
+
     <div class="default">
         <button class="save_beremennaya" type="submit">Сохранить</button>
     </div>
+
+
 </form>
 
 {#<div class="default">#}

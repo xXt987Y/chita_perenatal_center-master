@@ -29,10 +29,12 @@ from .forms import *
 
 def home(request):
     form = BeremennayaFormPart1()
-    beremennaya_form_part2 = BeremennayaFormPart2
+    beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki
+    beremennaya_vrednie_factori_form = BeremennayaVrednieFactori
     return render(request, "home.html", {
         'form': form,
-        'beremennaya_form_part2': beremennaya_form_part2,
+        'beremennaya_vrednie_privichki_form': beremennaya_vrednie_privichki_form,
+        'beremennaya_vrednie_factori_form': beremennaya_vrednie_factori_form,
     })
 
 
