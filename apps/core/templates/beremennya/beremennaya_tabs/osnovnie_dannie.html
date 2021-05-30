@@ -48,6 +48,9 @@
     {% csrf_token %}
     {{ form.as_p }}
     <div class="default">
+        {{ beremennaya_form_part2.vrednie_privichki_kurenie.as_p }}
+    </div>
+    <div class="default">
         <button class="save_beremennaya" type="submit">Сохранить</button>
     </div>
 </form>

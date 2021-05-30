@@ -28,8 +28,13 @@ from .forms import *
 
 
 def home(request):
-    form = BeremennayaForm()
-    return render(request, "home.html", {'form': form})
+    form = BeremennayaFormPart1()
+    beremennaya_form_part2 = BeremennayaFormPart2
+    return render(request, "home.html", {
+        'form': form,
+        'beremennaya_form_part2': beremennaya_form_part2,
+    })
+
 
 def sbor_znachenii_spravocnix_tabliz(request):
     rayon = Rayon.objects.all()
