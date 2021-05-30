@@ -203,7 +203,7 @@
 
 
             <div class="default">
-                    <input style="position: relative; left: 40%;     width: 200px;
+                <input style="position: relative; left: 40%;     width: 200px;
     margin: 3px;" class="anketi_btn_save" type="button" value="Сохранить"/>
             </div>
 
@@ -303,7 +303,8 @@
         });
 
         //Фамилия врача заполневшего анкету
-        $(".familiya_vracha").jqxComboBox({
+        $(".familiya_vracha").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_doctor,
             width: '250px',
@@ -324,7 +325,8 @@
         $('.antifosfolipidniy_sindrom').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Проэклампсия
-        $(".preeklampsiya").jqxComboBox({
+        $(".preeklampsiya").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: source_preeklampsiya,
             width: '250px',
@@ -333,7 +335,8 @@
         });
 
         //Резус сенсибилизация
-        $(".rezus_sensibilizaciya").jqxComboBox({
+        $(".rezus_sensibilizaciya").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: source_rezus_sensibilizaciya,
             width: '250px',
@@ -345,7 +348,8 @@
         $('.abo_sensibilizaciya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Фетоплацентарная недостаточность
-        $(".fetoplacentarnaya_nedostatochnost").jqxComboBox({
+        $(".fetoplacentarnaya_nedostatochnost").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_fetoplacentarnaya_nedostatochnost,
             width: '250px',
@@ -359,7 +363,8 @@
         $('.narushenie_okoplodnih_vod_mekonialnie').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Неправильное положение плода
-        $(".nepravilnoe_polojenie_ploda").jqxComboBox({
+        $(".nepravilnoe_polojenie_ploda").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_nepravilnoe_polojenie_ploda,
             width: '250px',
@@ -371,7 +376,8 @@
         $('.obvitie_pupovini').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Многоплодие
-        $(".mnogoplodie").jqxComboBox({
+        $(".mnogoplodie").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_mnogoplodie,
             width: '250px',
@@ -383,7 +389,8 @@
         $('.krupniy_plod').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Предлежание плаценты
-        $(".predlejanie_placenti").jqxComboBox({
+        $(".predlejanie_placenti").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_predlejanie_placenti,
             width: '250px',
@@ -392,7 +399,8 @@
         });
 
         //Уровень РРАР-А
-        $(".uroven_papp_a").jqxComboBox({
+        $(".uroven_papp_a").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_uroven_papp_a,
             width: '250px',
@@ -401,7 +409,8 @@
         });
 
         //Уровень бета ХГЧ
-        $(".uroven_beta_hgch").jqxComboBox({
+        $(".uroven_beta_hgch").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_uroven_beta_hgch,
             width: '250px',
@@ -420,7 +429,8 @@
         $('.nesootvetstvie_dannih_uzi_placenti').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Наличие ВПР по результатам УЗИ
-        $(".nalichie_vpr_po_rezultatam_uzi").jqxComboBox({
+        $(".nalichie_vpr_po_rezultatam_uzi").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_nalichie_vpr_po_rezultatam_uzi,
             width: '250px',
@@ -437,7 +447,8 @@
 
 
         //Общее состояние плода
-        $(".obshee_sostoyanie_ploda").jqxComboBox({
+        $(".obshee_sostoyanie_ploda").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_obshee_sostoyanie_ploda,
             width: '250px',
@@ -449,7 +460,8 @@
         $('.napravlena_na_extrennoe_rodorazreshenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //Диагноз основной (код по МКБ-10)
-        $(".diagnoz_osnovnoy_mkb10").jqxComboBox({
+        $(".diagnoz_osnovnoy_mkb10").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_mkb10,
             width: '250px',
@@ -458,7 +470,8 @@
         });
 
         //Диагноз осложнения (код по МКБ-10)
-        $(".diagnoz_oslojneniya_mkb10").jqxComboBox({
+        $(".diagnoz_oslojneniya_mkb10").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_mkb10,
             width: '250px',
@@ -467,7 +480,8 @@
         });
 
         //Диагноз сопутствующий (код по МКБ-10)
-        $(".diagnoz_soputstvuyshiy_mkb10").jqxComboBox({
+        $(".diagnoz_soputstvuyshiy_mkb10").jqxDropDownList({
+            filterable: true,
             selectedIndex: 1,
             source: sourse_mkb10,
             width: '250px',
@@ -489,8 +503,6 @@
             var toggled = $(".anketi_btn_save").jqxToggleButton('toggled');
         });
     });
-
-
 
 
 </script>

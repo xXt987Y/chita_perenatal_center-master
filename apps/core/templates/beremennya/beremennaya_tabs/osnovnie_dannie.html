@@ -510,14 +510,15 @@
         })
 
 
-        $(".stepen_riska").jqxComboBox({
+        $(".stepen_riska").jqxDropDownList({
             selectedIndex: 1,
             source: sourse_stepen_riska,
             width: '250px',
             height: '30px',
             theme: 'arctic',
             displayMember: "nazvanie",
-            valueMember: "id"
+            valueMember: "id",
+            filterable:true
         });
 
         $(".data_vzyatiya").jqxDateTimeInput({
@@ -527,7 +528,8 @@
             theme: 'arctic'
         });
 
-        $(".vrach").jqxComboBox({
+        $(".vrach").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_doctor,
             width: '250px',
@@ -544,7 +546,8 @@
             theme: 'arctic'
         });
 
-        $(".mesto_postoyannogo_projivaniya").jqxComboBox({
+        $(".mesto_postoyannogo_projivaniya").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_rayon,
             width: '250px',
@@ -588,7 +591,8 @@
 
         $('.socialno_ugrojaemaya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $(".semeynoe_polojenie").jqxComboBox({
+        $(".semeynoe_polojenie").jqxDropDownList({
+            filterable:true,
             source: sourse_semeynoe_polojenie,
             width: '250px',
             height: '30px',
@@ -728,7 +732,8 @@
 
         $('.vzyata_pod_nabludenie').jqxCheckBox({width: 'auto', theme: 'arctic'});
         //Генетические факторы комбобокс
-        $(".geneticheskie_faktori").jqxComboBox({
+        $(".geneticheskie_faktori").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_geneticheskie_faktori,
             width: '250px',
@@ -738,7 +743,8 @@
             valueMember: "id"
         });
         //менструальная функция
-        $(".menstrualnaya_funkciya").jqxComboBox({
+        $(".menstrualnaya_funkciya").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_menstrualnaya_funkciya,
             width: '250px',
@@ -759,7 +765,8 @@
         $('.zabolevanie_vnut_pol_organov_operacii_matk').jqxCheckBox({width: 'auto', theme: 'arctic'});
         $('.zabolevanie_vnut_pol_organov_onkologiya').jqxCheckBox({width: 'auto', theme: 'arctic'});
 
-        $(".besplodie").jqxComboBox({
+        $(".besplodie").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_besplodie,
             width: '250px',
@@ -768,7 +775,8 @@
             displayMember: "nazvanie",
             valueMember: "id"
         });
-        $(".tip_besplodie").jqxComboBox({
+        $(".tip_besplodie").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_tip_besplodie,
             width: '250px',
@@ -778,7 +786,8 @@
             valueMember: "id"
         });
         //наступление текущей беременности
-        $(".nastuplenie_beremennosti_v_rezultate_eco").jqxComboBox({
+        $(".nastuplenie_beremennosti_v_rezultate_eco").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_nastuplenie_beremennosti_v_rezultate,
             width: '250px',
@@ -796,7 +805,8 @@
             theme: 'arctic'
         });
 
-        $(".paritet_beremennosti").jqxComboBox({
+        $(".paritet_beremennosti").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_paritet_beremennosti,
             width: '250px',
@@ -806,7 +816,8 @@
             valueMember: "id"
         });
 
-        $(".samoproizvolniy_abort").jqxComboBox({
+        $(".samoproizvolniy_abort").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_samoproizvolniy_abort,
             width: '250px',
@@ -819,7 +830,8 @@
         $(".rezus_konfliktnaya_beremennost").jqxCheckBox({width: 'auto', theme: 'arctic'});
         $(".gemoliticheskaya_bolezn").jqxCheckBox({width: 'auto', theme: 'arctic'});
         //Искусственный аборт
-        $(".iskustvenniy_abort").jqxComboBox({
+        $(".iskustvenniy_abort").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_iskustvenniy_abort,
             width: '250px',
@@ -828,7 +840,8 @@
             displayMember: "nazvanie",
             valueMember: "id"
         });
-        $(".iskustvenniy_abort_oslojneniya").jqxComboBox({
+        $(".iskustvenniy_abort_oslojneniya").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_oslojneniya_iskustvenniy_abort,
             width: '250px',
@@ -856,7 +869,8 @@
         $(".oslojneniya_rodov_osl_mertvoroj").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //кесарево комбобокс
-        $(".kesarevo_sechenie").jqxComboBox({
+        $(".kesarevo_sechenie").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_kesarevo_sechenie,
             width: '250px',
@@ -895,7 +909,8 @@
         $(".zlokachestvennie_obrazovaniya").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //болезни эндокринной системы
-        $(".saharniy_diabed").jqxComboBox({
+        $(".saharniy_diabed").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_saharniy_diabed,
             width: '250px',
@@ -904,7 +919,8 @@
             displayMember: "nazvanie",
             valueMember: "id"
         });
-        $(".gestacionniy_saharniy_diabed").jqxComboBox({
+        $(".gestacionniy_saharniy_diabed").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_gestacionniy_saharniy_diabed,
             width: '250px',
@@ -913,7 +929,8 @@
             displayMember: "nazvanie",
             valueMember: "id"
         });
-        $(".zabolevanie_shitovidnoy").jqxComboBox({
+        $(".zabolevanie_shitovidnoy").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_zabolevanie_shitovidnoy,
             width: '250px',
@@ -922,7 +939,8 @@
             displayMember: "nazvanie",
             valueMember: "id"
         });
-        $(".ako").jqxComboBox({
+        $(".ako").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_ako,
             width: '250px',
@@ -939,7 +957,8 @@
         $(".bolezni_krovi_trombozi").jqxCheckBox({width: 'auto', theme: 'arctic'});
 
         //болезни крови и кроветворных органов - коагулопатия чекбокс
-        $(".koagulopatiya").jqxComboBox({
+        $(".koagulopatiya").jqxDropDownList({
+            filterable:true,
             selectedIndex: 1,
             source: sourse_koagulopatiya,
             width: '250px',
