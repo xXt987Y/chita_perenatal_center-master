@@ -516,7 +516,7 @@ class Beremennaya(models.Model):
                                           on_delete=models.CASCADE, null=True,
                                           blank=True)
     rubec_na_matke = models.BooleanField('рубец на матке после миомэктомии',
-                                                                       default=False)
+                                         default=False)
     oslojneniya_anomaliyami_rodovoy_deyatelnosti = models.BooleanField('Ослож. аномалиями родовой деятельности',
                                                                        default=False)
     klinicheski_uzkiy_taz = models.BooleanField('Клинически узкий таз', default=False)
@@ -566,6 +566,44 @@ class Beremennaya(models.Model):
     bolezni_nervnoy_sistemi_vospalitelnie = models.BooleanField('Воспалительные болезни ЦНС', default=False)
     bolezni_nervnoy_sistemi_miopiya = models.BooleanField(
         'Миопия высокой степени и миопия с дистрофическими изменениями', default=False)
+    bolezni_nervnoy_narushenie = models.BooleanField(
+        'Нарушение мозгового кровообращения в прошлом или настоящем', default=False)
+    bolezni_nervnoy_chmt = models.BooleanField(
+        'ЧМТ', default=False)
+    bolezni_sistemi_krovoob_poroki_serdca_bez = models.BooleanField(
+        'Пороки сердца без недост-ти кровообращения', default=False)
+    bolezni_sistemi_krovoob_poroki_serdca_c = models.BooleanField(
+        'Пороки сердца с недост-ти кровообращения', default=False)
+    bolezni_sistemi_krovoob_miokarda = models.BooleanField(
+        'Болезнь миокарда, эндокарда и перикарда', default=False)
+    bolezni_sistemi_krovoob_sosudov = models.BooleanField(
+        'Болезни сосудов', default=False)
+    bolezni_sistemi_krovoob_narush = models.BooleanField(
+        'Нарушение ритмов сердца', default=False)
+    bolezni_sistemi_krovoob_operirovannoe = models.BooleanField(
+        'Оперированное сердце', default=False)
+    bolezni_sistemi_krovoob_gipertoniya = models.BooleanField(
+        'Гипертоническая болезнь', default=False)
+    bolezni_organov_dihaniya_astma = models.BooleanField(
+        'Бронхиальная астма', default=False)
+    bolezni_organov_dihaniya_pnevmoniya = models.BooleanField(
+        'Пневмония', default=False)
+    bolezni_organov_dihaniya_bronh = models.BooleanField(
+        'Бронхоэктатическая болезнь', default=False)
+    bolezni_organov_dihaniya_lobektomiya = models.BooleanField(
+        'Лобэктомия, пульмонэктомия', default=False)
+    bolezni_organov_mochv_glomer = models.BooleanField(
+        'Гломерулонефрит', default=False)
+    bolezni_organov_mochv_pochka = models.BooleanField(
+        'Единственная почка', default=False)
+    bolezni_organov_mochv_tuberkulez = models.BooleanField(
+        'Туберкулез почек', default=False)
+    bolezni_organov_mochv_hpn = models.BooleanField(
+        'Пиелонефрит ХПН 1-3', default=False)
+    bolezni_organov_mochv_gidronefroz = models.BooleanField(
+        'Гидронефроз', default=False)
+    bolezni_organov_mochv_polikistoz = models.BooleanField(
+        'Поликистоз почек', default=False)
 
     def __str__(self):
         return self.nomer
@@ -765,13 +803,13 @@ class Anketa(models.Model):
                                                on_delete=models.CASCADE, null=True,
                                                blank=True)
     diagnoz_oslojneniya_mkb10 = models.ForeignKey(MKB10, related_name='diagnoz_oslojneniya_mkb10',
-                                                        verbose_name='Причина смерти матери по МКБ-10',
-                                                        on_delete=models.CASCADE, null=True,
-                                                        blank=True)
+                                                  verbose_name='Причина смерти матери по МКБ-10',
+                                                  on_delete=models.CASCADE, null=True,
+                                                  blank=True)
     diagnoz_soputstvuyshiy_mkb10 = models.ForeignKey(MKB10, related_name='diagnoz_soputstvuyshiy_mkb10',
-                                                        verbose_name='Причина смерти матери по МКБ-10',
-                                                        on_delete=models.CASCADE, null=True,
-                                                        blank=True)
+                                                     verbose_name='Причина смерти матери по МКБ-10',
+                                                     on_delete=models.CASCADE, null=True,
+                                                     blank=True)
     dopolnitelnie_zamechaniya_vracha = models.TextField('Текст рекомендации', null=True, blank=True)
 
     def __str__(self):

@@ -64,6 +64,7 @@ class BeremennayaInfekcionnieBolezniForm(forms.ModelForm):
             'infekcionnie_bolezni_virusniy_cmvi',
         ]
 
+
 class BeremennayaRazmerTazaForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
@@ -90,4 +91,129 @@ class BeremennayaZabolevanieVnutForm(forms.ModelForm):
             'zabolevanie_vnut_pol_organov_operacii_matk',
             'zabolevanie_vnut_pol_organov_istmiko',
             'zabolevanie_vnut_pol_organov_onkologiya',
+        ]
+
+
+class BeremennayaOslojneniyaBeremennostiForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'oslojneniya_beremennosti_anemez',
+            'oslojneniya_beremennosti_anemez_fetoplacent',
+            'oslojneniya_beremennosti_anemez_obostrenie',
+            'oslojneniya_beremennosti_anemez_prejdevremennoy',
+            'oslojneniya_rodov',
+        ]
+
+
+class BeremennayaOslojneniyaRodovForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'oslojneniya_rodov',
+            'oslojneniya_rodov_osl_razrivom',
+            'oslojneniya_rodov_osl_krovotech',
+            'oslojneniya_rodov_osl_gnoyno',
+            'oslojneniya_rodov_osl_mertvoroj',
+            'kesarevo_sechenie',
+            'rubec_na_matke',
+            'oslojneniya_anomaliyami_rodovoy_deyatelnosti',
+            'klinicheski_uzkiy_taz',
+            'plodorazrushayushaya_operaciya',
+        ]
+
+
+class BeremennayaNovorojdenniyPlodForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'novorojdenniy_plod_smert',
+            'novorojdenniy_plod_ves',
+            'novorojdenniy_plod_nevrolgiych',
+            'novorojdenniy_plod_vpr',
+            'novorojdenniy_plod_perinatalnie',
+        ]
+
+
+class BeremennayaBolezniEndokrForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'saharniy_diabed',
+            'gestacionniy_saharniy_diabed',
+            'zabolevanie_shitovidnoy',
+            'ako',
+            'deincifalniy_sindrom',
+        ]
+
+
+class BeremennayaBolezniKroviForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'bolezni_krovi_anemiya',
+            'bolezni_krovi_trombocitopeniya',
+            'bolezni_krovi_trombozi',
+            'koagulopatiya',
+        ]
+
+
+class BeremennayaPsihRastroystvaForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'psih_rastroystva_psihozi',
+            'psih_rastroystva_narusheniya_lich',
+            'psih_rastroystva_shizofreniya',
+            'psih_rastroystva_umstvennaya_otstalost',
+        ]
+
+
+class BeremennayaBolezniNsForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'bolezni_nervnoy_sistemi_nasledstvennie',
+            'bolezni_nervnoy_sistemi_vospalitelnie',
+            'bolezni_nervnoy_sistemi_miopiya',
+            'bolezni_nervnoy_narushenie',
+            'bolezni_nervnoy_chmt',
+        ]
+
+
+class BeremennayaBolezniSistemiKrovoobForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'bolezni_sistemi_krovoob_poroki_serdca_bez',
+            'bolezni_sistemi_krovoob_poroki_serdca_c',
+            'bolezni_sistemi_krovoob_miokarda',
+            'bolezni_sistemi_krovoob_sosudov',
+            'bolezni_sistemi_krovoob_narush',
+            'bolezni_sistemi_krovoob_operirovannoe',
+            'bolezni_sistemi_krovoob_gipertoniya',
+        ]
+
+
+class BeremennayaBolezniOrganovDihaniyaForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'bolezni_organov_dihaniya_astma',
+            'bolezni_organov_dihaniya_pnevmoniya',
+            'bolezni_organov_dihaniya_bronh',
+            'bolezni_organov_dihaniya_lobektomiya',
+        ]
+
+
+class BeremennayaBolezniOrganovMochForm(forms.ModelForm):
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'bolezni_organov_mochv_glomer',
+            'bolezni_organov_mochv_pochka',
+            'bolezni_organov_mochv_tuberkulez',
+            'bolezni_organov_mochv_hpn',
+            'bolezni_organov_mochv_gidronefroz',
+            'bolezni_organov_mochv_polikistoz',
         ]

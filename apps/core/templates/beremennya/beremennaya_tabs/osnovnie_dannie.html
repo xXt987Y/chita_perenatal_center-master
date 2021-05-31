@@ -121,7 +121,7 @@
 
     <div class="default">
         <div class="text">Размеры таза (пельвиометрия),см</div>
-        <div class="fixP">{{  beremennaya_razmer_taza_form.as_p }}</div>
+        <div class="fixP">{{ beremennaya_razmer_taza_form.as_p }}</div>
     </div>
 
     <div class="default">
@@ -157,8 +157,8 @@
     </div>
 
     <div class="default">
-         <div class="text">Размеры таза (пельвиометрия),см</div>
-        <div class="fixP">{{  beremennaya_razmer_taza_form.as_p }}</div>
+        <div class="text">Размеры таза (пельвиометрия),см</div>
+        <div class="fixP">{{ beremennaya_razmer_taza_form.as_p }}</div>
     </div>
 
     <div class="default">
@@ -225,46 +225,18 @@
     </div>
 
     <div class="default">
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez.label_tag }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez_fetoplacent.label_tag }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez_fetoplacent }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez_obostrenie.label_tag }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez_obostrenie }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez_prejdevremennoy.label_tag }}
-        {{ beremennaya_form.oslojneniya_beremennosti_anemez_prejdevremennoy }}
+        <div class="text">Осложнения беременности (анамез):</div>
+        <div class="fixP">{{ beremennayao_oslojneniya_beremennosti_form.as_p }}</div>
     </div>
 
     <div class="default">
-        {{ beremennaya_form.oslojneniya_rodov.label_tag }}
-        {{ beremennaya_form.oslojneniya_rodov }}
-        {{ beremennaya_form.oslojneniya_rodov_osl_razrivom.label_tag }}
-        {{ beremennaya_form.oslojneniya_rodov_osl_razrivom }}
-        {{ beremennaya_form.oslojneniya_rodov_osl_gnoyno.label_tag }}
-        {{ beremennaya_form.oslojneniya_rodov_osl_gnoyno }}
-        {{ beremennaya_form.oslojneniya_rodov_osl_mertvoroj.label_tag }}
-        {{ beremennaya_form.oslojneniya_rodov_osl_mertvoroj }}
-        {{ beremennaya_form.kesarevo_sechenie.label_tag }}
-        {{ beremennaya_form.kesarevo_sechenie }}
-        {{ beremennaya_form.rubec_na_matke.label_tag }}
-        {{ beremennaya_form.rubec_na_matke }}
-        {{ beremennaya_form.oslojneniya_anomaliyami_rodovoy_deyatelnosti.label_tag }}
-        {{ beremennaya_form.oslojneniya_anomaliyami_rodovoy_deyatelnosti }}
-        {{ beremennaya_form.klinicheski_uzkiy_taz.label_tag }}
-        {{ beremennaya_form.klinicheski_uzkiy_taz }}
-        {{ beremennaya_form.plodorazrushayushaya_operaciya.label_tag }}
-        {{ beremennaya_form.plodorazrushayushaya_operaciya }}
+        <div class="text">Осложнения родов (анамез):</div>
+        <div class="fixP">{{ beremennayao_oslojneniya_rodov_form.as_p }}</div>
     </div>
 
     <div class="default">
-        {{ beremennaya_form.novorojdenniy_plod_smert.label_tag }}
-        {{ beremennaya_form.novorojdenniy_plod_smert }}
-        {{ beremennaya_form.novorojdenniy_plod_ves.label_tag }}
-        {{ beremennaya_form.novorojdenniy_plod_ves }}
-        {{ beremennaya_form.novorojdenniy_plod_nevrolgiych.label_tag }}
-        {{ beremennaya_form.novorojdenniy_plod_nevrolgiych }}
-        {{ beremennaya_form.novorojdenniy_plod_vpr.label_tag }}
-        {{ beremennaya_form.novorojdenniy_plod_vpr }}
+        <div class="text">Новорожденный или плод(анамез):</div>
+        <div class="fixP">{{ beremennayao_novorojdenniy_plod_form.as_p }}</div>
     </div>
 
     <h3>Экстрагенитальные заболевания</h3>
@@ -274,6 +246,46 @@
         <div class="fixP">{{ beremennaya_infekcionnie_bolezni_form.as_p }}</div>
     </div>
 
+    <div class="default">
+        <div class="text">Злокачественные новообразования:</div>
+        {{ beremennaya_form.zlokachestvennie_obrazovaniya.label_tag }}
+        {{ beremennaya_form.zlokachestvennie_obrazovaniya }}
+    </div>
+
+     <div class="default">
+        <div class="text">Болезни эндокринной системы:</div>
+        <div class="fixP">{{ beremennaya_bolezni_endokr_form.as_p }}</div>
+    </div>
+
+    <div class="default">
+        <div class="text">Болезни крови и кроветворных органов:</div>
+        <div class="fixP">{{ beremennaya_bolezni_krovi_form.as_p }}</div>
+    </div>
+
+    <div class="default">
+        <div class="text">Психические расстройства:</div>
+        <div class="fixP">{{ beremennaya_psih_rastroystva_form.as_p }}</div>
+    </div>
+
+       <div class="default">
+        <div class="text">Болезни нервной системы и органов чувств:</div>
+        <div class="fixP">{{ beremennaya_bolezni_ns_form.as_p }}</div>
+    </div>
+
+      <div class="default">
+        <div class="text">Болезни системы кровообращения:</div>
+        <div class="fixP">{{ beremennaya_bolezni_sistemi_krovoob_form.as_p }}</div>
+    </div>
+
+    <div class="default">
+        <div class="text">Болезни органов дыхания:</div>
+        <div class="fixP">{{ beremennaya_bolezni_organov_dihaniya_form.as_p }}</div>
+    </div>
+
+    <div class="default">
+        <div class="text">Болезни органов мочевыделения:</div>
+        <div class="fixP">{{ beremennaya_bolezni_organov_moch_form.as_p }}</div>
+    </div>
 
     <div class="default">
         <button class="save_beremennaya" type="submit">Сохранить</button>

@@ -35,6 +35,16 @@ def home(request):
     beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm
     beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm
     beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm
+    beremennayao_oslojneniya_beremennosti_form = BeremennayaOslojneniyaBeremennostiForm
+    beremennayao_oslojneniya_rodov_form = BeremennayaOslojneniyaRodovForm
+    beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm
+    beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm
+    beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm
+    beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm
+    beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm
+    beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm
+    beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm
+    beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm
     return render(request, "home.html", {
         'form': form,
         'beremennaya_vrednie_privichki_form': beremennaya_vrednie_privichki_form,
@@ -43,6 +53,17 @@ def home(request):
         'beremennaya_infekcionnie_bolezni_form': beremennaya_infekcionnie_bolezni_form,
         'beremennaya_razmer_taza_form': beremennaya_razmer_taza_form,
         'beremennaya_zabolevanie_vnut_form': beremennaya_zabolevanie_vnut_form,
+        'beremennayao_oslojneniya_beremennosti_form': beremennayao_oslojneniya_beremennosti_form,
+        'beremennayao_oslojneniya_rodov_form': beremennayao_oslojneniya_rodov_form,
+        'beremennayao_novorojdenniy_plod_form': beremennayao_novorojdenniy_plod_form,
+        'beremennaya_bolezni_endokr_form': beremennaya_bolezni_endokr_form,
+        'beremennaya_bolezni_krovi_form': beremennaya_bolezni_krovi_form,
+        'beremennaya_psih_rastroystva_form': beremennaya_psih_rastroystva_form,
+        'beremennaya_bolezni_ns_form': beremennaya_bolezni_ns_form,
+        'beremennaya_bolezni_sistemi_krovoob_form': beremennaya_bolezni_sistemi_krovoob_form,
+        'beremennaya_bolezni_organov_dihaniya_form': beremennaya_bolezni_organov_dihaniya_form,
+        'beremennaya_bolezni_organov_moch_form': beremennaya_bolezni_organov_moch_form,
+
     })
 
 
