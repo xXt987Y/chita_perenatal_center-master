@@ -64,7 +64,6 @@ def home(request):
         'beremennaya_bolezni_sistemi_krovoob_form': beremennaya_bolezni_sistemi_krovoob_form,
         'beremennaya_bolezni_organov_dihaniya_form': beremennaya_bolezni_organov_dihaniya_form,
         'beremennaya_bolezni_organov_moch_form': beremennaya_bolezni_organov_moch_form,
-
         'anketa_form': anketa_form,
     })
 
