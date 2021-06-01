@@ -1,93 +1,94 @@
 <div class="default">
-    <div class="text"> Дата исхода:</div>
-    <div class='data_ishoda'></div>
+    {{ ishod_form.data_ishoda.label_tag }}
+    {{ ishod_form.data_ishoda }}
 </div>
 
 <div class="default">
-    <div class="text">Место исхода:</div>
-    <div class="mesto_ishoda"></div>
+    {{ ishod_form.mesto_ishoda.label_tag }}
+    {{ ishod_form.mesto_ishoda }}
 </div>
 
 <div class="default">
-    <div class="text">Степерь риска после исхода:</div>
-    <div class="stepen_riska_posle_ishoda"></div>
+    {{ ishod_form.stepen_riska_posle_ishoda.label_tag }}
+    {{ ishod_form.stepen_riska_posle_ishoda }}
 </div>
 
 <div class="default">
-    <div class="text">Гибель плода в антенатальном периоде:</div>
-    <div class="gibel_ploda"></div>
+    {{ ishod_form.gibel_ploda.label_tag }}
+    {{ ishod_form.gibel_ploda }}
+
 </div>
 
 <div class="default">
-    <div class="text">Исход беременности:</div>
-    <div class="ishod_beremennosti"></div>
+    {{ ishod_form.ishod_beremennosti.label_tag }}
+    {{ ishod_form.ishod_beremennosti }}
 </div>
 
 <div class="default">
     <div class="text">Кесарево сечение:</div>
-    <div class="ml kesarevo_sechenie1"></div>
-    <div class="ml kesarevo_sechenie2"></div>
-    <div class="ml kesarevo_sechenie3"></div>
+    {{ ishod_form.kesarevo_sechenie1 }}
+    {{ ishod_form.kesarevo_sechenie2 }}
+    {{ ishod_form.kesarevo_sechenie3 }}
 </div>
 
 <h3>Осложнения при родоразрешении</h3>
 
 
 <div class="default">
-    <div class="text">Проэклампсия:</div>
-    <div class="preeklampsiya"></div>
+    {{ ishod_form.preeklampsiya.label_tag }}
+    {{ ishod_form.preeklampsiya }}
 </div>
 
 <div class="default">
-    <div class="text">Предлежание плаценты:</div>
-    <div class="predlejanie_placenti"></div>
+    {{ ishod_form.predlejanie_placenti.label_tag }}
+    {{ ishod_form.predlejanie_placenti }}
 </div>
 
 <div class="default">
-    <div class="text">Преждевр. отслойка норм.расп. плаценты:</div>
-    <div class="prejdevrem_otsloyka">есть</div>
+    {{ ishod_form.prejdevrem_otsloyka.label_tag }}
+    {{ ishod_form.prejdevrem_otsloyka }}
 </div>
 
 <div class="default">
-    <div class="text">Аномалии родовой деятельности:</div>
-    <div class="anomalii_rodovoy_deyatelnosti">есть</div>
+    {{ ishod_form.anomalii_rodovoy_deyatelnosti.label_tag }}
+    {{ ishod_form.anomalii_rodovoy_deyatelnosti }}
 </div>
 
 <div class="default">
-    <div class="text">Клинически узкий таз:</div>
-    <div class="klinicheski_uzkiy_taz">есть</div>
+    {{ ishod_form.klinicheski_uzkiy_taz.label_tag }}
+    {{ ishod_form.klinicheski_uzkiy_taz }}
 </div>
 
 <div class="default">
-    <div class="text">Разрыв матки:</div>
-    <div class="razriv_matki">есть</div>
+    {{ ishod_form.razriv_matki.label_tag }}
+    {{ ishod_form.razriv_matki }}
 </div>
 
 <div class="default">
-    <div class="text">ДВС-синдром:</div>
-    <div class="dvc_sindrom">есть</div>
+    {{ ishod_form.dvc_sindrom.label_tag }}
+    {{ ishod_form.dvc_sindrom }}
 </div>
 
 <div class="default">
-    <div class="text">Эмболия:</div>
-    <div class="emboliya">есть</div>
+    {{ ishod_form.emboliya.label_tag }}
+    {{ ishod_form.emboliya }}
 </div>
 
 <h3>Случай материнской смертности</h3>
 
 <div class="default">
-    <div class="text">Смерть матери:</div>
-    <div class="smert_materi">да</div>
+    {{ ishod_form.smert_materi.label_tag }}
+    {{ ishod_form.smert_materi }}
 </div>
 
 <div class="default">
-    <div class="text"> Дата смерти матери:</div>
-    <div class='data_smerti_materi'></div>
+    {{ ishod_form.data_smerti_materi.label_tag }}
+    {{ ishod_form.data_smerti_materi }}
 </div>
 
 <div class="default">
-    <div class="text"> Причина смерти по МКБ10:</div>
-    <div class='prichina_smerti_materi_mkb10'></div>
+    {{ ishod_form.prichina_smerti_materi_mkb10.label_tag }}
+    {{ ishod_form.prichina_smerti_materi_mkb10 }}
 </div>
 
 
@@ -95,7 +96,6 @@
 
 <div class="default">
     <div class="text">Количество новорожденных:</div>
-    <div class=""></div>
 </div>
 
 {% include 'beremennya/beremennaya_tabs/tabliza_novorojdenniy.html' %}
@@ -110,152 +110,152 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(async function () {
-        let sourse_mesto_ishoda;
-        let sourse_stepen_riska_posle_ishoda;
-        let sourse_gibel_ploda;
-        let sourse_ishod_beremennosti;
-        let sourse_kesarevo_sechenie1;
-        let sourse_kesarevo_sechenie2;
-        let sourse_kesarevo_sechenie3;
-        let sourse_mkb10;
-
-        await get_mega_json.then(function (data) {
-            sourse_mesto_ishoda = data['mesto_ishoda'].map(item => item['nazvanie']);
-            sourse_stepen_riska_posle_ishoda = data['stepen_riska_posle_ishoda'].map(item => item['nazvanie']);
-            sourse_gibel_ploda = data['gibel_ploda'].map(item => item['nazvanie']);
-            sourse_ishod_beremennosti = data['ishod_beremennosti'].map(item => item['nazvanie']);
-            sourse_kesarevo_sechenie1 = data['kesarevo_sechenie1'].map(item => item['nazvanie']);
-            sourse_kesarevo_sechenie2 = data['kesarevo_sechenie2'].map(item => item['nazvanie']);
-            sourse_kesarevo_sechenie3 = data['kesarevo_sechenie3'].map(item => item['nazvanie']);
-            sourse_mkb10 = data['mkb10'].map(item => item['nazvanie']);
-        })
-        //Дата заполения анкеты врачем
-        $(".data_ishoda").jqxDateTimeInput({
-            width: '250px',
-            height: '25px',
-            formatString: 'dd.MM.yyyy',
-            theme: 'arctic'
-        });
-
-        //Место исхода
-        $(".mesto_ishoda").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_mesto_ishoda,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic'
-        });
-
-        //Степерь риска после исхода
-        $(".stepen_riska_posle_ishoda").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_stepen_riska_posle_ishoda,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic'
-        });
-
-        //Гибель плода в антенатальном периоде
-        $(".gibel_ploda").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_gibel_ploda,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic'
-        });
-
-        //Исход беременности
-        $(".ishod_beremennosti").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_ishod_beremennosti,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic'
-        });
-
-        //Кесарево сечение
-        $(".kesarevo_sechenie1").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_kesarevo_sechenie1,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-        });
-
-        $(".kesarevo_sechenie2").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_kesarevo_sechenie2,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic',
-        });
-
-        $(".kesarevo_sechenie3").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_kesarevo_sechenie3,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic'
-        });
-
-        //Проэклампсия
-
-        //Предлежание плаценты
-
-        //Преждевр. отслойка норм.расп. плаценты
-        $('.prejdevrem_otsloyka').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Аномалии родовой деятельности
-        $('.anomalii_rodovoy_deyatelnosti').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Клинически узкий таз
-        $('.klinicheski_uzkiy_taz').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Разрыв матки
-        $('.razriv_matki').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //ДВС-синдром
-        $('.dvc_sindrom').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Эмболия
-        $('.emboliya').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Смерть матери
-        $('.smert_materi').jqxCheckBox({width: 'auto', theme: 'arctic'});
-
-        //Дата смерти матери
-        $(".data_smerti_materi").jqxDateTimeInput({
-            width: '250px',
-            height: '25px',
-            formatString: 'dd.MM.yyyy',
-            theme: 'arctic'
-        });
-
-        //Причина смерти по МКБ10
-        $(".prichina_smerti_materi_mkb10").jqxDropDownList({
-            filterable:true,
-            filterPlaceHolder:"Найти",
-            selectedIndex: 1,
-            source: sourse_mkb10,
-            width: '250px',
-            height: '30px',
-            theme: 'arctic'
-        });
-    });
-</script>
+{#<script>#}
+{#    $(document).ready(async function () {#}
+{#        let sourse_mesto_ishoda;#}
+{#        let sourse_stepen_riska_posle_ishoda;#}
+{#        let sourse_gibel_ploda;#}
+{#        let sourse_ishod_beremennosti;#}
+{#        let sourse_kesarevo_sechenie1;#}
+{#        let sourse_kesarevo_sechenie2;#}
+{#        let sourse_kesarevo_sechenie3;#}
+{#        let sourse_mkb10;#}
+{##}
+{#        await get_mega_json.then(function (data) {#}
+{#            sourse_mesto_ishoda = data['mesto_ishoda'].map(item => item['nazvanie']);#}
+{#            sourse_stepen_riska_posle_ishoda = data['stepen_riska_posle_ishoda'].map(item => item['nazvanie']);#}
+{#            sourse_gibel_ploda = data['gibel_ploda'].map(item => item['nazvanie']);#}
+{#            sourse_ishod_beremennosti = data['ishod_beremennosti'].map(item => item['nazvanie']);#}
+{#            sourse_kesarevo_sechenie1 = data['kesarevo_sechenie1'].map(item => item['nazvanie']);#}
+{#            sourse_kesarevo_sechenie2 = data['kesarevo_sechenie2'].map(item => item['nazvanie']);#}
+{#            sourse_kesarevo_sechenie3 = data['kesarevo_sechenie3'].map(item => item['nazvanie']);#}
+{#            sourse_mkb10 = data['mkb10'].map(item => item['nazvanie']);#}
+{#        })#}
+{#        //Дата заполения анкеты врачем#}
+{#        $(".data_ishoda").jqxDateTimeInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            formatString: 'dd.MM.yyyy',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Место исхода#}
+{#        $(".mesto_ishoda").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_mesto_ishoda,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Степерь риска после исхода#}
+{#        $(".stepen_riska_posle_ishoda").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_stepen_riska_posle_ishoda,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Гибель плода в антенатальном периоде#}
+{#        $(".gibel_ploda").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_gibel_ploda,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Исход беременности#}
+{#        $(".ishod_beremennosti").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_ishod_beremennosti,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Кесарево сечение#}
+{#        $(".kesarevo_sechenie1").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_kesarevo_sechenie1,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#        });#}
+{##}
+{#        $(".kesarevo_sechenie2").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_kesarevo_sechenie2,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic',#}
+{#        });#}
+{##}
+{#        $(".kesarevo_sechenie3").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_kesarevo_sechenie3,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Проэклампсия#}
+{##}
+{#        //Предлежание плаценты#}
+{##}
+{#        //Преждевр. отслойка норм.расп. плаценты#}
+{#        $('.prejdevrem_otsloyka').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Аномалии родовой деятельности#}
+{#        $('.anomalii_rodovoy_deyatelnosti').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Клинически узкий таз#}
+{#        $('.klinicheski_uzkiy_taz').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Разрыв матки#}
+{#        $('.razriv_matki').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //ДВС-синдром#}
+{#        $('.dvc_sindrom').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Эмболия#}
+{#        $('.emboliya').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Смерть матери#}
+{#        $('.smert_materi').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
+{##}
+{#        //Дата смерти матери#}
+{#        $(".data_smerti_materi").jqxDateTimeInput({#}
+{#            width: '250px',#}
+{#            height: '25px',#}
+{#            formatString: 'dd.MM.yyyy',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{##}
+{#        //Причина смерти по МКБ10#}
+{#        $(".prichina_smerti_materi_mkb10").jqxDropDownList({#}
+{#            filterable:true,#}
+{#            filterPlaceHolder:"Найти",#}
+{#            selectedIndex: 1,#}
+{#            source: sourse_mkb10,#}
+{#            width: '250px',#}
+{#            height: '30px',#}
+{#            theme: 'arctic'#}
+{#        });#}
+{#    });#}
+{#</script>#}

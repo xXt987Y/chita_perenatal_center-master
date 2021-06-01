@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.core.models import Beremennaya, Anketa
+from apps.core.models import Beremennaya, Anketa, Ishod
 
 
 class BeremennayaFormPart1(forms.ModelForm):
@@ -45,6 +45,13 @@ class AnketaForm(forms.ModelForm):
     class Meta:
         model = Anketa
         fields = '__all__'
+
+class IshodForm(forms.ModelForm):
+    class Meta:
+        model = Ishod
+        fields = '__all__'
+
+
 
 
 class BeremennayaForm(forms.ModelForm):

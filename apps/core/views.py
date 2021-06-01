@@ -46,8 +46,12 @@ def home(request):
     beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm
     beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm
     anketa_form = AnketaForm()
+    ishod_form = IshodForm()
+
     return render(request, "home.html", {
         'form': form,
+        'anketa_form': anketa_form,
+        'ishod_form': ishod_form,
         'beremennaya_vrednie_privichki_form': beremennaya_vrednie_privichki_form,
         'beremennaya_vrednie_factori_form': beremennaya_vrednie_factori_form,
         'beremennaya_form': beremennaya_form,
@@ -64,7 +68,7 @@ def home(request):
         'beremennaya_bolezni_sistemi_krovoob_form': beremennaya_bolezni_sistemi_krovoob_form,
         'beremennaya_bolezni_organov_dihaniya_form': beremennaya_bolezni_organov_dihaniya_form,
         'beremennaya_bolezni_organov_moch_form': beremennaya_bolezni_organov_moch_form,
-        'anketa_form': anketa_form,
+
     })
 
 
