@@ -28,25 +28,26 @@ from .forms import *
 
 
 def home(request):
-    form = BeremennayaFormPart1()
-    beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki
+    form = BeremennayaFormPart1(label_suffix='')
+    beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki(label_suffix='')
     beremennaya_vrednie_factori_form = BeremennayaVrednieFactori(label_suffix='')
-    beremennaya_form = BeremennayaForm
-    beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm
-    beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm
-    beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm
-    beremennayao_oslojneniya_beremennosti_form = BeremennayaOslojneniyaBeremennostiForm
-    beremennayao_oslojneniya_rodov_form = BeremennayaOslojneniyaRodovForm
-    beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm
-    beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm
-    beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm
-    beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm
-    beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm
-    beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm
-    beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm
-    beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm
+    beremennaya_form = BeremennayaForm(label_suffix='')
+    beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm(label_suffix='')
+    beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm(label_suffix='')
+    beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm(label_suffix='')
+    beremennayao_oslojneniya_beremennosti_form = BeremennayaOslojneniyaBeremennostiForm(label_suffix='')
+    beremennayao_oslojneniya_rodov_form = BeremennayaOslojneniyaRodovForm(label_suffix='')
+    beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm(label_suffix='')
+    beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm(label_suffix='')
+    beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(label_suffix='')
+    beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm(label_suffix='')
+    beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm(label_suffix='')
+    beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm(label_suffix='')
+    beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm(label_suffix='')
+    beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm(label_suffix='')
+    beremennaya_somaticheskie_pokazateli_form = BeremennayaSomaticheskiePokazateliForm(label_suffix='')
     anketa_form = AnketaForm(label_suffix='')
-    ishod_form = IshodForm()
+    ishod_form = IshodForm(label_suffix='')
 
     return render(request, "home.html", {
         'form': form,
@@ -68,8 +69,8 @@ def home(request):
         'beremennaya_bolezni_sistemi_krovoob_form': beremennaya_bolezni_sistemi_krovoob_form,
         'beremennaya_bolezni_organov_dihaniya_form': beremennaya_bolezni_organov_dihaniya_form,
         'beremennaya_bolezni_organov_moch_form': beremennaya_bolezni_organov_moch_form,
-
-    })
+        'beremennaya_somaticheskie_pokazateli_form': beremennaya_somaticheskie_pokazateli_form,
+        })
 
 
 

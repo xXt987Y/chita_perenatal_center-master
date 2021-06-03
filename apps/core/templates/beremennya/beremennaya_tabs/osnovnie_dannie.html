@@ -1,18 +1,10 @@
 <style>
     .novaya_beremennaya .FixP {
-    width: 60%;
-    }
-
-    .novaya_beremennaya .FixP p {
-        display: inline;
+        width: 60%;
     }
 
     .novaya_beremennaya .FixP label {
         width: auto;
-    }
-
-    .novaya_beremennaya .FixP input[type="checkbox"] {
-        margin: 7px 5px 7px 0;
     }
 
     .novaya_beremennaya .doptext {
@@ -38,16 +30,35 @@
     .novaya_beremennaya select {
         margin: 4px 3px 4px 3px;
         width: 250px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
     }
 
-    .novaya_beremennaya input {
-        width: 250px;
+    .novaya_beremennaya input [type="text"] {
+        width: 245px !important;
+    }
+
+    input[type="date" i] {
+        width: 250px !important;
+        margin: 4px 3px 4px 3px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px
     }
 
     .novaya_beremennaya input[type="checkbox"] {
         width: 16px;
         height: 16px;
         margin: 7px 5px 7px 0;
+        opacity: 1;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+        color: #333333;
+        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        border-radius: 4px;
+        font-family: Verdana, Arial, sans-serif;
+        border: 1px solid transparent;
+        outline: none;
     }
 
     .novaya_beremennaya .save_beremennaya {
@@ -94,12 +105,12 @@
     {{ form.as_p }}
 
     <div class="default">
-        <div class="text">Вредные привычки:</div>
+        <div class="text">Вредные привычки</div>
         <div class="FixP">{{ beremennaya_vrednie_privichki_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Вредные факторы труда и быта:</div>
+        <div class="text">Вредные факторы труда и быта</div>
         <div class="FixP">{{ beremennaya_vrednie_factori_form.as_p }}</div>
     </div>
 
@@ -116,13 +127,8 @@
     </div>
 
     <div class="default">
-        <div class="text">Соматические показатели:</div>
-        <div class="FixP">
-            {{ beremennaya_form.somaticheskie_pokazateli_muzskoy.label_tag }}
-            {{ beremennaya_form.somaticheskie_pokazateli_muzskoy }}
-            {{ beremennaya_form.somaticheskie_pokazateli_girsutizm.label_tag }}
-            {{ beremennaya_form.somaticheskie_pokazateli_girsutizm }}
-        </div>
+        <div class="text">Соматические показатели</div>
+        <div class="FixP">{{ beremennaya_somaticheskie_pokazateli_form.as_p }}</div>
     </div>
 
     <div class="default">
@@ -178,7 +184,7 @@
     </div>
 
     <div class="default">
-        <div class="text">Заболевания внутренних половых органов:</div>
+        <div class="text">Заболевания внутренних половых органов</div>
         <div class="FixP">{{ beremennaya_zabolevanie_vnut_form.as_p }}</div>
     </div>
 
@@ -240,75 +246,77 @@
 
     <div class="default">
 
-        {{ beremennaya_form.iskustvenniy_abort.label_tag }} <div class="FixP">
-        {{ beremennaya_form.iskustvenniy_abort }}
-        {{ beremennaya_form.iskustvenniy_abort_oslojneniya.label_tag }}
-        {{ beremennaya_form.iskustvenniy_abort_oslojneniya }}
+        {{ beremennaya_form.iskustvenniy_abort.label_tag }}
+        <div class="FixP">
+            {{ beremennaya_form.iskustvenniy_abort }}
+            {{ beremennaya_form.iskustvenniy_abort_oslojneniya.label_tag }}
+            {{ beremennaya_form.iskustvenniy_abort_oslojneniya }}
         </div>
     </div>
 
     <div class="default">
-        <div class="text">Осложнения беременности (анамез):</div>
+        <div class="text">Осложнения беременности (анамез)</div>
         <div class="FixP">{{ beremennayao_oslojneniya_beremennosti_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Осложнения родов (анамез):</div>
+        <div class="text">Осложнения родов (анамез)</div>
         <div class="FixP">{{ beremennayao_oslojneniya_rodov_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Новорожденный или плод(анамез):</div>
+        <div class="text">Новорожденный или плод(анамез)</div>
         <div class="FixP">{{ beremennayao_novorojdenniy_plod_form.as_p }}</div>
     </div>
 
     <h3>Экстрагенитальные заболевания</h3>
 
     <div class="default">
-        <div class="text">Инфекционные болезни:</div>
+        <div class="text">Инфекционные болезни</div>
         <div class="FixP">{{ beremennaya_infekcionnie_bolezni_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Злокачественные новообразования:</div>
-        <div class="FixP">
-        {{ beremennaya_form.zlokachestvennie_obrazovaniya.label_tag }}
-        {{ beremennaya_form.zlokachestvennie_obrazovaniya }}
+        <div class="text">Злокачественные новообразования</div>
+        <div style="display: inherit;" class="FixP">
+            {{ beremennaya_form.zlokachestvennie_obrazovaniya }}
+            <div style="float: none"
+                 class="zlokach">  {{ beremennaya_form.zlokachestvennie_obrazovaniya.label_tag }} </div>
         </div>
     </div>
 
     <div class="default">
-        <div class="text">Болезни эндокринной системы:</div>
+        <div class="text">Болезни эндокринной системы</div>
         <div class="FixP">{{ beremennaya_bolezni_endokr_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Болезни крови и кроветворных органов:</div>
+        <div class="text">Болезни крови и кроветворных органов</div>
         <div class="FixP">{{ beremennaya_bolezni_krovi_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Психические расстройства:</div>
+        <div class="text">Психические расстройства</div>
         <div class="FixP">{{ beremennaya_psih_rastroystva_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Болезни нервной системы и органов чувств:</div>
+        <div class="text">Болезни нервной системы и органов чувств</div>
         <div class="FixP">{{ beremennaya_bolezni_ns_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Болезни системы кровообращения:</div>
+        <div class="text">Болезни системы кровообращения</div>
         <div class="FixP">{{ beremennaya_bolezni_sistemi_krovoob_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Болезни органов дыхания:</div>
+        <div class="text">Болезни органов дыхания</div>
         <div class="FixP">{{ beremennaya_bolezni_organov_dihaniya_form.as_p }}</div>
     </div>
 
     <div class="default">
-        <div class="text">Болезни органов мочевыделения:</div>
+        <div class="text">Болезни органов мочевыделения</div>
         <div class="FixP">{{ beremennaya_bolezni_organov_moch_form.as_p }}</div>
     </div>
 

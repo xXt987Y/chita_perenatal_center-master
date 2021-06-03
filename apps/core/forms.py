@@ -4,8 +4,6 @@ from apps.core.models import Beremennaya, Anketa, Ishod
 
 
 class BeremennayaFormPart1(forms.ModelForm):
-
-
     class Meta:
         model = Beremennaya
         fields = [
@@ -22,8 +20,21 @@ class BeremennayaFormPart1(forms.ModelForm):
             'nomer_oms',
         ]
 
+    data_vzyatiya = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата взятия')
+    data_rojdeniya = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата рождения')
+
 
 class BeremennayaVredniePrivichki(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -32,6 +43,7 @@ class BeremennayaVredniePrivichki(forms.ModelForm):
             'vrednie_privichki_narko',
             'vrednie_privichki_toxi',
         ]
+
 
 class BeremennayaVrednieFactori(forms.ModelForm):
     def as_p(self):
@@ -43,6 +55,7 @@ class BeremennayaVrednieFactori(forms.ModelForm):
             help_text_html=' <span class="helptext">%s</span>',
             errors_on_separate_row=True,
         )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -52,18 +65,19 @@ class BeremennayaVrednieFactori(forms.ModelForm):
             'vrednie_factori_truda_neudvl_jil_ysloviya',
         ]
 
+
 class AnketaForm(forms.ModelForm):
     class Meta:
         model = Anketa
         fields = '__all__'
+
 
 class IshodForm(forms.ModelForm):
     class Meta:
         model = Ishod
         fields = '__all__'
 
-    data_ishoda = forms.DateField(required=False, widget=forms.DateInput(attrs={'type':'date'}))
-
+    data_ishoda = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата исхода')
 
 
 class BeremennayaForm(forms.ModelForm):
@@ -73,6 +87,16 @@ class BeremennayaForm(forms.ModelForm):
 
 
 class BeremennayaInfekcionnieBolezniForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -89,6 +113,16 @@ class BeremennayaInfekcionnieBolezniForm(forms.ModelForm):
 
 
 class BeremennayaRazmerTazaForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -102,6 +136,16 @@ class BeremennayaRazmerTazaForm(forms.ModelForm):
 
 
 class BeremennayaZabolevanieVnutForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -118,6 +162,16 @@ class BeremennayaZabolevanieVnutForm(forms.ModelForm):
 
 
 class BeremennayaOslojneniyaBeremennostiForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -130,6 +184,16 @@ class BeremennayaOslojneniyaBeremennostiForm(forms.ModelForm):
 
 
 class BeremennayaOslojneniyaRodovForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -147,6 +211,16 @@ class BeremennayaOslojneniyaRodovForm(forms.ModelForm):
 
 
 class BeremennayaNovorojdenniyPlodForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -159,6 +233,16 @@ class BeremennayaNovorojdenniyPlodForm(forms.ModelForm):
 
 
 class BeremennayaBolezniEndokrForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -171,6 +255,16 @@ class BeremennayaBolezniEndokrForm(forms.ModelForm):
 
 
 class BeremennayaBolezniKroviForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -182,6 +276,16 @@ class BeremennayaBolezniKroviForm(forms.ModelForm):
 
 
 class BeremennayaPsihRastroystvaForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -193,6 +297,16 @@ class BeremennayaPsihRastroystvaForm(forms.ModelForm):
 
 
 class BeremennayaBolezniNsForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -205,6 +319,16 @@ class BeremennayaBolezniNsForm(forms.ModelForm):
 
 
 class BeremennayaBolezniSistemiKrovoobForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -219,6 +343,16 @@ class BeremennayaBolezniSistemiKrovoobForm(forms.ModelForm):
 
 
 class BeremennayaBolezniOrganovDihaniyaForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -230,6 +364,16 @@ class BeremennayaBolezniOrganovDihaniyaForm(forms.ModelForm):
 
 
 class BeremennayaBolezniOrganovMochForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -239,4 +383,22 @@ class BeremennayaBolezniOrganovMochForm(forms.ModelForm):
             'bolezni_organov_mochv_hpn',
             'bolezni_organov_mochv_gidronefroz',
             'bolezni_organov_mochv_polikistoz',
+        ]
+
+class BeremennayaSomaticheskiePokazateliForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
+    class Meta:
+        model = Beremennaya
+        fields = [
+            'somaticheskie_pokazateli_muzskoy',
+            'somaticheskie_pokazateli_girsutizm',
         ]

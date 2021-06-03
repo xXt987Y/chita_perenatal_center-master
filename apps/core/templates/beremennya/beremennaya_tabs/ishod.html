@@ -1,18 +1,10 @@
 <style>
     .ishod .FixP {
-    width: 60%;
-    }
-
-    .ishod .FixP p {
-        display: inline;
+        width: 60%;
     }
 
     .ishod .FixP label {
         width: auto;
-    }
-
-    .ishod .FixP input[type="checkbox"] {
-        margin: 7px 5px 7px 0;
     }
 
     .ishod .doptext {
@@ -38,16 +30,38 @@
     .ishod select {
         margin: 4px 3px 4px 3px;
         width: 250px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
     }
 
-    .ishod input {
-        width: 250px;
+    .ishod input [type="text"] {
+        width: 245px !important;
+        margin: 4px 3px 4px 3px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
+
+    input[type="date" i] {
+        width: 250px !important;
+        border-color: #cccccc;
+        color: #555555;
+        background-color: #ffffff;
     }
 
     .ishod input[type="checkbox"] {
         width: 16px;
         height: 16px;
         margin: 7px 5px 7px 0;
+        opacity: 1;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+        color: #333333;
+        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        border-radius: 4px;
+        font-family: Verdana, Arial, sans-serif;
+        border: 1px solid transparent;
+        outline: none;
     }
 
     .ishod .save_beremennaya {
@@ -87,133 +101,131 @@
     }
 
 </style>
-
 <form class="ishod" action="{% url 'home' %}" method="post">
     {% csrf_token %}
 
 
-
-<div class="default">
-    {{ ishod_form.data_ishoda.label_tag }}
-    {{ ishod_form.data_ishoda }}
-</div>
-
-<div class="default">
-    {{ ishod_form.mesto_ishoda.label_tag }}
-    {{ ishod_form.mesto_ishoda }}
-</div>
-
-<div class="default">
-    {{ ishod_form.stepen_riska_posle_ishoda.label_tag }}
-    {{ ishod_form.stepen_riska_posle_ishoda }}
-</div>
-
-<div class="default">
-    {{ ishod_form.gibel_ploda.label_tag }}
-    {{ ishod_form.gibel_ploda }}
-
-</div>
-
-<div class="default">
-    {{ ishod_form.ishod_beremennosti.label_tag }}
-    {{ ishod_form.ishod_beremennosti }}
-</div>
-
-<div class="default">
-    <div class="text">Кесарево сечение:</div>
-    {{ ishod_form.kesarevo_sechenie1 }}
-    {{ ishod_form.kesarevo_sechenie2 }}
-    {{ ishod_form.kesarevo_sechenie3 }}
-</div>
-
-
-<h3>Осложнения при родоразрешении</h3>
-
-
-<div class="default">
-    {{ ishod_form.preeklampsiya.label_tag }}
-    {{ ishod_form.preeklampsiya }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.predlejanie_placenti.label_tag }}
-    {{ ishod_form.predlejanie_placenti }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.prejdevrem_otsloyka.label_tag }}
-    {{ ishod_form.prejdevrem_otsloyka }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.anomalii_rodovoy_deyatelnosti.label_tag }}
-    {{ ishod_form.anomalii_rodovoy_deyatelnosti }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.klinicheski_uzkiy_taz.label_tag }}
-    {{ ishod_form.klinicheski_uzkiy_taz }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.razriv_matki.label_tag }}
-    {{ ishod_form.razriv_matki }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.dvc_sindrom.label_tag }}
-    {{ ishod_form.dvc_sindrom }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.emboliya.label_tag }}
-    {{ ishod_form.emboliya }}
-    <div class="doptext">есть</div>
-</div>
-
-<h3>Случай материнской смертности</h3>
-
-<div class="default">
-    {{ ishod_form.smert_materi.label_tag }}
-    {{ ishod_form.smert_materi }}
-    <div class="doptext">есть</div>
-</div>
-
-<div class="default">
-    {{ ishod_form.data_smerti_materi.label_tag }}
-    {{ ishod_form.data_smerti_materi }}
-</div>
-
-<div class="default">
-    {{ ishod_form.prichina_smerti_materi_mkb10.label_tag }}
-    {{ ishod_form.prichina_smerti_materi_mkb10 }}
-</div>
-
-
-<h3>Новорожденные</h3>
-
-<div class="default">
-    <div class="text">Количество новорожденных:</div>
-</div>
-
-{% include 'beremennya/beremennaya_tabs/tabliza_novorojdenniy.html' %}
-
-<div class="default">
-    <div class="text">Печать:</div>
-    <div>
-        <input class="qxButton15" type="button" value="Основные данные"/>
+    <div class="default">
+        {{ ishod_form.data_ishoda.label_tag }}
+        {{ ishod_form.data_ishoda }}
     </div>
-    <div>
-        <input class="jqxButton16" type="button" value="Анкета"/>
+
+    <div class="default">
+        {{ ishod_form.mesto_ishoda.label_tag }}
+        {{ ishod_form.mesto_ishoda }}
     </div>
-</div>
+
+    <div class="default">
+        {{ ishod_form.stepen_riska_posle_ishoda.label_tag }}
+        {{ ishod_form.stepen_riska_posle_ishoda }}
+    </div>
+
+    <div class="default">
+        {{ ishod_form.gibel_ploda.label_tag }}
+        {{ ishod_form.gibel_ploda }}
+
+    </div>
+
+    <div class="default">
+        {{ ishod_form.ishod_beremennosti.label_tag }}
+        {{ ishod_form.ishod_beremennosti }}
+    </div>
+
+    <div class="default">
+        <div class="text">Кесарево сечение:</div>
+        {{ ishod_form.kesarevo_sechenie1 }}
+        {{ ishod_form.kesarevo_sechenie2 }}
+        {{ ishod_form.kesarevo_sechenie3 }}
+    </div>
+
+
+    <h3>Осложнения при родоразрешении</h3>
+
+
+    <div class="default">
+        {{ ishod_form.preeklampsiya.label_tag }}
+        {{ ishod_form.preeklampsiya }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.predlejanie_placenti.label_tag }}
+        {{ ishod_form.predlejanie_placenti }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.prejdevrem_otsloyka.label_tag }}
+        {{ ishod_form.prejdevrem_otsloyka }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.anomalii_rodovoy_deyatelnosti.label_tag }}
+        {{ ishod_form.anomalii_rodovoy_deyatelnosti }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.klinicheski_uzkiy_taz.label_tag }}
+        {{ ishod_form.klinicheski_uzkiy_taz }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.razriv_matki.label_tag }}
+        {{ ishod_form.razriv_matki }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.dvc_sindrom.label_tag }}
+        {{ ishod_form.dvc_sindrom }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.emboliya.label_tag }}
+        {{ ishod_form.emboliya }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <h3>Случай материнской смертности</h3>
+
+    <div class="default">
+        {{ ishod_form.smert_materi.label_tag }}
+        {{ ishod_form.smert_materi }}
+        <div class="doptext">есть</div>
+    </div>
+
+    <div class="default">
+        {{ ishod_form.data_smerti_materi.label_tag }}
+        {{ ishod_form.data_smerti_materi }}
+    </div>
+
+    <div class="default">
+        {{ ishod_form.prichina_smerti_materi_mkb10.label_tag }}
+        {{ ishod_form.prichina_smerti_materi_mkb10 }}
+    </div>
+
+
+    <h3>Новорожденные</h3>
+
+    <div class="default">
+        <div class="text">Количество новорожденных:</div>
+    </div>
+
+    {% include 'beremennya/beremennaya_tabs/tabliza_novorojdenniy.html' %}
+
+    <div class="default">
+        <div class="text">Печать:</div>
+        <div>
+            <input class="qxButton15" type="button" value="Основные данные"/>
+        </div>
+        <div>
+            <input class="jqxButton16" type="button" value="Анкета"/>
+        </div>
+    </div>
 </form>
 
 {#<script>#}

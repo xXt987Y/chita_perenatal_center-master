@@ -1,3 +1,5 @@
+
+
 <div class="window_napravlenie">
     <div class="tab_napravlenie">
         <ul>
@@ -97,44 +99,44 @@
         new WindowNapravlenie($window_napravlenie, $tab_napravlenie, $btn_open_window_napravlenie)
     })
 
-    $(document).ready(async function () {
-        let sourse_med_organizacia;
-
-
-        await get_mega_json.then(function (data) {
-            sourse_med_organizacia = data['med_organizacia'].map(item => item['nazvanie']);
-        })
-
-
-        //Пункт направления
-        $(".punkt_napravleniya").jqxDropDownList({
-            filterable: true,
-            selectedIndex: 1,
-            source: sourse_med_organizacia,
-            width: '300px',
-            height: '30px',
-            theme: 'arctic'
-        });
-
-        //Цель направления
-        $(".cel_napravleniya").jqxRadioButton({width: 200, height: 25, theme: 'arctic'});
-
-        $('.predpolagaemyi_diagnoz').jqxTextArea({
-            placeHolder: '',
-            height: 90,
-            width: '50%',
-            minLength: 1,
-        });
-
-        //Диагноз подтвержден
-        $(".diagnoz_podtverjden").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});
-
-
-        //Дата
-        $(".data").jqxDateTimeInput({width: '120px', height: '25px', theme: 'arctic'});
-
-
-    });
+    {#$(document).ready(async function () {#}
+    {#    let sourse_med_organizacia;#}
+    {##}
+    {##}
+    {#    await get_mega_json.then(function (data) {#}
+    {#        sourse_med_organizacia = data['med_organizacia'].map(item => item['nazvanie']);#}
+    {#    })#}
+    {##}
+    {##}
+    {#    //Пункт направления#}
+    {#    $(".punkt_napravleniya").jqxDropDownList({#}
+    {#        filterable: true,#}
+    {#        selectedIndex: 1,#}
+    {#        source: sourse_med_organizacia,#}
+    {#        width: '300px',#}
+    {#        height: '30px',#}
+    {#        theme: 'arctic'#}
+    {#    });#}
+    {##}
+    {#    //Цель направления#}
+    {#    $(".cel_napravleniya").jqxRadioButton({width: 200, height: 25, theme: 'arctic'});#}
+    {##}
+    {#    $('.predpolagaemyi_diagnoz').jqxTextArea({#}
+    {#        placeHolder: '',#}
+    {#        height: 90,#}
+    {#        width: '50%',#}
+    {#        minLength: 1,#}
+    {#    });#}
+    {##}
+    {#    //Диагноз подтвержден#}
+    {#    $(".diagnoz_podtverjden").jqxRadioButton({width: 70, height: 25, theme: 'arctic'});#}
+    {##}
+    {##}
+    {#    //Дата#}
+    {#    $(".data").jqxDateTimeInput({width: '120px', height: '25px', theme: 'arctic'});#}
+    {##}
+    {##}
+    {# }); #}
 
 
 </script>
