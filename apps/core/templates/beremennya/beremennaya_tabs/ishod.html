@@ -1,3 +1,98 @@
+<style>
+    .ishod .FixP {
+    width: 60%;
+    }
+
+    .ishod .FixP p {
+        display: inline;
+    }
+
+    .ishod .FixP label {
+        width: auto;
+    }
+
+    .ishod .FixP input[type="checkbox"] {
+        margin: 7px 5px 7px 0;
+    }
+
+    .ishod .doptext {
+        margin: 7px 5px 7px 0;
+    }
+
+    .ishod p {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .ishod label {
+        margin: 7px 5px 7px 0;
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+    }
+
+    .ishod select {
+        margin: 4px 3px 4px 3px;
+        width: 250px;
+    }
+
+    .ishod input {
+        width: 250px;
+    }
+
+    .ishod input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 7px 5px 7px 0;
+    }
+
+    .ishod .save_beremennaya {
+        position: relative;
+        left: 40%;
+        width: 200px;
+        margin: 3px;
+    }
+
+    .ishod .default {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+
+    .ishod .text {
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+        margin: 7px 5px 7px 0;
+    }
+
+    .ishod .doptext {
+        float: right;
+        text-align: left;
+        margin-left: 2px;
+    }
+
+    .ishod h3 {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+    }
+
+</style>
+
+<form class="ishod" action="{% url 'home' %}" method="post">
+    {% csrf_token %}
+
+
+
 <div class="default">
     {{ ishod_form.data_ishoda.label_tag }}
     {{ ishod_form.data_ishoda }}
@@ -31,47 +126,56 @@
     {{ ishod_form.kesarevo_sechenie3 }}
 </div>
 
+
 <h3>Осложнения при родоразрешении</h3>
 
 
 <div class="default">
     {{ ishod_form.preeklampsiya.label_tag }}
     {{ ishod_form.preeklampsiya }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.predlejanie_placenti.label_tag }}
     {{ ishod_form.predlejanie_placenti }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.prejdevrem_otsloyka.label_tag }}
     {{ ishod_form.prejdevrem_otsloyka }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.anomalii_rodovoy_deyatelnosti.label_tag }}
     {{ ishod_form.anomalii_rodovoy_deyatelnosti }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.klinicheski_uzkiy_taz.label_tag }}
     {{ ishod_form.klinicheski_uzkiy_taz }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.razriv_matki.label_tag }}
     {{ ishod_form.razriv_matki }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.dvc_sindrom.label_tag }}
     {{ ishod_form.dvc_sindrom }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
     {{ ishod_form.emboliya.label_tag }}
     {{ ishod_form.emboliya }}
+    <div class="doptext">есть</div>
 </div>
 
 <h3>Случай материнской смертности</h3>
@@ -79,6 +183,7 @@
 <div class="default">
     {{ ishod_form.smert_materi.label_tag }}
     {{ ishod_form.smert_materi }}
+    <div class="doptext">есть</div>
 </div>
 
 <div class="default">
@@ -109,6 +214,7 @@
         <input class="jqxButton16" type="button" value="Анкета"/>
     </div>
 </div>
+</form>
 
 {#<script>#}
 {#    $(document).ready(async function () {#}
