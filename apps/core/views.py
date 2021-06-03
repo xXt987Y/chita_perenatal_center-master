@@ -47,7 +47,13 @@ def home(request):
     beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm(label_suffix='')
     beremennaya_somaticheskie_pokazateli_form = BeremennayaSomaticheskiePokazateliForm(label_suffix='')
     anketa_form = AnketaForm(label_suffix='')
+    anketa_srok_beremennosti_form = AnketaSrokBeremennostiForm(label_suffix='')
+    anketa_osobennosti_form = AnketaOsobennostiForm(label_suffix='')
+    anketa_narushenie_form = AnketaNarushenieForm(label_suffix='')
+    anketa_fakt_form = AnketaFaktForm(label_suffix='')
+    anketa_nesootvetstvie_form = AnketaNesootvetstvieForm(label_suffix='')
     ishod_form = IshodForm(label_suffix='')
+
 
     return render(request, "home.html", {
         'form': form,
@@ -70,6 +76,12 @@ def home(request):
         'beremennaya_bolezni_organov_dihaniya_form': beremennaya_bolezni_organov_dihaniya_form,
         'beremennaya_bolezni_organov_moch_form': beremennaya_bolezni_organov_moch_form,
         'beremennaya_somaticheskie_pokazateli_form': beremennaya_somaticheskie_pokazateli_form,
+        'anketa_srok_beremennosti_form': anketa_srok_beremennosti_form,
+        'anketa_osobennosti_form': anketa_osobennosti_form,
+        'anketa_narushenie_form': anketa_narushenie_form,
+        'anketa_fakt_form': anketa_fakt_form,
+        'anketa_nesootvetstvie_form': anketa_nesootvetstvie_form,
+
         })
 
 

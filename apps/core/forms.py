@@ -402,3 +402,98 @@ class BeremennayaSomaticheskiePokazateliForm(forms.ModelForm):
             'somaticheskie_pokazateli_muzskoy',
             'somaticheskie_pokazateli_girsutizm',
         ]
+
+class AnketaSrokBeremennostiForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
+    class Meta:
+        model = Anketa
+        fields = [
+            'srok_beremennosti_po_obektivnim_dannim',
+            'srok_beremennosti_po_dannim_uzi',
+            'srok_beremennosti_po_pervomu',
+        ]
+
+class AnketaOsobennostiForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
+    class Meta:
+        model = Anketa
+        fields = [
+            'osobennosti_protekaniya_beremennosti_krovynistie',
+            'osobennosti_protekaniya_beremennosti_virazenniy_toxikoz',
+            'osobennosti_protekaniya_beremennosti_krovotechenie',
+        ]
+
+class AnketaNarushenieForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
+    class Meta:
+        model = Anketa
+        fields = [
+            'narushenie_okoplodnih_vod_mnogovodie',
+            'narushenie_okoplodnih_vod_malovodie',
+            'narushenie_okoplodnih_vod_mekonialnie',
+        ]
+
+class AnketaFaktForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
+    class Meta:
+        model = Anketa
+        fields = [
+            'fakt_provedeniya_uzi_10_14',
+            'fakt_provedeniya_uzi_20_24',
+            'fakt_provedeniya_uzi_32_34',
+        ]
+
+class AnketaNesootvetstvieForm(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
+
+    class Meta:
+        model = Anketa
+        fields = [
+            'nesootvetstvie_dannih_uzi_soot',
+            'nesootvetstvie_dannih_uzi_fetomerii',
+            'nesootvetstvie_dannih_uzi_placenti',
+        ]

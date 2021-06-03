@@ -292,7 +292,7 @@ class BeremennayaSerializer(serializers.ModelSerializer):
         return obj.jk_beremennoy.nazvanie
 
     def get_data_vzyatiya(self, obj):
-        return obj.data_vzyatiya.strftime("%d.%m.%Y")
+        return obj.data_vzyatiya
 
 
 class DoctorSerializer(serializers.ModelSerializer):

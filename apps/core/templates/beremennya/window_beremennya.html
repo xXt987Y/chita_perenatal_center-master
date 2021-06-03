@@ -35,6 +35,10 @@
 
 
 <style>
+    .window_anketi {
+        position: absolute ;
+        z-index: inherit;
+            }
 </style>
 
 
@@ -84,16 +88,15 @@
                             self.$window.find('#id_nomer').val(data['nomer']);
                             self.$window.find('#id_jk_beremennoy').val(data['jk_beremennoy']);
 
-                            var parts_vzyatiya = data['data_vzyatiya'].split('.');
-                            var data_vzyatiya_date = new Date(parts_vzyatiya[2], parts_vzyatiya[1] - 1, parts_vzyatiya[0]);
-                            self.$window.find('#id_data_vzyatiya').val(data['data_vzyatiya_date']);
+
+                            self.$window.find('#id_data_vzyatiya').val(data['data_vzyatiya']);
+
 
                             self.$window.find('#id_vrach').val(data['vrach']);
                             self.$window.find('#id_fio').val(data['fio']);
 
-                            {#var parts_rojdeniya = data['data_rojdeniya'].split('-');#}
-                            {#var data_rojdeniya_date = new Date(parts_rojdeniya[0], parts_rojdeniya[1] - 1, parts_rojdeniya[2]);#}
-                            {#self.$window.find('.tab_osnovnie_danie .data_rojdeniya').jqxDateTimeInput({'value': data_rojdeniya_date});#}
+
+                            self.$window.find('#id_data_rojdeniya').val(data['data_rojdeniya']);
 
                             self.$window.find('#id_vozrast').val(data['vozrast']);
                             self.$window.find('#id_mesto_postoyannogo_projivaniya').val(data['mesto_postoyannogo_projivaniya']);
