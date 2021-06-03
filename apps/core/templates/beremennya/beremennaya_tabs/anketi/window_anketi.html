@@ -1,3 +1,106 @@
+<style>
+    .novaya_anketa .FixP {
+        width: 60%;
+
+    }
+
+    .novaya_anketa .FixP label {
+
+        width: auto;
+
+    }
+
+    .novaya_anketa .doptext {
+        margin: 7px 5px 7px 0;
+    }
+
+    .novaya_anketa p {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .novaya_anketa label {
+        margin: 7px 5px 7px 0;
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+    }
+
+    .novaya_anketa select {
+        margin: 4px 3px 4px 3px;
+        width: 250px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .novaya_anketa input [type="text"] {
+        width: 245px !important;
+    }
+
+    input[type="date" i] {
+        width: 250px !important;
+        margin: 4px 3px 4px 3px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
+
+    .novaya_anketa input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 7px 5px 7px 0;
+        opacity: 1;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+        color: #333333;
+        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        border-radius: 4px;
+        font-family: Verdana, Arial, sans-serif;
+        border: 1px solid transparent;
+        outline: none;
+    }
+
+    .novaya_anketa .save_anketa {
+        position: relative;
+        left: 40%;
+        width: 200px;
+        margin: 3px;
+    }
+
+    .novaya_anketa .default {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+
+    .novaya_anketa .text {
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+        margin: 7px 5px 7px 0;
+    }
+
+    .novaya_anketa .doptext {
+        float: right;
+        text-align: left;
+        margin-left: 2px;
+    }
+
+    .novaya_anketa h3 {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+    }
+
+</style>
 
 <div class="window_anketi">
     <div style="overflow: hidden" class="tab_anketi">
@@ -6,7 +109,7 @@
         </ul>
 
         <div class="tab_beremennya_anketi">
-            <form class="novaya_beremennaya" action="{% url 'home' %}" method="post">
+            <form class="novaya_anketa" action="{% url 'home' %}" method="post">
                 {% csrf_token %}
                 <div class="default">
                     {{ anketa_form.data_zapolneniya_anketi_vrachem.label_tag }}
@@ -23,39 +126,32 @@
                 </div>
                 <div class="default">
                     <div class="text">Срок беременности, нед.:</div>
-                    {{ anketa_form.srok_beremennosti_po_obektivnim_dannim.label_tag }}
-                    {{ anketa_form.srok_beremennosti_po_obektivnim_dannim }}
-
-                    {{ anketa_form.srok_beremennosti_po_dannim_uzi.label_tag }}
-                    {{ anketa_form.srok_beremennosti_po_dannim_uzi }}
-
-                    {{ anketa_form.srok_beremennosti_po_pervomu.label_tag }}
-                    {{ anketa_form.srok_beremennosti_po_pervomu }}
+                    <div class="FixP">{{ anketa_srok_beremennosti_form.as_p }}</div>
                 </div>
+
                 <h3>Осложнения текущей беременности</h3>
                 <div class="default">
                     <div class="text">Особенности протекания беременности:</div>
-                    {{ anketa_form.osobennosti_protekaniya_beremennosti_krovynistie }}
-                    {{ anketa_form.osobennosti_protekaniya_beremennosti_krovynistie.label_tag }}
-
-                    {{ anketa_form.osobennosti_protekaniya_beremennosti_virazenniy_toxikoz }}
-                    {{ anketa_form.osobennosti_protekaniya_beremennosti_virazenniy_toxikoz.label_tag }}
-
-                    {{ anketa_form.osobennosti_protekaniya_beremennosti_krovotechenie }}
-                    {{ anketa_form.osobennosti_protekaniya_beremennosti_krovotechenie.label_tag }}
+                    <div class="FixP">{{ anketa_osobennosti_form.as_p }}</div>
                 </div>
+
                 <div class="default">
                     <div class="text">Угроза прерывания:</div>
-                    {{ anketa_form.ugroza_prerivaniya_do_22.label_tag }}
-                    {{ anketa_form.ugroza_prerivaniya_do_22 }}
+                    <div style="display: inherit" class="FixP">
+                        {{ anketa_form.ugroza_prerivaniya_do_22.label_tag }}
+                        {{ anketa_form.ugroza_prerivaniya_do_22 }}
 
-                    {{ anketa_form.ugroza_prerivaniya_posle_22.label_tag }}
-                    {{ anketa_form.ugroza_prerivaniya_posle_22 }}
+                        {{ anketa_form.ugroza_prerivaniya_posle_22.label_tag }}
+                        {{ anketa_form.ugroza_prerivaniya_posle_22 }}
+                    </div>
                 </div>
+
                 <div class="default">
                     <div class="text">Антифосфилипидный синдром:</div>
-                    {{ anketa_form.antifosfolipidniy_sindrom }}
-                    {{ anketa_form.antifosfolipidniy_sindrom.label_tag }}
+                    <div style="display: inherit" class="FixP">
+                        {{ anketa_form.antifosfolipidniy_sindrom }}
+                        {{ anketa_form.antifosfolipidniy_sindrom.label_tag }}
+                    </div>
                 </div>
                 <div class="default">
                     {{ anketa_form.preeklampsiya.label_tag }}
@@ -68,7 +164,7 @@
                 <div class="default">
                     {{ anketa_form.abo_sensibilizaciya.label_tag }}
                     {{ anketa_form.abo_sensibilizaciya }}
-                    <div class="doptext">есть</div>
+                    <div class="doptext">Eсть</div>
                 </div>
                 <div class="default">
                     {{ anketa_form.fetoplacentarnaya_nedostatochnost.label_tag }}
@@ -76,12 +172,7 @@
                 </div>
                 <div class="default">
                     <div class="text">Нарушение околоплодных вод:</div>
-                    {{ anketa_form.narushenie_okoplodnih_vod_mnogovodie }}
-                    {{ anketa_form.narushenie_okoplodnih_vod_mnogovodie.label_tag }}
-                    {{ anketa_form.narushenie_okoplodnih_vod_malovodie }}
-                    {{ anketa_form.narushenie_okoplodnih_vod_malovodie.label_tag }}
-                    {{ anketa_form.narushenie_okoplodnih_vod_mekonialnie }}
-                    {{ anketa_form.narushenie_okoplodnih_vod_mekonialnie.label_tag }}
+                    <div class="FixP">{{ anketa_narushenie_form.as_p }}</div>
                 </div>
                 <div class="default">
                     {{ anketa_form.nepravilnoe_polojenie_ploda.label_tag }}
@@ -89,8 +180,10 @@
                 </div>
                 <div class="default">
                     <div class="text">Обвитие пуповиной:</div>
-                    {{ anketa_form.obvitie_pupovini }}
-                    {{ anketa_form.obvitie_pupovini.label_tag }}
+                    <div style="display: inherit" class="FixP">
+                        {{ anketa_form.obvitie_pupovini }}
+                        {{ anketa_form.obvitie_pupovini.label_tag }}
+                    </div>
                 </div>
                 <div class="default">
                     {{ anketa_form.mnogoplodie.label_tag }}
@@ -99,8 +192,10 @@
                 <h3>Состояние плода</h3>
                 <div class="default">
                     <div class="text">Крупный плод:</div>
-                    {{ anketa_form.krupniy_plod }}
-                    {{ anketa_form.krupniy_plod.label_tag }}
+                    <div style="display: inherit" class="FixP">
+                        {{ anketa_form.krupniy_plod }}
+                        {{ anketa_form.krupniy_plod.label_tag }}
+                    </div>
                 </div>
                 <div class="default">
                     {{ anketa_form.predlejanie_placenti.label_tag }}
@@ -120,31 +215,22 @@
                 </div>
                 <div class="default">
                     <div class="text">Факт проведения узи в скрининговые сроки:</div>
-                    {{ anketa_form.fakt_provedeniya_uzi_10_14 }}
-                    {{ anketa_form.fakt_provedeniya_uzi_10_14.label_tag }}
-                    {{ anketa_form.fakt_provedeniya_uzi_20_24 }}
-                    {{ anketa_form.fakt_provedeniya_uzi_20_24.label_tag }}
-                    {{ anketa_form.fakt_provedeniya_uzi_32_34 }}
-                    {{ anketa_form.fakt_provedeniya_uzi_32_34.label_tag }}
+                    <div class="FixP">{{ anketa_fakt_form.as_p }}</div>
                 </div>
                 <div class="default">
                     <div class="text">Несоответствие данных УЗИ сроку гестации:</div>
-                    {{ anketa_form.nesootvetstvie_dannih_uzi_soot }}
-                    {{ anketa_form.nesootvetstvie_dannih_uzi_soot.label_tag }}
-                    {{ anketa_form.nesootvetstvie_dannih_uzi_fetomerii }}
-                    {{ anketa_form.nesootvetstvie_dannih_uzi_fetomerii.label_tag }}
-                    {{ anketa_form.nesootvetstvie_dannih_uzi_placenti }}
-                    {{ anketa_form.nesootvetstvie_dannih_uzi_placenti.label_tag }}
+                    <div class="FixP">{{ anketa_nesootvetstvie_form.as_p }}</div>
                 </div>
                 <div class="default">
                     {{ anketa_form.nalichie_vpr_po_rezultatam_uzi.label_tag }}
                     {{ anketa_form.nalichie_vpr_po_rezultatam_uzi }}
                 </div>
-                <div class="default">
-                    {{ anketa_form.data_provedeniya_prenatalnogo_konsiliuma.label_tag }}
-                    {{ anketa_form.data_provedeniya_prenatalnogo_konsiliuma }}
-                    {{ anketa_form.nomer_protokola.label_tag }}
-                    {{ anketa_form.nomer_protokola }}
+                <div class="default">{{ anketa_form.data_provedeniya_prenatalnogo_konsiliuma.label_tag }}
+                    <div style="display: inherit" class="FixP">
+                        {{ anketa_form.data_provedeniya_prenatalnogo_konsiliuma }}
+                        {{ anketa_form.nomer_protokola.label_tag }}
+                        {{ anketa_form.nomer_protokola }}
+                    </div>
                 </div>
                 <div class="default">
                     {{ anketa_form.obshee_sostoyanie_ploda.label_tag }}
@@ -152,14 +238,15 @@
                 </div>
                 <div class="default">
                     <div class="text">Направлена на экстренное родоразрешение:</div>
-                    {{ anketa_form.napravlena_na_extrennoe_rodorazreshenie }}
-                    {{ anketa_form.napravlena_na_extrennoe_rodorazreshenie.label_tag }}
+                    <div class="FixP">
+                        {{ anketa_form.napravlena_na_extrennoe_rodorazreshenie }}
+                        {{ anketa_form.napravlena_na_extrennoe_rodorazreshenie.label_tag }}
+                    </div>
                 </div>
                 <h3>Состояние плода</h3>
                 <div class="default">
                     {{ anketa_form.diagnoz_osnovnoy_mkb10.label_tag }}
                     {{ anketa_form.diagnoz_osnovnoy_mkb10 }}
-                    <div class="text">(Наблюдение за беременностью женщины, подверженной другой высокой степени риска)</div>
                 </div>
                 <div class="default">
                     {{ anketa_form.diagnoz_oslojneniya_mkb10.label_tag }}
@@ -173,7 +260,10 @@
                     {{ anketa_form.dopolnitelnie_zamechaniya_vracha.label_tag }}
                     {{ anketa_form.dopolnitelnie_zamechaniya_vracha }}
                 </div>
-                <button class="menubtn" type="submit">Сохранить</button>
+
+                <div class="default">
+                    <button class="menubtn save_anketa" type="submit">Сохранить</button>
+                </div>
             </form>
 
 
@@ -401,8 +491,8 @@
                 minHeight: 400,
                 minWidth: 700,
                 theme: 'arctic',
-                height: 500,
-                width: 1200,
+                height: 600,
+                width: 1400,
                 title: 'Анкеты',
                 autoOpen: false,
                 resizable: true,
