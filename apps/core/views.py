@@ -45,7 +45,7 @@ def home(request):
     beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm
     beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm
     beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm
-    anketa_form = AnketaForm()
+    anketa_form = AnketaForm(label_suffix='')
     ishod_form = IshodForm()
 
     return render(request, "home.html", {
