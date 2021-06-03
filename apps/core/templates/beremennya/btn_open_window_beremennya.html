@@ -1,4 +1,4 @@
-<input class="topmenu btn_open_window_beremennya" type="button" value="Новая беременная"/>
+<button class="topmenu menubtn" id="btn_open_window_beremennya">Новая беременная</button>
 
 <script>
 
@@ -6,9 +6,6 @@
         constructor($btn_open_window_beremennya, $window) {
             this.$btn = $btn_open_window_beremennya;
             this.$window = $window;
-            this.$btn.jqxToggleButton({
-                toggled: false
-            });
             this.on_click_toogle_btn();
 
         }
@@ -16,17 +13,12 @@
         on_click_toogle_btn() {
             let self = this;
             this.$btn.click(function () {
-                let toggled = self.$btn.jqxToggleButton('toggled');
-                if (toggled === true) {
                     self.$window.jqxWindow('open');
-                } else {
-                    self.$window.jqxWindow('close');
-                }
             });
         }
     }
 
-    $btn_open_window_beremennya = $('.btn_open_window_beremennya')
+    $btn_open_window_beremennya = $('#btn_open_window_beremennya')
     $(function () {
          new BtnWindowBeremennya($btn_open_window_beremennya, $window_beremennya);
     })

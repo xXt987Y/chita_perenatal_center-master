@@ -1,9 +1,9 @@
-<div class="default">
-    <input class="topmenu menubtn" type="button" value="Регистрация беременных"/>
-    <input class="topmenu btn_Poisk" type="button" value="Поиск"/>
-    <input class="topmenu btn_konsultacii" type="button" value="Консультации"/>
+<div class="default" xmlns="http://www.w3.org/1999/html">
+    <button class="topmenu menubtn">Регистрация беременных</button>
+    <button class="topmenu menubtn">Поиск</button>
+    <button class="topmenu menubtn">Консультации"</button>
     {% include 'partical/smenaJK/btn_open_window_smenaJK.html' %}
-    <input class="topmenu btn_otchety" type="button" value="Отчеты"/>
+    <button class="topmenu menubtn">Отчеты</button>
     {% include 'partical/doctor/btn_open_window_doctor.html' %}
     {% include 'partical/mkb10/btn_open_window_mkb10.html' %}
 </div>
@@ -32,12 +32,12 @@
     </div>
     <div class="default">
         {% include 'beremennya/btn_open_window_beremennya.html' %}
-        <input class="topmenu btn_red_beremen" type="button" value="Редактировать беременную"/>
-        <input class="topmenu btn_novaya_anketa" type="button" value="Новая анкета"/>
-        <input class="topmenu jqxButtonNovoeNapravlenie" type="button" value="Новое направление"/>
-        <input class="topmenu btn_konsultacii" type="button" value="Новая консультация"/>
-        <input class="topmenu btn_ishod_beremen" type="button" value="Исход беременности"/>
-        <input class="topmenu btn_zapros_na_perevod" type="button" value="Запрос на перевод"/>
+        <button class="topmenu menubtn" id="btn_red_beremen">Редактировать беременную</button>
+        <button class="topmenu menubtn" id="btn_novaya_anketa">Новая анкета</button>
+        <button class="topmenu menubtn" id="jqxButtonNovoeNapravlenie">Новое направление</button>
+        <button class="topmenu menubtn" id="btn_konsultacii">Новая консультация</button>
+        <button class="topmenu menubtn" id="btn_ishod_beremen">Исход беременности</button>
+        <button class="topmenu menubtn" id="btn_zapros_na_perevod">Запрос на перевод</button>
     </div>
 </div>
 {% include 'partical/poisk.html' %}
@@ -51,54 +51,54 @@
         {#    $('#poisk').hide();#}
         {# });#}
         //КНОПКА ПОИСКА
-        $(".btn_Poisk").jqxToggleButton({toggled: false});
-        $(".btn_Poisk").on('click', function () {
-            var toggled = $(".btn_Poisk").jqxToggleButton('toggled');
-            $('#pole').hide();
-            $('#poisk').show();
-        });
-        //Кнопка Консультации
-        $(".btn_konsultacii").jqxToggleButton({toggled: false});
-        $(".btn_konsultacii").on('click', function () {
-            var toggled = $(".btn_konsultacii").jqxToggleButton('toggled');
-        });
-        //Отчеты
-        $(".btn_otchety").jqxToggleButton({toggled: false});
-        $(".btn_otchety").on('click', function () {
-            var toggled = $(".btn_otchety").jqxToggleButton('toggled');
-        });
-
-        //Редактирование беременной
-        $(".btn_red_beremen").jqxToggleButton({toggled: false});
-        $(".btn_red_beremen").on('click', function () {
-            var toggled = $(".btn_red_beremen").jqxToggleButton('toggled');
-        });
-        //Новая анкета
-        $(".btn_novaya_anketa").jqxToggleButton({toggled: false});
-        $(".btn_novaya_anketa").on('click', function () {
-            var toggled = $(".btn_novaya_anketa").jqxToggleButton('toggled');
-        });
-        //Новое направление
-        $(".jqxButtonNovoeNapravlenie").jqxToggleButton({toggled: false});
-        $(".jqxButtonNovoeNapravlenie").on('click', function () {
-            var toggled = $(".jqxButtonNovoeNapravlenie").jqxToggleButton('toggled');
-        });
-        //Исход беременности
-        $(".btn_ishod_beremen").jqxToggleButton({toggled: false});
-        $(".btn_ishod_beremen").on('click', function () {
-            var toggled = $(".btn_ishod_beremen").jqxToggleButton('toggled');
-        });
-        //Запрос на перевод
-        $(".btn_zapros_na_perevod").jqxToggleButton({toggled: false});
-        $(".btn_zapros_na_perevod").on('click', function () {
-            var toggled = $(".jqxButton13").jqxToggleButton('toggled');
-        });
-
-
-
-        $(".input_menu_nomer_karty").jqxInput({height: 23, width: 40, minLength: 1});
-        $(".input_menu_oms").jqxInput({height: 23, width: 40, minLength: 1});
-        $(".input_menu_fio").jqxInput({height: 23, width: 40, minLength: 1});
-        $(".menu_god").jqxDateTimeInput({width: '125px', height: '25px'});
+        {#$(".btn_Poisk").jqxToggleButton({toggled: false});#}
+        {#$(".btn_Poisk").on('click', function () {#}
+        {#    var toggled = $(".btn_Poisk").jqxToggleButton('toggled');#}
+        {#    $('#pole').hide();#}
+        {#    $('#poisk').show();#}
+        {#});#}
+        {#//Кнопка Консультации#}
+        {#$(".btn_konsultacii").jqxToggleButton({toggled: false});#}
+        {#$(".btn_konsultacii").on('click', function () {#}
+        {#    var toggled = $(".btn_konsultacii").jqxToggleButton('toggled');#}
+        {#});#}
+        {#//Отчеты#}
+        {#$(".btn_otchety").jqxToggleButton({toggled: false});#}
+        {#$(".btn_otchety").on('click', function () {#}
+        {#    var toggled = $(".btn_otchety").jqxToggleButton('toggled');#}
+        {#});#}
+        {##}
+        {#//Редактирование беременной#}
+        {#$(".btn_red_beremen").jqxToggleButton({toggled: false});#}
+        {#$(".btn_red_beremen").on('click', function () {#}
+        {#    var toggled = $(".btn_red_beremen").jqxToggleButton('toggled');#}
+        {#});#}
+        {#//Новая анкета#}
+        {#$(".btn_novaya_anketa").jqxToggleButton({toggled: false});#}
+        {#$(".btn_novaya_anketa").on('click', function () {#}
+        {#    var toggled = $(".btn_novaya_anketa").jqxToggleButton('toggled');#}
+        {#});#}
+        {#//Новое направление#}
+        {#$(".jqxButtonNovoeNapravlenie").jqxToggleButton({toggled: false});#}
+        {#$(".jqxButtonNovoeNapravlenie").on('click', function () {#}
+        {#    var toggled = $(".jqxButtonNovoeNapravlenie").jqxToggleButton('toggled');#}
+        {#});#}
+        {#//Исход беременности#}
+        {#$(".btn_ishod_beremen").jqxToggleButton({toggled: false});#}
+        {#$(".btn_ishod_beremen").on('click', function () {#}
+        {#    var toggled = $(".btn_ishod_beremen").jqxToggleButton('toggled');#}
+        {#});#}
+        {#//Запрос на перевод#}
+        {#$(".btn_zapros_na_perevod").jqxToggleButton({toggled: false});#}
+        {#$(".btn_zapros_na_perevod").on('click', function () {#}
+        {#    var toggled = $(".jqxButton13").jqxToggleButton('toggled');#}
+        {#});#}
+        {##}
+        {##}
+        {##}
+        {#$(".input_menu_nomer_karty").jqxInput({height: 23, width: 40, minLength: 1});#}
+        {#$(".input_menu_oms").jqxInput({height: 23, width: 40, minLength: 1});#}
+        {#$(".input_menu_fio").jqxInput({height: 23, width: 40, minLength: 1});#}
+        {#$(".menu_god").jqxDateTimeInput({width: '125px', height: '25px'});#}
     });
 </script>
