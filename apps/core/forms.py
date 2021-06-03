@@ -4,6 +4,8 @@ from apps.core.models import Beremennaya, Anketa, Ishod
 
 
 class BeremennayaFormPart1(forms.ModelForm):
+
+
     class Meta:
         model = Beremennaya
         fields = [
@@ -32,6 +34,15 @@ class BeremennayaVredniePrivichki(forms.ModelForm):
         ]
 
 class BeremennayaVrednieFactori(forms.ModelForm):
+    def as_p(self):
+        "Return this form rendered as HTML <p>s."
+        return self._html_output(
+            normal_row='<p%(html_class_attr)s>%(field)s %(help_text)s%(label)s</p>',
+            error_row='%s',
+            row_ender='</p>',
+            help_text_html=' <span class="helptext">%s</span>',
+            errors_on_separate_row=True,
+        )
     class Meta:
         model = Beremennaya
         fields = [

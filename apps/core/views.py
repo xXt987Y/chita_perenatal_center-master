@@ -30,7 +30,7 @@ from .forms import *
 def home(request):
     form = BeremennayaFormPart1()
     beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki
-    beremennaya_vrednie_factori_form = BeremennayaVrednieFactori
+    beremennaya_vrednie_factori_form = BeremennayaVrednieFactori(label_suffix='')
     beremennaya_form = BeremennayaForm
     beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm
     beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm
