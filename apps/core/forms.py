@@ -51,6 +51,7 @@ class IshodForm(forms.ModelForm):
         model = Ishod
         fields = '__all__'
 
+    data_ishoda = forms.DateField(required=False, widget=forms.DateInput(attrs={'type':'date'}))
 
 
 
