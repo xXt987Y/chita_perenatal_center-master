@@ -244,3 +244,26 @@ span {
     margin: 2px;
 }
 
+.menubtn {
+    /*box-sizing: content-box;*/
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+    border-color: #aaa;
+    background: #efefef;
+    outline: none;
+    text-align: center;
+    /*vertical-align: central;*/
+    cursor: default;
+    appearance: auto;
+    user-select: none;
+    /*white-space: pre;*/
+    align-items: flex-start;
+    /*color: black;*/
+    box-sizing: border-box;
+    border-width: 1px;
+    /*border-style: outset;*/
+    /*border-image: initial;*/
+    padding: 5px;
+    /*vertical-align: central;*/
+    border-radius: 3px;
+}
