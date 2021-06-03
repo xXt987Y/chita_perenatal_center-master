@@ -9,13 +9,20 @@
 
     class TablizaAnketi {
 
-        constructor($grid) {
+        constructor($grid, obj_window_anketi) {
             let self = this;
             this.$grid = $grid;
+            this.obj_window_anketi = obj_window_anketi;
+            this.$window_anketi = $window_anketi;
             this.$grid.jqxGrid(self.nastroiki_grida);
+            this.$grid.on('rowdoubleclick', function (event) {
+                self.otkrit_okno_prosmotra_anketi(event);
+            });
+
+
         }
 
-         get nastroiki_grida() {
+        get nastroiki_grida() {
             let self = this;
             return {
                 width: '99.9%',
@@ -44,6 +51,7 @@
 
         get fields() {
             return [
+                {name: 'id', type: 'number'},
                 {name: 'nomer_anketi_title', type: 'number'},
                 {name: 'data_zapolneniya_anketi_vrachem', type: 'data'},
                 {name: 'familiya_vracha_title', type: 'string'},
@@ -100,11 +108,18 @@
                 sortdirection: 'desc'
             });
         }
+
+        otkrit_okno_prosmotra_anketi(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.obj_window_anketi.open(id)
+        }
+
     }
 
 
     let $tabliza_anketi = $('.tabliza_anketi');
     $(document).ready(function () {
-        new TablizaAnketi($tabliza_anketi);
+        new TablizaAnketi($tabliza_anketi, obj_window_anketi);
     });
 </script>

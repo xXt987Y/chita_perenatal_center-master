@@ -190,6 +190,7 @@
                     {{ anketa_form.mnogoplodie }}
                 </div>
                 <h3>Состояние плода</h3>
+
                 <div class="default">
                     <div class="text">Крупный плод:</div>
                     <div style="display: inherit" class="FixP">
@@ -197,34 +198,37 @@
                         {{ anketa_form.krupniy_plod.label_tag }}
                     </div>
                 </div>
+
                 <div class="default">
                     {{ anketa_form.predlejanie_placenti.label_tag }}
                     {{ anketa_form.predlejanie_placenti }}
                 </div>
-                <div class="default">
-                    {{ anketa_form.predlejanie_placenti.label_tag }}
-                    {{ anketa_form.predlejanie_placenti }}
-                </div>
+
                 <div class="default">
                     {{ anketa_form.uroven_papp_a.label_tag }}
                     {{ anketa_form.uroven_papp_a }}
                 </div>
+
                 <div class="default">
                     {{ anketa_form.uroven_beta_hgch.label_tag }}
                     {{ anketa_form.uroven_beta_hgch }}
                 </div>
+
                 <div class="default">
                     <div class="text">Факт проведения узи в скрининговые сроки:</div>
                     <div class="FixP">{{ anketa_fakt_form.as_p }}</div>
                 </div>
+
                 <div class="default">
                     <div class="text">Несоответствие данных УЗИ сроку гестации:</div>
                     <div class="FixP">{{ anketa_nesootvetstvie_form.as_p }}</div>
                 </div>
+
                 <div class="default">
                     {{ anketa_form.nalichie_vpr_po_rezultatam_uzi.label_tag }}
                     {{ anketa_form.nalichie_vpr_po_rezultatam_uzi }}
                 </div>
+
                 <div class="default">{{ anketa_form.data_provedeniya_prenatalnogo_konsiliuma.label_tag }}
                     <div style="display: inherit" class="FixP">
                         {{ anketa_form.data_provedeniya_prenatalnogo_konsiliuma }}
@@ -232,10 +236,12 @@
                         {{ anketa_form.nomer_protokola }}
                     </div>
                 </div>
+
                 <div class="default">
                     {{ anketa_form.obshee_sostoyanie_ploda.label_tag }}
                     {{ anketa_form.obshee_sostoyanie_ploda }}
                 </div>
+
                 <div class="default">
                     <div class="text">Направлена на экстренное родоразрешение:</div>
                     <div class="FixP">
@@ -243,19 +249,24 @@
                         {{ anketa_form.napravlena_na_extrennoe_rodorazreshenie.label_tag }}
                     </div>
                 </div>
+
                 <h3>Состояние плода</h3>
+
                 <div class="default">
                     {{ anketa_form.diagnoz_osnovnoy_mkb10.label_tag }}
                     {{ anketa_form.diagnoz_osnovnoy_mkb10 }}
                 </div>
+
                 <div class="default">
                     {{ anketa_form.diagnoz_oslojneniya_mkb10.label_tag }}
                     {{ anketa_form.diagnoz_oslojneniya_mkb10 }}
                 </div>
+
                 <div class="default">
                     {{ anketa_form.diagnoz_soputstvuyshiy_mkb10.label_tag }}
                     {{ anketa_form.diagnoz_soputstvuyshiy_mkb10 }}
                 </div>
+
                 <div class="default">
                     {{ anketa_form.dopolnitelnie_zamechaniya_vracha.label_tag }}
                     {{ anketa_form.dopolnitelnie_zamechaniya_vracha }}
@@ -509,6 +520,69 @@
             this.on_close();
         }
 
+        open(id = 0) {
+            let self = this;
+            if (id) {
+                fetch(`/api/anketa/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            self.$window.find('#id_data_zapolneniya_anketi_vrachem').val(data['data_zapolneniya_anketi_vrachem']);
+                            self.$window.find('#id_familiya_vracha').val(data['familiya_vracha']);
+                            self.$window.find('#id_ves_beremennoy').val(data['ves_beremennoy']);
+                            self.$window.find('#id_srok_beremennosti_po_obektivnim_dannim').val(data['srok_beremennosti_po_obektivnim_dannim']);
+                            self.$window.find('#id_srok_beremennosti_po_dannim_uzi').val(data['srok_beremennosti_po_dannim_uzi']);
+                            self.$window.find('#id_srok_beremennosti_po_pervomu').val(data['srok_beremennosti_po_pervomu']);
+                            self.$window.find('#id_osobennosti_protekaniya_beremennosti_krovynistie').prop('checked', data['osobennosti_protekaniya_beremennosti_krovynistie']);
+                            self.$window.find('#id_osobennosti_protekaniya_beremennosti_virazenniy_toxikoz').prop('checked', data['osobennosti_protekaniya_beremennosti_virazenniy_toxikoz']);
+                            self.$window.find('#id_osobennosti_protekaniya_beremennosti_krovotechenie').prop('checked', data['osobennosti_protekaniya_beremennosti_krovotechenie']);
+                            self.$window.find('#id_ugroza_prerivaniya_do_22').prop('checked', data['ugroza_prerivaniya_do_22']);
+                            self.$window.find('#id_ugroza_prerivaniya_posle_22').prop('checked', data['ugroza_prerivaniya_posle_22']);
+                            self.$window.find('#id_antifosfolipidniy_sindrom').prop('checked', data['antifosfolipidniy_sindrom']);
+                            self.$window.find('#id_preeklampsiya').val(data['preeklampsiya']);
+                            self.$window.find('#id_rezus_sensibilizaciya').val(data['rezus_sensibilizaciya']);
+                            self.$window.find('#id_abo_sensibilizaciya').prop('checked', data['abo_sensibilizaciya']);
+                            self.$window.find('#id_fetoplacentarnaya_nedostatochnost').val(data['fetoplacentarnaya_nedostatochnost']);
+                            self.$window.find('#id_narushenie_okoplodnih_vod_mnogovodie').prop('checked', data['narushenie_okoplodnih_vod_mnogovodie']);
+                            self.$window.find('#id_narushenie_okoplodnih_vod_malovodie').prop('checked', data['narushenie_okoplodnih_vod_malovodie']);
+                            self.$window.find('#id_narushenie_okoplodnih_vod_mekonialnie').prop('checked', data['narushenie_okoplodnih_vod_mekonialnie']);
+                            self.$window.find('#id_nepravilnoe_polojenie_ploda').val(data['nepravilnoe_polojenie_ploda']);
+                            self.$window.find('#id_obvitie_pupovini').prop('checked', data['obvitie_pupovini']);
+                            self.$window.find('#id_mnogoplodie').val(data['mnogoplodie']);
+                            self.$window.find('#id_krupniy_plod').prop('checked', data['krupniy_plod']);
+                            self.$window.find('#id_predlejanie_placenti').val(data['predlejanie_placenti']);
+                            self.$window.find('#id_uroven_papp_a').val(data['uroven_papp_a']);
+                            self.$window.find('#id_uroven_beta_hgch').val(data['uroven_beta_hgch']);
+                            self.$window.find('#id_fakt_provedeniya_uzi_10_14').prop('checked', data['fakt_provedeniya_uzi_10_14']);
+                            self.$window.find('#id_fakt_provedeniya_uzi_20_24').prop('checked', data['fakt_provedeniya_uzi_20_24']);
+                            self.$window.find('#id_fakt_provedeniya_uzi_32_34').prop('checked', data['fakt_provedeniya_uzi_32_34']);
+                            self.$window.find('#id_nesootvetstvie_dannih_uzi_soot').prop('checked', data['nesootvetstvie_dannih_uzi_soot']);
+                            self.$window.find('#id_nesootvetstvie_dannih_uzi_fetomerii').prop('checked', data['nesootvetstvie_dannih_uzi_fetomerii']);
+                            self.$window.find('#id_nesootvetstvie_dannih_uzi_placenti').prop('checked', data['nesootvetstvie_dannih_uzi_placenti']);
+                            self.$window.find('#id_nalichie_vpr_po_rezultatam_uzi').val(data['nalichie_vpr_po_rezultatam_uzi']);
+                            self.$window.find('#id_data_provedeniya_prenatalnogo_konsiliuma').val(data['data_provedeniya_prenatalnogo_konsiliuma']);
+                            self.$window.find('#id_obshee_sostoyanie_ploda').val(data['obshee_sostoyanie_ploda']);
+                            self.$window.find('#id_nomer_protokola').val(data['nomer_protokola']);
+                            self.$window.find('#id_napravlena_na_extrennoe_rodorazreshenie').prop('checked', data['napravlena_na_extrennoe_rodorazreshenie']);
+                            self.$window.find('#id_diagnoz_osnovnoy_mkb10').val(data['diagnoz_osnovnoy_mkb10']);
+                            self.$window.find('#id_diagnoz_oslojneniya_mkb10').val(data['diagnoz_oslojneniya_mkb10']);
+                            self.$window.find('#id_diagnoz_soputstvuyshiy_mkb10').val(data['diagnoz_soputstvuyshiy_mkb10']);
+                            self.$window.find('#id_dopolnitelnie_zamechaniya_vracha').val(data['dopolnitelnie_zamechaniya_vracha']);
+
+                            self.$window.jqxWindow('open');
+                            self.$window.jqxWindow('bringToFront');
+                        }).catch(function () {
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            }
+
+        }
+
         on_close() {
             let self = this;
             this.$window.on('close', function () {
@@ -521,6 +595,7 @@
 
     let $window_anketi = $('.window_anketi');
     let $tab_anketi = $('.tab_anketi');
+    let obj_window_anketi = new WindowAnketi($window_anketi, $tab_anketi, $btn_open_window_anketi);
     $(function () {
         new WindowAnketi($window_anketi, $tab_anketi, $btn_open_window_anketi)
     })

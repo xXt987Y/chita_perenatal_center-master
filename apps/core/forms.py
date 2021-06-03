@@ -21,7 +21,8 @@ class BeremennayaFormPart1(forms.ModelForm):
         ]
 
     data_vzyatiya = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата взятия')
-    data_rojdeniya = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата рождения')
+    data_rojdeniya = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}),
+                                     label='Дата рождения')
 
 
 class BeremennayaVredniePrivichki(forms.ModelForm):
@@ -71,6 +72,9 @@ class AnketaForm(forms.ModelForm):
         model = Anketa
         fields = '__all__'
 
+
+    data_zapolneniya_anketi_vrachem = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата заполнения анкеты врачем')
+    data_provedeniya_prenatalnogo_konsiliuma = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата проведения пренатального консилиума')
 
 class IshodForm(forms.ModelForm):
     class Meta:
@@ -385,6 +389,7 @@ class BeremennayaBolezniOrganovMochForm(forms.ModelForm):
             'bolezni_organov_mochv_polikistoz',
         ]
 
+
 class BeremennayaSomaticheskiePokazateliForm(forms.ModelForm):
     def as_p(self):
         "Return this form rendered as HTML <p>s."
@@ -402,6 +407,7 @@ class BeremennayaSomaticheskiePokazateliForm(forms.ModelForm):
             'somaticheskie_pokazateli_muzskoy',
             'somaticheskie_pokazateli_girsutizm',
         ]
+
 
 class AnketaSrokBeremennostiForm(forms.ModelForm):
     def as_p(self):
@@ -422,6 +428,7 @@ class AnketaSrokBeremennostiForm(forms.ModelForm):
             'srok_beremennosti_po_pervomu',
         ]
 
+
 class AnketaOsobennostiForm(forms.ModelForm):
     def as_p(self):
         "Return this form rendered as HTML <p>s."
@@ -440,6 +447,7 @@ class AnketaOsobennostiForm(forms.ModelForm):
             'osobennosti_protekaniya_beremennosti_virazenniy_toxikoz',
             'osobennosti_protekaniya_beremennosti_krovotechenie',
         ]
+
 
 class AnketaNarushenieForm(forms.ModelForm):
     def as_p(self):
@@ -460,6 +468,7 @@ class AnketaNarushenieForm(forms.ModelForm):
             'narushenie_okoplodnih_vod_mekonialnie',
         ]
 
+
 class AnketaFaktForm(forms.ModelForm):
     def as_p(self):
         "Return this form rendered as HTML <p>s."
@@ -478,6 +487,7 @@ class AnketaFaktForm(forms.ModelForm):
             'fakt_provedeniya_uzi_20_24',
             'fakt_provedeniya_uzi_32_34',
         ]
+
 
 class AnketaNesootvetstvieForm(forms.ModelForm):
     def as_p(self):
