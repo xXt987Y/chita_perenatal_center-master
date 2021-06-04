@@ -17,6 +17,17 @@ POL = ((1, 'М'),
        (3, 'Неизвестен'),
        (4, 'Интерсекс'))
 
+MODELI_GDE_SMOTRET_VESA_STEPENI_RISKA = (
+    ('Anketi', 'Анкеты'),
+    ('Beremennaya', 'Беременная'),
+)
+
+DA_NET_NONE = (
+    (None, '---'),
+    (True, 'Истина/Да'),
+    (False, 'Ложь/Нет'),
+)
+
 
 class Rayon(models.Model):
     class Meta:
@@ -1063,3 +1074,38 @@ class Smena_JK_u_beremennoy(models.Model):
 
     def __str__(self):
         return str(self.nomer_beremennoy)
+
+
+class VesaDliaOzenkiStepeniRiska(models.Model):
+    class Meta:
+        verbose_name = 'Веса для оценки'
+        verbose_name_plural = '-Веса для оценки степени риска-'
+
+    model_gde_smotret = models.CharField('Модель где смотреть', max_length=255,
+                                         choices=MODELI_GDE_SMOTRET_VESA_STEPENI_RISKA, null=True, blank=True,)
+    stolbez_gde_smotret = models.CharField('Столбец/поле где смотреть', max_length=255)
+    znachenie_boolean = models.BooleanField('01. Значение при оценки Истина/Ложь',
+                                            help_text='Параметр с высшим приоритетом. Выбрав значение остальные будут игнорироваться',
+                                            choices=DA_NET_NONE,
+                                            null=True,
+                                            blank=True
+                                            )
+    znachenie_chislo = models.CharField('02. Значение при оценки число/строка', max_length=255, null=True, blank=True,
+                                 help_text='Параметр со вторым приоритетом. Будет доступен если параметр с первым приоритетом не выбран')
+
+    znachenie_ot = models.IntegerField('03. Значение при оценки от', default=0)
+    znachenie_do = models.IntegerField('03. Значение при оценки до', default=0)
+    ozenka = models.IntegerField('Оценка при выбраном значение', default=0)
+
+
+    def get_znachenie(self):
+        if self.znachenie_boolean == False or self.znachenie_boolean == True:
+            return str(self.get_znachenie_boolean_display())
+
+        if self.znachenie_chislo:
+            return self.znachenie_chislo
+
+        return f'{self.znachenie_ot} - {self.znachenie_do}'
+
+    def __str__(self):
+        return f'{self.model_gde_smotret} - {self.stolbez_gde_smotret}'

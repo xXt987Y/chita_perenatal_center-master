@@ -13,7 +13,7 @@ from apps.core.models import Rayon, UrovenMedObsluzivaniya, TipOrganizacii, MedO
     NepravilnoePolojeniePloda, Mnogoplodie, PredlejaniePlacenti, UrovenPappa, UrovenBetaHgch, \
     NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, Anketa, MestoIshoda, StepenRiskaPosleIshoda, GibelPloda, \
     IshodBeremennosti, KesarevoSechenie1, KesarevoSechenie2, KesarevoSechenie3, Ishod, SmertNovorojdennogo, \
-    Novorojdenniy, CelNapravleniya, Napravlenie, Konsultaciaya, Smena_JK_u_beremennoy
+    Novorojdenniy, CelNapravleniya, Napravlenie, Konsultaciaya, Smena_JK_u_beremennoy, VesaDliaOzenkiStepeniRiska
 
 
 class RayonModelAdmin(ImportExportModelAdmin):
@@ -651,3 +651,19 @@ class Smena_JK_u_beremennoyModelAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Smena_JK_u_beremennoy, Smena_JK_u_beremennoyModelAdmin)
+
+
+class VesaDliaOzenkiStepeniRiskaAdmin(ImportExportModelAdmin):
+    search_fields = ['id', 'model_gde_smotret', 'stolbez_gde_smotret', 'znachenie', 'znachenie_chislo', 'znachenie_ot',
+                     'znachenie_do', 'ozenka']
+    list_filter = ['model_gde_smotret', 'stolbez_gde_smotret']
+    list_display_links = ['id', 'model_gde_smotret']
+    save_as_continue = True
+    save_on_top = True
+    save_as = True
+    list_display = ["id", "model_gde_smotret", "stolbez_gde_smotret", "get_znachenie", 'ozenka']
+
+
+
+
+admin.site.register(VesaDliaOzenkiStepeniRiska, VesaDliaOzenkiStepeniRiskaAdmin)
