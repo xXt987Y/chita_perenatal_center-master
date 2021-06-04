@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 UROVEN_MO = ((1, '1'),
              (2, '2'),
              (3, '3'))
@@ -26,6 +27,12 @@ DA_NET_NONE = (
     (None, '---'),
     (True, 'Истина/Да'),
     (False, 'Ложь/Нет'),
+)
+
+STEPENI_RISKA = (
+    ('низкая', 'низкая'),
+    ('средняя', 'средняя'),
+    ('высокая', 'высокая'),
 )
 
 
@@ -164,9 +171,15 @@ class Autorecomendacii(models.Model):
 class StepenRiska(models.Model):
     class Meta:
         verbose_name = 'Степень риска'
-        verbose_name_plural = 'Степени риска'
+        verbose_name_plural = '-Степени риска-'
 
-    nazvanie = models.CharField(verbose_name='Название', max_length=255, null=True, blank=True)
+    nazvanie = models.CharField(verbose_name='Название',
+                                max_length=255,
+                                choices=STEPENI_RISKA,
+                                unique=True
+                                )
+    summa_vesov_ot = models.IntegerField('Сумма весов оценки от(включительно)', default=0)
+    summa_vesov_do = models.IntegerField('Сумма весов оценки до(включительно)', default=0)
 
     def __str__(self):
         return self.nazvanie
@@ -1082,7 +1095,7 @@ class VesaDliaOzenkiStepeniRiska(models.Model):
         verbose_name_plural = '-Веса для оценки степени риска-'
 
     model_gde_smotret = models.CharField('Модель где смотреть', max_length=255,
-                                         choices=MODELI_GDE_SMOTRET_VESA_STEPENI_RISKA, null=True, blank=True,)
+                                         choices=MODELI_GDE_SMOTRET_VESA_STEPENI_RISKA, null=True, blank=True, )
     stolbez_gde_smotret = models.CharField('Столбец/поле где смотреть', max_length=255)
     znachenie_boolean = models.BooleanField('01. Значение при оценки Истина/Ложь',
                                             help_text='Параметр с высшим приоритетом. Выбрав значение остальные будут игнорироваться',
@@ -1091,12 +1104,11 @@ class VesaDliaOzenkiStepeniRiska(models.Model):
                                             blank=True
                                             )
     znachenie_chislo = models.CharField('02. Значение при оценки число/строка', max_length=255, null=True, blank=True,
-                                 help_text='Параметр со вторым приоритетом. Будет доступен если параметр с первым приоритетом не выбран')
+                                        help_text='Параметр со вторым приоритетом. Будет доступен если параметр с первым приоритетом не выбран')
 
     znachenie_ot = models.IntegerField('03. Значение при оценки от', default=0)
     znachenie_do = models.IntegerField('03. Значение при оценки до', default=0)
     ozenka = models.IntegerField('Оценка при выбраном значение', default=0)
-
 
     def get_znachenie(self):
         if self.znachenie_boolean == False or self.znachenie_boolean == True:

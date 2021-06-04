@@ -133,7 +133,8 @@ admin.site.register(Autorecomendacii, AutorecomendaciiModelAdmin)
 
 
 class StepenRiskaModelAdmin(ImportExportModelAdmin):
-    list_display = ["id", "nazvanie"]
+    list_display = ["id", "nazvanie", 'summa_vesov_ot', 'summa_vesov_do']
+    list_editable = ['summa_vesov_ot', 'summa_vesov_do']
 
     class Meta:
         model = StepenRiska
