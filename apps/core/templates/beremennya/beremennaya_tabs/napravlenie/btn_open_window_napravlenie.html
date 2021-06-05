@@ -13,14 +13,24 @@
         on_click_toogle_btn() {
             let self = this;
             this.$btn.click(function () {
-                    self.$window.jqxWindow('open');
-            });
+                    let tgl = self.$window.jqxWindow('isOpen');
+                    if (tgl === false) {
+                        {#self.$btn.classList.remove('menubtn:active');#}
+                        {#self.querySelector('#btn_open_window_beremennya').style.background='red';#}
+                        self.$window.jqxWindow('open');
+                    } else {
+                        {#self.querySelector('#btn_open_window_beremennya').style.background='blue';#}
+                        self.$window.jqxWindow('close');
+                    }
+                }
+            )
+            ;
         }
     }
 
     $btn_open_window_napravlenie = $('#btn_open_window_napravlenie')
     $(function () {
-         new BtnWindowNapravlenie($btn_open_window_napravlenie, $window_napravlenie);
+        new BtnWindowNapravlenie($btn_open_window_napravlenie, $window_napravlenie);
     })
 
 

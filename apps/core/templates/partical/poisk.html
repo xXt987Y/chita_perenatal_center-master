@@ -1,86 +1,87 @@
-
-<div id="poisk">
+<div id="Poisk" class="regpoiskcontent" xmlns="http://www.w3.org/1999/html">
     <div class="default">
-        <input class="Btn_Poisk_BezIshoda" type="button" value="Без исхода"/>
-        <input class="Btn_Poisk_PoKarte" type="button" value="Поиск по карте"/>
-        <input class="Btn_Poisk_PoNumOMS" type="button" value="Поиск по номеру ОМС"/>
-        <input class="Btn_Poisk_FIO" type="button" value="Поиск ФИО"/>
-        <input class="Btn_Poisk_Raschir" type="button" value="Расширенный поиск"/>
+
+
+        <button class="menubtn" id="Btn_Poisk_BezIshoda">Без исхода</button>
+        <button class="menubtn" id="Btn_Poisk_PoKarte">Поиск по карте</button>
+        <button class="menubtn" id="Btn_Poisk_PoNumOMS">Поиск по номеру ОМС</button>
+        <button class="menubtn" id="Btn_Poisk_FIO">Поиск ФИО</button>
+        <button class="menubtn" id="Btn_Poisk_Raschir">Расширенный поиск</button>
     </div>
     <div class="pole_poiska">
         <div class="def_poisk">
             <ul style="list-style-type: none;">
                 <li>
-                    <div class="FIO_Poisk">ФИО</div>
+                    <input type="checkbox" class="" id="FIO_Poisk">ФИО</input>
                 </li>
                 <li>
-                    <div class="NomerKarty_Poisk">№ Карты</div>
+                    <input type="checkbox" class="" id="NomerKarty_Poisk">№ Карты</input>
                 </li>
                 <li>
-                    <div class="GodOtkrKarty_Poisk">Год открытия карты</div>
+                    <input type="checkbox" class="" id="GodOtkrKarty_Poisk">Год открытия карты</input>
                 </li>
                 <li>
-                    <div class="JKOtkrKarty_Poisk">ЖК открывшая карту</div>
-                </li>
-            </ul>
-        </div>
-        <div class="def_poisk">
-            <ul style="list-style-type: none;">
-                <li>
-                    <div class="OMS_Poisk">ОМС</div>
-                </li>
-                <li>
-                    <div class="DataRojd_Poisk">Дата рождения</div>
-                </li>
-                <li>
-                    <div class="DataPostNaUchet_Poisk">Дата постановки на учет</div>
-                </li>
-                <li>
-                    <div class="MestPostProj_Poisk">Место постоянного проживания</div>
+                    <input type="checkbox" class="" id="JKOtkrKarty_Poisk">ЖК открывшая карту</input>
                 </li>
             </ul>
         </div>
         <div class="def_poisk">
             <ul style="list-style-type: none;">
                 <li>
-                    <div class="SrokTekBer_Poisk">Срок текущий/исхода</div>
+                    <input type="checkbox" class="" id="OMS_Poisk">ОМС</input>
                 </li>
                 <li>
-                    <div class="SrokPoPoslAnk_Poisk">Срок по посл.анкете</div>
+                    <input type="checkbox" class="" id="DataRojd_Poisk">Дата рождения</input>
                 </li>
                 <li>
-                    <div class="JKVedBer_Poisk">Жк ведущая беременную</div>
+                    <input type="checkbox" class="" id="DataPostNaUchet_Poisk">Дата постановки на учет</input>
                 </li>
                 <li>
-                    <div class="FIOUchVr_Poisk">ФИО участкового врача</div>
+                    <input type="checkbox" class="" id="MestPostProj_Poisk">Место постоянного проживания</input>
                 </li>
             </ul>
         </div>
         <div class="def_poisk">
             <ul style="list-style-type: none;">
                 <li>
-                    <div class="IshodBer_Poisk">Исход беременности</div>
+                    <input type="checkbox" class="" id="SrokTekBer_Poisk">Срок текущий/исхода</input>
                 </li>
                 <li>
-                    <div class="MestoIshoda_Poisk">Место исхода</div>
+                    <input type="checkbox" class="" id="SrokPoPoslAnk_Poisk">Срок по посл.анкете</input>
                 </li>
                 <li>
-                    <div class="StRiskaPosleIsh_Poisk">Степень риска после исхода</div>
+                    <input type="checkbox" class="" id="JKVedBer_Poisk">Жк ведущая беременную</input>
                 </li>
                 <li>
-                    <div class="StRiskaBer_Poisk">Степень риска беременности</div>
+                    <input type="checkbox" class="" id="FIOUchVr_Poisk">ФИО участкового врача</input>
+                </li>
+            </ul>
+        </div>
+        <div class="def_poisk">
+            <ul style="list-style-type: none;">
+                <li>
+                    <input type="checkbox" class="" id="IshodBer_Poisk">Исход беременности</input>
+                </li>
+                <li>
+                    <input type="checkbox" class="" id="MestoIshoda_Poisk">Место исхода</input>
+                </li>
+                <li>
+                    <input type="checkbox" class="" id="StRiskaPosleIsh_Poisk">Степень риска после исхода</input>
+                </li>
+                <li>
+                    <input type="checkbox" class="" id="StRiskaBer_Poisk">Степень риска беременности</input>
                 </li>
             </ul>
         </div>
         <ul style="list-style-type: none">
             <li>
-                <input class="OsnovBtn_Poisk" type="button" value="Основные"/>
+                <button id="OsnovBtn_Poisk" class="menubtn">Основные</button>
             </li>
             <li>
-                <input class="PokazBtn_Poisk" type="button" value="Показать все"/>
+                <button id="PokazBtn_Poisk" class="menubtn">Показать все</button>
             </li>
             <li>
-                <input class="UbratBtn_Poisk" type="button" value="Убрать все"/>
+                <button id="UbratBtn_Poisk" class="menubtn">Убрать все</button>
             </li>
         </ul>
     </div>

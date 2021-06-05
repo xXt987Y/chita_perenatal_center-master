@@ -229,7 +229,7 @@ span {
     }
 }
 
-#poisk {
+.regpoiskcontent {
     display: none;
 }
 
@@ -250,6 +250,81 @@ span {
     font-style: normal;
     border-color: #aaa;
     background: #efefef;
+    outline: none;
+    text-align: center;
+    /*vertical-align: central;*/
+    cursor: default;
+    appearance: auto;
+    user-select: none;
+    /*white-space: pre;*/
+    align-items: flex-start;
+    /*color: black;*/
+    box-sizing: border-box;
+    border-width: 1px;
+    /*border-style: outset;*/
+    /*border-image: initial;*/
+    padding: 5px;
+    /*vertical-align: central;*/
+    border-radius: 3px;
+    border-style: solid;
+}
+
+.menubtn:hover {
+    /*box-sizing: content-box;*/
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+    border-color: #74a8e3;
+    background: #dddcdc;
+    outline: none;
+    text-align: center;
+    /*vertical-align: central;*/
+    cursor: default;
+    appearance: auto;
+    user-select: none;
+    /*white-space: pre;*/
+    align-items: flex-start;
+    /*color: black;*/
+    box-sizing: border-box;
+    border-width: 1px;
+    /*border-style: outset;*/
+    /*border-image: initial;*/
+    padding: 5px;
+    /*vertical-align: central;*/
+    border-radius: 3px;
+    border-style: solid;
+}
+
+.menubtn:active {
+    /*box-sizing: content-box;*/
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+    border-color: #808080;
+    background: #acabab;
+    outline: none;
+    text-align: center;
+    /*vertical-align: central;*/
+    cursor: default;
+    appearance: auto;
+    user-select: none;
+    /*white-space: pre;*/
+    align-items: flex-start;
+    /*color: black;*/
+    box-sizing: border-box;
+    border-width: 1px;
+    /*border-style: outset;*/
+    /*border-image: initial;*/
+    padding: 5px;
+    /*vertical-align: central;*/
+    border-radius: 3px;
+    border-style: solid;
+}
+
+.menubtn_toggle {
+    /*box-sizing: content-box;*/
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+    border-color: #808080;
+    background: #acabab;
     outline: none;
     text-align: center;
     /*vertical-align: central;*/
