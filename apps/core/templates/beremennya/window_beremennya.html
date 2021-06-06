@@ -33,10 +33,12 @@
 
 
 <style>
-    .window_anketi {
-        position: absolute;
-        z-index: inherit;
+
+    .window_beremennya  .jqx-window-header{
+        height: 16px;
+        padding: 7px;
     }
+
 </style>
 
 
@@ -65,7 +67,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '93%',
+                        height: 'calc(100% -24px)',
                         width: '100%',
                         theme: 'arctic',
 
