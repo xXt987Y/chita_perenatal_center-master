@@ -1,5 +1,5 @@
 <div class="window_smenaJK">
-    <div class="tab_smenaJK">
+    <div style="overflow: hidden; padding: 0;" class="tab_smenaJK">
  <ul>
             <li></li>
         </ul>
@@ -7,7 +7,19 @@
             {% include 'partical/smenaJK/tabliza_smenaJK.html' %}</div>
     </div>
 </div>
+<style>
+    .window_smenaJK .jqx-tabs-headerWrapper{
+        display: none;
+    }
+    .window_smenaJK  .jqx-tabs-content-element {
+        overflow: hidden;
+    }
+    .window_smenaJK  .jqx-window-header{
+        height: 16px;
+        padding: 7px;
+    }
 
+</style>
 <script>
 
     class WindowSmenaJK {
@@ -32,7 +44,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '100%',
+                        height: 'calc(100% -24px)',
                         width: '100%',
                         theme: 'arctic',
                     });

@@ -1,5 +1,5 @@
 <div class="window_doctor">
-    <div class="tab_doctor">
+    <div style="overflow: hidden; padding: 0;" class="tab_doctor">
          <ul>
             <li></li>
         </ul>
@@ -7,6 +7,20 @@
             {% include 'partical/doctor/tabliza_doctor.html' %}</div>
     </div>
 </div>
+<style>
+    .window_doctor .jqx-tabs-headerWrapper{
+        display: none;
+    }
+    .window_doctor  .jqx-tabs-content-element {
+        overflow: hidden;
+    }
+    .window_doctor  .jqx-window-header{
+        height: 16px;
+        padding: 7px;
+    }
+
+</style>
+
 
 <script>
     class WindowDoctor {
@@ -31,7 +45,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '100%',
+                        height: 'calc(100% -24px)',
                         width: '100%',
                         theme: 'arctic',
                     });
