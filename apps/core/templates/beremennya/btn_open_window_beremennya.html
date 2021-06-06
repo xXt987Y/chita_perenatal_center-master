@@ -15,19 +15,19 @@
             this.$btn.click(function () {
                     let tgl = self.$window.jqxWindow('isOpen');
                     if (tgl === false) {
-                        {#self.$btn.classList.remove('menubtn');#}
-                        {#self.$btn.classList.add('menubtn_toggle');#}
-                        {#self.querySelector('#btn_open_window_beremennya').style.background='red';#}
+                        document.getElementById("btn_open_window_beremennya").classList.remove('menubtn');
+                        document.getElementById("btn_open_window_beremennya").classList.add('menubtn_toggle');
                         self.$window.jqxWindow('open');
                     } else {
-                        {#self.$btn.classList.remove('menubtn:active');#}
-                        {#self.$btn.classList.add('menubtn');#}
+                        document.getElementById("btn_open_window_beremennya").classList.remove('menubtn_toggle');
+                        document.getElementById("btn_open_window_beremennya").classList.add('menubtn');
                         self.$window.jqxWindow('close');
                     }
                 }
             )
             ;
         }
+
     }
 
     $btn_open_window_beremennya = $('#btn_open_window_beremennya')
@@ -35,5 +35,11 @@
         new BtnWindowBeremennya($btn_open_window_beremennya, $window_beremennya);
     })
 
+    $(function () {
+        $window_beremennya.on('close', function (event) {
+            document.getElementById("btn_open_window_beremennya").classList.remove('menubtn_toggle');
+            document.getElementById("btn_open_window_beremennya").classList.add('menubtn');
+        });
+    })
 
 </script>
