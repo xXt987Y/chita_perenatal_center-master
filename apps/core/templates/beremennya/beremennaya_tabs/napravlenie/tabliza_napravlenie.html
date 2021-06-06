@@ -52,7 +52,7 @@
         get fields() {
             return [
                 {name: 'id', type: 'number'},
-                {name: 'data', type: 'data'},
+                {name: 'data_str', type: 'data'},
                 {name: 'punkt_napravleniya_title', type: 'string'},
                 {name: 'cel_napravleniya', type: 'string'},
                 {name: 'diagnoz_podtverjden', type: 'boolean'},
@@ -71,7 +71,7 @@
                 },
                 {
                     text: 'Дата (заполнено?)',
-                    datafield: 'data',
+                    datafield: 'data_str',
                     align: 'center',
                     cellsalign: 'center',
                     width: '20%',

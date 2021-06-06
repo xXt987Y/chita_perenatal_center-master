@@ -283,7 +283,8 @@ class BeremennayaSerializer(serializers.ModelSerializer):
 
     stepen_riska_title = serializers.SerializerMethodField()
     jk_beremennoy_title = serializers.SerializerMethodField()
-    data_vzyatiya = serializers.SerializerMethodField()
+    data_vzyatiya_str = serializers.SerializerMethodField()
+
 
     def get_stepen_riska_title(self, obj):
         return obj.stepen_riska.nazvanie
@@ -291,8 +292,8 @@ class BeremennayaSerializer(serializers.ModelSerializer):
     def get_jk_beremennoy_title(self, obj):
         return obj.jk_beremennoy.nazvanie
 
-    def get_data_vzyatiya(self, obj):
-        return obj.data_vzyatiya
+    def get_data_vzyatiya_str(self, obj):
+        return obj.data_vzyatiya.strftime("%d.%m.%Y")
 
 
 class DoctorSerializer(serializers.ModelSerializer):
@@ -323,6 +324,10 @@ class NapravlenieSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     punkt_napravleniya_title = serializers.SerializerMethodField()
+    data_str = serializers.SerializerMethodField()
+
+    def get_data_str(self, obj):
+        return obj.data.strftime("%d.%m.%Y")
 
     def get_punkt_napravleniya_title(self, obj):
         return obj.punkt_napravleniya.nazvanie
@@ -335,6 +340,10 @@ class KonsultaciayaSerializer(serializers.ModelSerializer):
 
     rol_otpavitelia_title = serializers.SerializerMethodField()
     med_organiizaciya_title = serializers.SerializerMethodField()
+    otpravleno_str = serializers.SerializerMethodField()
+
+    def get_otpravleno_str(self, obj):
+        return obj.otpravleno.strftime("%d.%m.%Y")
 
     def get_rol_otpavitelia_title(self, obj):
         return obj.otpravitel.rol.nazvanie
@@ -372,9 +381,13 @@ class AnketaSerializer(serializers.ModelSerializer):
 
     familiya_vracha_title = serializers.SerializerMethodField()
     nomer_anketi_title = serializers.SerializerMethodField()
+    data_zapolneniya_anketi_vrachem_str = serializers.SerializerMethodField()
 
     def get_familiya_vracha_title(self, obj):
         return obj.familiya_vracha.fio
 
     def get_nomer_anketi_title(self, obj):
         return obj.nomer_anketi.nomer
+
+    def get_data_zapolneniya_anketi_vrachem_str(self, obj):
+        return obj.data_zapolneniya_anketi_vrachem.strftime("%d.%m.%Y")
