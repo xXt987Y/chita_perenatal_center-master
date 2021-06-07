@@ -1,11 +1,19 @@
 from django.db.models import Q
+from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets, generics
 
 from rest_framework import viewsets
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
+from rest_framework.utils import json
 from rest_framework.views import APIView
 
+from apps.core.forms import BeremennayaFormPart1, BeremennayaVredniePrivichki, BeremennayaForm, \
+    BeremennayaVrednieFactori, BeremennayaInfekcionnieBolezniForm, BeremennayaRazmerTazaForm, \
+    BeremennayaZabolevanieVnutForm, BeremennayaOslojneniyaBeremennostiForm, BeremennayaSomaticheskiePokazateliForm, \
+    BeremennayaBolezniOrganovMochForm, BeremennayaBolezniOrganovDihaniyaForm, BeremennayaBolezniSistemiKrovoobForm, \
+    BeremennayaBolezniNsForm, BeremennayaPsihRastroystvaForm, BeremennayaBolezniKroviForm, BeremennayaBolezniEndokrForm, \
+    BeremennayaNovorojdenniyPlodForm, BeremennayaOslojneniyaRodovForm
 from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
     Smena_JK_u_beremennoy, Anketa
 from apps.core.serializers import RayonSerializer, BeremennayaSerializer, DoctorSerializer, NovorojdenniySerializer, \
@@ -48,7 +56,13 @@ class RayonViewSetDV(APIView):
         return Response(serializer.data)
 
 
+
 class BeremennayaViewSetLV(APIView):
+
+    @csrf_exempt
+    def post(self, request, *args, **kwargs):
+        raise Exception('ПОСТ пошёл')
+        return Response(status='200')
 
     def get(self, request):
         or_condition = Q()
@@ -71,6 +85,45 @@ class BeremennayaViewSetLV(APIView):
 
 
 class BeremennayaViewSetDV(APIView):
+    authentication_classes = []
+    def post(self, request, pk):
+        beremenia = Beremennaya.objects.get(pk=pk)
+
+        # body_unicode = request.body.decode('utf-8')
+        # body = json.loads(body_unicode)
+        #
+        # data = body
+        # beremenia.fio = data['fio']
+        # beremenia.nomer = data['nomer']
+        # beremenia.save()
+        # beremenia.fio = data['stepen_riska']
+        # beremenia.fio = data['jk_beremennoy']
+        # beremenia.fio = data['data_vzyatiya']
+        # form = BeremennayaFormPart1(request.POST, instance=beremenia).save()
+        # beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki(request.POST, instance=beremenia).save()
+        # beremennaya_vrednie_factori_form = BeremennayaVrednieFactori(request.POST, instance=beremenia).save()
+        # beremennaya_form = BeremennayaForm(request.POST, instance=beremenia).save()
+        #
+        # beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm(request.POST, instance=beremenia).save()
+        # beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm(request.POST, instance=beremenia).save()
+        # beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm(request.POST, instance=beremenia).save()
+        # beremennayao_oslojneniya_beremennosti_form = BeremennayaOslojneniyaBeremennostiForm(request.POST, instance=beremenia).save()
+        #
+        # beremennayao_oslojneniya_rodov_form = BeremennayaOslojneniyaRodovForm(request.POST, instance=beremenia).save()
+        # beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm(request.POST, instance=beremenia).save()
+        # beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm(request.POST, instance=beremenia).save()
+        # beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(request.POST, instance=beremenia).save()
+        #
+        # beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(request.POST, instance=beremenia).save()
+        # beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm(request.POST, instance=beremenia).save()
+        # beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm(request.POST, instance=beremenia).save()
+        # beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm(request.POST, instance=beremenia).save()
+        #
+        # beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm(request.POST, instance=beremenia).save()
+        # beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm(request.POST, instance=beremenia).save()
+        # beremennaya_somaticheskie_pokazateli_form = BeremennayaSomaticheskiePokazateliForm(request.POST, instance=beremenia).save()
+        return Response(status=200)
+        # Beremennaya.up
 
     def get(self, request, pk):
         rayon = Beremennaya.objects.get(pk=pk)

@@ -40,6 +40,7 @@ def home(request):
     beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm(label_suffix='')
     beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm(label_suffix='')
     beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(label_suffix='')
+
     beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm(label_suffix='')
     beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm(label_suffix='')
     beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm(label_suffix='')

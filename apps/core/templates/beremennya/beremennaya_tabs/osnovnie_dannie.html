@@ -3,6 +3,7 @@
         width: 60%;
     }
 
+
     .novaya_beremennaya .FixP label {
         width: auto;
     }
@@ -99,7 +100,7 @@
 
 </style>
 
-<form class="novaya_beremennaya" action="{% url 'home' %}" method="post">
+<form enctype="multipart/form-data" class="novaya_beremennaya" action="{% url 'beremennaya_lv' %}" method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
@@ -320,12 +321,37 @@
         <div class="FixP">{{ beremennaya_bolezni_organov_moch_form.as_p }}</div>
     </div>
 
-    <div class="default">
+    <div class="default block_s_knopkoi_save_beremennaya">
         <button class="save_beremennaya menubtn" type="submit">Сохранить</button>
     </div>
 
 
 </form>
+
+<script>
+    async function save_beremennaya(url, data) {
+        let zapros = await fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+        });
+        console.log('Статус ответа', zapros.status)
+        alert('Данные сохранены');
+
+    }
+
+    $(function () {
+        $('.novaya_beremennaya').submit(function (e) {
+            e.preventDefault();
+            let url = $(e.currentTarget).attr('action');
+            let data = $(e.currentTarget).serialize();
+            console.log(data);
+            save_beremennaya(url, data);
+        })
+    });
+</script>
 
 {#<div class="default">#}
 {#    <div class="text">Степень риска:</div>#}
