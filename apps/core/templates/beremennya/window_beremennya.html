@@ -34,7 +34,7 @@
 
 <style>
 
-    .window_beremennya  .jqx-window-header{
+    .window_beremennya .jqx-window-header {
         height: 16px;
         padding: 7px;
     }
@@ -84,6 +84,7 @@
                 fetch(`/api/beremennaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
+
                             self.$window.find('#id_stepen_riska').val(data['stepen_riska']);
                             self.$window.find('#id_nomer').val(data['nomer']);
                             self.$window.find('#id_jk_beremennoy').val(data['jk_beremennoy']);
@@ -218,7 +219,11 @@
 
 
                             self.$window.jqxWindow('open');
+                               {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            let url = '{% url 'beremennaya_lv' %}';
+                            $('.novaya_beremennaya').attr('action', `${url}${id}`);
                         }).catch(function () {
+                            $('.novaya_beremennaya').action(url)
                             alert('Не могу получить JSON ');
                         })
 
@@ -227,6 +232,10 @@
                     }
                 })
 
+            } else {
+                {#если нет id - значит добавляем. Е#}
+                let url = '{% url 'beremennaya_lv' %}';
+                $('.novaya_beremennaya').action(url)
             }
 
         }
