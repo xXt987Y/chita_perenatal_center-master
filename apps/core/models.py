@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-
 UROVEN_MO = ((1, '1'),
              (2, '2'),
              (3, '3'))
@@ -1067,6 +1066,118 @@ class Konsultaciaya(models.Model):
     rh_sensibilizaciya = models.BooleanField('Rh-сенсибилизация',
                                              default=False, null=True, blank=True)
     prochie = models.TextField('Прочие', null=True, blank=True)
+    zanesena_v_monitoring = models.BooleanField('Занесена в мониторинг беременных', default=False, null=True,
+                                                blank=True)
+    imeet_socialnie_faktori = models.BooleanField('Имеет ли социальные факторы риска (курение, алкоголизм, наркомания)',
+                                                  default=False, null=True, blank=True)
+    vzata_na_uchet = models.BooleanField('Взята на учет после 12-ти недель беременности', default=False, null=True,
+                                         blank=True)
+    nalichie_geneticheskih = models.BooleanField('Наличие генетических факторов (ВПР, наследственные заболевания)',
+                                                 default=False, null=True,
+                                                 blank=True)
+    kontakt_s_socialno = models.BooleanField('Контакт с социально значимыми заболеваниями', default=False, null=True,
+                                             blank=True)
+    kontakt_s_socialno_vich = models.BooleanField('ВИЧ', default=False, null=True,
+                                                  blank=True)
+    kontakt_s_socialno_tuberkulez = models.BooleanField('Туберкулез', default=False, null=True,
+                                                        blank=True)
+    opredelenie_rezus = models.IntegerField('Резус факторы беременной/отца', choices=REZUS_FAKTORI,
+                                            null=True, blank=True)
+    provodilos_perelivanie = models.BooleanField(
+        'Проводилось ли переливание крови без учета резус принадлежности женщинам с резус-отрицательно кровью',
+        default=False, null=True,
+        blank=True)
+    provodilos_lechebnie = models.BooleanField(
+        'Проводились лечебные и диагностические мероприятия (биопсия хориона, амнионтез, кордоцентез, серкляж)',
+        default=False, null=True,
+        blank=True)
+    imeet_mesto_krovotecheniya = models.BooleanField('Имели ли место кровотечения во время беременности', default=False,
+                                                     null=True,
+                                                     blank=True)
+    imeet_risk_po_razvitiy_GBN = models.BooleanField('Имеет место риск по развитию ГБН', default=False, null=True,
+                                                     blank=True)
+    provedeno_uzi_12_14 = models.BooleanField('Проведено ли УЗИ на сроке 12-14 недель', default=False, null=True,
+                                              blank=True)
+    nalichie_markerov = models.BooleanField(
+        'Наличие маркеров генетических заболеваний в биохимическом скрининге (PAPP-A, бетта-ХГЧ)', default=False,
+        null=True,
+        blank=True)
+    imeet_risk_VPR = models.BooleanField('Имеет место риск ВПР', default=False, null=True,
+                                         blank=True)
+    nalichie_IMT = models.BooleanField('Наличие ИМТ', default=False, null=True,
+                                       blank=True)
+    nalichie_geneticheskoy_predraspol = models.BooleanField(
+        'Имеет место наличие генетической предрасположенности к сахарному диабету', default=False, null=True,
+        blank=True)
+    soprovagdalas_predidushaya = models.BooleanField(
+        'Сопровождалась предыдущая беременность гестационным сахарным диабетом', default=False, null=True,
+        blank=True)
+    mesto_rojdeniya_v_anameze = models.BooleanField('Имело место рождения в анамезе крупных плодов (более 4,5 кг)',
+                                                    default=False, null=True,
+                                                    blank=True)
+    imeet_mesto_risk_razvitiya = models.BooleanField('Имеет место риск развития гестационного сахарного диабета',
+                                                     default=False, null=True,
+                                                     blank=True)
+    nalichie_v_anameze = models.BooleanField('Наличие в анамезе проэклампсии', default=False, null=True,
+                                             blank=True)
+    nalichie_v_anameze_34 = models.BooleanField(
+        'Наличие в анамезе проэклампсии преждевременных родов в сроке менее 34 недель', default=False, null=True,
+        blank=True)
+    nalichie_auto_imunnih = models.BooleanField('Наличие ауто-имунных заболеваний', default=False, null=True,
+                                                blank=True)
+    nalichie_nasledstvennih = models.BooleanField('Наличие наследственных тромбофилий', default=False, null=True,
+                                                  blank=True)
+    nalichie_saharnogo = models.BooleanField('Наличие сахорного диабета 1 или 2 типа', default=False, null=True,
+                                             blank=True)
+    nalichie_hronicheskoy = models.BooleanField('Наличие хронической гипертензии', default=False, null=True,
+                                                blank=True)
+    pervoberemennaya = models.BooleanField('Первобеременная', default=False, null=True,
+                                           blank=True)
+    megdu_beremennostyami_10 = models.BooleanField('Интервал между беременностями более 10 лет', default=False,
+                                                   null=True,
+                                                   blank=True)
+    v_rezultate_ECO = models.BooleanField('Имеет беременность в результате ЭКО', default=False, null=True,
+                                          blank=True)
+    vozrast_bolee_40 = models.BooleanField('Возраст более 40 лет', default=False, null=True,
+                                           blank=True)
+    IMT_bolee_35 = models.BooleanField('ИМТ более 35', default=False, null=True,
+                                       blank=True)
+    imeet_mesto_risk_razvitie = models.BooleanField('Имеет место риск развития проэклампсии (определяет консультант)',
+                                                    default=False, null=True,
+                                                    blank=True)
+    odni_i_bolee_prej = models.BooleanField('Один и более преждевременных родов в анамнезе', default=False, null=True,
+                                            blank=True)
+    odin_i_bolee_vikidish = models.BooleanField('Один и более выкидышей в анамнезе', default=False, null=True,
+                                                blank=True)
+    dva_i_bolee_med = models.BooleanField('Два и более мед абортов', default=False, null=True,
+                                          blank=True)
+    visokiy_paritet = models.BooleanField('Высокий паритет (более 4 родов)', default=False, null=True,
+                                          blank=True)
+    hirurgicheskoe_lechenie = models.BooleanField('Хирургическое лечение шейки матки', default=False, null=True,
+                                                  blank=True)
+    vozrast_18_34 = models.BooleanField('Возраст менее 18 или более 34 лет', default=False, null=True,
+                                        blank=True)
+    mnogoplodnaya = models.BooleanField('Многоплодная/индуциованная беременность', default=False, null=True,
+                                        blank=True)
+    nalichie_alko = models.BooleanField('Наличие алкогольной/никотиновой зависимости', default=False, null=True,
+                                        blank=True)
+    nalichie_IPP = models.BooleanField('Наличие ИПП', default=False, null=True,
+                                       blank=True)
+    imeli_matochnie = models.BooleanField('Имели ли место маточные кровотечения', default=False, null=True,
+                                          blank=True)
+    predlejanie_placenti = models.BooleanField('Предлежание плаценты', default=False, null=True,
+                                               blank=True)
+    nalichie_tajoloy_patologii = models.BooleanField('Наличие тяжелой экстрагенитальной патологии', default=False,
+                                                     null=True,
+                                                     blank=True)
+    hirurgicheskie_vmeshatelstva = models.BooleanField(
+        'Имеет ли место хирургические вмешательства во время данной беременности', default=False, null=True,
+        blank=True)
+    infekcii_moche = models.BooleanField('Наличие инфекции моче-выводящих путей', default=False, null=True,
+                                         blank=True)
+    risk_prejdevremennih_rodov = models.BooleanField('Имеет место риск преждевременных родов (определяет консультант)',
+                                                     default=False, null=True,
+                                                     blank=True)
 
     def __str__(self):
         return str(self.nomer_beremennoy)
