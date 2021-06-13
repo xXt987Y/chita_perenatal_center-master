@@ -12,10 +12,15 @@
         constructor($grid) {
             let self = this;
             this.$grid = $grid;
+            this.obj_window_konsultaciya = obj_window_konsultaciya;
+            this.$window_konsultaciya = $window_konsultaciya;
             this.$grid.jqxGrid(self.nastroiki_grida);
+            this.$grid.on('rowdoubleclick', function (event) {
+                self.otkrit_okno_prosmotra_konsultaciya(event);
+            });
         }
 
-         get nastroiki_grida() {
+        get nastroiki_grida() {
             let self = this;
             return {
                 width: '100%',
@@ -99,6 +104,11 @@
                 sortcolumn: 'id',
                 sortdirection: 'desc'
             });
+        }
+         otkrit_okno_prosmotra_konsultaciya(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.obj_window_konsultaciya.open(id)
         }
     }
 
