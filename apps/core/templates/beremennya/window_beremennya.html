@@ -84,21 +84,13 @@
                 fetch(`/api/beremennaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-
                             self.$window.find('#id_stepen_riska').val(data['stepen_riska']);
                             self.$window.find('#id_nomer').val(data['nomer']);
                             self.$window.find('#id_jk_beremennoy').val(data['jk_beremennoy']);
-
-
                             self.$window.find('#id_data_vzyatiya').val(data['data_vzyatiya']);
-
-
                             self.$window.find('#id_vrach').val(data['vrach']);
                             self.$window.find('#id_fio').val(data['fio']);
-
-
                             self.$window.find('#id_data_rojdeniya').val(data['data_rojdeniya']);
-
                             self.$window.find('#id_vozrast').val(data['vozrast']);
                             self.$window.find('#id_mesto_postoyannogo_projivaniya').val(data['mesto_postoyannogo_projivaniya']);
                             self.$window.find('#id_nomer_telefona').val(data['nomer_telefona']);
@@ -216,8 +208,6 @@
                             self.$window.find('#id_bolezni_organov_mochv_hpn').prop('checked', data['bolezni_organov_mochv_hpn']);
                             self.$window.find('#id_bolezni_organov_mochv_gidronefroz').prop('checked', data['bolezni_organov_mochv_gidronefroz']);
                             self.$window.find('#id_bolezni_organov_mochv_polikistoz').prop('checked', data['bolezni_organov_mochv_polikistoz']);
-
-
                             self.$window.jqxWindow('open');
                                {#если есть id - значит редачим. Если редачим значить есть url+id#}
                             let url = '{% url 'beremennaya_lv' %}';

@@ -12,7 +12,7 @@
         constructor($grid) {
             let self = this;
             this.$grid = $grid;
-             {#this.obj_window_napravlenie = obj_window_napravlenie;#}
+            {#this.obj_window_napravlenie = obj_window_napravlenie;#}
             this.$window_napravlenie = $window_napravlenie;
             this.$grid.jqxGrid(self.nastroiki_grida);
 
@@ -54,8 +54,9 @@
                 {name: 'id', type: 'number'},
                 {name: 'data_str', type: 'data'},
                 {name: 'punkt_napravleniya_title', type: 'string'},
-                {name: 'cel_napravleniya', type: 'string'},
+                {name: 'cel_napravleniya_title', type: 'string'},
                 {name: 'diagnoz_podtverjden', type: 'boolean'},
+                {name: 'predpolagaemyi_diagnoz', type: 'string'}
             ]
         }
 
@@ -82,12 +83,20 @@
                     datafield: 'punkt_napravleniya_title',
                     align: 'center',
                     cellsalign: 'center',
-                    width: '30%',
+                    width: '20%',
 
                 },
                 {
                     text: 'Цель',
-                    datafield: 'cel_napravleniya',
+                    datafield: 'cel_napravleniya_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '10%',
+
+                },
+                 {
+                    text: 'Диагноз',
+                    datafield: 'predpolagaemyi_diagnoz',
                     align: 'center',
                     cellsalign: 'center',
                     width: '30%',
@@ -119,7 +128,7 @@
     }
 
 
-   let $tabliza_napravlenie = $('.tabliza_napravlenie');
+    let $tabliza_napravlenie = $('.tabliza_napravlenie');
     $(document).ready(function () {
         new TablizaNapravlenie($tabliza_napravlenie);
     });
