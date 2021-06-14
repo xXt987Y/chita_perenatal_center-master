@@ -1,5 +1,6 @@
+from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOrganizacii, MedOrganizacia, StepenRiska, \
     SemeynoePolojenie, Besplodie, MenstrualnayaFunkciya, \
@@ -27,7 +28,25 @@ from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedOb
 from .forms import *
 
 
+def vhod(request):
+    user = authenticate(username=request.POST['login'], password=request.POST['pas'])
+    if user is not None:
+        login(request, user)
+        return redirect(to='/')
+    else:
+        return redirect(to='/login')
+
+
+def vihod(request):
+    logout(request)
+    return redirect(to='/login')
+
+def loginpage(request):
+    return render(request, "login.html")
+
 def home(request):
+    if not request.user.is_active:
+        return redirect(to='/login')
     form = BeremennayaFormPart1(label_suffix='')
     beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki(label_suffix='')
     beremennaya_vrednie_factori_form = BeremennayaVrednieFactori(label_suffix='')
@@ -40,7 +59,6 @@ def home(request):
     beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm(label_suffix='')
     beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm(label_suffix='')
     beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(label_suffix='')
-
     beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm(label_suffix='')
     beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm(label_suffix='')
     beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm(label_suffix='')
@@ -85,8 +103,7 @@ def home(request):
         'anketa_nesootvetstvie_form': anketa_nesootvetstvie_form,
         'konsultaciaya_form': konsultaciaya_form,
         'napravlenie_form': napravlenie_form,
-        })
-
+    })
 
 
 def sbor_znachenii_spravocnix_tabliz(request):

@@ -322,7 +322,7 @@
     </div>
 
     <div style="position: sticky; bottom: 0;" class="default block_s_knopkoi_save_beremennaya">
-        <button class="save_beremennaya menubtn" type="submit">Сохранить</button>
+        {% if user.is_superuser %}    <button class="save_beremennaya menubtn" type="submit">Сохранить</button> {% endif %}
     </div>
 
 
