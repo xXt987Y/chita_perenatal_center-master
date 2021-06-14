@@ -100,7 +100,7 @@
 
 </style>
 
-<form enctype="multipart/form-data" class="novaya_beremennaya" action="{% url 'beremennaya_lv' %}" method="post">
+<form enctype="multipart/form-data" class="novaya_beremennaya" id="novaya_beremennaya" action="{% url 'beremennaya_lv' %}" method="post">
     {% csrf_token %}
 
     {{ form.as_p }}

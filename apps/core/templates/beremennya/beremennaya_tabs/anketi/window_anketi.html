@@ -119,7 +119,7 @@
         </ul>
 
         <div class="tab_beremennya_anketi">
-            <form class="novaya_anketa" action="{% url 'home' %}" method="post">
+            <form id="novaya_anketa" class="novaya_anketa" action="{% url 'home' %}" method="post">
                 {% csrf_token %}
                 <div class="default">
                     {{ anketa_form.data_zapolneniya_anketi_vrachem.label_tag }}

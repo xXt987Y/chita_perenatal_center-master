@@ -1,3 +1,4 @@
+
 from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
@@ -34,7 +35,10 @@ def vhod(request):
         login(request, user)
         return redirect(to='/')
     else:
+        # alertError = 'Не верный логин или пароль'
+
         return redirect(to='/login')
+
 
 
 def vihod(request):

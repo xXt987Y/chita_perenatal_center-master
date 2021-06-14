@@ -122,7 +122,7 @@
         </ul>
 
         <div class="tab_konsultaciya">
-            <form class="novaya_konsultaciya" action="{% url 'home' %}" method="post">
+            <form id="novaya_konsultaciya" class="novaya_konsultaciya" action="{% url 'home' %}" method="post">
                 {% csrf_token %}
 
                 <div class="default">

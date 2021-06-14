@@ -6,6 +6,7 @@
         position: absolute;
         top: 30%;
         left: 40%;
+        border-radius: 4px;
     }
 
     .avtorization h3 {
@@ -42,6 +43,10 @@
     }
 
 </style>
+
+<script>
+
+</script>
 
 <form action="{% url 'vhod' %}" method="post">
     {% csrf_token %}

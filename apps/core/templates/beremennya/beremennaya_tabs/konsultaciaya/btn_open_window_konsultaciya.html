@@ -18,6 +18,7 @@
                     if (tgl === false) {
                         document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn');
                         document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn_toggle');
+                        document.getElementById('novaya_konsultaciya').reset();
                         self.$window.jqxWindow('open');
                         self.$window.jqxWindow('bringToFront');
                     } else {
