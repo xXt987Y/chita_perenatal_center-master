@@ -392,7 +392,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: 'calc(100% -24px)',
+                        height: 'calc(100% - 24px)',
                         width: '100%',
                         theme: 'arctic',
                     });
@@ -408,54 +408,54 @@
                 fetch(`/api/konsultaciaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-                          self.$window.find('#id_zanesena_v_monitoring').val(data['zanesena_v_monitoring']);
-                          self.$window.find('#id_imeet_socialnie_faktori').val(data['imeet_socialnie_faktori']);
-                          self.$window.find('#id_vzata_na_uchet').val(data['vzata_na_uchet']);
-                          self.$window.find('#id_nalichie_geneticheskih').val(data['nalichie_geneticheskih']);
-                          self.$window.find('#id_kontakt_s_socialno').val(data['kontakt_s_socialno']);
-                          self.$window.find('#id_kontakt_s_socialno_vich').val(data['kontakt_s_socialno_vich']);
-                          self.$window.find('#id_kontakt_s_socialno_tuberkulez').val(data['kontakt_s_socialno_tuberkulez']);
-                          self.$window.find('#id_opredelenie_rezus').val(data['opredelenie_rezus']);
-                          self.$window.find('#id_provodilos_perelivanie').val(data['provodilos_perelivanie']);
-                          self.$window.find('#id_provodilos_lechebnie').val(data['provodilos_lechebnie']);
-                          self.$window.find('#id_imeet_mesto_krovotecheniya').val(data['imeet_mesto_krovotecheniya']);
-                          self.$window.find('#id_imeet_risk_po_razvitiy_GBN').val(data['imeet_risk_po_razvitiy_GBN']);
-                          self.$window.find('#id_provedeno_uzi_12_14').val(data['provedeno_uzi_12_14']);
-                          self.$window.find('#id_nalichie_markerov').val(data['nalichie_markerov']);
-                          self.$window.find('#id_imeet_risk_VPR').val(data['imeet_risk_VPR']);
-                          self.$window.find('#id_nalichie_IMT').val(data['nalichie_IMT']);
-                          self.$window.find('#id_nalichie_geneticheskoy_predraspol').val(data['nalichie_geneticheskoy_predraspol']);
-                          self.$window.find('#id_soprovagdalas_predidushaya').val(data['soprovagdalas_predidushaya']);
-                          self.$window.find('#id_mesto_rojdeniya_v_anameze').val(data['mesto_rojdeniya_v_anameze']);
-                          self.$window.find('#id_imeet_mesto_risk_razvitiya').val(data['imeet_mesto_risk_razvitiya']);
-                          self.$window.find('#id_nalichie_v_anameze').val(data['nalichie_v_anameze']);
-                          self.$window.find('#id_nalichie_v_anameze_34').val(data['nalichie_v_anameze_34']);
-                          self.$window.find('#id_nalichie_auto_imunnih').val(data['nalichie_auto_imunnih']);
-                          self.$window.find('#id_nalichie_nasledstvennih').val(data['nalichie_nasledstvennih']);
-                          self.$window.find('#id_nalichie_saharnogo').val(data['nalichie_saharnogo']);
-                          self.$window.find('#id_nalichie_hronicheskoy').val(data['nalichie_hronicheskoy']);
-                          self.$window.find('#id_pervoberemennaya').val(data['pervoberemennaya']);
-                          self.$window.find('#id_megdu_beremennostyami_10').val(data['megdu_beremennostyami_10']);
-                          self.$window.find('#id_v_rezultate_ECO').val(data['v_rezultate_ECO']);
-                          self.$window.find('#id_vozrast_bolee_40').val(data['vozrast_bolee_40']);
-                          self.$window.find('#id_IMT_bolee_35').val(data['IMT_bolee_35']);
-                          self.$window.find('#id_imeet_mesto_risk_razvitie').val(data['imeet_mesto_risk_razvitie']);
-                          self.$window.find('#id_odni_i_bolee_prej').val(data['odni_i_bolee_prej']);
-                          self.$window.find('#id_odin_i_bolee_vikidish').val(data['odin_i_bolee_vikidish']);
-                          self.$window.find('#id_dva_i_bolee_med').val(data['dva_i_bolee_med']);
-                          self.$window.find('#id_visokiy_paritet').val(data['visokiy_paritet']);
-                          self.$window.find('#id_hirurgicheskoe_lechenie').val(data['hirurgicheskoe_lechenie']);
-                          self.$window.find('#id_vozrast_18_34').val(data['vozrast_18_34']);
-                          self.$window.find('#id_mnogoplodnaya').val(data['mnogoplodnaya']);
-                          self.$window.find('#id_nalichie_alko').val(data['nalichie_alko']);
-                          self.$window.find('#id_nalichie_IPP').val(data['nalichie_IPP']);
-                          self.$window.find('#id_imeli_matochnie').val(data['imeli_matochnie']);
-                          self.$window.find('#id_predlejanie_placenti').val(data['predlejanie_placenti']);
-                          self.$window.find('#id_nalichie_tajoloy_patologii').val(data['nalichie_tajoloy_patologii']);
-                          self.$window.find('#id_hirurgicheskie_vmeshatelstva').val(data['hirurgicheskie_vmeshatelstva']);
-                          self.$window.find('#id_infekcii_moche').val(data['infekcii_moche']);
-                          self.$window.find('#id_risk_prejdevremennih_rodov').val(data['risk_prejdevremennih_rodov']);
-                                                      self.$window.jqxWindow('open');
+                            self.$window.find('#id_zanesena_v_monitoring').val(data['zanesena_v_monitoring']);
+                            self.$window.find('#id_imeet_socialnie_faktori').val(data['imeet_socialnie_faktori']);
+                            self.$window.find('#id_vzata_na_uchet').val(data['vzata_na_uchet']);
+                            self.$window.find('#id_nalichie_geneticheskih').val(data['nalichie_geneticheskih']);
+                            self.$window.find('#id_kontakt_s_socialno').val(data['kontakt_s_socialno']);
+                            self.$window.find('#id_kontakt_s_socialno_vich').val(data['kontakt_s_socialno_vich']);
+                            self.$window.find('#id_kontakt_s_socialno_tuberkulez').val(data['kontakt_s_socialno_tuberkulez']);
+                            self.$window.find('#id_opredelenie_rezus').val(data['opredelenie_rezus']);
+                            self.$window.find('#id_provodilos_perelivanie').val(data['provodilos_perelivanie']);
+                            self.$window.find('#id_provodilos_lechebnie').val(data['provodilos_lechebnie']);
+                            self.$window.find('#id_imeet_mesto_krovotecheniya').val(data['imeet_mesto_krovotecheniya']);
+                            self.$window.find('#id_imeet_risk_po_razvitiy_GBN').val(data['imeet_risk_po_razvitiy_GBN']);
+                            self.$window.find('#id_provedeno_uzi_12_14').val(data['provedeno_uzi_12_14']);
+                            self.$window.find('#id_nalichie_markerov').val(data['nalichie_markerov']);
+                            self.$window.find('#id_imeet_risk_VPR').val(data['imeet_risk_VPR']);
+                            self.$window.find('#id_nalichie_IMT').val(data['nalichie_IMT']);
+                            self.$window.find('#id_nalichie_geneticheskoy_predraspol').val(data['nalichie_geneticheskoy_predraspol']);
+                            self.$window.find('#id_soprovagdalas_predidushaya').val(data['soprovagdalas_predidushaya']);
+                            self.$window.find('#id_mesto_rojdeniya_v_anameze').val(data['mesto_rojdeniya_v_anameze']);
+                            self.$window.find('#id_imeet_mesto_risk_razvitiya').val(data['imeet_mesto_risk_razvitiya']);
+                            self.$window.find('#id_nalichie_v_anameze').val(data['nalichie_v_anameze']);
+                            self.$window.find('#id_nalichie_v_anameze_34').val(data['nalichie_v_anameze_34']);
+                            self.$window.find('#id_nalichie_auto_imunnih').val(data['nalichie_auto_imunnih']);
+                            self.$window.find('#id_nalichie_nasledstvennih').val(data['nalichie_nasledstvennih']);
+                            self.$window.find('#id_nalichie_saharnogo').val(data['nalichie_saharnogo']);
+                            self.$window.find('#id_nalichie_hronicheskoy').val(data['nalichie_hronicheskoy']);
+                            self.$window.find('#id_pervoberemennaya').val(data['pervoberemennaya']);
+                            self.$window.find('#id_megdu_beremennostyami_10').val(data['megdu_beremennostyami_10']);
+                            self.$window.find('#id_v_rezultate_ECO').val(data['v_rezultate_ECO']);
+                            self.$window.find('#id_vozrast_bolee_40').val(data['vozrast_bolee_40']);
+                            self.$window.find('#id_IMT_bolee_35').val(data['IMT_bolee_35']);
+                            self.$window.find('#id_imeet_mesto_risk_razvitie').val(data['imeet_mesto_risk_razvitie']);
+                            self.$window.find('#id_odni_i_bolee_prej').val(data['odni_i_bolee_prej']);
+                            self.$window.find('#id_odin_i_bolee_vikidish').val(data['odin_i_bolee_vikidish']);
+                            self.$window.find('#id_dva_i_bolee_med').val(data['dva_i_bolee_med']);
+                            self.$window.find('#id_visokiy_paritet').val(data['visokiy_paritet']);
+                            self.$window.find('#id_hirurgicheskoe_lechenie').val(data['hirurgicheskoe_lechenie']);
+                            self.$window.find('#id_vozrast_18_34').val(data['vozrast_18_34']);
+                            self.$window.find('#id_mnogoplodnaya').val(data['mnogoplodnaya']);
+                            self.$window.find('#id_nalichie_alko').val(data['nalichie_alko']);
+                            self.$window.find('#id_nalichie_IPP').val(data['nalichie_IPP']);
+                            self.$window.find('#id_imeli_matochnie').val(data['imeli_matochnie']);
+                            self.$window.find('#id_predlejanie_placenti').val(data['predlejanie_placenti']);
+                            self.$window.find('#id_nalichie_tajoloy_patologii').val(data['nalichie_tajoloy_patologii']);
+                            self.$window.find('#id_hirurgicheskie_vmeshatelstva').val(data['hirurgicheskie_vmeshatelstva']);
+                            self.$window.find('#id_infekcii_moche').val(data['infekcii_moche']);
+                            self.$window.find('#id_risk_prejdevremennih_rodov').val(data['risk_prejdevremennih_rodov']);
+                            self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
                         }).catch(function () {
                             alert('Не могу получить JSON ');

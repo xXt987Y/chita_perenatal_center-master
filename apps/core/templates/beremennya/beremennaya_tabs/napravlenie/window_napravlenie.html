@@ -1,49 +1,134 @@
+<style>
+    .window_napravlenie .jqx-tabs-headerWrapper {
+        display: none;
+    }
+
+    .window_napravlenie .jqx-window-header {
+        height: 16px;
+        padding: 7px;
+    }
+
+    .window_napravlenie .FixP {
+        width: 60%;
+
+    }
+
+    .window_napravlenie .FixP label {
+
+        width: auto;
+
+    }
+
+    .window_napravlenie .doptext {
+        margin: 7px 5px 7px 0;
+    }
+
+    .window_napravlenie p {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .window_napravlenie label {
+        margin: 7px 5px 7px 0;
+        width: 50%;
+        float: left;
+        text-align: right;
+        height: auto;
+    }
+
+    .window_napravlenie select {
+        margin: 4px 3px 4px 3px;
+        width: 250px;
+        height: 20px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .window_napravlenie input [type="text"] {
+        width: 245px !important;
+    }
+
+    input[type="date" i] {
+        width: 250px !important;
+        margin: 4px 3px 4px 3px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
+
+    .window_napravlenie input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 7px 5px 7px 0;
+        opacity: 1;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+        color: #333333;
+        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        border-radius: 4px;
+        font-family: Verdana, Arial, sans-serif;
+        border: 1px solid transparent;
+        outline: none;
+    }
+
+    .window_napravlenie .save_napravlenie {
+        position: relative;
+        left: 43%;
+        width: 200px;
+        margin: 3px;
+    }
+
+    .window_napravlenie .default {
+        align-items: center;
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+
+    .window_napravlenie .text {
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+        margin: 7px 5px 7px 0;
+    }
+
+    .window_napravlenie .doptext {
+        float: right;
+        text-align: left;
+        margin-left: 2px;
+    }
+
+    .window_napravlenie h3 {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+    }
+
+
+</style>
 <div class="window_napravlenie">
-    <div class="tab_napravlenie">
+    <div style="overflow: hidden; padding: 0" class="tab_napravlenie">
         <ul>
             <li></li>
         </ul>
-        <div class="wrap_anketi">
-            <div class="default">
-                <div class="text">Пункт направления</div>
-                <div class='punkt_napravleniya'></div>
-            </div>
+        <div class="tab_beremennya_napravlenie">
+            <form class="novoe_napravlenie" action="{% url 'home' %}" method="post">
+                {% csrf_token %}
 
-            <div class="default">
-                <div class="text cel_napravleniya_title">Цель направления:</div>
-                <div class='cel_napravleniya'>
-                    консультация
+
+                {{ napravlenie_form.as_p }}
+
+                <div style="position: sticky; bottom: 0;" class="default">
+                    <button class="menubtn save_napravlenie" type="submit">Сохранить</button>
                 </div>
-                <div class='cel_napravleniya'>
-                    госпитализация
-                </div>
-            </div>
-
-            <div class="default">
-                <div class="text">Предпологаемый диагноз</div>
-                <div class='predpolagaemyi_diagnoz'></div>
-            </div>
-
-            <div class="default">
-                <div class="text diagnoz_podtverjden_title">Диагноз подтвержден:</div>
-                <div class='diagnoz_podtverjden'>
-                    да
-                </div>
-                <div class='diagnoz_podtverjden'>
-                    нет
-                </div>
-            </div>
-
-            <div class="default">
-                <div class="text"> Дата:</div>
-                <div class='data'></div>
-                <div class="doptext">(Дата явки беременной в ЖК с результатом направления)</div>
-            </div>
-
-            <div class="default">
-                <div class="Save menubtn">Сохранить</div>
-            </div>
-
+            </form>
         </div>
     </div>
 </div>
@@ -61,10 +146,10 @@
                 position: {x: '15%', y: '10%'},
                 maxHeight: 1000,
                 maxWidth: 2200,
-                minHeight: 400,
+                minHeight: 387,
                 minWidth: 700,
                 theme: 'arctic',
-                height: 400,
+                height: 387,
                 width: 1200,
                 title: 'Новое направление',
                 autoOpen: false,
@@ -72,7 +157,7 @@
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
-                        height: '100%',
+                        height: 'calc(100% -24px)',
                         width: '100%',
                         theme: 'arctic',
                     });
@@ -80,6 +165,33 @@
             });
 
             this.on_close();
+        }
+
+        open(id = 0) {
+            let self = this;
+            if (id) {
+                fetch(`/api/napravlenie/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
+                            self.$window.find('#id_cel_napravleniya').val(data['cel_napravleniya']);
+                            self.$window.find('#id_punkt_napravleniya').val(data['punkt_napravleniya']);
+                            self.$window.find('#id_predpolagaemyi_diagnoz').val(data['predpolagaemyi_diagnoz']);
+                            self.$window.find('#id_diagnoz_podtverjden').val(data['diagnoz_podtverjden']);
+                            self.$window.find('#id_data').val(data['data']);
+                            self.$window.jqxWindow('open');
+                            self.$window.jqxWindow('bringToFront');
+                        }).catch(function () {
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            }
+
         }
 
         on_close() {
@@ -93,6 +205,7 @@
 
     let $window_napravlenie = $('.window_napravlenie');
     let $tab_napravlenie = $('.tab_napravlenie');
+    let obj_window_napravlenie = new WindowNapravlenie($window_napravlenie, $tab_napravlenie, $btn_open_window_napravlenie);
     $(function () {
         new WindowNapravlenie($window_napravlenie, $tab_napravlenie, $btn_open_window_napravlenie)
     })

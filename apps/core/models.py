@@ -1038,8 +1038,8 @@ class Napravlenie(models.Model):
                                            blank=True)
     predpolagaemyi_diagnoz = models.TextField('Текст предполагаемого диагноза',
                                               null=True, blank=True)
-    diagnoz_podtverjden = models.BooleanField('Диагноз подтвержден? Да/Нет',
-                                              default=False, null=True, blank=True)
+    diagnoz_podtverjden = models.IntegerField('Диагноз подтвержден?', choices=CHECK_BOX, default=False, null=True,
+                                                  blank=True)
     data = models.DateField('Дата явки беременной в ЖК с результатом направления',
                             null=True, blank=True)
 

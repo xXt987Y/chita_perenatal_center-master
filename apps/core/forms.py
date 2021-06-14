@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.core.models import Beremennaya, Anketa, Ishod, Konsultaciaya
+from apps.core.models import Beremennaya, Anketa, Ishod, Konsultaciaya, Napravlenie
 
 
 class BeremennayaFormPart1(forms.ModelForm):
@@ -82,6 +82,13 @@ class KonsultaciayaForm(forms.ModelForm):
         fields = '__all__'
 
     otpravleno = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата отправления')
+
+class NapravlenieForm(forms.ModelForm):
+    class Meta:
+        model = Napravlenie
+        fields = '__all__'
+
+    data = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата явки беременной в ЖК с результатом направления')
 
 class IshodForm(forms.ModelForm):
     class Meta:
