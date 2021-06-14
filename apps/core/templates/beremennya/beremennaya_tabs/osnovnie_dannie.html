@@ -69,6 +69,14 @@
         margin: 3px;
     }
 
+    .novaya_beremennaya .pechat_beremennaya {
+        position: absolute;
+        right: 0;
+        width: 200px;
+        margin: 3px;
+        padding: 5px;
+    }
+
     .novaya_beremennaya .default {
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
@@ -100,7 +108,8 @@
 
 </style>
 
-<form enctype="multipart/form-data" class="novaya_beremennaya" id="novaya_beremennaya" action="{% url 'beremennaya_lv' %}" method="post">
+<form enctype="multipart/form-data" class="novaya_beremennaya" id="novaya_beremennaya"
+      action="{% url 'beremennaya_lv' %}" method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
@@ -322,7 +331,9 @@
     </div>
 
     <div style="position: sticky; bottom: 0;" class="default block_s_knopkoi_save_beremennaya">
-        {% if user.is_superuser %}    <button class="save_beremennaya menubtn" type="submit">Сохранить</button> {% endif %}
+        {% if user.is_superuser %}
+            <button class="save_beremennaya menubtn" type="submit">Сохранить</button> {% endif %}
+        <button class="pechat_beremennaya menubtn" type="submit">Печать</button>
     </div>
 
 
