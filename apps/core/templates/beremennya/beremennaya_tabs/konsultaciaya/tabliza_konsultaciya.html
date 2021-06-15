@@ -1,0 +1,120 @@
+<div style="border-right-width: 0; border-left-width: 0;" class="tabliza_konsultaciaya"></div>
+
+<style>
+
+</style>
+
+<script>
+    'use strict';
+
+    class TablizaKonsultaciaya {
+
+        constructor($grid) {
+            let self = this;
+            this.$grid = $grid;
+            this.obj_window_konsultaciya = obj_window_konsultaciya;
+            this.$window_konsultaciya = $window_konsultaciya;
+            this.$grid.jqxGrid(self.nastroiki_grida);
+            this.$grid.on('rowdoubleclick', function (event) {
+                self.otkrit_okno_prosmotra_konsultaciya(event);
+            });
+        }
+
+        get nastroiki_grida() {
+            let self = this;
+            return {
+                width: '100%',
+                height: 'calc(100% - 37px)',
+                source: this.data_adapter,
+                columns: this.colums,
+                enabletooltips: true,
+                localization: RUS_LOCALIZ,
+                filterable: true,
+                showtoolbar: true,
+                pageable: true,
+                columnsresize: true,
+                autorowheight: true,
+                scrollmode: 'logical',
+                rowsheight: 40,
+                toolbarheight: 40,
+                theme: 'arctic',
+                altrows: true,
+                sortable: true,
+                showstatusbar: true,
+                statusbarheight: 25,
+                pagesizeoptions: ['5', '10', '30', '50', '100'],
+                pagesize: 30,
+            }
+        }
+
+        get fields() {
+            return [
+                {name: 'id', type: 'number'},
+                {name: 'otpravleno_str', type: 'data'},
+                {name: 'rol_otpavitelia_title', type: 'string'},
+                {name: 'med_organiizaciya_title', type: 'string'},
+            ]
+        }
+
+        get colums() {
+            return [
+                {
+                    text: 'ID',
+                    datafield: 'id',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '10%',
+
+                },
+                {
+                    text: 'Отправлено',
+                    datafield: 'otpravleno_str',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '30%',
+
+                },
+                {
+                    text: 'Отправитель',
+                    datafield: 'rol_otpavitelia_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '30%',
+
+                },
+                {
+                    text: 'Учреждение отправителя',
+                    datafield: 'med_organiizaciya_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '30%',
+
+                },
+
+            ];
+        }
+
+        get data_adapter() {
+
+            return new $.jqx.dataAdapter({
+                datatype: "json",
+                data: 'data',
+                url: '/api/konsultaciaya/',
+                datafields: this.fields,
+                sortcolumn: 'id',
+                sortdirection: 'desc'
+            });
+        }
+         otkrit_okno_prosmotra_konsultaciya(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.obj_window_konsultaciya.open(id)
+        }
+    }
+
+
+    let $tabliza_konsultaciya = $('.tabliza_konsultaciaya');
+    $(document).ready(function () {
+        new TablizaKonsultaciaya($tabliza_konsultaciya);
+    });
+</script>

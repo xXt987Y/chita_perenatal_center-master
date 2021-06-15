@@ -1,0 +1,488 @@
+<style>
+    .window_konsultaciya .jqx-tabs-headerWrapper {
+        display: none;
+    }
+
+    .window_konsultaciya .jqx-window-header {
+        height: 16px;
+        padding: 7px;
+    }
+
+    .novaya_konsultaciya .FixP {
+        width: 60%;
+
+    }
+
+    .novaya_konsultaciya .FixP label {
+
+        width: auto;
+
+    }
+
+    .novaya_konsultaciya .doptext {
+        margin: 7px 5px 7px 0;
+    }
+
+    .novaya_konsultaciya p {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+    .novaya_konsultaciya label {
+        margin: 7px 5px 7px 0;
+        width: 50%;
+        float: left;
+        text-align: right;
+        height: auto;
+    }
+
+    .novaya_konsultaciya select {
+        margin: 4px 3px 4px 3px;
+        width: 250px;
+        height: 20px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .novaya_konsultaciya input [type="text"] {
+        width: 245px !important;
+    }
+
+    input[type="date" i] {
+        width: 250px !important;
+        margin: 4px 3px 4px 3px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
+
+    .novaya_konsultaciya input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 7px 5px 7px 0;
+        opacity: 1;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+        color: #333333;
+        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        border-radius: 4px;
+        font-family: Verdana, Arial, sans-serif;
+        border: 1px solid transparent;
+        outline: none;
+    }
+
+    .novaya_konsultaciya .save_konsultaciaya {
+        position: relative;
+        left: 43%;
+        width: 200px;
+        margin: 3px;
+    }
+
+    .novaya_konsultaciya .default {
+        align-items: center;
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
+    }
+
+
+    .novaya_konsultaciya .text {
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+        margin: 7px 5px 7px 0;
+    }
+
+    .novaya_konsultaciya .doptext {
+        float: right;
+        text-align: left;
+        margin-left: 2px;
+    }
+
+    .novaya_konsultaciya h3 {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+    }
+
+
+</style>
+
+
+<div class="window_konsultaciya">
+    <div style="overflow: hidden; padding: 0" class="tab_konsultaciya">
+        <ul>
+            <li></li>
+        </ul>
+
+        <div class="tab_konsultaciya">
+            <form id="novaya_konsultaciya" class="novaya_konsultaciya" action="{% url 'home' %}" method="post">
+                {% csrf_token %}
+
+                <div class="default">
+                    {{ konsultaciaya_form.zanesena_v_monitoring.label_tag }}
+                    {{ konsultaciaya_form.zanesena_v_monitoring }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeet_socialnie_faktori.label_tag }}
+                    {{ konsultaciaya_form.imeet_socialnie_faktori }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.vzata_na_uchet.label_tag }}
+                    {{ konsultaciaya_form.vzata_na_uchet }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_geneticheskih.label_tag }}
+                    {{ konsultaciaya_form.nalichie_geneticheskih }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.kontakt_s_socialno.label_tag }}
+                    {{ konsultaciaya_form.kontakt_s_socialno }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.kontakt_s_socialno_vich.label_tag }}
+                    {{ konsultaciaya_form.kontakt_s_socialno_vich }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.kontakt_s_socialno_tuberkulez.label_tag }}
+                    {{ konsultaciaya_form.kontakt_s_socialno_tuberkulez }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.opredelenie_rezus.label_tag }}
+                    {{ konsultaciaya_form.opredelenie_rezus }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.provodilos_perelivanie.label_tag }}
+                    {{ konsultaciaya_form.provodilos_perelivanie }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.provodilos_lechebnie.label_tag }}
+                    {{ konsultaciaya_form.provodilos_lechebnie }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeet_mesto_krovotecheniya.label_tag }}
+                    {{ konsultaciaya_form.imeet_mesto_krovotecheniya }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeet_risk_po_razvitiy_GBN.label_tag }}
+                    {{ konsultaciaya_form.imeet_risk_po_razvitiy_GBN }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.provedeno_uzi_12_14.label_tag }}
+                    {{ konsultaciaya_form.provedeno_uzi_12_14 }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_markerov.label_tag }}
+                    {{ konsultaciaya_form.nalichie_markerov }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeet_risk_VPR.label_tag }}
+                    {{ konsultaciaya_form.imeet_risk_VPR }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_IMT.label_tag }}
+                    {{ konsultaciaya_form.nalichie_IMT }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_geneticheskoy_predraspol.label_tag }}
+                    {{ konsultaciaya_form.nalichie_geneticheskoy_predraspol }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.soprovagdalas_predidushaya.label_tag }}
+                    {{ konsultaciaya_form.soprovagdalas_predidushaya }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.mesto_rojdeniya_v_anameze.label_tag }}
+                    {{ konsultaciaya_form.mesto_rojdeniya_v_anameze }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeet_mesto_risk_razvitiya.label_tag }}
+                    {{ konsultaciaya_form.imeet_mesto_risk_razvitiya }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_v_anameze.label_tag }}
+                    {{ konsultaciaya_form.nalichie_v_anameze }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_v_anameze_34.label_tag }}
+                    {{ konsultaciaya_form.nalichie_v_anameze_34 }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_auto_imunnih.label_tag }}
+                    {{ konsultaciaya_form.nalichie_auto_imunnih }}
+                </div>
+
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_nasledstvennih.label_tag }}
+                    {{ konsultaciaya_form.nalichie_nasledstvennih }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_saharnogo.label_tag }}
+                    {{ konsultaciaya_form.nalichie_saharnogo }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_hronicheskoy.label_tag }}
+                    {{ konsultaciaya_form.nalichie_hronicheskoy }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.pervoberemennaya.label_tag }}
+                    {{ konsultaciaya_form.pervoberemennaya }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.megdu_beremennostyami_10.label_tag }}
+                    {{ konsultaciaya_form.megdu_beremennostyami_10 }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.v_rezultate_ECO.label_tag }}
+                    {{ konsultaciaya_form.v_rezultate_ECO }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.vozrast_bolee_40.label_tag }}
+                    {{ konsultaciaya_form.vozrast_bolee_40 }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.IMT_bolee_35.label_tag }}
+                    {{ konsultaciaya_form.IMT_bolee_35 }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeet_mesto_risk_razvitie.label_tag }}
+                    {{ konsultaciaya_form.imeet_mesto_risk_razvitie }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.odni_i_bolee_prej.label_tag }}
+                    {{ konsultaciaya_form.odni_i_bolee_prej }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.odin_i_bolee_vikidish.label_tag }}
+                    {{ konsultaciaya_form.odin_i_bolee_vikidish }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.dva_i_bolee_med.label_tag }}
+                    {{ konsultaciaya_form.dva_i_bolee_med }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.visokiy_paritet.label_tag }}
+                    {{ konsultaciaya_form.visokiy_paritet }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.hirurgicheskoe_lechenie.label_tag }}
+                    {{ konsultaciaya_form.hirurgicheskoe_lechenie }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.vozrast_18_34.label_tag }}
+                    {{ konsultaciaya_form.vozrast_18_34 }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.mnogoplodnaya.label_tag }}
+                    {{ konsultaciaya_form.mnogoplodnaya }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_alko.label_tag }}
+                    {{ konsultaciaya_form.nalichie_alko }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_IPP.label_tag }}
+                    {{ konsultaciaya_form.nalichie_IPP }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.imeli_matochnie.label_tag }}
+                    {{ konsultaciaya_form.imeli_matochnie }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.predlejanie_placenti.label_tag }}
+                    {{ konsultaciaya_form.predlejanie_placenti }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.nalichie_tajoloy_patologii.label_tag }}
+                    {{ konsultaciaya_form.nalichie_tajoloy_patologii }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.hirurgicheskie_vmeshatelstva.label_tag }}
+                    {{ konsultaciaya_form.hirurgicheskie_vmeshatelstva }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.infekcii_moche.label_tag }}
+                    {{ konsultaciaya_form.infekcii_moche }}
+                </div>
+
+                <div class="default">
+                    {{ konsultaciaya_form.risk_prejdevremennih_rodov.label_tag }}
+                    {{ konsultaciaya_form.risk_prejdevremennih_rodov }}
+                </div>
+
+                <div style="position: sticky; bottom: 0;" class="default">
+                    <button class="menubtn save_konsultaciaya" type="submit">Сохранить</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+
+    class WindowKonsultaciya {
+        constructor($window_konsultaciya, $tab, $btn_open_window_konsultaciya) {
+            let self = this;
+            this.$window = $window_konsultaciya;
+            this.$tab = $tab;
+            this.$btn_open_window = $btn_open_window_konsultaciya;
+            this.$window.jqxWindow({
+                position: {x: '15%', y: '10%'},
+                maxHeight: 1000,
+                maxWidth: 2200,
+                minHeight: 400,
+                minWidth: 700,
+                theme: 'arctic',
+                height: '70%',
+                width: '70%',
+                title: 'Новая Консультация',
+                autoOpen: false,
+                resizable: true,
+                draggable: true,
+                initContent: function () {
+                    $(self.$tab).jqxTabs({
+                        height: 'calc(100% - 30px)',
+                        width: '100%',
+                        theme: 'arctic',
+                    });
+                }
+            });
+
+            this.on_close();
+        }
+
+        open(id = 0) {
+            let self = this;
+            if (id) {
+                fetch(`/api/konsultaciaya/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            self.$window.find('#id_zanesena_v_monitoring').val(data['zanesena_v_monitoring']);
+                            self.$window.find('#id_imeet_socialnie_faktori').val(data['imeet_socialnie_faktori']);
+                            self.$window.find('#id_vzata_na_uchet').val(data['vzata_na_uchet']);
+                            self.$window.find('#id_nalichie_geneticheskih').val(data['nalichie_geneticheskih']);
+                            self.$window.find('#id_kontakt_s_socialno').val(data['kontakt_s_socialno']);
+                            self.$window.find('#id_kontakt_s_socialno_vich').val(data['kontakt_s_socialno_vich']);
+                            self.$window.find('#id_kontakt_s_socialno_tuberkulez').val(data['kontakt_s_socialno_tuberkulez']);
+                            self.$window.find('#id_opredelenie_rezus').val(data['opredelenie_rezus']);
+                            self.$window.find('#id_provodilos_perelivanie').val(data['provodilos_perelivanie']);
+                            self.$window.find('#id_provodilos_lechebnie').val(data['provodilos_lechebnie']);
+                            self.$window.find('#id_imeet_mesto_krovotecheniya').val(data['imeet_mesto_krovotecheniya']);
+                            self.$window.find('#id_imeet_risk_po_razvitiy_GBN').val(data['imeet_risk_po_razvitiy_GBN']);
+                            self.$window.find('#id_provedeno_uzi_12_14').val(data['provedeno_uzi_12_14']);
+                            self.$window.find('#id_nalichie_markerov').val(data['nalichie_markerov']);
+                            self.$window.find('#id_imeet_risk_VPR').val(data['imeet_risk_VPR']);
+                            self.$window.find('#id_nalichie_IMT').val(data['nalichie_IMT']);
+                            self.$window.find('#id_nalichie_geneticheskoy_predraspol').val(data['nalichie_geneticheskoy_predraspol']);
+                            self.$window.find('#id_soprovagdalas_predidushaya').val(data['soprovagdalas_predidushaya']);
+                            self.$window.find('#id_mesto_rojdeniya_v_anameze').val(data['mesto_rojdeniya_v_anameze']);
+                            self.$window.find('#id_imeet_mesto_risk_razvitiya').val(data['imeet_mesto_risk_razvitiya']);
+                            self.$window.find('#id_nalichie_v_anameze').val(data['nalichie_v_anameze']);
+                            self.$window.find('#id_nalichie_v_anameze_34').val(data['nalichie_v_anameze_34']);
+                            self.$window.find('#id_nalichie_auto_imunnih').val(data['nalichie_auto_imunnih']);
+                            self.$window.find('#id_nalichie_nasledstvennih').val(data['nalichie_nasledstvennih']);
+                            self.$window.find('#id_nalichie_saharnogo').val(data['nalichie_saharnogo']);
+                            self.$window.find('#id_nalichie_hronicheskoy').val(data['nalichie_hronicheskoy']);
+                            self.$window.find('#id_pervoberemennaya').val(data['pervoberemennaya']);
+                            self.$window.find('#id_megdu_beremennostyami_10').val(data['megdu_beremennostyami_10']);
+                            self.$window.find('#id_v_rezultate_ECO').val(data['v_rezultate_ECO']);
+                            self.$window.find('#id_vozrast_bolee_40').val(data['vozrast_bolee_40']);
+                            self.$window.find('#id_IMT_bolee_35').val(data['IMT_bolee_35']);
+                            self.$window.find('#id_imeet_mesto_risk_razvitie').val(data['imeet_mesto_risk_razvitie']);
+                            self.$window.find('#id_odni_i_bolee_prej').val(data['odni_i_bolee_prej']);
+                            self.$window.find('#id_odin_i_bolee_vikidish').val(data['odin_i_bolee_vikidish']);
+                            self.$window.find('#id_dva_i_bolee_med').val(data['dva_i_bolee_med']);
+                            self.$window.find('#id_visokiy_paritet').val(data['visokiy_paritet']);
+                            self.$window.find('#id_hirurgicheskoe_lechenie').val(data['hirurgicheskoe_lechenie']);
+                            self.$window.find('#id_vozrast_18_34').val(data['vozrast_18_34']);
+                            self.$window.find('#id_mnogoplodnaya').val(data['mnogoplodnaya']);
+                            self.$window.find('#id_nalichie_alko').val(data['nalichie_alko']);
+                            self.$window.find('#id_nalichie_IPP').val(data['nalichie_IPP']);
+                            self.$window.find('#id_imeli_matochnie').val(data['imeli_matochnie']);
+                            self.$window.find('#id_predlejanie_placenti').val(data['predlejanie_placenti']);
+                            self.$window.find('#id_nalichie_tajoloy_patologii').val(data['nalichie_tajoloy_patologii']);
+                            self.$window.find('#id_hirurgicheskie_vmeshatelstva').val(data['hirurgicheskie_vmeshatelstva']);
+                            self.$window.find('#id_infekcii_moche').val(data['infekcii_moche']);
+                            self.$window.find('#id_risk_prejdevremennih_rodov').val(data['risk_prejdevremennih_rodov']);
+                            self.$window.jqxWindow('open');
+                            self.$window.jqxWindow('bringToFront');
+                        }).catch(function () {
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            }
+
+        }
+
+        on_close() {
+            let self = this;
+            this.$window.on('close', function () {
+                self.$btn_open_window.jqxToggleButton('toggled', false);
+            });
+        }
+
+    }
+
+    let $window_konsultaciya = $('.window_konsultaciya');
+    let $tab_konsultaciya = $('.tab_konsultaciya');
+    let obj_window_konsultaciya = new WindowKonsultaciya($window_konsultaciya, $tab_konsultaciya, $btn_open_window_konsultaciya);
+    $(function () {
+        new WindowKonsultaciya($window_konsultaciya, $tab_konsultaciya, $btn_open_window_konsultaciya)
+    })
+</script>

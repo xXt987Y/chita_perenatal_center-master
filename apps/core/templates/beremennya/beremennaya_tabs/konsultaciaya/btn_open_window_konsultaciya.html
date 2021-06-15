@@ -1,0 +1,46 @@
+<button class="topmenu menubtn" id="btn_open_window_konsultaciya">Новая консультация</button>
+<button class="topmenu menubtn" id="btn_delete_konsultaciya">Удалить консультацию</button>
+
+<script>
+
+    class BtnWindowKonsultaciya {
+        constructor($btn_open_window_konsultaciya, $window) {
+            this.$btn = $btn_open_window_konsultaciya;
+            this.$window = $window;
+            this.on_click_toogle_btn();
+
+        }
+
+        on_click_toogle_btn() {
+            let self = this;
+            this.$btn.click(function () {
+                    let tgl = self.$window.jqxWindow('isOpen');
+                    if (tgl === false) {
+                        document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn');
+                        document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn_toggle');
+                        document.getElementById('novaya_konsultaciya').reset();
+                        self.$window.jqxWindow('open');
+                        self.$window.jqxWindow('bringToFront');
+                    } else {
+                        document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn_toggle');
+                        document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn');
+                        self.$window.jqxWindow('close');
+                    }
+                }
+            )
+            ;
+        }
+    }
+
+    $btn_open_window_konsultaciya = $('#btn_open_window_konsultaciya')
+    $(function () {
+        new BtnWindowKonsultaciya($btn_open_window_konsultaciya, $window_konsultaciya);
+    })
+    $(function () {
+        $window_konsultaciya.on('close', function (event) {
+            document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn_toggle');
+            document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn');
+        });
+    })
+
+</script>
