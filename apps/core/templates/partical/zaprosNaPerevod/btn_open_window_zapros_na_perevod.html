@@ -4,13 +4,10 @@
 
     class BtnWindowZaprosNaPerevod {
         constructor($btn_open_window_zapros_na_perevod, $window, obj_zapros_na_perevod) {
-            let self = this;
             this.$btn = $btn_open_window_zapros_na_perevod;
             this.$window = $window;
             this.obj_zapros_na_perevod = obj_zapros_na_perevod;
-            this.$btn.on('click', function (event) {
-                self.on_click_toogle_btn(event);
-            });
+            this.on_click_toogle_btn();
 
         }
 
@@ -26,7 +23,7 @@
                     if (tgl === false) {
                         document.getElementById("btn_open_window_zapros_na_perevod").classList.remove('menubtn');
                         document.getElementById("btn_open_window_zapros_na_perevod").classList.add('menubtn_toggle');
-                        self.obj_zapros_na_perevod.jqxWindow('open');
+                        self.$window.jqxWindow('open');
                     } else {
                         document.getElementById("btn_open_window_zapros_na_perevod").classList.remove('menubtn_toggle');
                         document.getElementById("btn_open_window_zapros_na_perevod").classList.add('menubtn');

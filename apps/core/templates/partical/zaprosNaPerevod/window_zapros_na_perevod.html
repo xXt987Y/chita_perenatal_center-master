@@ -40,16 +40,16 @@
     <form class="smena_jk_u_beremennoy_form" action="{% url 'home' %}" method="post">
         {% csrf_token %}
         <div class="default">
-            <div class="FixP">{{ smena_jk_u_beremennoy_form.nomer_beremennoy.label_tag }}</div>
-            <div class="FixP">{{ smena_jk_u_beremennoy_form.nomer_beremennoy }}</div>
+            <div class="FixP">{{ smena_jk_form.nomer_beremennoy.label_tag }}</div>
+            <div class="FixP">{{ smena_jk_form.nomer_beremennoy }}</div>
         </div>
         <div class="default">
-            <div class="FixP">{{ smena_jk_u_beremennoy_form.novaya_JK.label_tag }}</div>
-            <div class="FixP">{{ smena_jk_u_beremennoy_form.novaya_JK }}</div>
+            <div class="FixP">{{ smena_jk_form.novaya_JK.label_tag }}</div>
+            <div class="FixP">{{ smena_jk_form.novaya_JK }}</div>
         </div>
         <div class="default">
-            <div class="FixP">{{ smena_jk_u_beremennoy_form.prichina.label_tag }}</div>
-            <div class="FixP">{{ smena_jk_u_beremennoy_form.prichina }}</div>
+            <div class="FixP">{{ smena_jk_form.prichina.label_tag }}</div>
+            <div class="FixP">{{ smena_jk_form.prichina }}</div>
         </div>
         <div class="default">
             <button class="menubtn " type="submit">Сохранить</button>
@@ -85,10 +85,10 @@
         open(id = 0) {
             let self = this;
             if (id) {
-                fetch(`api/beremennaya/${id}`).then(function (response) {
+                fetch(`/api/beremennaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
-                            self.$window.find('#id_nomer').val(data['nomer']);
+
                             console.log(data);
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
@@ -102,6 +102,7 @@
                 })
 
             }
+
         }
 
         on_close() {

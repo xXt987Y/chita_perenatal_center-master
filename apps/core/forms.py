@@ -1,6 +1,6 @@
 from django import forms
 
-from apps.core.models import Beremennaya, Anketa, Ishod, Konsultaciaya, Napravlenie
+from apps.core.models import Beremennaya, Anketa, Ishod, Konsultaciaya, Napravlenie, Smena_JK_u_beremennoy
 
 
 class BeremennayaFormPart1(forms.ModelForm):
@@ -101,6 +101,11 @@ class IshodForm(forms.ModelForm):
 class BeremennayaForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
+        fields = '__all__'
+
+class SmenaJKForm(forms.ModelForm):
+    class Meta:
+        model = Smena_JK_u_beremennoy
         fields = '__all__'
 
 
@@ -248,6 +253,7 @@ class BeremennayaNovorojdenniyPlodForm(forms.ModelForm):
             'novorojdenniy_plod_vpr',
             'novorojdenniy_plod_perinatalnie',
         ]
+
 
 
 class BeremennayaBolezniEndokrForm(forms.ModelForm):
