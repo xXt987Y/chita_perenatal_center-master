@@ -17,6 +17,7 @@
                     if (tgl === false) {
                         document.getElementById("btn_open_window_anketi").classList.remove('menubtn');
                         document.getElementById("btn_open_window_anketi").classList.add('menubtn_toggle');
+                        document.getElementById('novaya_anketa').reset();
                         self.$window.jqxWindow('open');
                         self.$window.jqxWindow('bringToFront');
                     } else {

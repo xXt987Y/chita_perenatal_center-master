@@ -324,6 +324,7 @@ class NapravlenieSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     punkt_napravleniya_title = serializers.SerializerMethodField()
+    cel_napravleniya_title = serializers.SerializerMethodField()
     data_str = serializers.SerializerMethodField()
 
     def get_data_str(self, obj):
@@ -331,6 +332,9 @@ class NapravlenieSerializer(serializers.ModelSerializer):
 
     def get_punkt_napravleniya_title(self, obj):
         return obj.punkt_napravleniya.nazvanie
+
+    def get_cel_napravleniya_title(self, obj):
+        return obj.cel_napravleniya.nazvanie
 
 
 class KonsultaciayaSerializer(serializers.ModelSerializer):

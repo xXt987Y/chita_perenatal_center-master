@@ -10,7 +10,7 @@ from apps.core.api import RayonViewSetLV, RayonViewSetDV, BeremennayaViewSetLV, 
     KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV, \
     AnketaViewSetLV, AnketaViewSetDV
 
-from apps.core.views import home, sbor_znachenii_spravocnix_tabliz
+from apps.core.views import home, sbor_znachenii_spravocnix_tabliz, vhod, vihod, loginpage
 
 urlpatterns = [
     path('api/sbor_znachenii_spravocnix_tabliz/', sbor_znachenii_spravocnix_tabliz),
@@ -35,4 +35,8 @@ urlpatterns = [
     # path('api/', include(router.urls)),
     # path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('', home, name='home'),
+    path('login', loginpage, name='login'),
+    path('vhod', vhod, name='vhod'),
+    path('vihod', vihod, name='vihod'),
+
 ]

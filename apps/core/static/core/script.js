@@ -38,9 +38,9 @@ const RUS_LOCALIZ = {
     filterselectallstring: "(Все)",
     filterchoosestring: "Начните ввод...",
 
-    filterstringcomparisonoperators: ['Пустой', 'Не пустой', 'contains', 'Содержит с учетом регистра',
+    filterstringcomparisonoperators: ['Пустой', 'Не пустой', 'Сожержит', 'Содержит с учетом регистра',
         'Не содержит', 'Не содержит с учетом регистра', 'Начинается', 'Начинается с учетом регистра',
-        'Заканчивается', 'Заканчивается с учетом регистра', 'Равно', 'Равно с учетом регистра', 'null', 'not null'],
+        'Заканчивается', 'Заканчивается с учетом регистра', 'Равно', 'Равно с учетом регистра'],
     //
     // filterstringcomparisonoperators: ['empty', 'not empty', 'contains', 'contains(match case)',
     //     'Не содержит', 'does not contain(match case)', 'starts with', 'starts with(match case)',

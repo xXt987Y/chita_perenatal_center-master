@@ -1,4 +1,4 @@
-<div class="h100 tabliza_napravlenie"></div>
+<div style="border-right-width: 0; border-left-width: 0;" class="tabliza_napravlenie"></div>
 
 <style>
 
@@ -12,13 +12,11 @@
         constructor($grid) {
             let self = this;
             this.$grid = $grid;
-             {#this.obj_window_napravlenie = obj_window_napravlenie;#}
+            this.obj_window_napravlenie = obj_window_napravlenie;
             this.$window_napravlenie = $window_napravlenie;
             this.$grid.jqxGrid(self.nastroiki_grida);
-
             this.$grid.on('rowdoubleclick', function (event) {
-
-                self.otkrit_okno_prosmotra(event);
+                self.otkrit_okno_prosmotra_napravlenie(event);
             });
         }
 
@@ -26,7 +24,7 @@
             let self = this;
             return {
                 width: '100%',
-                height: '100%',
+                height: 'calc(100% - 37px)',
                 source: this.data_adapter,
                 columns: this.colums,
                 enabletooltips: true,
@@ -54,8 +52,9 @@
                 {name: 'id', type: 'number'},
                 {name: 'data_str', type: 'data'},
                 {name: 'punkt_napravleniya_title', type: 'string'},
-                {name: 'cel_napravleniya', type: 'string'},
+                {name: 'cel_napravleniya_title', type: 'string'},
                 {name: 'diagnoz_podtverjden', type: 'boolean'},
+                {name: 'predpolagaemyi_diagnoz', type: 'string'}
             ]
         }
 
@@ -70,7 +69,7 @@
 
                 },
                 {
-                    text: 'Дата (заполнено?)',
+                    text: 'Дата',
                     datafield: 'data_str',
                     align: 'center',
                     cellsalign: 'center',
@@ -82,12 +81,20 @@
                     datafield: 'punkt_napravleniya_title',
                     align: 'center',
                     cellsalign: 'center',
-                    width: '30%',
+                    width: '20%',
 
                 },
                 {
                     text: 'Цель',
-                    datafield: 'cel_napravleniya',
+                    datafield: 'cel_napravleniya_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '10%',
+
+                },
+                 {
+                    text: 'Диагноз',
+                    datafield: 'predpolagaemyi_diagnoz',
                     align: 'center',
                     cellsalign: 'center',
                     width: '30%',
@@ -116,10 +123,15 @@
                 sortdirection: 'desc'
             });
         }
+        otkrit_okno_prosmotra_napravlenie(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.obj_window_napravlenie.open(id)
+        }
     }
 
 
-   let $tabliza_napravlenie = $('.tabliza_napravlenie');
+    let $tabliza_napravlenie = $('.tabliza_napravlenie');
     $(document).ready(function () {
         new TablizaNapravlenie($tabliza_napravlenie);
     });

@@ -1,6 +1,6 @@
 <style>
     .novaya_beremennaya .FixP {
-        width: 60%;
+        width: 55%;
     }
 
 
@@ -22,7 +22,7 @@
 
     .novaya_beremennaya label {
         margin: 7px 5px 7px 0;
-        width: 40%;
+        width: 45%;
         float: left;
         text-align: right;
         height: auto;
@@ -55,7 +55,7 @@
         opacity: 1;
         background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
         color: #333333;
-        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        text-shadow: 0 1px 1px rgb(255 255 255);
         border-radius: 4px;
         font-family: Verdana, Arial, sans-serif;
         border: 1px solid transparent;
@@ -64,9 +64,17 @@
 
     .novaya_beremennaya .save_beremennaya {
         position: relative;
-        left: 40%;
+        left: 45%;
         width: 200px;
         margin: 3px;
+    }
+
+    .novaya_beremennaya .pechat_beremennaya {
+        position: absolute;
+        right: 0;
+        width: 200px;
+        margin: 3px;
+        padding: 5px;
     }
 
     .novaya_beremennaya .default {
@@ -79,7 +87,7 @@
 
 
     .novaya_beremennaya .text {
-        width: 40%;
+        width: 45%;
         float: left;
         text-align: right;
         height: auto;
@@ -100,7 +108,8 @@
 
 </style>
 
-<form enctype="multipart/form-data" class="novaya_beremennaya" action="{% url 'beremennaya_lv' %}" method="post">
+<form enctype="multipart/form-data" class="novaya_beremennaya" id="novaya_beremennaya"
+      action="{% url 'beremennaya_lv' %}" method="post">
     {% csrf_token %}
 
     {{ form.as_p }}
@@ -321,8 +330,10 @@
         <div class="FixP">{{ beremennaya_bolezni_organov_moch_form.as_p }}</div>
     </div>
 
-    <div class="default block_s_knopkoi_save_beremennaya">
-        <button class="save_beremennaya menubtn" type="submit">Сохранить</button>
+    <div style="position: sticky; bottom: 0;" class="default block_s_knopkoi_save_beremennaya">
+        {% if user.is_superuser %}
+            <button class="save_beremennaya menubtn" type="submit">Сохранить</button> {% endif %}
+        <button class="pechat_beremennaya menubtn" type="submit">Печать</button>
     </div>
 
 

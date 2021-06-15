@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-
 UROVEN_MO = ((1, '1'),
              (2, '2'),
              (3, '3'))
@@ -27,6 +26,13 @@ DA_NET_NONE = (
     (None, '---'),
     (True, 'Истина/Да'),
     (False, 'Ложь/Нет'),
+)
+
+CHECK_BOX = (
+    (None, 'Неизвестно'),
+    (0, 'Нет'),
+    (1, 'Да'),
+
 )
 
 STEPENI_RISKA = (
@@ -1032,8 +1038,8 @@ class Napravlenie(models.Model):
                                            blank=True)
     predpolagaemyi_diagnoz = models.TextField('Текст предполагаемого диагноза',
                                               null=True, blank=True)
-    diagnoz_podtverjden = models.BooleanField('Диагноз подтвержден? Да/Нет',
-                                              default=False, null=True, blank=True)
+    diagnoz_podtverjden = models.IntegerField('Диагноз подтвержден?', choices=CHECK_BOX, default=False, null=True,
+                                                  blank=True)
     data = models.DateField('Дата явки беременной в ЖК с результатом направления',
                             null=True, blank=True)
 
@@ -1067,6 +1073,154 @@ class Konsultaciaya(models.Model):
     rh_sensibilizaciya = models.BooleanField('Rh-сенсибилизация',
                                              default=False, null=True, blank=True)
     prochie = models.TextField('Прочие', null=True, blank=True)
+    zanesena_v_monitoring = models.IntegerField('Занесена в мониторинг беременных', choices=CHECK_BOX, default=False,
+                                                null=True,
+                                                blank=True)
+    imeet_socialnie_faktori = models.IntegerField('Имеет ли социальные факторы риска (курение, алкоголизм, наркомания)',
+                                                  choices=CHECK_BOX,
+                                                  default=False, null=True, blank=True)
+    vzata_na_uchet = models.IntegerField('Взята на учет после 12-ти недель беременности', choices=CHECK_BOX,
+                                         default=False, null=True,
+                                         blank=True)
+    nalichie_geneticheskih = models.IntegerField('Наличие генетических факторов (ВПР, наследственные заболевания)',
+                                                 choices=CHECK_BOX,
+                                                 default=False, null=True,
+                                                 blank=True)
+    kontakt_s_socialno = models.IntegerField('Контакт с социально значимыми заболеваниями', choices=CHECK_BOX,
+                                             default=False, null=True,
+                                             blank=True)
+    kontakt_s_socialno_vich = models.IntegerField('ВИЧ', choices=CHECK_BOX, default=False, null=True,
+                                                  blank=True)
+    kontakt_s_socialno_tuberkulez = models.IntegerField('Туберкулез', choices=CHECK_BOX,
+                                                        null=True, blank=True)
+    opredelenie_rezus = models.IntegerField('Резус факторы беременной/отца', choices=REZUS_FAKTORI,
+                                            null=True, blank=True)
+    provodilos_perelivanie = models.IntegerField(
+        'Проводилось ли переливание крови без учета резус принадлежности женщинам с резус-отрицательно кровью',
+        choices=CHECK_BOX,
+        default=False, null=True,
+        blank=True)
+    provodilos_lechebnie = models.IntegerField(
+        'Проводились лечебные и диагностические мероприятия (биопсия хориона, амнионтез, кордоцентез, серкляж)',
+        choices=CHECK_BOX,
+        default=False, null=True,
+        blank=True)
+    imeet_mesto_krovotecheniya = models.IntegerField('Имели ли место кровотечения во время беременности',
+                                                     choices=CHECK_BOX, default=False,
+                                                     null=True,
+                                                     blank=True)
+    imeet_risk_po_razvitiy_GBN = models.IntegerField('Имеет место риск по развитию ГБН', choices=CHECK_BOX,
+                                                     default=False, null=True,
+                                                     blank=True)
+    provedeno_uzi_12_14 = models.IntegerField('Проведено ли УЗИ на сроке 12-14 недель', choices=CHECK_BOX,
+                                              default=False, null=True,
+                                              blank=True)
+    nalichie_markerov = models.IntegerField(
+        'Наличие маркеров генетических заболеваний в биохимическом скрининге (PAPP-A, бетта-ХГЧ)', choices=CHECK_BOX,
+        default=False,
+        null=True,
+        blank=True)
+    imeet_risk_VPR = models.IntegerField('Имеет место риск ВПР', choices=CHECK_BOX, default=False, null=True,
+                                         blank=True)
+    nalichie_IMT = models.IntegerField('Наличие ИМТ', choices=CHECK_BOX, default=False, null=True,
+                                       blank=True)
+    nalichie_geneticheskoy_predraspol = models.IntegerField(
+        'Имеет место наличие генетической предрасположенности к сахарному диабету', choices=CHECK_BOX, default=False,
+        null=True,
+        blank=True)
+    soprovagdalas_predidushaya = models.IntegerField(
+        'Сопровождалась предыдущая беременность гестационным сахарным диабетом', choices=CHECK_BOX, default=False,
+        null=True,
+        blank=True)
+    mesto_rojdeniya_v_anameze = models.IntegerField('Имело место рождения в анамезе крупных плодов (более 4,5 кг)',
+                                                    choices=CHECK_BOX,
+                                                    default=False, null=True,
+                                                    blank=True)
+    imeet_mesto_risk_razvitiya = models.IntegerField('Имеет место риск развития гестационного сахарного диабета',
+                                                     choices=CHECK_BOX,
+                                                     default=False, null=True,
+                                                     blank=True)
+    nalichie_v_anameze = models.IntegerField('Наличие в анамезе проэклампсии', choices=CHECK_BOX, default=False,
+                                             null=True,
+                                             blank=True)
+    nalichie_v_anameze_34 = models.IntegerField(
+        'Наличие в анамезе проэклампсии преждевременных родов в сроке менее 34 недель', choices=CHECK_BOX,
+        default=False, null=True,
+        blank=True)
+    nalichie_auto_imunnih = models.IntegerField('Наличие ауто-имунных заболеваний', choices=CHECK_BOX, default=False,
+                                                null=True,
+                                                blank=True)
+    nalichie_nasledstvennih = models.IntegerField('Наличие наследственных тромбофилий', choices=CHECK_BOX,
+                                                  default=False, null=True,
+                                                  blank=True)
+    nalichie_saharnogo = models.IntegerField('Наличие сахорного диабета 1 или 2 типа', choices=CHECK_BOX, default=False,
+                                             null=True,
+                                             blank=True)
+    nalichie_hronicheskoy = models.IntegerField('Наличие хронической гипертензии', choices=CHECK_BOX, default=False,
+                                                null=True,
+                                                blank=True)
+    pervoberemennaya = models.IntegerField('Первобеременная', choices=CHECK_BOX, default=False, null=True,
+                                           blank=True)
+    megdu_beremennostyami_10 = models.IntegerField('Интервал между беременностями более 10 лет', choices=CHECK_BOX,
+                                                   default=False,
+                                                   null=True,
+                                                   blank=True)
+    v_rezultate_ECO = models.IntegerField('Имеет беременность в результате ЭКО', choices=CHECK_BOX, default=False,
+                                          null=True,
+                                          blank=True)
+    vozrast_bolee_40 = models.IntegerField('Возраст более 40 лет', choices=CHECK_BOX, default=False, null=True,
+                                           blank=True)
+    IMT_bolee_35 = models.IntegerField('ИМТ более 35', choices=CHECK_BOX, default=False, null=True,
+                                       blank=True)
+    imeet_mesto_risk_razvitie = models.IntegerField('Имеет место риск развития проэклампсии (определяет консультант)',
+                                                    choices=CHECK_BOX,
+                                                    default=False, null=True,
+                                                    blank=True)
+    odni_i_bolee_prej = models.IntegerField('Один и более преждевременных родов в анамнезе', choices=CHECK_BOX,
+                                            default=False, null=True,
+                                            blank=True)
+    odin_i_bolee_vikidish = models.IntegerField('Один и более выкидышей в анамнезе', choices=CHECK_BOX, default=False,
+                                                null=True,
+                                                blank=True)
+    dva_i_bolee_med = models.IntegerField('Два и более мед абортов', choices=CHECK_BOX, default=False, null=True,
+                                          blank=True)
+    visokiy_paritet = models.IntegerField('Высокий паритет (более 4 родов)', choices=CHECK_BOX, default=False,
+                                          null=True,
+                                          blank=True)
+    hirurgicheskoe_lechenie = models.IntegerField('Хирургическое лечение шейки матки', choices=CHECK_BOX, default=False,
+                                                  null=True,
+                                                  blank=True)
+    vozrast_18_34 = models.IntegerField('Возраст менее 18 или более 34 лет', choices=CHECK_BOX, default=False,
+                                        null=True,
+                                        blank=True)
+    mnogoplodnaya = models.IntegerField('Многоплодная/индуциованная беременность', choices=CHECK_BOX, default=False,
+                                        null=True,
+                                        blank=True)
+    nalichie_alko = models.IntegerField('Наличие алкогольной/никотиновой зависимости', choices=CHECK_BOX, default=False,
+                                        null=True,
+                                        blank=True)
+    nalichie_IPP = models.IntegerField('Наличие ИПП', choices=CHECK_BOX, default=False, null=True,
+                                       blank=True)
+    imeli_matochnie = models.IntegerField('Имели ли место маточные кровотечения', choices=CHECK_BOX, default=False,
+                                          null=True,
+                                          blank=True)
+    predlejanie_placenti = models.IntegerField('Предлежание плаценты', choices=CHECK_BOX, default=False, null=True,
+                                               blank=True)
+    nalichie_tajoloy_patologii = models.IntegerField('Наличие тяжелой экстрагенитальной патологии', choices=CHECK_BOX,
+                                                     default=False,
+                                                     null=True,
+                                                     blank=True)
+    hirurgicheskie_vmeshatelstva = models.IntegerField(
+        'Имеет ли место хирургические вмешательства во время данной беременности', choices=CHECK_BOX, default=False,
+        null=True,
+        blank=True)
+    infekcii_moche = models.IntegerField('Наличие инфекции моче-выводящих путей', choices=CHECK_BOX, default=False,
+                                         null=True,
+                                         blank=True)
+    risk_prejdevremennih_rodov = models.IntegerField('Имеет место риск преждевременных родов (определяет консультант)',
+                                                     choices=CHECK_BOX,
+                                                     default=False, null=True,
+                                                     blank=True)
 
     def __str__(self):
         return str(self.nomer_beremennoy)
