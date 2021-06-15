@@ -9,7 +9,8 @@ from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOr
     VzyataPodNabludenie, OslojneniyaRodov, Preeklampsiya, RezusSensibilizaciya, FetoplacentarnayaNedostatochnost, \
     NepravilnoePolojeniePloda, Mnogoplodie, PredlejaniePlacenti, UrovenPappa, UrovenBetaHgch, \
     NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, KesarevoSechenie1, \
-    KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya, StepenRiskaPosleIshoda
+    KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya, StepenRiskaPosleIshoda, \
+    Smena_JK_u_beremennoy
 from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedObsluzivaniyaSerializer, \
     TipOrganizaciiSerializer, MedOrganizaciaSerializer, MKB10Serializer, StepenRiskaSerializer, \
     SemeynoePolojenieSerializer, GeneticheskieFaktoriSerializer, MenstrualnayaFunkciyaSerializer, BesplodieSerializer, \
@@ -54,8 +55,7 @@ def home(request):
     anketa_fakt_form = AnketaFaktForm(label_suffix='')
     anketa_nesootvetstvie_form = AnketaNesootvetstvieForm(label_suffix='')
     ishod_form = IshodForm(label_suffix='')
-
-
+    smena_jk_u_beremennoy_form = Smena_JK_u_beremennoyForm(label_suffix='')
     return render(request, "home.html", {
         'form': form,
         'anketa_form': anketa_form,
@@ -82,9 +82,8 @@ def home(request):
         'anketa_narushenie_form': anketa_narushenie_form,
         'anketa_fakt_form': anketa_fakt_form,
         'anketa_nesootvetstvie_form': anketa_nesootvetstvie_form,
-
-        })
-
+        'smena_jk_u_beremennoy_form': smena_jk_u_beremennoy_form,
+    })
 
 
 def sbor_znachenii_spravocnix_tabliz(request):
