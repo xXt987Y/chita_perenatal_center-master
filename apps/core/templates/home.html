@@ -87,12 +87,13 @@
     </style>
 </head>
 <body>
-<div class="preloader">
-    <div class="preloader__row">
-        <div class="preloader__item"></div>
-        <div class="preloader__item"></div>
-    </div>
-</div>
+
+{#<div class="preloader">#}
+{#    <div class="preloader__row">#}
+{#        <div class="preloader__item"></div>#}
+{#        <div class="preloader__item"></div>#}
+{#    </div>#}
+{#</div>#}
 
 
 {% include 'partical/menu.html' %}
@@ -108,14 +109,15 @@
 
 <script src="{% static 'core/script.js' %}"></script>
 <script src="{% static 'core/Poisk.js' %}"></script>
-<script>
-    window.onload = function () {
-        document.body.classList.add('loaded_hiding');
-        window.setTimeout(function () {
-            document.body.classList.add('loaded');
-            document.body.classList.remove('loaded_hiding');
-        }, 7000);
-    }
-</script>
+
+{#<script>#}
+{#    window.onload = function () {#}
+{#        document.body.classList.add('loaded_hiding');#}
+{#        window.setTimeout(function () {#}
+{#            document.body.classList.add('loaded');#}
+{#            document.body.classList.remove('loaded_hiding');#}
+{#        }, 8000);#}
+{#    }#}
+{#</script>#}
 
 </body>

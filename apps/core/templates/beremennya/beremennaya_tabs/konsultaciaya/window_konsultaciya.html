@@ -126,6 +126,11 @@
                 {% csrf_token %}
 
                 <div class="default">
+                    {{ konsultaciaya_form.nomer_beremennoy.label_tag }}
+                    {{ konsultaciaya_form.nomer_beremennoy }}
+                </div>
+
+                <div class="default">
                     {{ konsultaciaya_form.zanesena_v_monitoring.label_tag }}
                     {{ konsultaciaya_form.zanesena_v_monitoring }}
                 </div>
@@ -402,12 +407,18 @@
             this.on_close();
         }
 
+        open2(id) {
+            this.$window.find(`#id_nomer_beremennoy option[value="${id}"]`).prop('selected', true);
+            this.$window.jqxWindow('open');
+        }
+
         open(id = 0) {
             let self = this;
             if (id) {
                 fetch(`/api/konsultaciaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
+                            self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
                             self.$window.find('#id_zanesena_v_monitoring').val(data['zanesena_v_monitoring']);
                             self.$window.find('#id_imeet_socialnie_faktori').val(data['imeet_socialnie_faktori']);
                             self.$window.find('#id_vzata_na_uchet').val(data['vzata_na_uchet']);

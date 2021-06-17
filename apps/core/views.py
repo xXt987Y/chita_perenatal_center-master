@@ -35,9 +35,7 @@ def vhod(request):
         login(request, user)
         return redirect(to='/')
     else:
-        # alertError = 'Не верный логин или пароль'
-
-        return redirect(to='/login')
+        return loginpage(request, err=True)
 
 
 
@@ -45,8 +43,8 @@ def vihod(request):
     logout(request)
     return redirect(to='/login')
 
-def loginpage(request):
-    return render(request, "login.html")
+def loginpage(request, err=False):
+    return render(request, "login.html", {'err':err})
 
 def home(request):
     if not request.user.is_active:

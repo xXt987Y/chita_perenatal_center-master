@@ -754,7 +754,7 @@ class Anketa(models.Model):
         verbose_name = 'Анкета беременной'
         verbose_name_plural = 'Анкета беременной'
 
-    nomer_anketi = models.ForeignKey(Beremennaya, verbose_name='Номер анкеты',
+    nomer_anketi = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
                                      on_delete=models.CASCADE, null=True,
                                      blank=True)
     data_zapolneniya_anketi_vrachem = models.DateField('Дата заполнения анкеты врачем', null=True, blank=True)
@@ -928,6 +928,9 @@ class Ishod(models.Model):
         verbose_name = 'Исход'
         verbose_name_plural = 'Исход'
 
+    nomer = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
+                                     on_delete=models.CASCADE, null=True,
+                                     blank=True)
     data_ishoda = models.DateField('Дата исхода', null=True, blank=True)
     mesto_ishoda = models.ForeignKey(MestoIshoda, verbose_name='Место исхода',
                                      on_delete=models.CASCADE, null=True,

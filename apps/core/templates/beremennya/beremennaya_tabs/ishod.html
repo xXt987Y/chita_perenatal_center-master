@@ -1,8 +1,9 @@
 <style>
-    .window_anketi  .jqx-window-header{
+    .ishod .jqx-window-header {
         height: 16px;
         padding: 7px;
     }
+
     .ishod .FixP {
         width: 60%;
     }
@@ -85,7 +86,7 @@
 
 
     .ishod .text {
-        width: 45%;
+        width: 48%;
         float: left;
         text-align: right;
         height: auto;
@@ -104,10 +105,16 @@
         margin: 0;
     }
 
+
+
 </style>
 <form class="ishod" action="{% url 'home' %}" method="post">
     {% csrf_token %}
 
+    <div class="default">
+        {{ ishod_form.nomer.label_tag }}
+        {{ ishod_form.nomer }}
+    </div>
 
     <div class="default">
         {{ ishod_form.data_ishoda.label_tag }}
@@ -137,9 +144,9 @@
 
     <div class="default">
         <div class="text">Кесарево сечение:</div>
-        {{ ishod_form.kesarevo_sechenie1 }}
-        {{ ishod_form.kesarevo_sechenie2 }}
-        {{ ishod_form.kesarevo_sechenie3 }}
+            {{ ishod_form.kesarevo_sechenie1 }}
+            {{ ishod_form.kesarevo_sechenie2 }}
+            {{ ishod_form.kesarevo_sechenie3 }}
     </div>
 
 
@@ -221,166 +228,9 @@
 
     {% include 'beremennya/beremennaya_tabs/tabliza_novorojdenniy.html' %}
 
-{#    <div class="default">#}
-{#        <div class="text">Печать:</div>#}
-{#        <div>#}
-{#            <input class="qxButton15" type="button" value="Основные данные"/>#}
-{#        </div>#}
-{#        <div>#}
-{#            <input class="jqxButton16" type="button" value="Анкета"/>#}
-{#        </div>#}
-{#    </div>#}
+
     <div style="position: sticky; bottom: 0; z-index: 9999!important;" class="default">
         <button class="menubtn save_ishod">Сохранить</button>
     </div>
 </form>
 
-{#<script>#}
-{#    $(document).ready(async function () {#}
-{#        let sourse_mesto_ishoda;#}
-{#        let sourse_stepen_riska_posle_ishoda;#}
-{#        let sourse_gibel_ploda;#}
-{#        let sourse_ishod_beremennosti;#}
-{#        let sourse_kesarevo_sechenie1;#}
-{#        let sourse_kesarevo_sechenie2;#}
-{#        let sourse_kesarevo_sechenie3;#}
-{#        let sourse_mkb10;#}
-{##}
-{#        await get_mega_json.then(function (data) {#}
-{#            sourse_mesto_ishoda = data['mesto_ishoda'].map(item => item['nazvanie']);#}
-{#            sourse_stepen_riska_posle_ishoda = data['stepen_riska_posle_ishoda'].map(item => item['nazvanie']);#}
-{#            sourse_gibel_ploda = data['gibel_ploda'].map(item => item['nazvanie']);#}
-{#            sourse_ishod_beremennosti = data['ishod_beremennosti'].map(item => item['nazvanie']);#}
-{#            sourse_kesarevo_sechenie1 = data['kesarevo_sechenie1'].map(item => item['nazvanie']);#}
-{#            sourse_kesarevo_sechenie2 = data['kesarevo_sechenie2'].map(item => item['nazvanie']);#}
-{#            sourse_kesarevo_sechenie3 = data['kesarevo_sechenie3'].map(item => item['nazvanie']);#}
-{#            sourse_mkb10 = data['mkb10'].map(item => item['nazvanie']);#}
-{#        })#}
-{#        //Дата заполения анкеты врачем#}
-{#        $(".data_ishoda").jqxDateTimeInput({#}
-{#            width: '250px',#}
-{#            height: '25px',#}
-{#            formatString: 'dd.MM.yyyy',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Место исхода#}
-{#        $(".mesto_ishoda").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_mesto_ishoda,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Степерь риска после исхода#}
-{#        $(".stepen_riska_posle_ishoda").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_stepen_riska_posle_ishoda,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Гибель плода в антенатальном периоде#}
-{#        $(".gibel_ploda").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_gibel_ploda,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Исход беременности#}
-{#        $(".ishod_beremennosti").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_ishod_beremennosti,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Кесарево сечение#}
-{#        $(".kesarevo_sechenie1").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_kesarevo_sechenie1,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic',#}
-{#        });#}
-{##}
-{#        $(".kesarevo_sechenie2").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_kesarevo_sechenie2,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic',#}
-{#        });#}
-{##}
-{#        $(".kesarevo_sechenie3").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_kesarevo_sechenie3,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Проэклампсия#}
-{##}
-{#        //Предлежание плаценты#}
-{##}
-{#        //Преждевр. отслойка норм.расп. плаценты#}
-{#        $('.prejdevrem_otsloyka').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //Аномалии родовой деятельности#}
-{#        $('.anomalii_rodovoy_deyatelnosti').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //Клинически узкий таз#}
-{#        $('.klinicheski_uzkiy_taz').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //Разрыв матки#}
-{#        $('.razriv_matki').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //ДВС-синдром#}
-{#        $('.dvc_sindrom').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //Эмболия#}
-{#        $('.emboliya').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //Смерть матери#}
-{#        $('.smert_materi').jqxCheckBox({width: 'auto', theme: 'arctic'});#}
-{##}
-{#        //Дата смерти матери#}
-{#        $(".data_smerti_materi").jqxDateTimeInput({#}
-{#            width: '250px',#}
-{#            height: '25px',#}
-{#            formatString: 'dd.MM.yyyy',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{##}
-{#        //Причина смерти по МКБ10#}
-{#        $(".prichina_smerti_materi_mkb10").jqxDropDownList({#}
-{#            filterable:true,#}
-{#            filterPlaceHolder:"Найти",#}
-{#            selectedIndex: 1,#}
-{#            source: sourse_mkb10,#}
-{#            width: '250px',#}
-{#            height: '30px',#}
-{#            theme: 'arctic'#}
-{#        });#}
-{#    });#}
-{#</script>#}

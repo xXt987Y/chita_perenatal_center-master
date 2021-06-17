@@ -1,11 +1,26 @@
 <style>
-    .smena_jk_u_beremennoy_form .FixP {
-        width: 60%;
+    .smena_jk_u_beremennoy_form .jqx-tabs-headerWrapper {
+        display: none;
+    }
+
+    .smena_jk_u_beremennoy_form .jqx-window-header {
+        height: 16px;
+        padding: 7px;
     }
 
 
     .smena_jk_u_beremennoy_form .FixP label {
+
         width: auto;
+
+    }
+
+    .smena_jk_u_beremennoy_form p {
+        margin: 1px 0 1px 0;
+        background-color: #dee0e2;
+        float: left;
+        width: 100%;
+        display: inline-flex;
     }
 
     .smena_jk_u_beremennoy_form label {
@@ -19,6 +34,7 @@
     .smena_jk_u_beremennoy_form select {
         margin: 4px 3px 4px 3px;
         width: 250px;
+        height: 20px;
         outline: none;
         border: 1px solid transparent;
         border-radius: 4px;
@@ -28,31 +44,75 @@
         width: 245px !important;
     }
 
+    input[type="date" i] {
+        width: 250px !important;
+        margin: 4px 3px 4px 3px;
+        outline: none;
+        border: 1px solid transparent;
+        border-radius: 4px
+    }
+
+    .smena_jk_u_beremennoy_form input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin: 7px 5px 7px 0;
+        opacity: 1;
+        background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
+        color: #333333;
+        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        border-radius: 4px;
+        font-family: Verdana, Arial, sans-serif;
+        border: 1px solid transparent;
+        outline: none;
+    }
+
+    .smena_jk_u_beremennoy_form .SaveSmenaJK {
+        position: relative;
+        left: 40%;
+        width: 200px;
+        margin: 3px;
+    }
+
     .smena_jk_u_beremennoy_form .default {
+        align-items: center;
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
         float: left;
         width: 100%;
         display: inline-flex;
     }
+
+
+    .smena_jk_u_beremennoy_form .text {
+        width: 40%;
+        float: left;
+        text-align: right;
+        height: auto;
+        margin: 7px 5px 7px 0;
+    }
+
+    .smena_jk_u_beremennoy_form .doptext {
+        float: right;
+        text-align: left;
+        margin-left: 2px;
+    }
+
+    .smena_jk_u_beremennoy_form h3 {
+        font-style: italic;
+        text-align: center;
+        margin: 0;
+    }
+
+
 </style>
 <div class="window_zapros_na_perevod">
-    <form class="smena_jk_u_beremennoy_form" action="{% url 'home' %}" method="post">
+    <form style="padding: 0;" class="smena_jk_u_beremennoy_form" action="{% url 'home' %}" method="post">
         {% csrf_token %}
-        <div class="default">
-            <div class="FixP">{{ smena_jk_form.nomer_beremennoy.label_tag }}</div>
-            <div class="FixP">{{ smena_jk_form.nomer_beremennoy }}</div>
-        </div>
-        <div class="default">
-            <div class="FixP">{{ smena_jk_form.novaya_JK.label_tag }}</div>
-            <div class="FixP">{{ smena_jk_form.novaya_JK }}</div>
-        </div>
-        <div class="default">
-            <div class="FixP">{{ smena_jk_form.prichina.label_tag }}</div>
-            <div class="FixP">{{ smena_jk_form.prichina }}</div>
-        </div>
-        <div class="default">
-            <button class="menubtn " type="submit">Сохранить</button>
+
+        {{ smena_jk_form.as_p }}
+
+        <div style="position: sticky; bottom: 0;" class="default">
+            <button class="SaveSmenaJK menubtn " type="submit">Перевести</button>
         </div>
     </form>
 </div>
@@ -66,13 +126,9 @@
             this.$btn_open_window = $btn_open_window_zapros_na_perevod;
             this.$window.jqxWindow({
                 position: {x: '15%', y: '10%'},
-                maxHeight: 1000,
-                maxWidth: 2200,
-                minHeight: 400,
-                minWidth: 700,
                 theme: 'arctic',
-                height: 500,
-                width: 1200,
+                width: '50%',
+                height: 290,
                 title: 'Запрос на перевод',
                 autoOpen: false,
                 resizable: true,
@@ -81,29 +137,11 @@
             this.on_close();
         }
 
-
-        open(id = 0) {
-            let self = this;
-            if (id) {
-                fetch(`/api/beremennaya/${id}`).then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-
-                            console.log(data);
-                            self.$window.jqxWindow('open');
-                            self.$window.jqxWindow('bringToFront');
-                        }).catch(function () {
-                            alert('Не могу получить JSON ');
-                        })
-
-                    } else {
-                        alert('Не могу получить данные');
-                    }
-                })
-
-            }
-
+        open2(id) {
+            this.$window.find(`#id_nomer_beremennoy option[value="${id}"]`).prop('selected', true);
+            this.$window.jqxWindow('open');
         }
+
 
         on_close() {
             let self = this;
@@ -114,9 +152,6 @@
     }
 
     let $window_zapros_na_perevod = $('.window_zapros_na_perevod');
-    $(function () {
-        new WindowZaprosNaPerevod($window_zapros_na_perevod, $btn_open_window_zapros_na_perevod)
-    })
     let $obj_zapros_na_perevod = new WindowZaprosNaPerevod($window_zapros_na_perevod, $btn_open_window_zapros_na_perevod);
 
 </script>

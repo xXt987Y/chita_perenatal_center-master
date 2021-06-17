@@ -1,0 +1,49 @@
+<button class="topmenu menubtn" id="btn_open_window_redactirovat_beremennuyu">Редактировать беременную</button>
+
+<script>
+
+    class BtnWindowRactirovatBeremennuyu {
+        constructor($btn_open_window_redactirovat_beremennuyu, $window, obj_window_beremennya) {
+            this.$btn = $btn_open_window_redactirovat_beremennuyu;
+            this.$window = $window;
+            this.obj_window_beremennya = obj_window_beremennya;
+            this.on_click_toogle_btn();
+
+        }
+
+        on_click_toogle_btn(event) {
+            let self = this;
+            this.$btn.click(function () {
+                    let tgl = self.$window.jqxWindow('isOpen');
+                    let rowindexes = $('.tabliza_beremennaya').jqxGrid('getselectedrowindexes');
+                    let data = $('.tabliza_beremennaya').jqxGrid('getrowdatabyid', rowindexes);
+                    let sr = data.id;
+                    if (tgl === false) {
+                        document.getElementById("btn_open_window_redactirovat_beremennuyu").classList.remove('menubtn');
+                        document.getElementById("btn_open_window_redactirovat_beremennuyu").classList.add('menubtn_toggle');
+                        obj_window_beremennya.open(data.id);
+
+                    } else {
+                        document.getElementById("btn_open_window_redactirovat_beremennuyu").classList.remove('menubtn_toggle');
+                        document.getElementById("btn_open_window_redactirovat_beremennuyu").classList.add('menubtn');
+                        self.$window.jqxWindow('close');
+                    }
+                }
+            )
+            ;
+        }
+
+    }
+
+    $btn_open_window_redactirovat_beremennuyu = $('#btn_open_window_redactirovat_beremennuyu')
+    $(function () {
+        new BtnWindowRactirovatBeremennuyu($btn_open_window_redactirovat_beremennuyu, $window_beremennya);
+    })
+    $(function () {
+        $window_beremennya.on('close', function (event) {
+            document.getElementById("btn_open_window_redactirovat_beremennuyu").classList.remove('menubtn_toggle');
+            document.getElementById("btn_open_window_redactirovat_beremennuyu").classList.add('menubtn');
+        });
+    })
+
+</script>

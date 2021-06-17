@@ -1,0 +1,49 @@
+<button class="topmenu menubtn" id="btn_open_window_novaya_anketa">Новая анкета</button>
+
+<script>
+
+    class BtnWindowreNovayaAnketa {
+        constructor($btn_open_window_novaya_anketa, $window, obj_window_anketi) {
+            this.$btn = $btn_open_window_novaya_anketa;
+            this.$window = $window;
+            this.obj_window_anketi = obj_window_anketi;
+            this.on_click_toogle_btn();
+
+        }
+
+        on_click_toogle_btn(event) {
+            let self = this;
+            this.$btn.click(function () {
+                    let tgl = self.$window.jqxWindow('isOpen');
+                    let rowindexes = $('.tabliza_beremennaya').jqxGrid('getselectedrowindexes');
+                    let data = $('.tabliza_beremennaya').jqxGrid('getrowdatabyid', rowindexes);
+                    let sr = data.id;
+                    if (tgl === false) {
+                        document.getElementById("btn_open_window_novaya_anketa").classList.remove('menubtn');
+                        document.getElementById("btn_open_window_novaya_anketa").classList.add('menubtn_toggle');
+                        obj_window_anketi.open2(data.id);
+
+                    } else {
+                        document.getElementById("btn_open_window_novaya_anketa").classList.remove('menubtn_toggle');
+                        document.getElementById("btn_open_window_novaya_anketa").classList.add('menubtn');
+                        self.$window.jqxWindow('close');
+                    }
+                }
+            )
+            ;
+        }
+
+    }
+
+    $btn_open_window_novaya_anketa = $('#btn_open_window_novaya_anketa')
+    $(function () {
+        new BtnWindowreNovayaAnketa($btn_open_window_novaya_anketa, $window_anketi);
+    })
+    $(function () {
+        $window_anketi.on('close', function (event) {
+            document.getElementById("btn_open_window_novaya_anketa").classList.remove('menubtn_toggle');
+            document.getElementById("btn_open_window_novaya_anketa").classList.add('menubtn');
+        });
+    })
+
+</script>

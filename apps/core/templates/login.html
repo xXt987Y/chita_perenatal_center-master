@@ -45,14 +45,12 @@
 
 </style>
 
-<script>
-
-</script>
 
 <form action="{% url 'vhod' %}" method="post">
     {% csrf_token %}
     <div class="avtorization">
         <h3>Вход в систему</h3>
+        {% if err %}<script>alert('Неверный логин или пароль')</script>{% endif %}
         <input placeholder="Логин" type="text" name="login">
         <input placeholder="Пароль" type="password" name="pas">
         <button type="submit">Войти</button>

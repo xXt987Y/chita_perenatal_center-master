@@ -10,7 +10,7 @@
         opacity: 1;
         background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
         color: #333333;
-        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        text-shadow: 0 1px 1px rgb(255 255 255 );
         border-radius: 4px;
         font-family: Verdana, Arial, sans-serif;
         border: 1px solid transparent;
@@ -28,13 +28,18 @@
 
 
 <div class="default" xmlns="http://www.w3.org/1999/html">
-    <button class="topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Reg')">Регистрация беременных</button>
-    <button class="topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Poisk')">Поиск</button>
+    <button class="btn_poisk topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Reg')">Поиск</button>
+    <button class="btn_rashirenniy_poisk topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Poisk')">Расширенный поиск</button>
     <button class="topmenu menubtn">Консультации</button>
     {% include 'partical/smenaJK/btn_open_window_smenaJK.html' %}
     <button class="topmenu menubtn">Отчеты</button>
     {% include 'partical/doctor/btn_open_window_doctor.html' %}
     {% include 'partical/mkb10/btn_open_window_mkb10.html' %}
+    <button style="
+    position: absolute;
+    right: 1%;
+    width: 7%;" class="topmenu menubtn" onclick="window.location.href='/vihod'">Выход
+    </button>
 </div>
 <div id="Reg" class="regpoiskcontent">
 
@@ -64,13 +69,26 @@
     </div>
 
 </div>
+
 {% include 'partical/poisk.html' %}
+
 <div class="default">
     {% include 'beremennya/btn_open_window_beremennya.html' %}
-    <button class="topmenu menubtn" id="btn_red_beremen">Редактировать беременную</button>
-    <button class="topmenu menubtn" id="btn_novaya_anketa">Новая анкета</button>
-    <button class="topmenu menubtn" id="jqxButtonNovoeNapravlenie">Новое направление</button>
-    <button class="topmenu menubtn" id="btn_konsultacii">Новая консультация</button>
-    <button class="topmenu menubtn" id="btn_ishod_beremen">Исход беременности</button>
+    {% include 'partical/buttons/btn_open_window_redactirovat_beremennuyu.html' %}
+    {% include 'partical/buttons/btn_open_window_novaya_anketa.html' %}
+    {% include 'partical/buttons/btn_open_window_novoe_napravlenie.html' %}
+    {% include 'partical/buttons/btn_open_window_novaya_konsultaciya.html' %}
+    {% include 'partical/buttons/btn_open_window_ishod.html' %}
     {% include 'partical/zaprosNaPerevod/btn_open_window_zapros_na_perevod.html' %}
 </div>
+
+{#<script>#}
+{#    $(".btn_poisk").on('click', function () {#}
+{#                    var toggled = $(".btn_poisk").jqxToggleButton('toggled');#}
+{#                    if (toggled) {#}
+{#                        document.getElementById("btn_poisk").classList.remove('menubtn');#}
+{#                        document.getElementById("btn_poisk").classList.add('menubtn_toggle');#}
+{#                    }#}
+{#                    else $(".btn_poisk")[0].value = 'Toggled Off';#}
+{#                });#}
+{#</script>#}

@@ -34,10 +34,11 @@
 
     $btn_open_window_konsultaciya = $('#btn_open_window_konsultaciya')
     $(function () {
-        new BtnWindowKonsultaciya($btn_open_window_konsultaciya, $window_konsultaciya);
+        new BtnWindowKonsultaciya($btn_open_window_konsultaciya, $window_anketi);
     })
+
     $(function () {
-        $window_konsultaciya.on('close', function (event) {
+        $window_anketi.on('close', function (event) {
             document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn_toggle');
             document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn');
         });
