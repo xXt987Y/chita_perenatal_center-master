@@ -1,4 +1,5 @@
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import viewsets, generics, status
 
@@ -64,6 +65,7 @@ class BeremennayaViewSetLV(APIView):
 
 
     def post(self, request, *args, **kwargs):
+
         # raise Exception('ПОСТ пошёл')
         return Response(status='200')
 
@@ -89,46 +91,19 @@ class BeremennayaViewSetLV(APIView):
 
 class BeremennayaViewSetDV(APIView):
     authentication_classes = []
+    serializer_class = BeremennayaSerializer
 
     @csrf_exempt
     def post(self, request, pk):
-        beremenia = Beremennaya.objects.get(pk=pk)
 
-        # body_unicode = request.body.decode('utf-8')
-        # body = json.loads(body_unicode)
-        #
-        # data = body
-        # beremenia.fio = data['fio']
-        # beremenia.nomer = data['nomer']
-        # beremenia.save()
-        # beremenia.fio = data['stepen_riska']
-        # beremenia.fio = data['jk_beremennoy']
-        # beremenia.fio = data['data_vzyatiya']
-        # form = BeremennayaFormPart1(request.POST, instance=beremenia).save()
-        # beremennaya_vrednie_privichki_form = BeremennayaVredniePrivichki(request.POST, instance=beremenia).save()
-        # beremennaya_vrednie_factori_form = BeremennayaVrednieFactori(request.POST, instance=beremenia).save()
-        # beremennaya_form = BeremennayaForm(request.POST, instance=beremenia).save()
-        #
-        # beremennaya_infekcionnie_bolezni_form = BeremennayaInfekcionnieBolezniForm(request.POST, instance=beremenia).save()
-        # beremennaya_razmer_taza_form = BeremennayaRazmerTazaForm(request.POST, instance=beremenia).save()
-        # beremennaya_zabolevanie_vnut_form = BeremennayaZabolevanieVnutForm(request.POST, instance=beremenia).save()
-        # beremennayao_oslojneniya_beremennosti_form = BeremennayaOslojneniyaBeremennostiForm(request.POST, instance=beremenia).save()
-        #
-        # beremennayao_oslojneniya_rodov_form = BeremennayaOslojneniyaRodovForm(request.POST, instance=beremenia).save()
-        # beremennayao_novorojdenniy_plod_form = BeremennayaNovorojdenniyPlodForm(request.POST, instance=beremenia).save()
-        # beremennaya_bolezni_endokr_form = BeremennayaBolezniEndokrForm(request.POST, instance=beremenia).save()
-        # beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(request.POST, instance=beremenia).save()
-        #
-        # beremennaya_bolezni_krovi_form = BeremennayaBolezniKroviForm(request.POST, instance=beremenia).save()
-        # beremennaya_psih_rastroystva_form = BeremennayaPsihRastroystvaForm(request.POST, instance=beremenia).save()
-        # beremennaya_bolezni_ns_form = BeremennayaBolezniNsForm(request.POST, instance=beremenia).save()
-        # beremennaya_bolezni_sistemi_krovoob_form = BeremennayaBolezniSistemiKrovoobForm(request.POST, instance=beremenia).save()
-        #
-        # beremennaya_bolezni_organov_dihaniya_form = BeremennayaBolezniOrganovDihaniyaForm(request.POST, instance=beremenia).save()
-        # beremennaya_bolezni_organov_moch_form = BeremennayaBolezniOrganovMochForm(request.POST, instance=beremenia).save()
-        # beremennaya_somaticheskie_pokazateli_form = BeremennayaSomaticheskiePokazateliForm(request.POST, instance=beremenia).save()
-        return Response(status=200)
-        # Beremennaya.up
+        beremenia = get_object_or_404(Beremennaya, pk=pk)
+
+        serializer = self.serializer_class(data=request.data, instance=beremenia)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
     def get(self, request, pk):
         rayon = Beremennaya.objects.get(pk=pk)
