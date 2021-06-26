@@ -360,7 +360,9 @@
     {##}
     {#var csrfToken = getCookie('csrftoken')#}
 
-     async function save_beremennaya(url, data) {
+    async function save_beremennaya(url, data) {
+
+
         let zapros = fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -390,9 +392,13 @@
         $('.novaya_beremennaya').submit(function (e) {
             e.preventDefault();
             let url = $(e.currentTarget).attr('action');
-            let data = $(e.currentTarget).serialize();
-            console.log(data);
-            save_beremennaya(url, data);
+            let data = $(e.currentTarget).serializeArray();
+            let data2 = {};
+            data.forEach(function (item, i, arr) {
+                data2[item['name']] = item['value'];
+            });
+
+            save_beremennaya(url, data2);
         })
     });
 </script>
