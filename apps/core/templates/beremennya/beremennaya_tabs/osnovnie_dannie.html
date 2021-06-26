@@ -362,7 +362,6 @@
 
     async function save_beremennaya(url, data) {
 
-
         let zapros = fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
@@ -372,24 +371,14 @@
         });
         console.log('Статус ответа', zapros.status)
         alert('Данные сохранены');
-
+         $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
     }
 
-    {#async function save_beremennaya(url, data) {#}
-    {#    let zapros = await fetch(url, {#}
-    {#        method: 'POST',#}
-    {#        body: JSON.stringify(data),#}
-    {#        headers: {#}
-    {#            'Content-Type': 'application/json;charset=utf-8',#}
-    {#        },#}
-    {#    });#}
-    {#    console.log('Статус ответа', zapros.status)#}
-    {#    console.log(csrfToken);#}
-    {#    alert('Данные сохранены');#}
-    {# } #}
 
     $(function () {
         $('.novaya_beremennaya').submit(function (e) {
+
+
             e.preventDefault();
             let url = $(e.currentTarget).attr('action');
             let data = $(e.currentTarget).serializeArray();
@@ -399,6 +388,7 @@
             });
 
             save_beremennaya(url, data2);
+
         })
     });
 </script>
