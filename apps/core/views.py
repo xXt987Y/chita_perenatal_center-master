@@ -216,3 +216,4 @@ def sbor_znachenii_spravocnix_tabliz(request):
     }
 
     return JsonResponse(data)
+

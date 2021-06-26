@@ -110,7 +110,6 @@
 
 <form enctype="multipart/form-data" class="novaya_beremennaya" id="novaya_beremennaya"
       action="{% url 'beremennaya_lv' %}" method="post">
-    {% csrf_token %}
 
     {{ form.as_p }}
 
@@ -340,8 +339,29 @@
 </form>
 
 <script>
-    async function save_beremennaya(url, data) {
-        let zapros = await fetch(url, {
+
+    {#function getCookie(name) {#}
+    {#    var cookieValue = null;#}
+    {##}
+    {#    if (document.cookie && document.cookie !== '') {#}
+    {#        var cookies = document.cookie.split(';');#}
+    {##}
+    {#        for (var i = 0; i < cookies.length; i++) {#}
+    {#            var cookie = cookies[i].trim();#}
+    {##}
+    {#            if (cookie.substring(0, name.length + 1) === (name + '=')) {#}
+    {#                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));#}
+    {#                break;#}
+    {#            }#}
+    {#        }#}
+    {#    }#}
+    {#    return cookieValue;#}
+    {# } #}
+    {##}
+    {#var csrfToken = getCookie('csrftoken')#}
+
+     async function save_beremennaya(url, data) {
+        let zapros = fetch(url, {
             method: 'POST',
             body: JSON.stringify(data),
             headers: {
@@ -352,6 +372,19 @@
         alert('Данные сохранены');
 
     }
+
+    {#async function save_beremennaya(url, data) {#}
+    {#    let zapros = await fetch(url, {#}
+    {#        method: 'POST',#}
+    {#        body: JSON.stringify(data),#}
+    {#        headers: {#}
+    {#            'Content-Type': 'application/json;charset=utf-8',#}
+    {#        },#}
+    {#    });#}
+    {#    console.log('Статус ответа', zapros.status)#}
+    {#    console.log(csrfToken);#}
+    {#    alert('Данные сохранены');#}
+    {# } #}
 
     $(function () {
         $('.novaya_beremennaya').submit(function (e) {

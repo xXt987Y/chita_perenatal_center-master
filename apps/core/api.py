@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework import viewsets, generics
+from rest_framework import viewsets, generics, status
 
 from rest_framework import viewsets
 from rest_framework.parsers import JSONParser
@@ -59,9 +59,12 @@ class RayonViewSetDV(APIView):
 
 class BeremennayaViewSetLV(APIView):
 
-    @csrf_exempt
+    permission_classes = []
+    authentication_classes = []
+
+
     def post(self, request, *args, **kwargs):
-        raise Exception('ПОСТ пошёл')
+        # raise Exception('ПОСТ пошёл')
         return Response(status='200')
 
     def get(self, request):
@@ -86,6 +89,8 @@ class BeremennayaViewSetLV(APIView):
 
 class BeremennayaViewSetDV(APIView):
     authentication_classes = []
+
+    @csrf_exempt
     def post(self, request, pk):
         beremenia = Beremennaya.objects.get(pk=pk)
 
