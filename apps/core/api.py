@@ -60,16 +60,7 @@ class RayonViewSetDV(APIView):
 
 class BeremennayaViewSetLV(APIView):
 
-    permission_classes = []
-    authentication_classes = []
-
-
-    def post(self, request, *args, **kwargs):
-
-        # raise Exception('ПОСТ пошёл')
-        return Response(status='200')
-
-    def get(self, request):
+     def get(self, request):
         or_condition = Q()
 
         spisok_polei = list(map(lambda x: x.attname, Beremennaya._meta.fields))
@@ -97,13 +88,18 @@ class BeremennayaViewSetDV(APIView):
     def post(self, request, pk):
 
         beremenia = get_object_or_404(Beremennaya, pk=pk)
-
-        serializer = self.serializer_class(data=request.data, instance=beremenia)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=200)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
+        if beremenia != '':
+            serializer = self.serializer_class(data=request.data, instance=beremenia)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=200)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            serializer = self.serializer_class(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=200)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, pk):
         rayon = Beremennaya.objects.get(pk=pk)
