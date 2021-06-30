@@ -59,8 +59,18 @@ class RayonViewSetDV(APIView):
 
 
 class BeremennayaViewSetLV(APIView):
+    authentication_classes = []
+    serializer_class = BeremennayaSerializer
 
-     def get(self, request):
+    def post(self, request):
+
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request):
         or_condition = Q()
 
         spisok_polei = list(map(lambda x: x.attname, Beremennaya._meta.fields))
@@ -88,18 +98,13 @@ class BeremennayaViewSetDV(APIView):
     def post(self, request, pk):
 
         beremenia = get_object_or_404(Beremennaya, pk=pk)
-        if beremenia != '':
-            serializer = self.serializer_class(data=request.data, instance=beremenia)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=200)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        else:
-            serializer = self.serializer_class(data=request.data)
-            if serializer.is_valid():
-                serializer.save()
-                return Response(serializer.data, status=200)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        serializer = self.serializer_class(data=request.data, instance=beremenia)
+        if serializer.is_valid():
+             serializer.save()
+             return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
     def get(self, request, pk):
         rayon = Beremennaya.objects.get(pk=pk)
@@ -259,6 +264,16 @@ class SmenaJKViewSetDV(APIView):
 
 
 class AnketaViewSetLV(APIView):
+    authentication_classes = []
+    serializer_class = AnketaSerializer
+
+    def post(self, request):
+
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request):
         or_condition = Q()
@@ -275,6 +290,17 @@ class AnketaViewSetLV(APIView):
         return Response(serializer.data)
 
 class AnketaViewSetDV(APIView):
+    authentication_classes = []
+    serializer_class = AnketaSerializer
+
+    @csrf_exempt
+    def post(self, request, pk):
+        anketa = get_object_or_404(Anketa, pk=pk)
+        serializer = self.serializer_class(data=request.data, instance=anketa)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, pk):
         anketa = Anketa.objects.get(pk=pk)

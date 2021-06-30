@@ -103,6 +103,9 @@ class BeremennayaForm(forms.ModelForm):
         model = Beremennaya
         fields = '__all__'
 
+    data_pervogo_dnya_posledney_menstruacii = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}),
+                                     label='Дата первого дня последней менструации')
+
 class SmenaJKForm(forms.ModelForm):
     class Meta:
         model = Smena_JK_u_beremennoy

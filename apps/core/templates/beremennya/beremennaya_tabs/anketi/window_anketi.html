@@ -308,6 +308,8 @@
 <script>
 
 
+
+
     class WindowAnketi {
         constructor($window_anketi, $tab, $btn_open_window_anketi) {
             let self = this;
@@ -395,6 +397,8 @@
 
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
+                            let url = '{% url 'anketa_lv' %}';
+                            $('.novaya_anketa').attr('action', `${url}${id}`);
                         }).catch(function () {
                             alert('Не могу получить JSON ');
                         })
@@ -424,5 +428,37 @@
     $(function () {
         new WindowAnketi($window_anketi, $tab_anketi, $btn_open_window_anketi)
     })
+
+         async function save_anketa(url, data) {
+
+        let zapros = fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+        });
+        console.log('Статус ответа', zapros.status)
+        alert('Данные сохранены');
+         $('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});
+    }
+
+
+    $(function () {
+        $('.novaya_anketa').submit(function (e) {
+
+
+            e.preventDefault();
+            let url = $(e.currentTarget).attr('action');
+            let data = $(e.currentTarget).serializeArray();
+            let data2 = {};
+            data.forEach(function (item, i, arr) {
+                data2[item['name']] = item['value'];
+            });
+
+            save_anketa(url, data2);
+
+        })
+    });
 
 </script>
