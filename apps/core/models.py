@@ -91,12 +91,12 @@ class MedOrganizacia(models.Model):
         verbose_name_plural = 'Медицинские организации'
 
     nazvanie = models.CharField(verbose_name='Название', max_length=255, null=True, blank=True)
-    rayon = models.ForeignKey(Rayon, verbose_name='Район', on_delete=models.CASCADE, null=True, blank=True)
-    tip_organizacii = models.ForeignKey(TipOrganizacii, verbose_name='Тип организации', on_delete=models.CASCADE,
+    rayon = models.ForeignKey(Rayon, verbose_name='Район', on_delete=models.PROTECT, null=True, blank=True)
+    tip_organizacii = models.ForeignKey(TipOrganizacii, verbose_name='Тип организации', on_delete=models.PROTECT,
                                         default=True, blank=True)
     uroven_med_obclujivaniya = models.ForeignKey(UrovenMedObsluzivaniya,
                                                  verbose_name='Уровень медецинского обслуживания',
-                                                 on_delete=models.CASCADE, null=True,
+                                                 on_delete=models.PROTECT, null=True,
                                                  blank=True)
     ZKPC = models.BooleanField('ЗКПЦ? Да/Нет', default=True, blank=True)
     email = models.CharField(verbose_name='Электронная почта', max_length=255, null=True, blank=True)
@@ -123,11 +123,11 @@ class Polzovateli(models.Model):
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
 
-    user = models.OneToOneField(User, verbose_name='Юзер', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, verbose_name='Юзер', on_delete=models.PROTECT)
     med_organiizaciya = models.ForeignKey(MedOrganizacia, verbose_name='Медицинская организация',
-                                          on_delete=models.CASCADE, null=True, blank=True)
+                                          on_delete=models.PROTECT, null=True, blank=True)
     # выпадающие списки из таблицы роли
-    rol = models.ForeignKey(Roli, verbose_name='Роль', null=True, blank=True, on_delete=models.CASCADE)
+    rol = models.ForeignKey(Roli, verbose_name='Роль', null=True, blank=True, on_delete=models.PROTECT)
 
     def __str__(self):
         return f'{self.user.username} - {self.rol.nazvanie}'
@@ -139,7 +139,7 @@ class Doctor(models.Model):
         verbose_name_plural = 'Доктора'
 
     med_organiizaciya = models.ForeignKey(MedOrganizacia, verbose_name='Медицинская организация',
-                                          on_delete=models.CASCADE, null=True, blank=True)
+                                          on_delete=models.PROTECT, null=True, blank=True)
     fio = models.CharField(verbose_name='ФИО', max_length=255, null=True, blank=True)
     rabotaet = models.BooleanField('Работает?Да/Нет', default=True, blank=True)
 
@@ -427,19 +427,19 @@ class Beremennaya(models.Model):
         verbose_name = 'Беременная'
         verbose_name_plural = 'Беременные'
 
-    nomer = models.CharField('Номер карты', max_length=255, null=True, blank=True, unique=True)
-    stepen_riska = models.ForeignKey(StepenRiska, verbose_name='Степень риска', on_delete=models.CASCADE, null=True,
+    nomer = models.CharField('Номер карты', max_length=255)
+    stepen_riska = models.ForeignKey(StepenRiska, verbose_name='Степень риска', on_delete=models.PROTECT, null=True,
                                      blank=True)
-    jk_beremennoy = models.ForeignKey(MedOrganizacia, verbose_name='ЖК ведущая организацию', on_delete=models.CASCADE,
+    jk_beremennoy = models.ForeignKey(MedOrganizacia, verbose_name='ЖК ведущая организацию', on_delete=models.PROTECT,
                                       null=True, blank=True)
     data_vzyatiya = models.DateField('Дата взятия', null=True, blank=True)
-    vrach = models.ForeignKey(Doctor, verbose_name='Врач', on_delete=models.CASCADE, null=True,
+    vrach = models.ForeignKey(Doctor, verbose_name='Врач', on_delete=models.PROTECT, null=True,
                               blank=True)
     fio = models.CharField('ФИО беременной', max_length=255, null=True, blank=True)
     data_rojdeniya = models.DateField('Дата рождения', null=True, blank=True)
     vozrast = models.CharField('Возраст беременной', max_length=255, null=True, blank=True)
     mesto_postoyannogo_projivaniya = models.ForeignKey(Rayon, verbose_name='Место постоянного проживания',
-                                                       on_delete=models.CASCADE, null=True,
+                                                       on_delete=models.PROTECT, null=True,
                                                        blank=True)
     nomer_telefona = models.CharField('Номер телефона', max_length=255, null=True, blank=True)
     nomer_oms = models.CharField('Номер ОМС беременной', max_length=255, null=True, blank=True)
@@ -454,7 +454,7 @@ class Beremennaya(models.Model):
     vrednie_factori_truda_neudvl_jil_ysloviya = models.BooleanField('Неудвл. жил. условия', default=False)
     socialno_ugrojaemaya = models.BooleanField('Социально угрожаемая', default=False)
     semeynoe_polojenie = models.ForeignKey(SemeynoePolojenie, verbose_name='Семейное положение',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     somaticheskie_pokazateli_muzskoy = models.BooleanField('Мужской тип телосложения', default=False)
     somaticheskie_pokazateli_girsutizm = models.BooleanField('Гирсутизм', default=False)
@@ -468,21 +468,21 @@ class Beremennaya(models.Model):
     razmer_taza_ce = models.CharField('Conjugata externa', max_length=255, null=True, blank=True)
     razmer_taza_cv = models.CharField('Conjugata vera', max_length=255, null=True, blank=True)
     forma_sujeniya_taza = models.ForeignKey(FormaSujeniyaTaza, verbose_name='Форма сужения таза',
-                                            on_delete=models.CASCADE, null=True,
+                                            on_delete=models.PROTECT, null=True,
                                             blank=True)
     stepen_sujeniya_taza = models.ForeignKey(StepenSujeniyaTaza, verbose_name='Степень сужения таза',
-                                             on_delete=models.CASCADE, null=True,
+                                             on_delete=models.PROTECT, null=True,
                                              blank=True)
     rezus_faktori_beremennoy_otca = models.IntegerField('Резус факторы беременной/отца', choices=REZUS_FAKTORI,
                                                         null=True, blank=True)
     vzyata_pod_nabludenie = models.ForeignKey(VzyataPodNabludenie, verbose_name='Взята под наблюдение',
-                                              on_delete=models.CASCADE, null=True,
+                                              on_delete=models.PROTECT, null=True,
                                               blank=True)
     geneticheskie_faktori = models.ForeignKey(GeneticheskieFaktori, verbose_name='Генетические факторы',
-                                              on_delete=models.CASCADE, null=True,
+                                              on_delete=models.PROTECT, null=True,
                                               blank=True)
     menstrualnaya_funkciya = models.ForeignKey(MenstrualnayaFunkciya, verbose_name='Менструальная функция',
-                                               on_delete=models.CASCADE, null=True,
+                                               on_delete=models.PROTECT, null=True,
                                                blank=True)
     zabolevanie_vnut_pol_organov_vospalenie_neroj = models.BooleanField('Воспаление придатков у нерожавшей',
                                                                         default=False)
@@ -496,37 +496,37 @@ class Beremennaya(models.Model):
     zabolevanie_vnut_pol_organov_istmiko = models.BooleanField('Истмико-цервикальная недостаточность', default=False)
     zabolevanie_vnut_pol_organov_onkologiya = models.BooleanField('Онкология в анамезе', default=False)
     besplodie = models.ForeignKey(Besplodie, verbose_name='Бесплодие',
-                                  on_delete=models.CASCADE, null=True,
+                                  on_delete=models.PROTECT, null=True,
                                   blank=True)
     tip_besplodiya = models.ForeignKey(TipBesplodiya, verbose_name='Тип бесплодия',
-                                       on_delete=models.CASCADE, null=True,
+                                       on_delete=models.PROTECT, null=True,
                                        blank=True)
     nastuplenie_beremennosti_v_rezultate_eco = models.ForeignKey(NastuplenieBeremennostiVRezultate,
                                                                  verbose_name='Наступление беременности в результате ЭКО',
-                                                                 on_delete=models.CASCADE, null=True,
+                                                                 on_delete=models.PROTECT, null=True,
                                                                  blank=True)
     nastuplenie_beremennosti_v_rezultate_ovulyacii = models.BooleanField(
         'Наступление беременности в результате стимуляции овуляции медикаментозными средствами', default=False)
     data_pervogo_dnya_posledney_menstruacii = models.DateField('Дата первого дня последней менструации', null=True,
                                                                blank=True)
     paritet_beremennosti = models.ForeignKey(ParitetBeremennosti, verbose_name='Паритет беременности',
-                                             on_delete=models.CASCADE, null=True,
+                                             on_delete=models.PROTECT, null=True,
                                              blank=True)
     samoproizvolniy_abort = models.ForeignKey(SamoproizvolniyAbort, verbose_name='Самопроизвольный аборт',
-                                              on_delete=models.CASCADE, null=True,
+                                              on_delete=models.PROTECT, null=True,
                                               blank=True)
     vnematochnaya_beremennost = models.BooleanField('Внематочная беременность', default=False)
     rezus_konfliktnaya_beremennost = models.BooleanField('Резус-конфликтная беременность', default=False)
     gemoliticheskaya_bolezn = models.BooleanField('Гемолитическая болезнь плода или новорожденного', default=False)
     iskustvenniy_abort = models.ForeignKey(IskustvenniyAbort, verbose_name='Искусственный аборт',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     iskustvenniy_abort_oslojneniya = models.ForeignKey(OslojneniyaIskustvenniyAbort, verbose_name='Осложнения',
-                                                       on_delete=models.CASCADE, null=True,
+                                                       on_delete=models.PROTECT, null=True,
                                                        blank=True)
     oslojneniya_beremennosti_anemez = models.ForeignKey(OslojneniyaBeremennostiAnamez,
                                                         verbose_name='Осложнение беременности (анамез)',
-                                                        on_delete=models.CASCADE, null=True,
+                                                        on_delete=models.PROTECT, null=True,
                                                         blank=True)
     oslojneniya_beremennosti_anemez_fetoplacent = models.BooleanField('Осложн. фетоплацент. недостаточностью',
                                                                       default=False)
@@ -535,7 +535,7 @@ class Beremennaya(models.Model):
     oslojneniya_beremennosti_anemez_prejdevremennoy = models.BooleanField('Осложн. преждевремен. отслойкой плаценты',
                                                                           default=False)
     oslojneniya_rodov = models.ForeignKey(OslojneniyaRodov, verbose_name='Осложнения родов',
-                                          on_delete=models.CASCADE, null=True,
+                                          on_delete=models.PROTECT, null=True,
                                           blank=True)
     oslojneniya_rodov_osl_razrivom = models.BooleanField('Ослож. разрывом мягких родовых путей 2-3 степени',
                                                          default=False)
@@ -543,7 +543,7 @@ class Beremennaya(models.Model):
     oslojneniya_rodov_osl_gnoyno = models.BooleanField('Ослож. гнойно-септической инфекцией', default=False)
     oslojneniya_rodov_osl_mertvoroj = models.BooleanField('Ослож. мертворождением', default=False)
     kesarevo_sechenie = models.ForeignKey(KesarevoSechenie, verbose_name='Кесарево сечение',
-                                          on_delete=models.CASCADE, null=True,
+                                          on_delete=models.PROTECT, null=True,
                                           blank=True)
     rubec_na_matke = models.BooleanField('рубец на матке после миомэктомии',
                                          default=False)
@@ -568,24 +568,24 @@ class Beremennaya(models.Model):
 
     zlokachestvennie_obrazovaniya = models.BooleanField('Наличие в прошлом и настоящем', default=False)
     saharniy_diabed = models.ForeignKey(SaharniyDiabed, verbose_name='Сахарный диабед',
-                                        on_delete=models.CASCADE, null=True,
+                                        on_delete=models.PROTECT, null=True,
                                         blank=True)
     gestacionniy_saharniy_diabed = models.ForeignKey(GestacionniySaharniyDiabed,
                                                      verbose_name='Гестационный cахарный диабед',
-                                                     on_delete=models.CASCADE, null=True,
+                                                     on_delete=models.PROTECT, null=True,
                                                      blank=True)
     zabolevanie_shitovidnoy = models.ForeignKey(ZabolevanieShitovidnoy, verbose_name='Заболевание щитовидной железы',
-                                                on_delete=models.CASCADE, null=True,
+                                                on_delete=models.PROTECT, null=True,
                                                 blank=True)
     ako = models.ForeignKey(AKO, verbose_name='АКО',
-                            on_delete=models.CASCADE, null=True,
+                            on_delete=models.PROTECT, null=True,
                             blank=True)
     deincifalniy_sindrom = models.BooleanField('Диэнцефальный синдром', default=False)
     bolezni_krovi_anemiya = models.BooleanField('Анемия всех степеней', default=False)
     bolezni_krovi_trombocitopeniya = models.BooleanField('Тромбоцитопения', default=False)
     bolezni_krovi_trombozi = models.BooleanField('Тромбозы', default=False)
     koagulopatiya = models.ForeignKey(Koagulopatiya, verbose_name='Коагулопатия',
-                                      on_delete=models.CASCADE, null=True,
+                                      on_delete=models.PROTECT, null=True,
                                       blank=True)
     psih_rastroystva_psihozi = models.BooleanField('Психозы', default=False)
     psih_rastroystva_narusheniya_lich = models.BooleanField('Нарушения личности', default=False)
@@ -755,11 +755,11 @@ class Anketa(models.Model):
         verbose_name_plural = 'Анкета беременной'
 
     nomer_anketi = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
-                                     on_delete=models.CASCADE, null=True,
+                                     on_delete=models.PROTECT, null=True,
                                      blank=True)
     data_zapolneniya_anketi_vrachem = models.DateField('Дата заполнения анкеты врачем', null=True, blank=True)
     familiya_vracha = models.ForeignKey(Doctor, verbose_name='Фамилия врача заполнившего анкету',
-                                        on_delete=models.CASCADE, null=True,
+                                        on_delete=models.PROTECT, null=True,
                                         blank=True)
     ves_beremennoy = models.CharField('Вес беременной', max_length=255, null=True, blank=True)
     srok_beremennosti_po_obektivnim_dannim = models.CharField('По объективным данным', max_length=255, null=True,
@@ -776,36 +776,36 @@ class Anketa(models.Model):
     ugroza_prerivaniya_posle_22 = models.BooleanField('После 22-ти недельного срока', default=False)
     antifosfolipidniy_sindrom = models.BooleanField('Есть', default=False)
     preeklampsiya = models.ForeignKey(Preeklampsiya, verbose_name='Преэклампсия',
-                                      on_delete=models.CASCADE, null=True,
+                                      on_delete=models.PROTECT, null=True,
                                       blank=True)
     rezus_sensibilizaciya = models.ForeignKey(RezusSensibilizaciya, verbose_name='Резус-сенсибилизация',
-                                              on_delete=models.CASCADE, null=True,
+                                              on_delete=models.PROTECT, null=True,
                                               blank=True)
     abo_sensibilizaciya = models.BooleanField('ABO-сенсибилизация', default=False)
     fetoplacentarnaya_nedostatochnost = models.ForeignKey(FetoplacentarnayaNedostatochnost,
                                                           verbose_name='Фетоплацентарная недостаточность',
-                                                          on_delete=models.CASCADE, null=True,
+                                                          on_delete=models.PROTECT, null=True,
                                                           blank=True)
     narushenie_okoplodnih_vod_mnogovodie = models.BooleanField('Многоводие', default=False)
     narushenie_okoplodnih_vod_malovodie = models.BooleanField('Маловодие', default=False)
     narushenie_okoplodnih_vod_mekonialnie = models.BooleanField('Мекониальные', default=False)
     nepravilnoe_polojenie_ploda = models.ForeignKey(NepravilnoePolojeniePloda,
                                                     verbose_name='Неправильное положение плода',
-                                                    on_delete=models.CASCADE, null=True,
+                                                    on_delete=models.PROTECT, null=True,
                                                     blank=True)
     obvitie_pupovini = models.BooleanField('Есть', default=False)
     mnogoplodie = models.ForeignKey(Mnogoplodie, verbose_name='Многоплодие',
-                                    on_delete=models.CASCADE, null=True,
+                                    on_delete=models.PROTECT, null=True,
                                     blank=True)
     krupniy_plod = models.BooleanField('Тазовое предлежание', default=False)
     predlejanie_placenti = models.ForeignKey(PredlejaniePlacenti, verbose_name='Предлежание плаценты',
-                                             on_delete=models.CASCADE, null=True,
+                                             on_delete=models.PROTECT, null=True,
                                              blank=True)
     uroven_papp_a = models.ForeignKey(UrovenPappa, verbose_name='Уровень РАРР-А',
-                                      on_delete=models.CASCADE, null=True,
+                                      on_delete=models.PROTECT, null=True,
                                       blank=True)
     uroven_beta_hgch = models.ForeignKey(UrovenBetaHgch, verbose_name='Уровень бета ХГЧ',
-                                         on_delete=models.CASCADE, null=True,
+                                         on_delete=models.PROTECT, null=True,
                                          blank=True)
     fakt_provedeniya_uzi_10_14 = models.BooleanField('В срок 10-14 нед.', default=False)
     fakt_provedeniya_uzi_20_24 = models.BooleanField('В срок 20-24 нед.', default=False)
@@ -818,27 +818,27 @@ class Anketa(models.Model):
                                                              default=False)
     nalichie_vpr_po_rezultatam_uzi = models.ForeignKey(NalichieVprPoRezultatamUzi,
                                                        verbose_name='Наличие ВПР по результатам УЗИ',
-                                                       on_delete=models.CASCADE, null=True,
+                                                       on_delete=models.PROTECT, null=True,
                                                        blank=True)
     data_provedeniya_prenatalnogo_konsiliuma = models.DateField('Дата проведения пренатального консилиума', null=True,
                                                                 blank=True)
     nomer_protokola = models.CharField('Номер протокола', max_length=255, null=True, blank=True)
     obshee_sostoyanie_ploda = models.ForeignKey(ObsheeSostoyaniePloda,
                                                 verbose_name='Общее состояние плода',
-                                                on_delete=models.CASCADE, null=True,
+                                                on_delete=models.PROTECT, null=True,
                                                 blank=True)
     napravlena_na_extrennoe_rodorazreshenie = models.BooleanField('Да', default=False)
     diagnoz_osnovnoy_mkb10 = models.ForeignKey(MKB10,
                                                verbose_name='Диагноз основной (код по МКБ-10)',
-                                               on_delete=models.CASCADE, null=True,
+                                               on_delete=models.PROTECT, null=True,
                                                blank=True)
     diagnoz_oslojneniya_mkb10 = models.ForeignKey(MKB10, related_name='diagnoz_oslojneniya_mkb10',
                                                   verbose_name='Причина смерти матери по МКБ-10',
-                                                  on_delete=models.CASCADE, null=True,
+                                                  on_delete=models.PROTECT, null=True,
                                                   blank=True)
     diagnoz_soputstvuyshiy_mkb10 = models.ForeignKey(MKB10, related_name='diagnoz_soputstvuyshiy_mkb10',
                                                      verbose_name='Причина смерти матери по МКБ-10',
-                                                     on_delete=models.CASCADE, null=True,
+                                                     on_delete=models.PROTECT, null=True,
                                                      blank=True)
     dopolnitelnie_zamechaniya_vracha = models.TextField('Текст рекомендации', null=True, blank=True)
 
@@ -929,29 +929,29 @@ class Ishod(models.Model):
         verbose_name_plural = 'Исход'
 
     nomer = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
-                                     on_delete=models.CASCADE, null=True,
+                                     on_delete=models.PROTECT, null=True,
                                      blank=True)
     data_ishoda = models.DateField('Дата исхода', null=True, blank=True)
     mesto_ishoda = models.ForeignKey(MestoIshoda, verbose_name='Место исхода',
-                                     on_delete=models.CASCADE, null=True,
+                                     on_delete=models.PROTECT, null=True,
                                      blank=True)
     stepen_riska_posle_ishoda = models.ForeignKey(StepenRiskaPosleIshoda, verbose_name='Степень риска после исхода',
-                                                  on_delete=models.CASCADE, null=True,
+                                                  on_delete=models.PROTECT, null=True,
                                                   blank=True)
     gibel_ploda = models.ForeignKey(GibelPloda, verbose_name='Гибель плода',
-                                    on_delete=models.CASCADE, null=True,
+                                    on_delete=models.PROTECT, null=True,
                                     blank=True)
     ishod_beremennosti = models.ForeignKey(IshodBeremennosti, verbose_name='Исход беременности',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     kesarevo_sechenie1 = models.ForeignKey(KesarevoSechenie1, verbose_name='Кесарево сечение',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     kesarevo_sechenie2 = models.ForeignKey(KesarevoSechenie2, verbose_name='Кесарево сечение',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     kesarevo_sechenie3 = models.ForeignKey(KesarevoSechenie3, verbose_name='Кесарево сечение',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     preeklampsiya = models.BooleanField('Преэклампсия', default=False)
     predlejanie_placenti = models.BooleanField('Предлежание плаценты', default=False)
@@ -964,7 +964,7 @@ class Ishod(models.Model):
     smert_materi = models.BooleanField('Смерть матери', default=False)
     data_smerti_materi = models.DateField('Дата смерти матери', null=True, blank=True)
     prichina_smerti_materi_mkb10 = models.ForeignKey(MKB10, verbose_name='Причина смерти матери по МКБ-10',
-                                                     on_delete=models.CASCADE, null=True,
+                                                     on_delete=models.PROTECT, null=True,
                                                      blank=True)
 
     def __str__(self):
@@ -987,7 +987,7 @@ class Novorojdenniy(models.Model):
         verbose_name = 'Новорожденный'
         verbose_name_plural = 'Новорожденныe'
 
-    nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Беременная', on_delete=models.CASCADE,
+    nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Беременная', on_delete=models.PROTECT,
                                          max_length=255, null=True, blank=True)
     nomer_novorojdennogo = models.CharField('Номер новорожденного', max_length=255, null=True, blank=True)
     pol_novorojdennogo = models.IntegerField('Пол новорожденного', choices=POL, null=True, blank=True)
@@ -996,14 +996,14 @@ class Novorojdenniy(models.Model):
     ocenka_po_shkale_apgar_na1_min = models.IntegerField('Оценка по шкале Апгар на 1 мин, баллы', null=True, blank=True)
     ocenka_po_shkale_apgar_na5_min = models.IntegerField('Оценка по шкале Апгар на 5 мин, баллы', null=True, blank=True)
     vpr_novorojdennogo_po_mkb10 = models.ForeignKey(MKB10, verbose_name='ВПР новорожденного (код по МКБ-10)',
-                                                    on_delete=models.CASCADE, null=True,
+                                                    on_delete=models.PROTECT, null=True,
                                                     blank=True)
     smert_novorojdennogo = models.ForeignKey(SmertNovorojdennogo, verbose_name='Смерть новорожденного',
-                                             on_delete=models.CASCADE, null=True,
+                                             on_delete=models.PROTECT, null=True,
                                              blank=True)
     prichina_smerti_materi_po_mkb10 = models.ForeignKey(MKB10, related_name='smerti_novorojdennogo',
                                                         verbose_name='Причина смерти матери по МКБ-10',
-                                                        on_delete=models.CASCADE, null=True,
+                                                        on_delete=models.PROTECT, null=True,
                                                         blank=True)
 
     def __str__(self):
@@ -1031,13 +1031,13 @@ class Napravlenie(models.Model):
         verbose_name_plural = 'Направления'
 
     nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Номер беременной',
-                                         on_delete=models.CASCADE, null=True,
+                                         on_delete=models.PROTECT, null=True,
                                          blank=True)
     cel_napravleniya = models.ForeignKey(CelNapravleniya, verbose_name='Цель направления',
-                                         on_delete=models.CASCADE, null=True,
+                                         on_delete=models.PROTECT, null=True,
                                          blank=True)
     punkt_napravleniya = models.ForeignKey(MedOrganizacia, verbose_name='Пункт направления',
-                                           on_delete=models.CASCADE, null=True,
+                                           on_delete=models.PROTECT, null=True,
                                            blank=True)
     predpolagaemyi_diagnoz = models.TextField('Текст предполагаемого диагноза',
                                               null=True, blank=True)
@@ -1059,12 +1059,12 @@ class Konsultaciaya(models.Model):
         verbose_name_plural = 'Консультации'
 
     nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Номер беременной',
-                                         on_delete=models.CASCADE, null=True,
+                                         on_delete=models.PROTECT, null=True,
                                          blank=True)
     otpravleno = models.DateField('Отправлено (дата отправления)',
                                   null=True, blank=True)
     otpravitel = models.ForeignKey(Polzovateli, verbose_name='Отправитель (роль)',
-                                   on_delete=models.CASCADE, null=True,
+                                   on_delete=models.PROTECT, null=True,
                                    blank=True)
 
     tema = models.CharField('Тема', max_length=255, null=True, blank=True)
@@ -1235,10 +1235,10 @@ class Smena_JK_u_beremennoy(models.Model):
         verbose_name_plural = 'Смена ЖК у беременной'
 
     nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
-                                         on_delete=models.CASCADE, null=True,
+                                         on_delete=models.PROTECT, null=True,
                                          blank=True)
     novaya_JK = models.ForeignKey(MedOrganizacia, verbose_name='Новая ЖК',
-                                  on_delete=models.CASCADE, null=True,
+                                  on_delete=models.PROTECT, null=True,
                                   blank=True)
     prichina = models.TextField('Причина', null=True, blank=True)
 

@@ -287,13 +287,17 @@ class BeremennayaSerializer(serializers.ModelSerializer):
 
 
     def get_stepen_riska_title(self, obj):
-        return obj.stepen_riska.nazvanie
+        if obj.stepen_riska:
+            return obj.stepen_riska.nazvanie
+
 
     def get_jk_beremennoy_title(self, obj):
-        return obj.jk_beremennoy.nazvanie
+        if obj.jk_beremennoy:
+            return obj.jk_beremennoy.nazvanie
 
     def get_data_vzyatiya_str(self, obj):
-        return obj.data_vzyatiya.strftime("%d.%m.%Y")
+        if obj.data_vzyatiya:
+            return obj.data_vzyatiya.strftime("%d.%m.%Y")
 
 
 class DoctorSerializer(serializers.ModelSerializer):

@@ -99,73 +99,53 @@ let get_mega_json = new Promise(function (resolve, reject) {
 // });
 
 
-$(function () {
-
-
-})
-
-
-// //inputы
-// $(document).ready(function () {
-//     $(".input1").jqxInput({height: 23, width: 40, minLength: 1});
-//     $(".input2").jqxInput({height: 23, width: 40, minLength: 1});
-//     $(".input3").jqxInput({height: 23, width: 40, minLength: 1});
-//     $(".input4").jqxInput({height: 23, width: 40, minLength: 1});
-//     $(".input5").jqxInput({height: 23, width: 40, minLength: 1});
-//     $(".input6").jqxInput({height: 23, width: 40, minLength: 1});
-// });
-//
-
-//
-// //галочка(чекбокс)
-// $(document).ready(function () {
-//     $('.acceptInput').jqxCheckBox({width: 'auto'});
-// });
-//
-//
-// //радиобаттоны
-// $(document).ready(function () {
-//     $(".jqxRadioButton").jqxRadioButton({width: 250, height: 25});
-// });
-//
-
-// //выбор доктора
-//
-//
-// $(document).ready(function () {
-//     var source = [];
-//     $(".jqxWidgetDropDoctor").jqxDropDownList({source: source, placeHolder: "Выбрать врача", width: 250, height: 30});
-// });
-//
-
-
 function get_featxh_data(form) {
     let zapros_data = {};
     $.map(form.serializeArray(), function (n, i) {
-        zapros_data[n['name']] = n['value'];
+        if (n['value']) {
+            zapros_data[n['name']] = n['value'];
+        }
+
     });
     return JSON.stringify(zapros_data);
 }
 
 
-
 class Beremenya {
     URL = '/api/beremennaya/'
     HEADERS = {
-    // "X-CSRFToken": getCookie("csrftoken"),
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-};
+        // "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    };
 
-
-    create = async function (data) {
-        console.log(data);
-        let self = this;
+    getList = async function (params) {
+        const url = this.URl;
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+        const self = this;
         const response = await fetch(
-            self.URL,
+            self.url,
             {
-                method: 'POST',
-                body: data,
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    getDetail = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'get',
                 headers: self.HEADERS,
                 credentials: "same-origin"
             }
@@ -177,8 +157,67 @@ class Beremenya {
         }
     }
 
+    create = async function (data) {
+        let self = this;
+        const response = await fetch(
+            self.URL,
+            {
+                method: 'post',
+                body: data,
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    update = async function (id, data) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'update',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    delete = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'delete',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
     pareseFormToData($form) {
-        console.log(get_featxh_data($form));
+        return get_featxh_data($form);
     }
 }
 
@@ -191,38 +230,3 @@ $(function () {
         beremenya.create(data);
     });
 })
-
-//
-//
-// async function save_beremennaya(url, data) {
-//
-//     let zapros = fetch(url, {
-//         method: 'POST',
-//         body: JSON.stringify(data),
-//         headers: {
-//             'Content-Type': 'application/json;charset=utf-8'
-//         },
-//     });
-//     console.log('Статус ответа', zapros.status)
-//     alert('Данные сохранены');
-//      $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
-// }
-//
-//
-// $(function () {
-//     $('.novaya_beremennaya').submit(function (e) {
-//
-//
-//         e.preventDefault();
-//         let url = $(e.currentTarget).attr('action');
-//         let data = $(e.currentTarget).serializeArray();
-//         let data2 = {};
-//         data.forEach(function (item, i, arr) {
-//             data2[item['name']] = item['value'];
-//         });
-//
-//         save_beremennaya(url, data2);
-//
-//     })
-// });
-
