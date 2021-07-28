@@ -81,10 +81,6 @@ let get_mega_json = new Promise(function (resolve, reject) {
 });
 
 
-
-
-
-
 // let mega_json = new Promise((resolve, reject) => {
 //
 //     setTimeout(() => {
@@ -141,3 +137,92 @@ $(function () {
 //     $(".jqxWidgetDropDoctor").jqxDropDownList({source: source, placeHolder: "Выбрать врача", width: 250, height: 30});
 // });
 //
+
+
+function get_featxh_data(form) {
+    let zapros_data = {};
+    $.map(form.serializeArray(), function (n, i) {
+        zapros_data[n['name']] = n['value'];
+    });
+    return JSON.stringify(zapros_data);
+}
+
+
+
+class Beremenya {
+    URL = '/api/beremennaya/'
+    HEADERS = {
+    // "X-CSRFToken": getCookie("csrftoken"),
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+};
+
+
+    create = async function (data) {
+        console.log(data);
+        let self = this;
+        const response = await fetch(
+            self.URL,
+            {
+                method: 'POST',
+                body: data,
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    pareseFormToData($form) {
+        console.log(get_featxh_data($form));
+    }
+}
+
+
+$(function () {
+    $('.novaya_beremennaya').submit(function (e) {
+        e.preventDefault()
+        let beremenya = new Beremenya();
+        const data = beremenya.pareseFormToData($(this));
+        beremenya.create(data);
+    });
+})
+
+//
+//
+// async function save_beremennaya(url, data) {
+//
+//     let zapros = fetch(url, {
+//         method: 'POST',
+//         body: JSON.stringify(data),
+//         headers: {
+//             'Content-Type': 'application/json;charset=utf-8'
+//         },
+//     });
+//     console.log('Статус ответа', zapros.status)
+//     alert('Данные сохранены');
+//      $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
+// }
+//
+//
+// $(function () {
+//     $('.novaya_beremennaya').submit(function (e) {
+//
+//
+//         e.preventDefault();
+//         let url = $(e.currentTarget).attr('action');
+//         let data = $(e.currentTarget).serializeArray();
+//         let data2 = {};
+//         data.forEach(function (item, i, arr) {
+//             data2[item['name']] = item['value'];
+//         });
+//
+//         save_beremennaya(url, data2);
+//
+//     })
+// });
+
