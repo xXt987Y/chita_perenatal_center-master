@@ -169,6 +169,7 @@ class Beremenya {
             }
         )
         if (response.status === 200) {
+            alert('Добавление прошло успешно');
             return await response.json();
         } else {
             const text = await response.text();
@@ -177,18 +178,19 @@ class Beremenya {
 
     update = async function (id, data) {
         const self = this;
-        const url = `${self.URL}/${id}`;
+        const url = `${self.URL}${id}`;
 
         const response = await fetch(
             url,
             {
-                method: 'update',
+                method: 'post',
                 headers: self.HEADERS,
                 body: data,
                 credentials: "same-origin"
             }
         )
         if (response.status === 200) {
+            alert('Изменение прошло успешно');
             await response.json();
         } else {
             const text = await response.text();
@@ -227,6 +229,13 @@ $(function () {
         e.preventDefault()
         let beremenya = new Beremenya();
         const data = beremenya.pareseFormToData($(this));
-        beremenya.create(data);
+        if (BEREMENYA_ID){
+            beremenya.update(BEREMENYA_ID, data);
+        }else {
+            beremenya.create(data);
+        }
+
     });
 })
+
+let BEREMENYA_ID = null;

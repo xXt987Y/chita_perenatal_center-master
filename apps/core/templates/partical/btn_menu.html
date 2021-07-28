@@ -40,7 +40,7 @@
     <button style="
     position: absolute;
     right: 1%;
-    width: 7%;" class="topmenu menubtn" onclick="window.location.href='/vihod'">Выход
+    width: 7%;" class="topmenu menubtn" onclick="window.location.href='/vihod'">Выход {{ user.username }}
     </button>
 </div>
 <div id="Reg" class="regpoiskcontent">
@@ -75,6 +75,7 @@
 {% include 'partical/poisk.html' %}
 
 <div class="default">
+
     {% include 'beremennya/btn_open_window_beremennya.html' %}
     {% include 'partical/buttons/btn_open_window_redactirovat_beremennuyu.html' %}
     {% include 'partical/buttons/btn_open_window_novaya_anketa.html' %}
@@ -82,6 +83,7 @@
     {% include 'partical/buttons/btn_open_window_novaya_konsultaciya.html' %}
     {#    {% include 'partical/buttons/btn_open_window_ishod.html' %}#}
     {% include 'partical/zaprosNaPerevod/btn_open_window_zapros_na_perevod.html' %}
+
     <button class="Obnovit menubtn" onclick="ObnovitTablicu()">Обновить таблицу</button>
 </div>
 

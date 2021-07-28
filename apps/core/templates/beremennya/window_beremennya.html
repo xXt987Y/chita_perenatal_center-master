@@ -6,7 +6,7 @@
             <li>Направление</li>
             <li>Консультация</li>
             <li>Исход</li>
-            <li>История</li>
+{#            <li>История</li>#}
         </ul>
         <div class="tab_osnovnie_danie">
             {% include 'beremennya/beremennaya_tabs/osnovnie_dannie.html' %}
@@ -81,6 +81,7 @@
         open(id = 0) {
             let self = this;
             if (id) {
+                BEREMENYA_ID = id;
                 fetch(`/api/beremennaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
@@ -223,6 +224,7 @@
                 })
 
             } else {
+                BEREMENYA_ID = null;
                 {#если нет id - значит добавляем. Е#}
                 let url = '{% url 'beremennaya_lv' %}';
                 $('.novaya_beremennaya').action(url)

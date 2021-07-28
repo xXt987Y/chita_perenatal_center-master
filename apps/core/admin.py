@@ -3,7 +3,7 @@ from import_export import resources, widgets
 from import_export.admin import ImportExportModelAdmin
 from import_export.fields import Field
 
-from apps.core.models import Rayon, UrovenMedObsluzivaniya, TipOrganizacii, MedOrganizacia, Roli, Polzovateli, Doctor, \
+from apps.core.models import Rayon, UrovenMedObsluzivaniya, TipOrganizacii, MedOrganizacia, Polzovateli, Doctor, \
     MKB10, Autorecomendacii, StepenRiska, SemeynoePolojenie, GeneticheskieFaktori, MenstrualnayaFunkciya, Besplodie, \
     TipBesplodiya, NastuplenieBeremennostiVRezultate, ParitetBeremennosti, SamoproizvolniyAbort, IskustvenniyAbort, \
     OslojneniyaIskustvenniyAbort, OslojneniyaBeremennostiAnamez, KesarevoSechenie, SaharniyDiabed, \
@@ -41,6 +41,10 @@ class UrovenMedObsluzivaniyaModelAdmin(ImportExportModelAdmin):
 admin.site.register(UrovenMedObsluzivaniya, UrovenMedObsluzivaniyaModelAdmin)
 
 
+
+
+
+
 class TipOrganizaciiModelAdmin(ImportExportModelAdmin):
     list_display = ["id", "nazvanie"]
 
@@ -68,14 +72,6 @@ class MedOrganizaciaModelAdmin(ImportExportModelAdmin):
 admin.site.register(MedOrganizacia, MedOrganizaciaModelAdmin)
 
 
-class RoliModelAdmin(ImportExportModelAdmin):
-    list_display = ["id", "nazvanie"]
-
-    class Meta:
-        model = Roli
-
-
-admin.site.register(Roli, RoliModelAdmin)
 
 
 class PolzovateliModelAdmin(ImportExportModelAdmin):

@@ -230,7 +230,9 @@
 
 
     <div style="position: sticky; bottom: 0; z-index: 9999!important;" class="default">
+        {% if user.polzovatel.rol == 1 or user.polzovatel.rol == 2 or user.polzovatel.rol == 3 %}
         <button class="menubtn save_ishod">Сохранить</button>
+        {% endif %}
     </div>
 </form>
 

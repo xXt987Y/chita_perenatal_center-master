@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
 from django.views.decorators.csrf import csrf_exempt
@@ -16,7 +17,7 @@ from apps.core.forms import BeremennayaFormPart1, BeremennayaVredniePrivichki, B
     BeremennayaBolezniNsForm, BeremennayaPsihRastroystvaForm, BeremennayaBolezniKroviForm, BeremennayaBolezniEndokrForm, \
     BeremennayaNovorojdenniyPlodForm, BeremennayaOslojneniyaRodovForm
 from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
-    Smena_JK_u_beremennoy, Anketa
+    Smena_JK_u_beremennoy, Anketa, ROL
 from apps.core.serializers import RayonSerializer, BeremennayaSerializer, DoctorSerializer, NovorojdenniySerializer, \
     NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer, SmenaJKSerializer, AnketaSerializer
 
@@ -59,7 +60,7 @@ class RayonViewSetDV(APIView):
 
 
 class BeremennayaViewSetLV(APIView):
-    authentication_classes = []
+    # authentication_classes = []
     serializer_class = BeremennayaSerializer
 
     def post(self, request):
@@ -72,21 +73,30 @@ class BeremennayaViewSetLV(APIView):
 
     def get(self, request):
         or_condition = Q()
+        beremennaya = []
+        try:
+            rol = request.user.polzovatel.rol
+        except Exception:
+            rol = None
+        if rol:
+            spisok_polei = list(map(lambda x: x.attname, Beremennaya._meta.fields))
+            for key, value in dict(request.query_params).items():
+                if key in spisok_polei:
+                    tmp_key = f'{key}__contains'
+                    # это код для фильтрации уникальных полей
+                    # if key == 'data_lte':
+                    #     tmp_key = '{key}__lte'
+                    # if key == 'data_gte':
+                    #     tmp_key = '{key}__gte'
+                    or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
 
-        spisok_polei = list(map(lambda x: x.attname, Beremennaya._meta.fields))
-        for key, value in dict(request.query_params).items():
-            if key in spisok_polei:
-                tmp_key = f'{key}__contains'
-                # это код для фильтрации уникальных полей
-                # if key == 'data_lte':
-                #     tmp_key = '{key}__lte'
-                # if key == 'data_gte':
-                #     tmp_key = '{key}__gte'
-                or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
+            beremennaya = Beremennaya.objects.filter(or_condition)
 
-        rayon = Beremennaya.objects.filter(or_condition)
+            if rol == ROL.VRACH_ZK or rol == ROL.ADMIN_ZK or rol == ROL.KONSULTANT_ZK:
+                beremennaya = beremennaya.filter(jk_beremennoy= request.user.polzovatel.med_organiizaciya)
 
-        serializer = BeremennayaSerializer(rayon, many=True)
+
+        serializer = BeremennayaSerializer(beremennaya, many=True)
         return Response(serializer.data)
 
 
@@ -96,7 +106,6 @@ class BeremennayaViewSetDV(APIView):
 
     @csrf_exempt
     def post(self, request, pk):
-
         beremenia = get_object_or_404(Beremennaya, pk=pk)
         serializer = self.serializer_class(data=request.data, instance=beremenia)
         if serializer.is_valid():

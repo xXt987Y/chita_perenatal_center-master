@@ -41,6 +41,21 @@ STEPENI_RISKA = (
     ('высокая', 'высокая'),
 )
 
+class ROL:
+    ADMIN_KRAIA = 1
+    ADMIN_ZK = 2
+    VRACH_ZK = 3
+    KONSULTANT_ZK = 4
+
+    @staticmethod
+    def get_choise():
+        return (
+            (1, 'админ края'),
+            (2, 'админ ЖК'),
+            (3, 'врач ЖК'),
+            (4, 'консультант ЖК'),
+        )
+
 
 class Rayon(models.Model):
     class Meta:
@@ -106,31 +121,19 @@ class MedOrganizacia(models.Model):
         return self.nazvanie
 
 
-class Roli(models.Model):
-    class Meta:
-        verbose_name = 'Роль'
-        verbose_name_plural = 'Роли'
-
-    nazvanie = models.CharField(verbose_name='Название роли', max_length=255, null=True, blank=True)
-
-    # Оператор женской консультации, Оператор Род Дома
-    def __str__(self):
-        return self.nazvanie
-
-
 class Polzovateli(models.Model):
     class Meta:
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
+        verbose_name = 'Сотрудник'
+        verbose_name_plural = '-Сотрудники-'
 
-    user = models.OneToOneField(User, verbose_name='Юзер', on_delete=models.PROTECT)
+    user = models.OneToOneField(User, verbose_name='Пользователи', on_delete=models.PROTECT, related_name='polzovatel')
     med_organiizaciya = models.ForeignKey(MedOrganizacia, verbose_name='Медицинская организация',
                                           on_delete=models.PROTECT, null=True, blank=True)
     # выпадающие списки из таблицы роли
-    rol = models.ForeignKey(Roli, verbose_name='Роль', null=True, blank=True, on_delete=models.PROTECT)
+    rol = models.IntegerField(verbose_name='Роль', choices=ROL.get_choise())
 
     def __str__(self):
-        return f'{self.user.username} - {self.rol.nazvanie}'
+        return f'{self.user.username}'
 
 
 class Doctor(models.Model):
@@ -929,8 +932,8 @@ class Ishod(models.Model):
         verbose_name_plural = 'Исход'
 
     nomer = models.ForeignKey(Beremennaya, verbose_name='Номер карты беременной',
-                                     on_delete=models.PROTECT, null=True,
-                                     blank=True)
+                              on_delete=models.PROTECT, null=True,
+                              blank=True)
     data_ishoda = models.DateField('Дата исхода', null=True, blank=True)
     mesto_ishoda = models.ForeignKey(MestoIshoda, verbose_name='Место исхода',
                                      on_delete=models.PROTECT, null=True,
@@ -1042,7 +1045,7 @@ class Napravlenie(models.Model):
     predpolagaemyi_diagnoz = models.TextField('Текст предполагаемого диагноза',
                                               null=True, blank=True)
     diagnoz_podtverjden = models.IntegerField('Диагноз подтвержден?', choices=CHECK_BOX, default=False, null=True,
-                                                  blank=True)
+                                              blank=True)
     data = models.DateField('Дата явки беременной в ЖК с результатом направления',
                             null=True, blank=True)
 
