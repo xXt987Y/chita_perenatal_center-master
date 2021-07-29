@@ -110,7 +110,7 @@
 <script src="{% static 'core/script.js' %}"></script>
 <script src="{% static 'core/Poisk.js' %}"></script>
 
-{#<script>#}
+<script>
 {#    window.onload = function () {#}
 {#        document.body.classList.add('loaded_hiding');#}
 {#        window.setTimeout(function () {#}
@@ -118,6 +118,14 @@
 {#            document.body.classList.remove('loaded_hiding');#}
 {#        }, 8000);#}
 {#    }#}
-{#</script>#}
+
+{% if user.polzovatel.rol == 4 %}
+$(function (){
+   {#$('input').prop("readonly", true);#}
+   $('input').prop("disabled", true);
+   $('select').prop("disabled", true);
+});
+{% endif %}
+</script>
 
 </body>

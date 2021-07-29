@@ -8,7 +8,7 @@ from rest_framework import routers
 from apps.core.api import RayonViewSetLV, RayonViewSetDV, BeremennayaViewSetLV, BeremennayaViewSetDV, DoctorViewSetLV, \
     DoctorViewSetDV, NovorojdenniyViewSetLV, NovorojdenniyViewSetDV, NapravlenieViewSetLV, NapravlenieViewSetDV, \
     KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV, \
-    AnketaViewSetLV, AnketaViewSetDV
+    AnketaViewSetLV, AnketaViewSetDV, BeremennayaViewSetLV2
 
 from apps.core.views import home, sbor_znachenii_spravocnix_tabliz, vhod, vihod, loginpage
 
@@ -16,6 +16,7 @@ urlpatterns = [
     path('api/sbor_znachenii_spravocnix_tabliz/', sbor_znachenii_spravocnix_tabliz),
     path('api/rayon/', RayonViewSetLV.as_view()),
     path('api/rayon/<int:pk>', RayonViewSetDV.as_view()),
+    path('api/beremennaya/post', BeremennayaViewSetLV2.as_view() , name='beremennaya_lv_post'),
     path('api/beremennaya/', BeremennayaViewSetLV.as_view() , name='beremennaya_lv'),
     path('api/beremennaya/<int:pk>', BeremennayaViewSetDV.as_view(), name='beremennaya_dv'),
     path('api/doctor/', DoctorViewSetLV.as_view()),

@@ -133,6 +133,12 @@
         otkrit_okno_prosmotra(event) {
             let args = event.args;
             let id = (args.row.bounddata.id);
+            BEREMENYA_ID = null;
+            {% if user.polzovatel.rol == 2 or user.polzovatel.rol == 3 or user.polzovatel.rol == 4 %}
+                $(self.obj_window_beremennya).find('#id_jk_beremennoy').val({{ user.polzovatel.med_organiizaciya.id }});
+                $(self.obj_window_beremennya).find('#id_jk_beremennoy').prop("disabled", true);
+            {% endif %}
+            {#если нет id - значит добавляем. Е#}
             this.obj_window_beremennya.open(id)
             {#open_modal_redaktirovania(id);#}
         }

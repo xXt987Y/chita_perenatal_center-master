@@ -11,7 +11,7 @@ from apps.core.models import Doctor, MKB10, UrovenMedObsluzivaniya, Rayon, TipOr
     VzyataPodNabludenie, OslojneniyaRodov, Preeklampsiya, RezusSensibilizaciya, FetoplacentarnayaNedostatochnost, \
     NepravilnoePolojeniePloda, Mnogoplodie, PredlejaniePlacenti, UrovenPappa, UrovenBetaHgch, \
     NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, KesarevoSechenie1, \
-    KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya, StepenRiskaPosleIshoda
+    KesarevoSechenie2, KesarevoSechenie3, SmertNovorojdennogo, CelNapravleniya, StepenRiskaPosleIshoda, ROL
 from apps.core.serializers import DoctorSerializer, RayonSerializer, UrovenMedObsluzivaniyaSerializer, \
     TipOrganizaciiSerializer, MedOrganizaciaSerializer, MKB10Serializer, StepenRiskaSerializer, \
     SemeynoePolojenieSerializer, GeneticheskieFaktoriSerializer, MenstrualnayaFunkciyaSerializer, BesplodieSerializer, \

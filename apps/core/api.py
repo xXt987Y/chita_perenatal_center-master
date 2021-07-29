@@ -58,18 +58,18 @@ class RayonViewSetDV(APIView):
         return Response(serializer.data)
 
 
-
-class BeremennayaViewSetLV(APIView):
-    # authentication_classes = []
+class BeremennayaViewSetLV2(APIView):
+    authentication_classes = []
     serializer_class = BeremennayaSerializer
-
     def post(self, request):
-
+        self.authentication_classes = []
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class BeremennayaViewSetLV(APIView):
 
     def get(self, request):
         or_condition = Q()

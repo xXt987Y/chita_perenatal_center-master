@@ -1,5 +1,5 @@
 {% if user.polzovatel.rol == 1 or user.polzovatel.rol == 2 or user.polzovatel.rol == 3 %}
-<button class="topmenu menubtn" id="btn_open_window_beremennya">Новая беременная</button>
+    <button class="topmenu menubtn" id="btn_open_window_beremennya">Новая беременная</button>
 {% endif %}
 <script>
 
@@ -16,9 +16,14 @@
             this.$btn.click(function () {
                     let tgl = self.$window.jqxWindow('isOpen');
                     if (tgl === false) {
+                        BEREMENYA_ID = null;
                         document.getElementById("btn_open_window_beremennya").classList.remove('menubtn');
                         document.getElementById("btn_open_window_beremennya").classList.add('menubtn_toggle');
                         document.getElementById('novaya_beremennaya').reset();
+                        {% if user.polzovatel.rol == 2 or user.polzovatel.rol == 3 or user.polzovatel.rol == 4 %}
+                            $('.window_beremennya #id_jk_beremennoy').val({{ user.polzovatel.med_organiizaciya.id }});
+                            $('.window_beremennya #id_jk_beremennoy').prop("disabled", true);
+                        {% endif %}
                         self.$window.jqxWindow('open');
                     } else {
                         document.getElementById("btn_open_window_beremennya").classList.remove('menubtn_toggle');

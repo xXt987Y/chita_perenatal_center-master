@@ -160,7 +160,7 @@ class Beremenya {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL,
+            self.URL+'post',
             {
                 method: 'post',
                 body: data,

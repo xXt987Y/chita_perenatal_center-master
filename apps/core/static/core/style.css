@@ -343,3 +343,16 @@ span {
     border-radius: 3px;
     border-style: solid;
 }
+
+select:disabled, input:disabled {
+    opacity: 1;
+    color: black;
+}
+
+/* стили для чекбокса, находящегося в состоянии disabled */
+/*.novaya_beremennaya input[type=checkbox]:disabled+label::before {*/
+/*  background-color: #1678d2 !important;*/
+/*    */
+/*    background-color: -internal-light-dark(rgba(239, 239, 239, 0.3), rgba(59, 59, 59, 0.3));*/
+/*    border-color: rgba(118, 118, 118, 0.3);*/
+/*}*/

@@ -6,7 +6,7 @@
             <li>Направление</li>
             <li>Консультация</li>
             <li>Исход</li>
-{#            <li>История</li>#}
+            {#            <li>История</li>#}
         </ul>
         <div class="tab_osnovnie_danie">
             {% include 'beremennya/beremennaya_tabs/osnovnie_dannie.html' %}
@@ -60,7 +60,7 @@
                 minWidth: 700,
                 theme: 'arctic',
                 height: '70%',
-                width:  '70%',
+                width: '70%',
                 title: 'Беременная',
                 autoOpen: false,
                 resizable: true,
@@ -88,6 +88,12 @@
                             self.$window.find('#id_stepen_riska').val(data['stepen_riska']);
                             self.$window.find('#id_nomer').val(data['nomer']);
                             self.$window.find('#id_jk_beremennoy').val(data['jk_beremennoy']);
+
+                            {% if user.polzovatel.rol == 2 or user.polzovatel.rol == 3 or user.polzovatel.rol == 4 %}
+                                self.$window.find('#id_jk_beremennoy').val({{ user.polzovatel.med_organiizaciya.id }});
+                                self.$window.find('#id_jk_beremennoy').prop("disabled", true);
+                            {% endif %}
+
                             self.$window.find('#id_data_vzyatiya').val(data['data_vzyatiya']);
                             self.$window.find('#id_vrach').val(data['vrach']);
                             self.$window.find('#id_fio').val(data['fio']);
@@ -210,7 +216,7 @@
                             self.$window.find('#id_bolezni_organov_mochv_gidronefroz').prop('checked', data['bolezni_organov_mochv_gidronefroz']);
                             self.$window.find('#id_bolezni_organov_mochv_polikistoz').prop('checked', data['bolezni_organov_mochv_polikistoz']);
                             self.$window.jqxWindow('open');
-                               {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
                             let url = '{% url 'beremennaya_lv' %}';
                             $('.novaya_beremennaya').attr('action', `${url}${id}`);
                         }).catch(function () {
@@ -224,8 +230,7 @@
                 })
 
             } else {
-                BEREMENYA_ID = null;
-                {#если нет id - значит добавляем. Е#}
+
                 let url = '{% url 'beremennaya_lv' %}';
                 $('.novaya_beremennaya').action(url)
             }
