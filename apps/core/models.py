@@ -446,196 +446,197 @@ class Beremennaya(models.Model):
                                                        blank=True)
     nomer_telefona = models.CharField('Номер телефона', max_length=255, null=True, blank=True)
     nomer_oms = models.CharField('Номер ОМС беременной', max_length=255, null=True, blank=True)
-    vrednie_privichki_kurenie = models.BooleanField('Курение', default=False)
-    vrednie_privichki_alco = models.BooleanField('Алкоголизм', default=False)
-    vrednie_privichki_narko = models.BooleanField('Наркомания', default=False)
-    vrednie_privichki_toxi = models.BooleanField('Таксикомания', default=False)
-    vrednie_factori_truda_himicheskie = models.BooleanField('Химические', default=False)
-    vrednie_factori_truda_radioactiv = models.BooleanField('Радиоактивные', default=False)
-    vrednie_factori_truda_priem_lekarstvennih_sredstv = models.BooleanField(
+
+    p110_vrednie_privichki_kurenie = models.BooleanField('Курение', default=False)
+    p120_vrednie_privichki_alco = models.BooleanField('Алкоголизм', default=False)
+    p130_vrednie_privichki_narko = models.BooleanField('Наркомания', default=False)
+    p140_vrednie_privichki_toxi = models.BooleanField('Таксикомания', default=False)
+    p150_vrednie_factori_truda_himicheskie = models.BooleanField('Химические', default=False)
+    p160_vrednie_factori_truda_radioactiv = models.BooleanField('Радиоактивные', default=False)
+    p180_vrednie_factori_truda_priem_lekarstvennih_sredstv = models.BooleanField(
         'Прием лек. средств в ранние сроки беременности', default=False)
-    vrednie_factori_truda_neudvl_jil_ysloviya = models.BooleanField('Неудвл. жил. условия', default=False)
-    socialno_ugrojaemaya = models.BooleanField('Социально угрожаемая', default=False)
-    semeynoe_polojenie = models.ForeignKey(SemeynoePolojenie, verbose_name='Семейное положение',
+    p170_vrednie_factori_truda_neudvl_jil_ysloviya = models.BooleanField('Неудвл. жил. условия', default=False)
+    p145_socialno_ugrojaemaya = models.BooleanField('Социально угрожаемая', default=False)
+    p190_semeynoe_polojenie = models.ForeignKey(SemeynoePolojenie, verbose_name='Семейное положение',
                                            on_delete=models.PROTECT, null=True,
                                            blank=True)
-    somaticheskie_pokazateli_muzskoy = models.BooleanField('Мужской тип телосложения', default=False)
-    somaticheskie_pokazateli_girsutizm = models.BooleanField('Гирсутизм', default=False)
-    ves = models.CharField('Вес беременной', max_length=255, null=True, blank=True)
-    rost = models.CharField('Рост беременной', max_length=255, null=True, blank=True)
-    index = models.CharField('Индекс массы тела', max_length=255, null=True, blank=True)
-    razmer_taza_ds = models.CharField('Distania spinarium', max_length=255, null=True, blank=True)
-    razmer_taza_dc = models.CharField('Distania cristarum', max_length=255, null=True, blank=True)
-    razmer_taza_dt = models.CharField('Distania trochanterica', max_length=255, null=True, blank=True)
-    razmer_taza_cd = models.CharField('Conjugata diagonalis', max_length=255, null=True, blank=True)
-    razmer_taza_ce = models.CharField('Conjugata externa', max_length=255, null=True, blank=True)
-    razmer_taza_cv = models.CharField('Conjugata vera', max_length=255, null=True, blank=True)
-    forma_sujeniya_taza = models.ForeignKey(FormaSujeniyaTaza, verbose_name='Форма сужения таза',
+    p200_somaticheskie_pokazateli_muzskoy = models.BooleanField('Мужской тип телосложения', default=False)
+    p210_somaticheskie_pokazateli_girsutizm = models.BooleanField('Гирсутизм', default=False)
+    p220_ves = models.CharField('Вес беременной', max_length=255, null=True, blank=True)
+    p230_rost = models.CharField('Рост беременной', max_length=255, null=True, blank=True)
+    p240_index = models.CharField('Индекс массы тела', max_length=255, null=True, blank=True)
+    p250_razmer_taza_ds = models.CharField('Distania spinarium', max_length=255, null=True, blank=True)
+    p260_razmer_taza_dc = models.CharField('Distania cristarum', max_length=255, null=True, blank=True)
+    p270_razmer_taza_dt = models.CharField('Distania trochanterica', max_length=255, null=True, blank=True)
+    p280_razmer_taza_cd = models.CharField('Conjugata diagonalis', max_length=255, null=True, blank=True)
+    p290_razmer_taza_ce = models.CharField('Conjugata externa', max_length=255, null=True, blank=True)
+    p300_razmer_taza_cv = models.CharField('Conjugata vera', max_length=255, null=True, blank=True)
+    p310_forma_sujeniya_taza = models.ForeignKey(FormaSujeniyaTaza, verbose_name='Форма сужения таза',
                                             on_delete=models.PROTECT, null=True,
                                             blank=True)
-    stepen_sujeniya_taza = models.ForeignKey(StepenSujeniyaTaza, verbose_name='Степень сужения таза',
+    p320_stepen_sujeniya_taza = models.ForeignKey(StepenSujeniyaTaza, verbose_name='Степень сужения таза',
                                              on_delete=models.PROTECT, null=True,
                                              blank=True)
-    rezus_faktori_beremennoy_otca = models.IntegerField('Резус факторы беременной/отца', choices=REZUS_FAKTORI,
+    p330_rezus_faktori_beremennoy_otca = models.IntegerField('Резус факторы беременной/отца', choices=REZUS_FAKTORI,
                                                         null=True, blank=True)
-    vzyata_pod_nabludenie = models.ForeignKey(VzyataPodNabludenie, verbose_name='Взята под наблюдение',
+    p340_vzyata_pod_nabludenie = models.ForeignKey(VzyataPodNabludenie, verbose_name='Взята под наблюдение',
                                               on_delete=models.PROTECT, null=True,
                                               blank=True)
-    geneticheskie_faktori = models.ForeignKey(GeneticheskieFaktori, verbose_name='Генетические факторы',
+    p350_geneticheskie_faktori = models.ForeignKey(GeneticheskieFaktori, verbose_name='Генетические факторы',
                                               on_delete=models.PROTECT, null=True,
                                               blank=True)
-    menstrualnaya_funkciya = models.ForeignKey(MenstrualnayaFunkciya, verbose_name='Менструальная функция',
+    p360_menstrualnaya_funkciya = models.ForeignKey(MenstrualnayaFunkciya, verbose_name='Менструальная функция',
                                                on_delete=models.PROTECT, null=True,
                                                blank=True)
-    zabolevanie_vnut_pol_organov_vospalenie_neroj = models.BooleanField('Воспаление придатков у нерожавшей',
+    p370_zabolevanie_vnut_pol_organov_vospalenie_neroj = models.BooleanField('Воспаление придатков у нерожавшей',
                                                                         default=False)
-    zabolevanie_vnut_pol_organov_vospalenie_roj = models.BooleanField('Воспаление придатков у рожавшей', default=False)
-    zabolevanie_vnut_pol_organov_opuhl = models.BooleanField('Опухлевое образование придатков', default=False)
-    zabolevanie_vnut_pol_organov_mioma = models.BooleanField('Миома матки', default=False)
-    zabolevanie_vnut_pol_organov_gipoplaziya = models.BooleanField('Гипоплазия матки', default=False)
-    zabolevanie_vnut_pol_organov_poroki = models.BooleanField('Пороки развития матки', default=False)
-    zabolevanie_vnut_pol_organov_operacii_pred = models.BooleanField('Операции на придатках', default=False)
-    zabolevanie_vnut_pol_organov_operacii_matk = models.BooleanField('Операции на матке (кроме кес/сеч)', default=False)
-    zabolevanie_vnut_pol_organov_istmiko = models.BooleanField('Истмико-цервикальная недостаточность', default=False)
-    zabolevanie_vnut_pol_organov_onkologiya = models.BooleanField('Онкология в анамезе', default=False)
-    besplodie = models.ForeignKey(Besplodie, verbose_name='Бесплодие',
+    p380_zabolevanie_vnut_pol_organov_vospalenie_roj = models.BooleanField('Воспаление придатков у рожавшей', default=False)
+    p390_zabolevanie_vnut_pol_organov_opuhl = models.BooleanField('Опухлевое образование придатков', default=False)
+    p400_zabolevanie_vnut_pol_organov_mioma = models.BooleanField('Миома матки', default=False)
+    p410_zabolevanie_vnut_pol_organov_gipoplaziya = models.BooleanField('Гипоплазия матки', default=False)
+    p420_zabolevanie_vnut_pol_organov_poroki = models.BooleanField('Пороки развития матки', default=False)
+    p430_zabolevanie_vnut_pol_organov_operacii_pred = models.BooleanField('Операции на придатках', default=False)
+    p440_zabolevanie_vnut_pol_organov_operacii_matk = models.BooleanField('Операции на матке (кроме кес/сеч)', default=False)
+    p450_zabolevanie_vnut_pol_organov_istmiko = models.BooleanField('Истмико-цервикальная недостаточность', default=False)
+    p455_zabolevanie_vnut_pol_organov_onkologiya = models.BooleanField('Онкология в анамезе', default=False)
+    p460_besplodie = models.ForeignKey(Besplodie, verbose_name='Бесплодие',
                                   on_delete=models.PROTECT, null=True,
                                   blank=True)
-    tip_besplodiya = models.ForeignKey(TipBesplodiya, verbose_name='Тип бесплодия',
+    p470_tip_besplodiya = models.ForeignKey(TipBesplodiya, verbose_name='Тип бесплодия',
                                        on_delete=models.PROTECT, null=True,
                                        blank=True)
-    nastuplenie_beremennosti_v_rezultate_eco = models.ForeignKey(NastuplenieBeremennostiVRezultate,
+    p490_nastuplenie_beremennosti_v_rezultate_eco = models.ForeignKey(NastuplenieBeremennostiVRezultate,
                                                                  verbose_name='Наступление беременности в результате ЭКО',
                                                                  on_delete=models.PROTECT, null=True,
                                                                  blank=True)
-    nastuplenie_beremennosti_v_rezultate_ovulyacii = models.BooleanField(
+    p480_nastuplenie_beremennosti_v_rezultate_ovulyacii = models.BooleanField(
         'Наступление беременности в результате стимуляции овуляции медикаментозными средствами', default=False)
-    data_pervogo_dnya_posledney_menstruacii = models.DateField('Дата первого дня последней менструации', null=True,
+    p500_data_pervogo_dnya_posledney_menstruacii = models.DateField('Дата первого дня последней менструации', null=True,
                                                                blank=True)
-    paritet_beremennosti = models.ForeignKey(ParitetBeremennosti, verbose_name='Паритет беременности',
+    p510_paritet_beremennosti = models.ForeignKey(ParitetBeremennosti, verbose_name='Паритет беременности',
                                              on_delete=models.PROTECT, null=True,
                                              blank=True)
-    samoproizvolniy_abort = models.ForeignKey(SamoproizvolniyAbort, verbose_name='Самопроизвольный аборт',
+    op600_samoproizvolniy_abort = models.ForeignKey(SamoproizvolniyAbort, verbose_name='Самопроизвольный аборт',
                                               on_delete=models.PROTECT, null=True,
                                               blank=True)
-    vnematochnaya_beremennost = models.BooleanField('Внематочная беременность', default=False)
-    rezus_konfliktnaya_beremennost = models.BooleanField('Резус-конфликтная беременность', default=False)
-    gemoliticheskaya_bolezn = models.BooleanField('Гемолитическая болезнь плода или новорожденного', default=False)
-    iskustvenniy_abort = models.ForeignKey(IskustvenniyAbort, verbose_name='Искусственный аборт',
+    op610_vnematochnaya_beremennost = models.BooleanField('Внематочная беременность', default=False)
+    op620_rezus_konfliktnaya_beremennost = models.BooleanField('Резус-конфликтная беременность', default=False)
+    op630_gemoliticheskaya_bolezn = models.BooleanField('Гемолитическая болезнь плода или новорожденного', default=False)
+    op640_iskustvenniy_abort = models.ForeignKey(IskustvenniyAbort, verbose_name='Искусственный аборт',
                                            on_delete=models.PROTECT, null=True,
                                            blank=True)
-    iskustvenniy_abort_oslojneniya = models.ForeignKey(OslojneniyaIskustvenniyAbort, verbose_name='Осложнения',
+    op650_iskustvenniy_abort_oslojneniya = models.ForeignKey(OslojneniyaIskustvenniyAbort, verbose_name='Осложнения',
                                                        on_delete=models.PROTECT, null=True,
                                                        blank=True)
-    oslojneniya_beremennosti_anemez = models.ForeignKey(OslojneniyaBeremennostiAnamez,
+    op660_oslojneniya_beremennosti_anemez = models.ForeignKey(OslojneniyaBeremennostiAnamez,
                                                         verbose_name='Осложнение беременности (анамез)',
                                                         on_delete=models.PROTECT, null=True,
                                                         blank=True)
-    oslojneniya_beremennosti_anemez_fetoplacent = models.BooleanField('Осложн. фетоплацент. недостаточностью',
+    op670_oslojneniya_beremennosti_anemez_fetoplacent = models.BooleanField('Осложн. фетоплацент. недостаточностью',
                                                                       default=False)
-    oslojneniya_beremennosti_anemez_obostrenie = models.BooleanField('Осложн. обостр. экстрагенит. патологии',
+    op680_oslojneniya_beremennosti_anemez_obostrenie = models.BooleanField('Осложн. обостр. экстрагенит. патологии',
                                                                      default=False)
-    oslojneniya_beremennosti_anemez_prejdevremennoy = models.BooleanField('Осложн. преждевремен. отслойкой плаценты',
+    op690_oslojneniya_beremennosti_anemez_prejdevremennoy = models.BooleanField('Осложн. преждевремен. отслойкой плаценты',
                                                                           default=False)
-    oslojneniya_rodov = models.ForeignKey(OslojneniyaRodov, verbose_name='Осложнения родов',
+    op700_oslojneniya_rodov = models.ForeignKey(OslojneniyaRodov, verbose_name='Осложнения родов',
                                           on_delete=models.PROTECT, null=True,
                                           blank=True)
-    oslojneniya_rodov_osl_razrivom = models.BooleanField('Ослож. разрывом мягких родовых путей 2-3 степени',
+    op710_oslojneniya_rodov_osl_razrivom = models.BooleanField('Ослож. разрывом мягких родовых путей 2-3 степени',
                                                          default=False)
-    oslojneniya_rodov_osl_krovotech = models.BooleanField('Ослож. кровотечением', default=False)
-    oslojneniya_rodov_osl_gnoyno = models.BooleanField('Ослож. гнойно-септической инфекцией', default=False)
-    oslojneniya_rodov_osl_mertvoroj = models.BooleanField('Ослож. мертворождением', default=False)
-    kesarevo_sechenie = models.ForeignKey(KesarevoSechenie, verbose_name='Кесарево сечение',
+    op720_oslojneniya_rodov_osl_krovotech = models.BooleanField('Ослож. кровотечением', default=False)
+    op730_oslojneniya_rodov_osl_gnoyno = models.BooleanField('Ослож. гнойно-септической инфекцией', default=False)
+    op740_oslojneniya_rodov_osl_mertvoroj = models.BooleanField('Ослож. мертворождением', default=False)
+    op750_kesarevo_sechenie = models.ForeignKey(KesarevoSechenie, verbose_name='Кесарево сечение',
                                           on_delete=models.PROTECT, null=True,
                                           blank=True)
-    rubec_na_matke = models.BooleanField('рубец на матке после миомэктомии',
+    op751_rubec_na_matke = models.BooleanField('рубец на матке после миомэктомии',
                                          default=False)
-    oslojneniya_anomaliyami_rodovoy_deyatelnosti = models.BooleanField('Ослож. аномалиями родовой деятельности',
+    op760_oslojneniya_anomaliyami_rodovoy_deyatelnosti = models.BooleanField('Ослож. аномалиями родовой деятельности',
                                                                        default=False)
-    klinicheski_uzkiy_taz = models.BooleanField('Клинически узкий таз', default=False)
-    plodorazrushayushaya_operaciya = models.BooleanField('Плодоразрушающая операция', default=False)
-    novorojdenniy_plod_smert = models.BooleanField('Смерть в неонатальном периоде', default=False)
-    novorojdenniy_plod_ves = models.BooleanField('Вес новорожденного был менее 2500г или более 4000г', default=False)
-    novorojdenniy_plod_nevrolgiych = models.BooleanField('Неврологические нарушения', default=False)
-    novorojdenniy_plod_vpr = models.BooleanField('ВПР', default=False)
-    novorojdenniy_plod_perinatalnie = models.BooleanField('Перинатальные потери', default=False)
-    infekcionnie_bolezni_gripp = models.BooleanField('Грипп', default=False)
-    infekcionnie_bolezni_sifilis = models.BooleanField('Сифилис', default=False)
-    infekcionnie_bolezni_vich = models.BooleanField('ВИЧ-инфекция', default=False)
-    infekcionnie_bolezni_krasnuha = models.BooleanField('Краснуха', default=False)
-    infekcionnie_bolezni_orvi = models.BooleanField('ОРВИ', default=False)
-    infekcionnie_bolezni_tuberkulez = models.BooleanField('Туберкулез', default=False)
-    infekcionnie_bolezni_virusniy_gepatit = models.BooleanField('Вирусный гепатит', default=False)
-    infekcionnie_bolezni_toksoplazmoz = models.BooleanField('Токсоплазмоз', default=False)
-    infekcionnie_bolezni_virusniy_cmvi = models.BooleanField('ЦМВИ', default=False)
+    op770_klinicheski_uzkiy_taz = models.BooleanField('Клинически узкий таз', default=False)
+    op780_plodorazrushayushaya_operaciya = models.BooleanField('Плодоразрушающая операция', default=False)
+    op790_novorojdenniy_plod_smert = models.BooleanField('Смерть в неонатальном периоде', default=False)
+    op800_novorojdenniy_plod_ves = models.BooleanField('Вес новорожденного был менее 2500г или более 4000г', default=False)
+    op810_novorojdenniy_plod_nevrolgiych = models.BooleanField('Неврологические нарушения', default=False)
+    op820_novorojdenniy_plod_vpr = models.BooleanField('ВПР', default=False)
+    op830_novorojdenniy_plod_perinatalnie = models.BooleanField('Перинатальные потери', default=False)
+    qf1070_infekcionnie_bolezni_gripp = models.BooleanField('Грипп', default=False)
+    qf1090_infekcionnie_bolezni_sifilis = models.BooleanField('Сифилис', default=False)
+    qf1110_infekcionnie_bolezni_vich = models.BooleanField('ВИЧ-инфекция', default=False)
+    qf1130_infekcionnie_bolezni_krasnuha = models.BooleanField('Краснуха', default=False)
+    qf1080_infekcionnie_bolezni_orvi = models.BooleanField('ОРВИ', default=False)
+    qf1100_infekcionnie_bolezni_tuberkulez = models.BooleanField('Туберкулез', default=False)
+    qf1120_infekcionnie_bolezni_virusniy_gepatit = models.BooleanField('Вирусный гепатит', default=False)
+    qf1135_infekcionnie_bolezni_toksoplazmoz = models.BooleanField('Токсоплазмоз', default=False)
+    qf1136_infekcionnie_bolezni_virusniy_cmvi = models.BooleanField('ЦМВИ', default=False)
 
-    zlokachestvennie_obrazovaniya = models.BooleanField('Наличие в прошлом и настоящем', default=False)
-    saharniy_diabed = models.ForeignKey(SaharniyDiabed, verbose_name='Сахарный диабед',
+    qf1140_zlokachestvennie_obrazovaniya = models.BooleanField('Злокачественные новообразования  наличие в прошлом или настоящем', default=False)
+    qf1150_saharniy_diabed = models.ForeignKey(SaharniyDiabed, verbose_name='Сахарный диабед',
                                         on_delete=models.PROTECT, null=True,
                                         blank=True)
-    gestacionniy_saharniy_diabed = models.ForeignKey(GestacionniySaharniyDiabed,
+    qf1151_gestacionniy_saharniy_diabed = models.ForeignKey(GestacionniySaharniyDiabed,
                                                      verbose_name='Гестационный cахарный диабед',
                                                      on_delete=models.PROTECT, null=True,
                                                      blank=True)
-    zabolevanie_shitovidnoy = models.ForeignKey(ZabolevanieShitovidnoy, verbose_name='Заболевание щитовидной железы',
+    qf1170_zabolevanie_shitovidnoy = models.ForeignKey(ZabolevanieShitovidnoy, verbose_name='Заболевание щитовидной железы',
                                                 on_delete=models.PROTECT, null=True,
                                                 blank=True)
-    ako = models.ForeignKey(AKO, verbose_name='АКО',
+    qf1175_ako = models.ForeignKey(AKO, verbose_name='АКО',
                             on_delete=models.PROTECT, null=True,
                             blank=True)
-    deincifalniy_sindrom = models.BooleanField('Диэнцефальный синдром', default=False)
-    bolezni_krovi_anemiya = models.BooleanField('Анемия всех степеней', default=False)
-    bolezni_krovi_trombocitopeniya = models.BooleanField('Тромбоцитопения', default=False)
-    bolezni_krovi_trombozi = models.BooleanField('Тромбозы', default=False)
-    koagulopatiya = models.ForeignKey(Koagulopatiya, verbose_name='Коагулопатия',
+    qf1160_deincifalniy_sindrom = models.BooleanField('Диэнцефальный синдром', default=False)
+    qf1180_bolezni_krovi_anemiya = models.BooleanField('Анемия всех степеней', default=False)
+    qf1200_bolezni_krovi_trombocitopeniya = models.BooleanField('Тромбоцитопения', default=False)
+    qf1210_bolezni_krovi_trombozi = models.BooleanField('Тромбозы', default=False)
+    qf1190_koagulopatiya = models.ForeignKey(Koagulopatiya, verbose_name='Коагулопатия',
                                       on_delete=models.PROTECT, null=True,
                                       blank=True)
-    psih_rastroystva_psihozi = models.BooleanField('Психозы', default=False)
-    psih_rastroystva_narusheniya_lich = models.BooleanField('Нарушения личности', default=False)
-    psih_rastroystva_shizofreniya = models.BooleanField('Шизофрения', default=False)
-    psih_rastroystva_umstvennaya_otstalost = models.BooleanField('Умственная отсталость', default=False)
-    bolezni_nervnoy_sistemi_nasledstvennie = models.BooleanField('Наследственные и дегенеративные болезни ЦНС',
+    qf1220_psih_rastroystva_psihozi = models.BooleanField('Психозы', default=False)
+    qf1240_psih_rastroystva_narusheniya_lich = models.BooleanField('Нарушения личности', default=False)
+    qf1230_psih_rastroystva_shizofreniya = models.BooleanField('Шизофрения', default=False)
+    qf1250_psih_rastroystva_umstvennaya_otstalost = models.BooleanField('Умственная отсталость', default=False)
+    qf1260_bolezni_nervnoy_sistemi_nasledstvennie = models.BooleanField('Наследственные и дегенеративные болезни ЦНС',
                                                                  default=False)
-    bolezni_nervnoy_sistemi_vospalitelnie = models.BooleanField('Воспалительные болезни ЦНС', default=False)
-    bolezni_nervnoy_sistemi_miopiya = models.BooleanField(
+    qf1270_bolezni_nervnoy_sistemi_vospalitelnie = models.BooleanField('Воспалительные болезни ЦНС', default=False)
+    qf1280_bolezni_nervnoy_sistemi_miopiya = models.BooleanField(
         'Миопия высокой степени и миопия с дистрофическими изменениями', default=False)
-    bolezni_nervnoy_narushenie = models.BooleanField(
+    qf1290_bolezni_nervnoy_narushenie = models.BooleanField(
         'Нарушение мозгового кровообращения в прошлом или настоящем', default=False)
-    bolezni_nervnoy_chmt = models.BooleanField(
+    qf1295_bolezni_nervnoy_chmt = models.BooleanField(
         'ЧМТ', default=False)
-    bolezni_sistemi_krovoob_poroki_serdca_bez = models.BooleanField(
+    qf1300_bolezni_sistemi_krovoob_poroki_serdca_bez = models.BooleanField(
         'Пороки сердца без недост-ти кровообращения', default=False)
-    bolezni_sistemi_krovoob_poroki_serdca_c = models.BooleanField(
+    qf1310_bolezni_sistemi_krovoob_poroki_serdca_c = models.BooleanField(
         'Пороки сердца с недост-ти кровообращения', default=False)
-    bolezni_sistemi_krovoob_miokarda = models.BooleanField(
+    qf1320_bolezni_sistemi_krovoob_miokarda = models.BooleanField(
         'Болезнь миокарда, эндокарда и перикарда', default=False)
-    bolezni_sistemi_krovoob_sosudov = models.BooleanField(
+    qf1330_bolezni_sistemi_krovoob_sosudov = models.BooleanField(
         'Болезни сосудов', default=False)
-    bolezni_sistemi_krovoob_narush = models.BooleanField(
+    qf1340_bolezni_sistemi_krovoob_narush = models.BooleanField(
         'Нарушение ритмов сердца', default=False)
-    bolezni_sistemi_krovoob_operirovannoe = models.BooleanField(
+    qf1350_bolezni_sistemi_krovoob_operirovannoe = models.BooleanField(
         'Оперированное сердце', default=False)
-    bolezni_sistemi_krovoob_gipertoniya = models.BooleanField(
+    qf1360_bolezni_sistemi_krovoob_gipertoniya = models.BooleanField(
         'Гипертоническая болезнь', default=False)
-    bolezni_organov_dihaniya_astma = models.BooleanField(
+    qf1370_bolezni_organov_dihaniya_astma = models.BooleanField(
         'Бронхиальная астма', default=False)
-    bolezni_organov_dihaniya_pnevmoniya = models.BooleanField(
+    qf1380_bolezni_organov_dihaniya_pnevmoniya = models.BooleanField(
         'Пневмония', default=False)
-    bolezni_organov_dihaniya_bronh = models.BooleanField(
+    qf1390_bolezni_organov_dihaniya_bronh = models.BooleanField(
         'Бронхоэктатическая болезнь', default=False)
-    bolezni_organov_dihaniya_lobektomiya = models.BooleanField(
+    qf1400_bolezni_organov_dihaniya_lobektomiya = models.BooleanField(
         'Лобэктомия, пульмонэктомия', default=False)
-    bolezni_organov_mochv_glomer = models.BooleanField(
+    qf1410_bolezni_organov_mochv_glomer = models.BooleanField(
         'Гломерулонефрит', default=False)
-    bolezni_organov_mochv_pochka = models.BooleanField(
+    qf1420_bolezni_organov_mochv_pochka = models.BooleanField(
         'Единственная почка', default=False)
-    bolezni_organov_mochv_tuberkulez = models.BooleanField(
+    qf1430_bolezni_organov_mochv_tuberkulez = models.BooleanField(
         'Туберкулез почек', default=False)
-    bolezni_organov_mochv_hpn = models.BooleanField(
+    qf1440_bolezni_organov_mochv_hpn = models.BooleanField(
         'Пиелонефрит ХПН 1-3', default=False)
-    bolezni_organov_mochv_gidronefroz = models.BooleanField(
+    qf1450_bolezni_organov_mochv_gidronefroz = models.BooleanField(
         'Гидронефроз', default=False)
-    bolezni_organov_mochv_polikistoz = models.BooleanField(
+    qf1460_bolezni_organov_mochv_polikistoz = models.BooleanField(
         'Поликистоз почек', default=False)
 
     def __str__(self):
