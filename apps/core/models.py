@@ -433,6 +433,9 @@ class Beremennaya(models.Model):
     nomer = models.CharField('Номер карты', max_length=255)
     stepen_riska = models.ForeignKey(StepenRiska, verbose_name='Степень риска', on_delete=models.PROTECT, null=True,
                                      blank=True)
+    bal_riska_po_ishodu = models.IntegerField('Балов риска по исходу', null=True, blank=True)
+    bal_riska_po_ankete = models.IntegerField('Балов риска по анкете', null=True, blank=True)
+    ishod_tmp = models.BooleanField('Исход по старым данным', null=True, blank=True)
     jk_beremennoy = models.ForeignKey(MedOrganizacia, verbose_name='ЖК ведущая организацию', on_delete=models.PROTECT,
                                       null=True, blank=True)
     data_vzyatiya = models.DateField('Дата взятия', null=True, blank=True)

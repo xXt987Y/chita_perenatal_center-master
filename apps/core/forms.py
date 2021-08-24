@@ -39,10 +39,10 @@ class BeremennayaVredniePrivichki(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'vrednie_privichki_kurenie',
-            'vrednie_privichki_alco',
-            'vrednie_privichki_narko',
-            'vrednie_privichki_toxi',
+            'p110_vrednie_privichki_kurenie',
+            'p120_vrednie_privichki_alco',
+            'p130_vrednie_privichki_narko',
+            'p140_vrednie_privichki_toxi',
         ]
 
 
@@ -60,10 +60,10 @@ class BeremennayaVrednieFactori(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'vrednie_factori_truda_himicheskie',
-            'vrednie_factori_truda_radioactiv',
-            'vrednie_factori_truda_priem_lekarstvennih_sredstv',
-            'vrednie_factori_truda_neudvl_jil_ysloviya',
+            'p150_vrednie_factori_truda_himicheskie',
+            'p160_vrednie_factori_truda_radioactiv',
+            'p180_vrednie_factori_truda_priem_lekarstvennih_sredstv',
+            'p170_vrednie_factori_truda_neudvl_jil_ysloviya',
         ]
 
 
@@ -126,15 +126,15 @@ class BeremennayaInfekcionnieBolezniForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'infekcionnie_bolezni_gripp',
-            'infekcionnie_bolezni_sifilis',
-            'infekcionnie_bolezni_vich',
-            'infekcionnie_bolezni_krasnuha',
-            'infekcionnie_bolezni_orvi',
-            'infekcionnie_bolezni_tuberkulez',
-            'infekcionnie_bolezni_virusniy_gepatit',
-            'infekcionnie_bolezni_toksoplazmoz',
-            'infekcionnie_bolezni_virusniy_cmvi',
+            'qf1070_infekcionnie_bolezni_gripp',
+            'qf1090_infekcionnie_bolezni_sifilis',
+            'qf1110_infekcionnie_bolezni_vich',
+            'qf1130_infekcionnie_bolezni_krasnuha',
+            'qf1080_infekcionnie_bolezni_orvi',
+            'qf1100_infekcionnie_bolezni_tuberkulez',
+            'qf1120_infekcionnie_bolezni_virusniy_gepatit',
+            'qf1135_infekcionnie_bolezni_toksoplazmoz',
+            'qf1136_infekcionnie_bolezni_virusniy_cmvi',
         ]
 
 
@@ -152,12 +152,12 @@ class BeremennayaRazmerTazaForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'razmer_taza_ds',
-            'razmer_taza_dc',
-            'razmer_taza_dt',
-            'razmer_taza_cd',
-            'razmer_taza_ce',
-            'razmer_taza_cv',
+            'p250_razmer_taza_ds',
+            'p260_razmer_taza_dc',
+            'p270_razmer_taza_dt',
+            'p280_razmer_taza_cd',
+            'p290_razmer_taza_ce',
+            'p300_razmer_taza_cv',
         ]
 
 
@@ -175,15 +175,15 @@ class BeremennayaZabolevanieVnutForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'zabolevanie_vnut_pol_organov_vospalenie_roj',
-            'zabolevanie_vnut_pol_organov_opuhl',
-            'zabolevanie_vnut_pol_organov_mioma',
-            'zabolevanie_vnut_pol_organov_gipoplaziya',
-            'zabolevanie_vnut_pol_organov_poroki',
-            'zabolevanie_vnut_pol_organov_operacii_pred',
-            'zabolevanie_vnut_pol_organov_operacii_matk',
-            'zabolevanie_vnut_pol_organov_istmiko',
-            'zabolevanie_vnut_pol_organov_onkologiya',
+            'p380_zabolevanie_vnut_pol_organov_vospalenie_roj',
+            'p390_zabolevanie_vnut_pol_organov_opuhl',
+            'p400_zabolevanie_vnut_pol_organov_mioma',
+            'p410_zabolevanie_vnut_pol_organov_gipoplaziya',
+            'p420_zabolevanie_vnut_pol_organov_poroki',
+            'p430_zabolevanie_vnut_pol_organov_operacii_pred',
+            'p440_zabolevanie_vnut_pol_organov_operacii_matk',
+            'p450_zabolevanie_vnut_pol_organov_istmiko',
+            'p455_zabolevanie_vnut_pol_organov_onkologiya',
         ]
 
 
@@ -201,11 +201,11 @@ class BeremennayaOslojneniyaBeremennostiForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'oslojneniya_beremennosti_anemez',
-            'oslojneniya_beremennosti_anemez_fetoplacent',
-            'oslojneniya_beremennosti_anemez_obostrenie',
-            'oslojneniya_beremennosti_anemez_prejdevremennoy',
-            'oslojneniya_rodov',
+            'op660_oslojneniya_beremennosti_anemez',
+            'op670_oslojneniya_beremennosti_anemez_fetoplacent',
+            'op680_oslojneniya_beremennosti_anemez_obostrenie',
+            'op690_oslojneniya_beremennosti_anemez_prejdevremennoy',
+            'op700_oslojneniya_rodov',
         ]
 
 
@@ -223,16 +223,16 @@ class BeremennayaOslojneniyaRodovForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'oslojneniya_rodov',
-            'oslojneniya_rodov_osl_razrivom',
-            'oslojneniya_rodov_osl_krovotech',
-            'oslojneniya_rodov_osl_gnoyno',
-            'oslojneniya_rodov_osl_mertvoroj',
-            'kesarevo_sechenie',
-            'rubec_na_matke',
-            'oslojneniya_anomaliyami_rodovoy_deyatelnosti',
-            'klinicheski_uzkiy_taz',
-            'plodorazrushayushaya_operaciya',
+            'op700_oslojneniya_rodov',
+            'op710_oslojneniya_rodov_osl_razrivom',
+            'op720_oslojneniya_rodov_osl_krovotech',
+            'op730_oslojneniya_rodov_osl_gnoyno',
+            'op740_oslojneniya_rodov_osl_mertvoroj',
+            'op750_kesarevo_sechenie',
+            'op751_rubec_na_matke',
+            'op760_oslojneniya_anomaliyami_rodovoy_deyatelnosti',
+            'op770_klinicheski_uzkiy_taz',
+            'op780_plodorazrushayushaya_operaciya',
         ]
 
 
@@ -250,11 +250,11 @@ class BeremennayaNovorojdenniyPlodForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'novorojdenniy_plod_smert',
-            'novorojdenniy_plod_ves',
-            'novorojdenniy_plod_nevrolgiych',
-            'novorojdenniy_plod_vpr',
-            'novorojdenniy_plod_perinatalnie',
+            'op790_novorojdenniy_plod_smert',
+            'op800_novorojdenniy_plod_ves',
+            'op810_novorojdenniy_plod_nevrolgiych',
+            'op820_novorojdenniy_plod_vpr',
+            'op830_novorojdenniy_plod_perinatalnie',
         ]
 
 
@@ -273,11 +273,11 @@ class BeremennayaBolezniEndokrForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'saharniy_diabed',
-            'gestacionniy_saharniy_diabed',
-            'zabolevanie_shitovidnoy',
-            'ako',
-            'deincifalniy_sindrom',
+            'qf1150_saharniy_diabed',
+            'qf1151_gestacionniy_saharniy_diabed',
+            'qf1170_zabolevanie_shitovidnoy',
+            'qf1175_ako',
+            'qf1160_deincifalniy_sindrom',
         ]
 
 
@@ -295,10 +295,10 @@ class BeremennayaBolezniKroviForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'bolezni_krovi_anemiya',
-            'bolezni_krovi_trombocitopeniya',
-            'bolezni_krovi_trombozi',
-            'koagulopatiya',
+            'qf1180_bolezni_krovi_anemiya',
+            'qf1200_bolezni_krovi_trombocitopeniya',
+            'qf1210_bolezni_krovi_trombozi',
+            'qf1190_koagulopatiya',
         ]
 
 
@@ -316,10 +316,10 @@ class BeremennayaPsihRastroystvaForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'psih_rastroystva_psihozi',
-            'psih_rastroystva_narusheniya_lich',
-            'psih_rastroystva_shizofreniya',
-            'psih_rastroystva_umstvennaya_otstalost',
+            'qf1220_psih_rastroystva_psihozi',
+            'qf1240_psih_rastroystva_narusheniya_lich',
+            'qf1230_psih_rastroystva_shizofreniya',
+            'qf1250_psih_rastroystva_umstvennaya_otstalost',
         ]
 
 
@@ -337,11 +337,11 @@ class BeremennayaBolezniNsForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'bolezni_nervnoy_sistemi_nasledstvennie',
-            'bolezni_nervnoy_sistemi_vospalitelnie',
-            'bolezni_nervnoy_sistemi_miopiya',
-            'bolezni_nervnoy_narushenie',
-            'bolezni_nervnoy_chmt',
+            'qf1260_bolezni_nervnoy_sistemi_nasledstvennie',
+            'qf1270_bolezni_nervnoy_sistemi_vospalitelnie',
+            'qf1280_bolezni_nervnoy_sistemi_miopiya',
+            'qf1290_bolezni_nervnoy_narushenie',
+            'qf1290_bolezni_nervnoy_narushenie',
         ]
 
 
@@ -359,13 +359,13 @@ class BeremennayaBolezniSistemiKrovoobForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'bolezni_sistemi_krovoob_poroki_serdca_bez',
-            'bolezni_sistemi_krovoob_poroki_serdca_c',
-            'bolezni_sistemi_krovoob_miokarda',
-            'bolezni_sistemi_krovoob_sosudov',
-            'bolezni_sistemi_krovoob_narush',
-            'bolezni_sistemi_krovoob_operirovannoe',
-            'bolezni_sistemi_krovoob_gipertoniya',
+            'qf1300_bolezni_sistemi_krovoob_poroki_serdca_bez',
+            'qf1310_bolezni_sistemi_krovoob_poroki_serdca_c',
+            'qf1320_bolezni_sistemi_krovoob_miokarda',
+            'qf1330_bolezni_sistemi_krovoob_sosudov',
+            'qf1340_bolezni_sistemi_krovoob_narush',
+            'qf1350_bolezni_sistemi_krovoob_operirovannoe',
+            'qf1360_bolezni_sistemi_krovoob_gipertoniya',
         ]
 
 
@@ -383,10 +383,10 @@ class BeremennayaBolezniOrganovDihaniyaForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'bolezni_organov_dihaniya_astma',
-            'bolezni_organov_dihaniya_pnevmoniya',
-            'bolezni_organov_dihaniya_bronh',
-            'bolezni_organov_dihaniya_lobektomiya',
+            'qf1370_bolezni_organov_dihaniya_astma',
+            'qf1380_bolezni_organov_dihaniya_pnevmoniya',
+            'qf1390_bolezni_organov_dihaniya_bronh',
+            'qf1400_bolezni_organov_dihaniya_lobektomiya',
         ]
 
 
@@ -404,12 +404,12 @@ class BeremennayaBolezniOrganovMochForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'bolezni_organov_mochv_glomer',
-            'bolezni_organov_mochv_pochka',
-            'bolezni_organov_mochv_tuberkulez',
-            'bolezni_organov_mochv_hpn',
-            'bolezni_organov_mochv_gidronefroz',
-            'bolezni_organov_mochv_polikistoz',
+            'qf1410_bolezni_organov_mochv_glomer',
+            'qf1420_bolezni_organov_mochv_pochka',
+            'qf1430_bolezni_organov_mochv_tuberkulez',
+            'qf1440_bolezni_organov_mochv_hpn',
+            'qf1450_bolezni_organov_mochv_gidronefroz',
+            'qf1460_bolezni_organov_mochv_polikistoz',
         ]
 
 
@@ -427,8 +427,8 @@ class BeremennayaSomaticheskiePokazateliForm(forms.ModelForm):
     class Meta:
         model = Beremennaya
         fields = [
-            'somaticheskie_pokazateli_muzskoy',
-            'somaticheskie_pokazateli_girsutizm',
+            'p200_somaticheskie_pokazateli_muzskoy',
+            'p210_somaticheskie_pokazateli_girsutizm',
         ]
 
 
