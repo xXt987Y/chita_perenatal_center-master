@@ -86,7 +86,13 @@ class KonsultaciayaForm(forms.ModelForm):
 class NapravlenieForm(forms.ModelForm):
     class Meta:
         model = Napravlenie
-        fields = '__all__'
+        fields = ['nomer_beremennoy',
+                  'cel_napravleniya',
+                  'punkt_napravleniya',
+                  'predpolagaemyi_diagnoz',
+                  'diagnoz_podtverjden',
+                  'data',
+                  ]
 
     data = forms.DateField(required=False, widget=forms.DateInput(attrs={'type': 'date'}), label='Дата явки беременной в ЖК с результатом направления')
 

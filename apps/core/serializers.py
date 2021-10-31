@@ -354,7 +354,7 @@ class KonsultaciayaSerializer(serializers.ModelSerializer):
         return obj.otpravleno.strftime("%d.%m.%Y")
 
     def get_rol_otpavitelia_title(self, obj):
-        return obj.otpravitel.rol.nazvanie
+        return obj.otpravitel.rol
 
     def get_med_organiizaciya_title(self, obj):
         return obj.otpravitel.med_organiizaciya.nazvanie

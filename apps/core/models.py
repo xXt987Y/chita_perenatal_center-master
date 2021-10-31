@@ -41,6 +41,7 @@ STEPENI_RISKA = (
     ('высокая', 'высокая'),
 )
 
+
 class ROL:
     ADMIN_KRAIA = 1
     ADMIN_ZK = 2
@@ -461,8 +462,8 @@ class Beremennaya(models.Model):
     p170_vrednie_factori_truda_neudvl_jil_ysloviya = models.BooleanField('Неудвл. жил. условия', default=False)
     p145_socialno_ugrojaemaya = models.BooleanField('Социально угрожаемая', default=False)
     p190_semeynoe_polojenie = models.ForeignKey(SemeynoePolojenie, verbose_name='Семейное положение',
-                                           on_delete=models.PROTECT, null=True,
-                                           blank=True)
+                                                on_delete=models.PROTECT, null=True,
+                                                blank=True)
     p200_somaticheskie_pokazateli_muzskoy = models.BooleanField('Мужской тип телосложения', default=False)
     p210_somaticheskie_pokazateli_girsutizm = models.BooleanField('Гирсутизм', default=False)
     p220_ves = models.CharField('Вес беременной', max_length=255, null=True, blank=True)
@@ -475,91 +476,97 @@ class Beremennaya(models.Model):
     p290_razmer_taza_ce = models.CharField('Conjugata externa', max_length=255, null=True, blank=True)
     p300_razmer_taza_cv = models.CharField('Conjugata vera', max_length=255, null=True, blank=True)
     p310_forma_sujeniya_taza = models.ForeignKey(FormaSujeniyaTaza, verbose_name='Форма сужения таза',
-                                            on_delete=models.PROTECT, null=True,
-                                            blank=True)
+                                                 on_delete=models.PROTECT, null=True,
+                                                 blank=True)
     p320_stepen_sujeniya_taza = models.ForeignKey(StepenSujeniyaTaza, verbose_name='Степень сужения таза',
-                                             on_delete=models.PROTECT, null=True,
-                                             blank=True)
+                                                  on_delete=models.PROTECT, null=True,
+                                                  blank=True)
     p330_rezus_faktori_beremennoy_otca = models.IntegerField('Резус факторы беременной/отца', choices=REZUS_FAKTORI,
-                                                        null=True, blank=True)
+                                                             null=True, blank=True)
     p340_vzyata_pod_nabludenie = models.ForeignKey(VzyataPodNabludenie, verbose_name='Взята под наблюдение',
-                                              on_delete=models.PROTECT, null=True,
-                                              blank=True)
+                                                   on_delete=models.PROTECT, null=True,
+                                                   blank=True)
     p350_geneticheskie_faktori = models.ForeignKey(GeneticheskieFaktori, verbose_name='Генетические факторы',
-                                              on_delete=models.PROTECT, null=True,
-                                              blank=True)
+                                                   on_delete=models.PROTECT, null=True,
+                                                   blank=True)
     p360_menstrualnaya_funkciya = models.ForeignKey(MenstrualnayaFunkciya, verbose_name='Менструальная функция',
-                                               on_delete=models.PROTECT, null=True,
-                                               blank=True)
+                                                    on_delete=models.PROTECT, null=True,
+                                                    blank=True)
     p370_zabolevanie_vnut_pol_organov_vospalenie_neroj = models.BooleanField('Воспаление придатков у нерожавшей',
-                                                                        default=False)
-    p380_zabolevanie_vnut_pol_organov_vospalenie_roj = models.BooleanField('Воспаление придатков у рожавшей', default=False)
+                                                                             default=False)
+    p380_zabolevanie_vnut_pol_organov_vospalenie_roj = models.BooleanField('Воспаление придатков у рожавшей',
+                                                                           default=False)
     p390_zabolevanie_vnut_pol_organov_opuhl = models.BooleanField('Опухлевое образование придатков', default=False)
     p400_zabolevanie_vnut_pol_organov_mioma = models.BooleanField('Миома матки', default=False)
     p410_zabolevanie_vnut_pol_organov_gipoplaziya = models.BooleanField('Гипоплазия матки', default=False)
     p420_zabolevanie_vnut_pol_organov_poroki = models.BooleanField('Пороки развития матки', default=False)
     p430_zabolevanie_vnut_pol_organov_operacii_pred = models.BooleanField('Операции на придатках', default=False)
-    p440_zabolevanie_vnut_pol_organov_operacii_matk = models.BooleanField('Операции на матке (кроме кес/сеч)', default=False)
-    p450_zabolevanie_vnut_pol_organov_istmiko = models.BooleanField('Истмико-цервикальная недостаточность', default=False)
+    p440_zabolevanie_vnut_pol_organov_operacii_matk = models.BooleanField('Операции на матке (кроме кес/сеч)',
+                                                                          default=False)
+    p450_zabolevanie_vnut_pol_organov_istmiko = models.BooleanField('Истмико-цервикальная недостаточность',
+                                                                    default=False)
     p455_zabolevanie_vnut_pol_organov_onkologiya = models.BooleanField('Онкология в анамезе', default=False)
     p460_besplodie = models.ForeignKey(Besplodie, verbose_name='Бесплодие',
-                                  on_delete=models.PROTECT, null=True,
-                                  blank=True)
-    p470_tip_besplodiya = models.ForeignKey(TipBesplodiya, verbose_name='Тип бесплодия',
                                        on_delete=models.PROTECT, null=True,
                                        blank=True)
+    p470_tip_besplodiya = models.ForeignKey(TipBesplodiya, verbose_name='Тип бесплодия',
+                                            on_delete=models.PROTECT, null=True,
+                                            blank=True)
     p490_nastuplenie_beremennosti_v_rezultate_eco = models.ForeignKey(NastuplenieBeremennostiVRezultate,
-                                                                 verbose_name='Наступление беременности в результате ЭКО',
-                                                                 on_delete=models.PROTECT, null=True,
-                                                                 blank=True)
+                                                                      verbose_name='Наступление беременности в результате ЭКО',
+                                                                      on_delete=models.PROTECT, null=True,
+                                                                      blank=True)
     p480_nastuplenie_beremennosti_v_rezultate_ovulyacii = models.BooleanField(
         'Наступление беременности в результате стимуляции овуляции медикаментозными средствами', default=False)
     p500_data_pervogo_dnya_posledney_menstruacii = models.DateField('Дата первого дня последней менструации', null=True,
-                                                               blank=True)
+                                                                    blank=True)
     p510_paritet_beremennosti = models.ForeignKey(ParitetBeremennosti, verbose_name='Паритет беременности',
-                                             on_delete=models.PROTECT, null=True,
-                                             blank=True)
+                                                  on_delete=models.PROTECT, null=True,
+                                                  blank=True)
     op600_samoproizvolniy_abort = models.ForeignKey(SamoproizvolniyAbort, verbose_name='Самопроизвольный аборт',
-                                              on_delete=models.PROTECT, null=True,
-                                              blank=True)
+                                                    on_delete=models.PROTECT, null=True,
+                                                    blank=True)
     op610_vnematochnaya_beremennost = models.BooleanField('Внематочная беременность', default=False)
     op620_rezus_konfliktnaya_beremennost = models.BooleanField('Резус-конфликтная беременность', default=False)
-    op630_gemoliticheskaya_bolezn = models.BooleanField('Гемолитическая болезнь плода или новорожденного', default=False)
+    op630_gemoliticheskaya_bolezn = models.BooleanField('Гемолитическая болезнь плода или новорожденного',
+                                                        default=False)
     op640_iskustvenniy_abort = models.ForeignKey(IskustvenniyAbort, verbose_name='Искусственный аборт',
-                                           on_delete=models.PROTECT, null=True,
-                                           blank=True)
+                                                 on_delete=models.PROTECT, null=True,
+                                                 blank=True)
     op650_iskustvenniy_abort_oslojneniya = models.ForeignKey(OslojneniyaIskustvenniyAbort, verbose_name='Осложнения',
-                                                       on_delete=models.PROTECT, null=True,
-                                                       blank=True)
+                                                             on_delete=models.PROTECT, null=True,
+                                                             blank=True)
     op660_oslojneniya_beremennosti_anemez = models.ForeignKey(OslojneniyaBeremennostiAnamez,
-                                                        verbose_name='Осложнение беременности (анамез)',
-                                                        on_delete=models.PROTECT, null=True,
-                                                        blank=True)
+                                                              verbose_name='Осложнение беременности (анамез)',
+                                                              on_delete=models.PROTECT, null=True,
+                                                              blank=True)
     op670_oslojneniya_beremennosti_anemez_fetoplacent = models.BooleanField('Осложн. фетоплацент. недостаточностью',
-                                                                      default=False)
+                                                                            default=False)
     op680_oslojneniya_beremennosti_anemez_obostrenie = models.BooleanField('Осложн. обостр. экстрагенит. патологии',
-                                                                     default=False)
-    op690_oslojneniya_beremennosti_anemez_prejdevremennoy = models.BooleanField('Осложн. преждевремен. отслойкой плаценты',
-                                                                          default=False)
+                                                                           default=False)
+    op690_oslojneniya_beremennosti_anemez_prejdevremennoy = models.BooleanField(
+        'Осложн. преждевремен. отслойкой плаценты',
+        default=False)
     op700_oslojneniya_rodov = models.ForeignKey(OslojneniyaRodov, verbose_name='Осложнения родов',
-                                          on_delete=models.PROTECT, null=True,
-                                          blank=True)
+                                                on_delete=models.PROTECT, null=True,
+                                                blank=True)
     op710_oslojneniya_rodov_osl_razrivom = models.BooleanField('Ослож. разрывом мягких родовых путей 2-3 степени',
-                                                         default=False)
+                                                               default=False)
     op720_oslojneniya_rodov_osl_krovotech = models.BooleanField('Ослож. кровотечением', default=False)
     op730_oslojneniya_rodov_osl_gnoyno = models.BooleanField('Ослож. гнойно-септической инфекцией', default=False)
     op740_oslojneniya_rodov_osl_mertvoroj = models.BooleanField('Ослож. мертворождением', default=False)
     op750_kesarevo_sechenie = models.ForeignKey(KesarevoSechenie, verbose_name='Кесарево сечение',
-                                          on_delete=models.PROTECT, null=True,
-                                          blank=True)
+                                                on_delete=models.PROTECT, null=True,
+                                                blank=True)
     op751_rubec_na_matke = models.BooleanField('рубец на матке после миомэктомии',
-                                         default=False)
+                                               default=False)
     op760_oslojneniya_anomaliyami_rodovoy_deyatelnosti = models.BooleanField('Ослож. аномалиями родовой деятельности',
-                                                                       default=False)
+                                                                             default=False)
     op770_klinicheski_uzkiy_taz = models.BooleanField('Клинически узкий таз', default=False)
     op780_plodorazrushayushaya_operaciya = models.BooleanField('Плодоразрушающая операция', default=False)
     op790_novorojdenniy_plod_smert = models.BooleanField('Смерть в неонатальном периоде', default=False)
-    op800_novorojdenniy_plod_ves = models.BooleanField('Вес новорожденного был менее 2500г или более 4000г', default=False)
+    op800_novorojdenniy_plod_ves = models.BooleanField('Вес новорожденного был менее 2500г или более 4000г',
+                                                       default=False)
     op810_novorojdenniy_plod_nevrolgiych = models.BooleanField('Неврологические нарушения', default=False)
     op820_novorojdenniy_plod_vpr = models.BooleanField('ВПР', default=False)
     op830_novorojdenniy_plod_perinatalnie = models.BooleanField('Перинатальные потери', default=False)
@@ -573,33 +580,35 @@ class Beremennaya(models.Model):
     qf1135_infekcionnie_bolezni_toksoplazmoz = models.BooleanField('Токсоплазмоз', default=False)
     qf1136_infekcionnie_bolezni_virusniy_cmvi = models.BooleanField('ЦМВИ', default=False)
 
-    qf1140_zlokachestvennie_obrazovaniya = models.BooleanField('Злокачественные новообразования  наличие в прошлом или настоящем', default=False)
+    qf1140_zlokachestvennie_obrazovaniya = models.BooleanField(
+        'Злокачественные новообразования  наличие в прошлом или настоящем', default=False)
     qf1150_saharniy_diabed = models.ForeignKey(SaharniyDiabed, verbose_name='Сахарный диабед',
-                                        on_delete=models.PROTECT, null=True,
-                                        blank=True)
+                                               on_delete=models.PROTECT, null=True,
+                                               blank=True)
     qf1151_gestacionniy_saharniy_diabed = models.ForeignKey(GestacionniySaharniyDiabed,
-                                                     verbose_name='Гестационный cахарный диабед',
-                                                     on_delete=models.PROTECT, null=True,
-                                                     blank=True)
-    qf1170_zabolevanie_shitovidnoy = models.ForeignKey(ZabolevanieShitovidnoy, verbose_name='Заболевание щитовидной железы',
-                                                on_delete=models.PROTECT, null=True,
-                                                blank=True)
+                                                            verbose_name='Гестационный cахарный диабед',
+                                                            on_delete=models.PROTECT, null=True,
+                                                            blank=True)
+    qf1170_zabolevanie_shitovidnoy = models.ForeignKey(ZabolevanieShitovidnoy,
+                                                       verbose_name='Заболевание щитовидной железы',
+                                                       on_delete=models.PROTECT, null=True,
+                                                       blank=True)
     qf1175_ako = models.ForeignKey(AKO, verbose_name='АКО',
-                            on_delete=models.PROTECT, null=True,
-                            blank=True)
+                                   on_delete=models.PROTECT, null=True,
+                                   blank=True)
     qf1160_deincifalniy_sindrom = models.BooleanField('Диэнцефальный синдром', default=False)
     qf1180_bolezni_krovi_anemiya = models.BooleanField('Анемия всех степеней', default=False)
     qf1200_bolezni_krovi_trombocitopeniya = models.BooleanField('Тромбоцитопения', default=False)
     qf1210_bolezni_krovi_trombozi = models.BooleanField('Тромбозы', default=False)
     qf1190_koagulopatiya = models.ForeignKey(Koagulopatiya, verbose_name='Коагулопатия',
-                                      on_delete=models.PROTECT, null=True,
-                                      blank=True)
+                                             on_delete=models.PROTECT, null=True,
+                                             blank=True)
     qf1220_psih_rastroystva_psihozi = models.BooleanField('Психозы', default=False)
     qf1240_psih_rastroystva_narusheniya_lich = models.BooleanField('Нарушения личности', default=False)
     qf1230_psih_rastroystva_shizofreniya = models.BooleanField('Шизофрения', default=False)
     qf1250_psih_rastroystva_umstvennaya_otstalost = models.BooleanField('Умственная отсталость', default=False)
     qf1260_bolezni_nervnoy_sistemi_nasledstvennie = models.BooleanField('Наследственные и дегенеративные болезни ЦНС',
-                                                                 default=False)
+                                                                        default=False)
     qf1270_bolezni_nervnoy_sistemi_vospalitelnie = models.BooleanField('Воспалительные болезни ЦНС', default=False)
     qf1280_bolezni_nervnoy_sistemi_miopiya = models.BooleanField(
         'Миопия высокой степени и миопия с дистрофическими изменениями', default=False)
@@ -641,6 +650,8 @@ class Beremennaya(models.Model):
         'Гидронефроз', default=False)
     qf1460_bolezni_organov_mochv_polikistoz = models.BooleanField(
         'Поликистоз почек', default=False)
+    beremennaya_pometka_na_udalenie = models.BooleanField('Пометка на удаление',
+                                                          default=False)
 
     def __str__(self):
         return self.nomer
@@ -834,7 +845,8 @@ class Anketa(models.Model):
                                                 verbose_name='Общее состояние плода',
                                                 on_delete=models.PROTECT, null=True,
                                                 blank=True)
-    napravlena_na_extrennoe_rodorazreshenie = models.BooleanField('Да', default=False)
+    napravlena_na_extrennoe_rodorazreshenie = models.BooleanField('Направлена на экстренное родоразрешение',
+                                                                  default=False)
     diagnoz_osnovnoy_mkb10 = models.ForeignKey(MKB10,
                                                verbose_name='Диагноз основной (код по МКБ-10)',
                                                on_delete=models.PROTECT, null=True,
@@ -848,6 +860,8 @@ class Anketa(models.Model):
                                                      on_delete=models.PROTECT, null=True,
                                                      blank=True)
     dopolnitelnie_zamechaniya_vracha = models.TextField('Текст рекомендации', null=True, blank=True)
+    anketa_pometka_na_udalenie = models.BooleanField('Пометка на удаление',
+                                                     default=False)
 
     def __str__(self):
         return str(self.nomer_anketi)
@@ -1052,6 +1066,8 @@ class Napravlenie(models.Model):
                                               blank=True)
     data = models.DateField('Дата явки беременной в ЖК с результатом направления',
                             null=True, blank=True)
+    napravlenie_pometka_na_udalenie = models.BooleanField('Пометка на удаление',
+                                                          default=False)
 
     def __str__(self):
         return str(self.nomer_beremennoy)
@@ -1068,7 +1084,7 @@ class Konsultaciaya(models.Model):
     nomer_beremennoy = models.ForeignKey(Beremennaya, verbose_name='Номер беременной',
                                          on_delete=models.PROTECT, null=True,
                                          blank=True)
-    otpravleno = models.DateField('Отправлено (дата отправления)',
+    otpravleno = models.DateField('Отправлено (дата отправления)', auto_now=True,
                                   null=True, blank=True)
     otpravitel = models.ForeignKey(Polzovateli, verbose_name='Отправитель (роль)',
                                    on_delete=models.PROTECT, null=True,
@@ -1231,6 +1247,8 @@ class Konsultaciaya(models.Model):
                                                      choices=CHECK_BOX,
                                                      default=False, null=True,
                                                      blank=True)
+    konsultaciya_pometka_na_udalenie = models.BooleanField('Пометка на удаление',
+                                                           default=False)
 
     def __str__(self):
         return str(self.nomer_beremennoy)

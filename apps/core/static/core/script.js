@@ -1,3 +1,60 @@
+const HEADERS = {
+    "X-CSRFToken": getCookie("csrftoken"),
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+};
+
+function getCookie(name) {
+    var cookieValue = null;
+
+    if (document.cookie && document.cookie != '') {
+        var cookies = document.cookie.split(';');
+
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+
+    return cookieValue;
+}
+
+
+//ОТПРАВКА ФОРМЫ ВЫВОДА СРЕДСТВ
+// $('.form-vivoda-sredstv').submit(async function (e) {
+//     e.preventDefault();
+//     let dataForm = new FormData(this);
+//     const res = await fetch(URLS.api_zapros_vivoda_sredstv, {
+//         method: 'POST',
+//         headers: {'X-CSRFToken': getCookie('csrftoken')},
+//         credentials: 'same-origin',
+//         body: dataForm,
+//         mode: 'same-origin'
+//     });
+//
+//     if (!res.ok) { // код ответа не 200~
+//         vivisti_uvedomlenie('Ошибка при отправки запроса', 'Попробуйте запрос чуть позже или обратитесь в поддержку', 'error')
+//         throw new Error(`Не удалось получить ${URLS.api_zapros_vivoda_sredstv}, статус: ${res.status}`);
+//     }
+//
+//     try {
+//         res.json().then(function (resultJSON) {
+//             vivisti_uvedomlenie(resultJSON['zagolovok'], resultJSON['telo'], 'success')
+//         })
+//
+//     } catch (e) {
+//         vivisti_uvedomlenie('Ошибка при отправки запроса', 'Попробуйте запрос чуть позже или обратитесь в поддержку', 'error')
+//         throw new Error(`Не удалось распарсить ответ ${URLS.api_zapros_vivoda_sredstv}`);
+//     }
+//
+// })
+
+
 // Для преобразование инмпутов модели в объект
 function objectifyForm(formArray) {//serialize data function
     let data = new FormData();
@@ -114,7 +171,7 @@ function get_featxh_data(form) {
 class Beremenya {
     URL = '/api/beremennaya/'
     HEADERS = {
-        // "X-CSRFToken": getCookie("csrftoken"),
+        "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
         "Content-Type": "application/json"
     };
@@ -160,7 +217,7 @@ class Beremenya {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL+'post',
+            self.URL + 'post',
             {
                 method: 'post',
                 body: data,
@@ -170,6 +227,7 @@ class Beremenya {
         )
         if (response.status === 200) {
             alert('Добавление прошло успешно');
+             $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
             return await response.json();
         } else {
             const text = await response.text();
@@ -191,6 +249,7 @@ class Beremenya {
         )
         if (response.status === 200) {
             alert('Изменение прошло успешно');
+            $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
             await response.json();
         } else {
             const text = await response.text();
@@ -223,15 +282,14 @@ class Beremenya {
     }
 }
 
-
 $(function () {
     $('.novaya_beremennaya').submit(function (e) {
         e.preventDefault()
         let beremenya = new Beremenya();
         const data = beremenya.pareseFormToData($(this));
-        if (BEREMENYA_ID){
+        if (BEREMENYA_ID) {
             beremenya.update(BEREMENYA_ID, data);
-        }else {
+        } else {
             beremenya.create(data);
         }
 
@@ -239,3 +297,408 @@ $(function () {
 })
 
 let BEREMENYA_ID = null;
+
+
+class Anketa {
+    URL = 'api/anketa/'
+    HEADERS = {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    };
+
+    getList = async function (params) {
+        const url = this.URl;
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+        const self = this;
+        const response = await fetch(
+            self.url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    getDetail = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin",
+
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    create = async function (data) {
+        let self = this;
+        const response = await fetch(
+            self.URL + 'post',
+            {
+                method: 'post',
+                body: data,
+                headers: self.HEADERS,
+                credentials: 'same-origin',
+                mode: 'same-origin'
+            }
+        )
+        if (response.status === 200) {
+            alert('Добавление прошло успешно');
+            $('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+   update = async function (id, data) {
+        const self = this;
+        const url = `${self.URL}${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'post',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            alert('Изменение прошло успешно');
+            $('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    delete = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'delete',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+    pareseFormToData($form) {
+        return get_featxh_data($form);
+    }
+}
+
+$(function () {
+    $('.novaya_anketa').submit(function (e) {
+        e.preventDefault()
+        let anketa = new Anketa();
+        const data = anketa.pareseFormToData($(this));
+        if (ANKETA_ID) {
+            anketa.update(ANKETA_ID, data);
+        } else {
+            anketa.create(data);
+        }
+
+    });
+});
+
+let ANKETA_ID = null;
+
+
+class Napravlenie {
+    URL = 'api/napravlenie/'
+    HEADERS = {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    };
+
+    getList = async function (params) {
+        const url = this.URl;
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+        const self = this;
+        const response = await fetch(
+            self.url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    getDetail = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin",
+
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    create = async function (data) {
+        let self = this;
+        const response = await fetch(
+            self.URL + 'post',
+            {
+                method: 'post',
+                body: data,
+                headers: self.HEADERS,
+                credentials: 'same-origin',
+                mode: 'same-origin'
+            }
+        )
+        if (response.status === 200) {
+            alert('Добавление прошло успешно');
+            $('.tabliza_napravlenie').jqxGrid({source: $('.tabliza_napravlenie').jqxGrid('source')});
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+   update = async function (id, data) {
+        const self = this;
+        const url = `${self.URL}${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'post',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            alert('Изменение прошло успешно');
+            $('.tabliza_napravlenie').jqxGrid({source: $('.tabliza_napravlenie').jqxGrid('source')});
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    delete = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'delete',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+    pareseFormToData($form) {
+        return get_featxh_data($form);
+    }
+}
+
+$(function () {
+    $('.novoe_napravlenie').submit(function (e) {
+        e.preventDefault()
+        let napravlenie = new Napravlenie();
+        const data = napravlenie.pareseFormToData($(this));
+        if (NAPRAVLENIE_ID) {
+            napravlenie.update(NAPRAVLENIE_ID, data);
+        } else {
+            napravlenie.create(data);
+        }
+
+    });
+});
+
+let NAPRAVLENIE_ID = null;
+
+
+
+class Konsultaciaya {
+    URL = 'api/konsultaciaya/'
+    HEADERS = {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    };
+
+    getList = async function (params) {
+        const url = this.URl;
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+        const self = this;
+        const response = await fetch(
+            self.url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    getDetail = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin",
+
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    create = async function (data) {
+        let self = this;
+        const response = await fetch(
+            self.URL + 'post',
+            {
+                method: 'post',
+                body: data,
+                headers: self.HEADERS,
+                credentials: 'same-origin',
+                mode: 'same-origin'
+            }
+        )
+        if (response.status === 200) {
+
+            alert('Добавление прошло успешно');
+            $('.tabliza_konsultaciaya').jqxGrid({source: $('.tabliza_konsultaciaya').jqxGrid('source')});
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+   update = async function (id, data) {
+        const self = this;
+        const url = `${self.URL}${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'post',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            alert('Изменение прошло успешно');
+             $('.tabliza_konsultaciaya').jqxGrid({source: $('.tabliza_konsultaciaya').jqxGrid('source')});
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    delete = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'delete',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+
+    pareseFormToData($form) {
+        return get_featxh_data($form);
+    }
+}
+
+$(function () {
+    $('.novaya_konsultaciya').submit(function (e) {
+        e.preventDefault()
+        let konsultaciya = new Konsultaciaya();
+        const data = konsultaciya.pareseFormToData($(this));
+        if (KONSULTACIAYA_ID) {
+            konsultaciya.update(KONSULTACIAYA_ID, data);
+        } else {
+            konsultaciya.create(data);
+        }
+
+    });
+});
+
+let KONSULTACIAYA_ID = null;

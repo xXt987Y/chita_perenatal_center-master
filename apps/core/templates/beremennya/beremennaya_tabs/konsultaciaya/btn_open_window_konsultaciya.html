@@ -1,6 +1,7 @@
+{% if user.polzovatel.rol == 1 or user.polzovatel.rol == 2 or user.polzovatel.rol == 3 %}
 <button class="topmenu menubtn" id="btn_open_window_konsultaciya">Новая консультация</button>
 <button class="topmenu menubtn" id="btn_delete_konsultaciya">Удалить консультацию</button>
-
+{% endif %}
 <script>
 
     class BtnWindowKonsultaciya {
@@ -34,11 +35,11 @@
 
     $btn_open_window_konsultaciya = $('#btn_open_window_konsultaciya')
     $(function () {
-        new BtnWindowKonsultaciya($btn_open_window_konsultaciya, $window_anketi);
+        new BtnWindowKonsultaciya($btn_open_window_konsultaciya, $window_konsultaciya);
     })
 
     $(function () {
-        $window_anketi.on('close', function (event) {
+        $window_konsultaciya.on('close', function (event) {
             document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn_toggle');
             document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn');
         });

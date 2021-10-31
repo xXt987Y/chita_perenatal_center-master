@@ -1,21 +1,9 @@
-from django.contrib.auth.models import User
 from django.db.models import Q
 from django.shortcuts import get_object_or_404
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework import viewsets, generics, status
-
-from rest_framework import viewsets
-from rest_framework.parsers import JSONParser
+from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.utils import json
 from rest_framework.views import APIView
 
-from apps.core.forms import BeremennayaFormPart1, BeremennayaVredniePrivichki, BeremennayaForm, \
-    BeremennayaVrednieFactori, BeremennayaInfekcionnieBolezniForm, BeremennayaRazmerTazaForm, \
-    BeremennayaZabolevanieVnutForm, BeremennayaOslojneniyaBeremennostiForm, BeremennayaSomaticheskiePokazateliForm, \
-    BeremennayaBolezniOrganovMochForm, BeremennayaBolezniOrganovDihaniyaForm, BeremennayaBolezniSistemiKrovoobForm, \
-    BeremennayaBolezniNsForm, BeremennayaPsihRastroystvaForm, BeremennayaBolezniKroviForm, BeremennayaBolezniEndokrForm, \
-    BeremennayaNovorojdenniyPlodForm, BeremennayaOslojneniyaRodovForm
 from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
     Smena_JK_u_beremennoy, Anketa, ROL
 from apps.core.serializers import RayonSerializer, BeremennayaSerializer, DoctorSerializer, NovorojdenniySerializer, \
@@ -61,6 +49,7 @@ class RayonViewSetDV(APIView):
 class BeremennayaViewSetLV2(APIView):
     authentication_classes = []
     serializer_class = BeremennayaSerializer
+
     def post(self, request):
         self.authentication_classes = []
         serializer = self.serializer_class(data=request.data)
@@ -68,6 +57,7 @@ class BeremennayaViewSetLV2(APIView):
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class BeremennayaViewSetLV(APIView):
 
@@ -93,8 +83,7 @@ class BeremennayaViewSetLV(APIView):
             beremennaya = Beremennaya.objects.filter(or_condition)
 
             if rol == ROL.VRACH_ZK or rol == ROL.ADMIN_ZK or rol == ROL.KONSULTANT_ZK:
-                beremennaya = beremennaya.filter(jk_beremennoy= request.user.polzovatel.med_organiizaciya)
-
+                beremennaya = beremennaya.filter(jk_beremennoy=request.user.polzovatel.med_organiizaciya)
 
         serializer = BeremennayaSerializer(beremennaya, many=True)
         return Response(serializer.data)
@@ -104,16 +93,13 @@ class BeremennayaViewSetDV(APIView):
     authentication_classes = []
     serializer_class = BeremennayaSerializer
 
-    @csrf_exempt
     def post(self, request, pk):
         beremenia = get_object_or_404(Beremennaya, pk=pk)
         serializer = self.serializer_class(data=request.data, instance=beremenia)
         if serializer.is_valid():
-             serializer.save()
-             return Response(serializer.data, status=200)
+            serializer.save()
+            return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
 
     def get(self, request, pk):
         rayon = Beremennaya.objects.get(pk=pk)
@@ -191,6 +177,16 @@ class NapravlenieViewSetLV(APIView):
 
 
 class NapravlenieViewSetDV(APIView):
+    authentication_classes = []
+    serializer_class = NapravlenieSerializer
+
+    def post(self, request, pk):
+        napravlenie = get_object_or_404(Napravlenie, pk=pk)
+        serializer = self.serializer_class(data=request.data, instance=napravlenie)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, pk):
         napravlenie = Napravlenie.objects.get(pk=pk)
@@ -248,6 +244,7 @@ class MKB10ViewSetDV(APIView):
         serializer = MKB10Serializer(mkb10, many=False)
         return Response(serializer.data)
 
+
 class SmenaJKViewSetLV(APIView):
 
     def get(self, request):
@@ -264,6 +261,7 @@ class SmenaJKViewSetLV(APIView):
         serializer = SmenaJKSerializer(smenaJK, many=True)
         return Response(serializer.data)
 
+
 class SmenaJKViewSetDV(APIView):
 
     def get(self, request, pk):
@@ -277,7 +275,7 @@ class AnketaViewSetLV(APIView):
     serializer_class = AnketaSerializer
 
     def post(self, request):
-
+        self.authentication_classes = []
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -298,11 +296,11 @@ class AnketaViewSetLV(APIView):
         serializer = AnketaSerializer(anketa, many=True)
         return Response(serializer.data)
 
+
 class AnketaViewSetDV(APIView):
     authentication_classes = []
     serializer_class = AnketaSerializer
 
-    @csrf_exempt
     def post(self, request, pk):
         anketa = get_object_or_404(Anketa, pk=pk)
         serializer = self.serializer_class(data=request.data, instance=anketa)
@@ -315,3 +313,42 @@ class AnketaViewSetDV(APIView):
         anketa = Anketa.objects.get(pk=pk)
         serializer = AnketaSerializer(anketa, many=False)
         return Response(serializer.data)
+
+
+class AnketaViewSetLV2(APIView):
+    authentication_classes = []
+    serializer_class = AnketaSerializer
+
+    def post(self, request):
+        self.authentication_classes = []
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class NapravlenieViewSetLV2(APIView):
+    authentication_classes = []
+    serializer_class = NapravlenieSerializer
+
+    def post(self, request):
+        self.authentication_classes = []
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class KonsultaciayaViewSetLV2(APIView):
+    serializer_class = KonsultaciayaSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.validated_data['otpravitel'] = request.user.polzovatel
+
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

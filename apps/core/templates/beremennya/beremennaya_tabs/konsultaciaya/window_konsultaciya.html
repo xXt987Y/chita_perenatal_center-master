@@ -121,7 +121,7 @@
             <li></li>
         </ul>
 
-        <div class="tab_konsultaciya">
+        <div>
             <form id="novaya_konsultaciya" class="novaya_konsultaciya" action="{% url 'home' %}" method="post">
                 {% csrf_token %}
 
@@ -415,6 +415,7 @@
         open(id = 0) {
             let self = this;
             if (id) {
+                KONSULTACIAYA_ID = id;
                 fetch(`/api/konsultaciaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
@@ -466,9 +467,13 @@
                             self.$window.find('#id_hirurgicheskie_vmeshatelstva').val(data['hirurgicheskie_vmeshatelstva']);
                             self.$window.find('#id_infekcii_moche').val(data['infekcii_moche']);
                             self.$window.find('#id_risk_prejdevremennih_rodov').val(data['risk_prejdevremennih_rodov']);
-                            self.$window.jqxWindow('open');
+                          self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            let url = '{% url 'konsultaciaya_lv' %}';
+                            $('.novaya_konsultaciya').attr('action', `${url}${id}`);
                         }).catch(function () {
+                            $('.novaya_konsultaciya').action(url)
                             alert('Не могу получить JSON ');
                         })
 
@@ -477,9 +482,14 @@
                     }
                 })
 
+            } else {
+
+                let url = '{% url 'konsultaciaya_lv' %}';
+                $('.novaya_konsultaciya').action(url)
             }
 
         }
+
 
         on_close() {
             let self = this;

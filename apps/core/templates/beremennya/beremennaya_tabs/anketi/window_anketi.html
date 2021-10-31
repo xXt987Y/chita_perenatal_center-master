@@ -296,7 +296,7 @@
                 </div>
 
                 <div style="position: sticky; bottom: 0;" class="default">
-                    <button class="menubtn save_anketa" type="submit">Сохранить</button>
+                    <button class="menubtn save_anketa" type="submit" onclick="SaveAnketa()">Сохранить</button>
                     <button class="menubtn pechat_anketa" type="submit">Печать</button>
                 </div>
 
@@ -306,8 +306,6 @@
 </div>
 
 <script>
-
-
 
 
     class WindowAnketi {
@@ -342,13 +340,18 @@
         }
 
         open2(id) {
+            alert(id);
             this.$window.find(`#id_nomer_anketi option[value="${id}"]`).prop('selected', true);
             this.$window.jqxWindow('open');
+            let url = '{% url 'anketa_lv' %}';
+            $('.novaya_anketa').attr('action', `${url}`);
+
         }
 
         open(id = 0) {
             let self = this;
             if (id) {
+                ANKETA_ID = id;
                 fetch(`/api/anketa/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
@@ -394,12 +397,13 @@
                             self.$window.find('#id_diagnoz_oslojneniya_mkb10').val(data['diagnoz_oslojneniya_mkb10']);
                             self.$window.find('#id_diagnoz_soputstvuyshiy_mkb10').val(data['diagnoz_soputstvuyshiy_mkb10']);
                             self.$window.find('#id_dopolnitelnie_zamechaniya_vracha').val(data['dopolnitelnie_zamechaniya_vracha']);
-
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
                             let url = '{% url 'anketa_lv' %}';
                             $('.novaya_anketa').attr('action', `${url}${id}`);
                         }).catch(function () {
+                            $('.novaya_anketa').action(url)
                             alert('Не могу получить JSON ');
                         })
 
@@ -408,6 +412,10 @@
                     }
                 })
 
+            } else {
+
+                let url = '{% url 'anketa_lv' %}';
+                $('.novaya_anketa').action(url)
             }
 
         }
@@ -429,36 +437,8 @@
         new WindowAnketi($window_anketi, $tab_anketi, $btn_open_window_anketi)
     })
 
-         async function save_anketa(url, data) {
-
-        let zapros = fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json;charset=utf-8'
-            },
-        });
-        console.log('Статус ответа', zapros.status)
-        alert('Данные сохранены');
-         $('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});
-    }
 
 
-    $(function () {
-        $('.novaya_anketa').submit(function (e) {
 
-
-            e.preventDefault();
-            let url = $(e.currentTarget).attr('action');
-            let data = $(e.currentTarget).serializeArray();
-            let data2 = {};
-            data.forEach(function (item, i, arr) {
-                data2[item['name']] = item['value'];
-            });
-
-            save_anketa(url, data2);
-
-        })
-    });
 
 </script>

@@ -130,7 +130,7 @@
                 width: '60%',
                 title: 'Новое направление',
                 autoOpen: false,
-                resizable: true,
+                resizable: false,
                 draggable: true,
                 initContent: function () {
                     $(self.$tab).jqxTabs({
@@ -152,6 +152,7 @@
         open(id = 0) {
             let self = this;
             if (id) {
+                  NAPRAVLENIE_ID = id;
                 fetch(`/api/napravlenie/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
@@ -163,7 +164,11 @@
                             self.$window.find('#id_data').val(data['data']);
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            let url = '{% url 'napravlenie_lv' %}';
+                            $('.novoe_napravlenie').attr('action', `${url}${id}`);
                         }).catch(function () {
+                            $('.novoe_napravlenie').action(url)
                             alert('Не могу получить JSON ');
                         })
 
@@ -172,9 +177,14 @@
                     }
                 })
 
+            } else {
+
+                let url = '{% url 'napravlenie_lv' %}';
+                $('.novoe_napravlenie').action(url)
             }
 
         }
+
 
         on_close() {
             let self = this;
