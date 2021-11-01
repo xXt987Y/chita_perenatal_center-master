@@ -352,3 +352,16 @@ class KonsultaciayaViewSetLV2(APIView):
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SmenaJKViewSetLV2(APIView):
+    serializer_class = SmenaJKSerializer
+
+    def post(self, request):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.validated_data['otpravitel'] = request.user.polzovatel
+
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

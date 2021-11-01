@@ -6,7 +6,7 @@ from apps.core.api import RayonViewSetLV, RayonViewSetDV, BeremennayaViewSetLV, 
     DoctorViewSetDV, NovorojdenniyViewSetLV, NovorojdenniyViewSetDV, NapravlenieViewSetLV, NapravlenieViewSetDV, \
     KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV, \
     AnketaViewSetLV, AnketaViewSetDV, BeremennayaViewSetLV2, AnketaViewSetLV2, NapravlenieViewSetLV2, \
-    KonsultaciayaViewSetLV2
+    KonsultaciayaViewSetLV2, SmenaJKViewSetLV2
 from apps.core.views import home, sbor_znachenii_spravocnix_tabliz, vhod, vihod, loginpage
 
 urlpatterns = [
@@ -28,8 +28,9 @@ urlpatterns = [
     path('api/konsultaciaya/<int:pk>', KonsultaciayaViewSetDV.as_view(), name='konsultaciaya_dv'),
     path('api/mkb10/', MKB10ViewSetLV.as_view()),
     path('api/mkb10/<int:pk>', MKB10ViewSetDV.as_view()),
-    path('api/smenaJK/', SmenaJKViewSetLV.as_view()),
-    path('api/smenaJK/<int:pk>', SmenaJKViewSetDV.as_view()),
+    path('api/smenaJK/post', SmenaJKViewSetLV2.as_view(), name='smenaJK_lv_post'),
+    path('api/smenaJK/', SmenaJKViewSetLV.as_view(), name='smenaJK_lv'),
+    path('api/smenaJK/<int:pk>', SmenaJKViewSetDV.as_view(), name='smenaJK_dv'),
     path('api/anketa/post', AnketaViewSetLV2.as_view(), name='anketa_lv_post'),
     path('api/anketa/', AnketaViewSetLV.as_view(), name='anketa_lv'),
     path('api/anketa/<int:pk>', AnketaViewSetDV.as_view(), name='anketa_dv'),

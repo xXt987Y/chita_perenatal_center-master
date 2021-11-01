@@ -702,3 +702,136 @@ $(function () {
 });
 
 let KONSULTACIAYA_ID = null;
+
+class SmenaJK {
+    URL = 'api/smenaJK/'
+    HEADERS = {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    };
+
+    getList = async function (params) {
+        const url = this.URl;
+        Object.keys(params).forEach(key => url.searchParams.append(key, params[key]))
+        const self = this;
+        const response = await fetch(
+            self.url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    getDetail = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin",
+
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    create = async function (data) {
+        let self = this;
+        const response = await fetch(
+            self.URL + 'post',
+            {
+                method: 'post',
+                body: data,
+                headers: self.HEADERS,
+                credentials: 'same-origin',
+                mode: 'same-origin'
+            }
+        )
+        if (response.status === 200) {
+
+            alert('Добавление прошло успешно');
+            return await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+   update = async function (id, data) {
+        const self = this;
+        const url = `${self.URL}${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'post',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            alert('Изменение прошло успешно');
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    delete = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'delete',
+                headers: self.HEADERS,
+                body: data,
+                credentials: "same-origin"
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+
+
+    pareseFormToData($form) {
+        return get_featxh_data($form);
+    }
+}
+
+$(function () {
+    $('.smena_jk').submit(function (e) {
+        e.preventDefault()
+        let smenaJK = new SmenaJK();
+        const data = smenaJK.pareseFormToData($(this));
+        if (SmenaJK_ID) {
+            smenaJK.update(SmenaJK_ID, data);
+        } else {
+            smenaJK.create(data);
+        }
+
+    });
+});
+
+let SmenaJK_ID = null;
