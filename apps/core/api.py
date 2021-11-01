@@ -360,8 +360,6 @@ class SmenaJKViewSetLV2(APIView):
     def post(self, request):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
-            serializer.validated_data['otpravitel'] = request.user.polzovatel
-
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

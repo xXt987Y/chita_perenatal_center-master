@@ -143,41 +143,42 @@
             this.on_close();
         }
 
-               open2(id) {
-            this.$window.find(`#id_nomer_beremennoy option[value="${id}"]`).prop('selected', true);
-            this.$window.jqxWindow('open');
-        }
-
-        {#open(id = 0) {#}
-        {#    let self = this;#}
-        {#    if (id) {#}
-        {#          SmenaJK_ID = id;#}
-        {#        fetch(`/api/smenaJK/${id}`).then(function (response) {#}
-        {#            if (response.ok) {#}
-        {#                response.json().then(function (data) {#}
-        {#                    self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);#}
-        {#                    self.$window.jqxWindow('open');#}
-        {#                    self.$window.jqxWindow('bringToFront');#}
-                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
-        {#                    let url = '{% url 'smenaJK_lv' %}';#}
-        {#                    $('.smena_jk').attr('action', `${url}${id}`);#}
-        {#                }).catch(function () {#}
-        {#                    $('.smena_jk').action(url)#}
-        {#                    alert('Не могу получить JSON ');#}
-        {#                })#}
-        {##}
-        {#            } else {#}
-        {#                alert('Не могу получить данные');#}
-        {#            }#}
-        {#        })#}
-        {##}
-        {#    } else {#}
-        {##}
-        {#        let url = '{% url 'smenaJK_lv' %}';#}
-        {#        $('.smena_jk').action(url)#}
-        {#    }#}
-        {##}
+        {#       open2(id) {#}
+        {#    this.$window.find(`#id_nomer_beremennoy option[value="${id}"]`).prop('selected', true);#}
+        {#    this.$window.jqxWindow('open');#}
         {# } #}
+
+        open(id) {
+            let self = this;
+            if (id) {
+                  SmenaJK_ID = id;
+                fetch(`/api/smenaJK/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                           self.$window.jqxWindow('open');
+                            self.$window.jqxWindow('bringToFront');
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            let url = '{% url 'konsultaciaya_lv' %}';
+                            $('.smena_jk').attr('action', `${url}${id}`);
+                        }).catch(function () {
+                            $('.smena_jk').action(url)
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            } else {
+
+                let url = '{% url 'konsultaciaya_lv' %}';
+                $('.smena_jk').action(url)
+            }
+
+        }
 
         on_close() {
             let self = this;
