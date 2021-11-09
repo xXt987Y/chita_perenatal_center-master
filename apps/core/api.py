@@ -5,9 +5,10 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravlenie, Konsultaciaya, MKB10, \
-    Smena_JK_u_beremennoy, Anketa, ROL
+    Smena_JK_u_beremennoy, Anketa, ROL, Otchety
 from apps.core.serializers import RayonSerializer, BeremennayaSerializer, DoctorSerializer, NovorojdenniySerializer, \
-    NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer, SmenaJKSerializer, AnketaSerializer
+    NapravlenieSerializer, KonsultaciayaSerializer, MKB10Serializer, SmenaJKSerializer, AnketaSerializer, \
+    OtchetySerializer
 
 
 # class RayonViewSet(viewsets.ModelViewSet):
@@ -90,7 +91,6 @@ class BeremennayaViewSetLV(APIView):
 
 
 class BeremennayaViewSetDV(APIView):
-    authentication_classes = []
     serializer_class = BeremennayaSerializer
 
     def post(self, request, pk):
@@ -213,6 +213,15 @@ class KonsultaciayaViewSetLV(APIView):
 
 
 class KonsultaciayaViewSetDV(APIView):
+    serializer_class = KonsultaciayaSerializer
+
+    def post(self, request, pk):
+        konsultaciaya = get_object_or_404(Konsultaciaya, pk=pk)
+        serializer = self.serializer_class(data=request.data, instance=konsultaciaya)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, pk):
         konsultaciaya = Konsultaciaya.objects.get(pk=pk)
@@ -298,7 +307,6 @@ class AnketaViewSetLV(APIView):
 
 
 class AnketaViewSetDV(APIView):
-    authentication_classes = []
     serializer_class = AnketaSerializer
 
     def post(self, request, pk):
@@ -316,7 +324,6 @@ class AnketaViewSetDV(APIView):
 
 
 class AnketaViewSetLV2(APIView):
-    authentication_classes = []
     serializer_class = AnketaSerializer
 
     def post(self, request):
@@ -329,7 +336,6 @@ class AnketaViewSetLV2(APIView):
 
 
 class NapravlenieViewSetLV2(APIView):
-    authentication_classes = []
     serializer_class = NapravlenieSerializer
 
     def post(self, request):
@@ -363,3 +369,39 @@ class SmenaJKViewSetLV2(APIView):
             serializer.save()
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class NovorojdenniyViewSetLV2(APIView):
+    serializer_class = NovorojdenniySerializer
+
+    def post(self, request):
+        self.authentication_classes = []
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class OtchetyViewSetLV(APIView):
+
+    def get(self, request):
+        or_condition = Q()
+
+        spisok_polei = list(map(lambda x: x.attname, Doctor._meta.fields))
+        for key, value in dict(request.query_params).items():
+            if key in spisok_polei:
+                tmp_key = f'{key}__contains'
+                or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
+
+        otchety = Otchety.objects.filter(or_condition)
+
+        serializer = OtchetySerializer(otchety, many=True)
+        return Response(serializer.data)
+
+
+class OtchetyViewSetDV(APIView):
+
+    def get(self, request, pk):
+        otchety = Otchety.objects.get(pk=pk)
+        serializer = OtchetySerializer(otchety, many=False)
+        return Response(serializer.data)

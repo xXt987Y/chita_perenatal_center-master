@@ -1,29 +1,27 @@
 {% if user.polzovatel.rol == 1 or user.polzovatel.rol == 2 or user.polzovatel.rol == 3 %}
-<button class="topmenu menubtn" id="btn_open_window_novorojdenniy">Запрос на перевод</button>
+    <div class="topmenu menubtn" id="btn_open_window_novorojdenniy"
+            style=" position: relative;  left: 45%;  margin-bottom: 1px;">Новый новорожденный
+    </div>
 {% endif %}
 <script>
 
     class BtnWindowNovorojdenniy {
-        constructor($btn_open_window_novorojdenniy, $window, obj_zapros_na_perevod) {
+        constructor($btn_open_window_novorojdenniy, $window) {
             this.$btn = $btn_open_window_novorojdenniy;
             this.$window = $window;
-            this.obj_zapros_na_perevod = obj_zapros_na_perevod;
             this.on_click_toogle_btn();
 
         }
 
-        on_click_toogle_btn(event) {
+        on_click_toogle_btn() {
             let self = this;
             this.$btn.click(function () {
                     let tgl = self.$window.jqxWindow('isOpen');
-                    let rowindexes = $('.tabliza_beremennaya').jqxGrid('getselectedrowindexes');
-                    let data = $('.tabliza_beremennaya').jqxGrid('getrowdatabyid', rowindexes);
-                    let sr = data.id;
                     if (tgl === false) {
                         document.getElementById("btn_open_window_novorojdenniy").classList.remove('menubtn');
                         document.getElementById("btn_open_window_novorojdenniy").classList.add('menubtn_toggle');
-                        $obj_zapros_na_perevod.open2(data.id);
-
+                        self.$window.jqxWindow('open');
+                        self.$window.jqxWindow('bringToFront');
                     } else {
                         document.getElementById("btn_open_window_novorojdenniy").classList.remove('menubtn_toggle');
                         document.getElementById("btn_open_window_novorojdenniy").classList.add('menubtn');
@@ -33,15 +31,14 @@
             )
             ;
         }
-
     }
 
     $btn_open_window_novorojdenniy = $('#btn_open_window_novorojdenniy')
     $(function () {
-        new BtnWindowNovorojdenniy($btn_open_window_novorojdenniy, $window_zapros_na_perevod);
+        new BtnWindowNovorojdenniy($btn_open_window_novorojdenniy, $window_novorojdenniy);
     })
     $(function () {
-        $window_zapros_na_perevod.on('close', function (event) {
+        $window_novorojdenniy.on('close', function (event) {
             document.getElementById("btn_open_window_novorojdenniy").classList.remove('menubtn_toggle');
             document.getElementById("btn_open_window_novorojdenniy").classList.add('menubtn');
         });

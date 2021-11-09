@@ -77,6 +77,8 @@ def home(request):
     konsultaciaya_form = KonsultaciayaForm(label_suffix='')
     napravlenie_form = NapravlenieForm(label_suffix='')
     smena_jk_form = SmenaJKForm(label_suffix='')
+    novorojdenniy_form = NovorojdenniyForm(label_suffix='')
+
 
     return render(request, "home.html", {
         'form': form,
@@ -107,6 +109,7 @@ def home(request):
         'konsultaciaya_form': konsultaciaya_form,
         'napravlenie_form': napravlenie_form,
         'smena_jk_form': smena_jk_form,
+        'novorojdenniy_form': novorojdenniy_form,
     })
 
 

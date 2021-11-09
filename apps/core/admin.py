@@ -1,7 +1,5 @@
 from django.contrib import admin
-from import_export import resources, widgets
 from import_export.admin import ImportExportModelAdmin
-from import_export.fields import Field
 
 from apps.core.models import Rayon, UrovenMedObsluzivaniya, TipOrganizacii, MedOrganizacia, Polzovateli, Doctor, \
     MKB10, Autorecomendacii, StepenRiska, SemeynoePolojenie, GeneticheskieFaktori, MenstrualnayaFunkciya, Besplodie, \
@@ -13,8 +11,17 @@ from apps.core.models import Rayon, UrovenMedObsluzivaniya, TipOrganizacii, MedO
     NepravilnoePolojeniePloda, Mnogoplodie, PredlejaniePlacenti, UrovenPappa, UrovenBetaHgch, \
     NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, Anketa, MestoIshoda, StepenRiskaPosleIshoda, GibelPloda, \
     IshodBeremennosti, KesarevoSechenie1, KesarevoSechenie2, KesarevoSechenie3, Ishod, SmertNovorojdennogo, \
-    Novorojdenniy, CelNapravleniya, Napravlenie, Konsultaciaya, Smena_JK_u_beremennoy, VesaDliaOzenkiStepeniRiska
+    Novorojdenniy, CelNapravleniya, Napravlenie, Konsultaciaya, Smena_JK_u_beremennoy, VesaDliaOzenkiStepeniRiska,\
+    Otchety
 
+class OtchetyModelAdmin(ImportExportModelAdmin):
+    list_display = ["kod_otcheta", "nazvanie_otcheta", "tip_otcheta"]
+
+    class Meta:
+        model = Otchety
+
+
+admin.site.register(Otchety, OtchetyModelAdmin)
 
 class RayonModelAdmin(ImportExportModelAdmin):
     search_fields = ['id', 'nazvanie', 'korotkoe_nazvanie']
@@ -39,10 +46,6 @@ class UrovenMedObsluzivaniyaModelAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(UrovenMedObsluzivaniya, UrovenMedObsluzivaniyaModelAdmin)
-
-
-
-
 
 
 class TipOrganizaciiModelAdmin(ImportExportModelAdmin):
@@ -70,8 +73,6 @@ class MedOrganizaciaModelAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(MedOrganizacia, MedOrganizaciaModelAdmin)
-
-
 
 
 class PolzovateliModelAdmin(ImportExportModelAdmin):
@@ -659,8 +660,6 @@ class VesaDliaOzenkiStepeniRiskaAdmin(ImportExportModelAdmin):
     save_on_top = True
     save_as = True
     list_display = ["id", "model_gde_smotret", "stolbez_gde_smotret", "get_znachenie", 'ozenka']
-
-
 
 
 admin.site.register(VesaDliaOzenkiStepeniRiska, VesaDliaOzenkiStepeniRiskaAdmin)

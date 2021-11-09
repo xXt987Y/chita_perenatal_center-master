@@ -66,12 +66,6 @@
         outline: none;
     }
 
-    .window_smenaJK .save_smena_jk {
-        position: relative;
-        left: 43%;
-        width: 200px;
-        margin: 3px;
-    }
 
     .window_smenaJK .default {
         align-items: center;
@@ -88,27 +82,25 @@
         margin: 0;
     }
 
+    .window_smenaJK  .jqx-tabs-content-element {
+        overflow: hidden;
+    }
+
 
 </style>
+
 <div class="window_smenaJK">
     <div style="overflow: hidden; padding: 0;" class="tab_smenaJK">
-        <ul>
+ <ul>
             <li></li>
         </ul>
-        <div class="tab_beremennya_smena_jk">
-            <form id="smena_jk" class="smena_jk" action="{% url 'home' %}" method="post">
-                {% csrf_token %}
-
-
-                {{ smena_jk_form.as_p }}
-
-                <div style="position: sticky; bottom: 0;" class="default">
-                    <button class="menubtn save_smena_jk" type="submit">Сохранить</button>
-                </div>
-            </form>
-        </div>
+        <div>
+            {% include 'partical/smenaJK/tabliza_smenaJK.html' %}</div>
     </div>
 </div>
+
+
+
 
 <script>
 
@@ -122,10 +114,10 @@
                 position: {x: '15%', y: '10%'},
                 maxHeight: 1000,
                 maxWidth: 2200,
-                minHeight: 200,
+                minHeight: 400,
                 minWidth: 700,
                 theme: 'arctic',
-                height: 295,
+                height: 500,
                 width: 1200,
                 title: 'Смена ЖК',
                 autoOpen: false,
@@ -148,37 +140,37 @@
         {#    this.$window.jqxWindow('open');#}
         {# } #}
 
-        open(id) {
-            let self = this;
-            if (id) {
-                  SmenaJK_ID = id;
-                fetch(`/api/smenaJK/${id}`).then(function (response) {
-                    if (response.ok) {
-                        response.json().then(function (data) {
-                            self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
+        {#open(id) {#}
+        {#    let self = this;#}
+        {#    if (id) {#}
+        {#          SmenaJK_ID = id;#}
+        {#        fetch(`/api/smenaJK/${id}`).then(function (response) {#}
+        {#            if (response.ok) {#}
+        {#                response.json().then(function (data) {#}
+        {#                    self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);#}
                             {#если есть id - значит редачим. Если редачим значить есть url+id#}
-                           self.$window.jqxWindow('open');
-                            self.$window.jqxWindow('bringToFront');
+        {#                   self.$window.jqxWindow('open');#}
+        {#                    self.$window.jqxWindow('bringToFront');#}
                             {#если есть id - значит редачим. Если редачим значить есть url+id#}
-                            let url = '{% url 'konsultaciaya_lv' %}';
-                            $('.smena_jk').attr('action', `${url}${id}`);
-                        }).catch(function () {
-                            $('.smena_jk').action(url)
-                            alert('Не могу получить JSON ');
-                        })
-
-                    } else {
-                        alert('Не могу получить данные');
-                    }
-                })
-
-            } else {
-
-                let url = '{% url 'konsultaciaya_lv' %}';
-                $('.smena_jk').action(url)
-            }
-
-        }
+        {#                    let url = '{% url 'konsultaciaya_lv' %}';#}
+        {#                    $('.smena_jk').attr('action', `${url}${id}`);#}
+        {#                }).catch(function () {#}
+        {#                    $('.smena_jk').action(url)#}
+        {#                    alert('Не могу получить JSON ');#}
+        {#                })#}
+        {##}
+        {#            } else {#}
+        {#                alert('Не могу получить данные');#}
+        {#            }#}
+        {#        })#}
+        {##}
+        {#    } else {#}
+        {##}
+        {#        let url = '{% url 'konsultaciaya_lv' %}';#}
+        {#        $('.smena_jk').action(url)#}
+        {#    }#}
+        {##}
+        {# } #}
 
         on_close() {
             let self = this;

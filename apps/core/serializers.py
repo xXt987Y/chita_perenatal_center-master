@@ -9,7 +9,7 @@ from apps.core.models import Rayon, Beremennaya, Doctor, Novorojdenniy, Napravle
     FetoplacentarnayaNedostatochnost, RezusSensibilizaciya, Preeklampsiya, PredlejaniePlacenti, UrovenPappa, \
     UrovenBetaHgch, NalichieVprPoRezultatamUzi, ObsheeSostoyaniePloda, MestoIshoda, GibelPloda, IshodBeremennosti, \
     CelNapravleniya, SmertNovorojdennogo, KesarevoSechenie3, KesarevoSechenie2, KesarevoSechenie1, Anketa, \
-    StepenRiskaPosleIshoda
+    StepenRiskaPosleIshoda, Otchety
 
 
 class RayonSerializer(serializers.ModelSerializer):
@@ -284,12 +284,11 @@ class BeremennayaSerializer(serializers.ModelSerializer):
     stepen_riska_title = serializers.SerializerMethodField()
     jk_beremennoy_title = serializers.SerializerMethodField()
     data_vzyatiya_str = serializers.SerializerMethodField()
-
+    data_rojdeniya_str = serializers.SerializerMethodField()
 
     def get_stepen_riska_title(self, obj):
         if obj.stepen_riska:
             return obj.stepen_riska.nazvanie
-
 
     def get_jk_beremennoy_title(self, obj):
         if obj.jk_beremennoy:
@@ -298,6 +297,10 @@ class BeremennayaSerializer(serializers.ModelSerializer):
     def get_data_vzyatiya_str(self, obj):
         if obj.data_vzyatiya:
             return obj.data_vzyatiya.strftime("%d.%m.%Y")
+
+    def get_data_rojdeniya_str(self, obj):
+        if obj.data_rojdeniya:
+            return obj.data_rojdeniya.strftime("%d.%m.%Y")
 
 
 class DoctorSerializer(serializers.ModelSerializer):
@@ -363,6 +366,11 @@ class KonsultaciayaSerializer(serializers.ModelSerializer):
 class MKB10Serializer(serializers.ModelSerializer):
     class Meta:
         model = MKB10
+        fields = '__all__'
+
+class OtchetySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Otchety
         fields = '__all__'
 
 

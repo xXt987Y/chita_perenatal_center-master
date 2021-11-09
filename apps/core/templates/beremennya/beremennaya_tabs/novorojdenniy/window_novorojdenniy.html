@@ -1,21 +1,29 @@
 <style>
-    .noviy_novorojdenniy .jqx-tabs-headerWrapper {
+    .window_konsultaciya .jqx-tabs-headerWrapper {
         display: none;
     }
 
-    .noviy_novorojdenniy .jqx-window-header {
+    .window_konsultaciya .jqx-window-header {
         height: 16px;
         padding: 7px;
     }
 
+    .window_novorojdenniy .FixP {
+        width: 60%;
 
-    .noviy_novorojdenniy .FixP label {
+    }
+
+    .window_novorojdenniy .FixP label {
 
         width: auto;
 
     }
 
-    .noviy_novorojdenniy p {
+    .window_novorojdenniy .doptext {
+        margin: 7px 5px 7px 0;
+    }
+
+    .window_novorojdenniy p {
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
         float: left;
@@ -23,15 +31,15 @@
         display: inline-flex;
     }
 
-    .noviy_novorojdenniy label {
+    .window_novorojdenniy label {
         margin: 7px 5px 7px 0;
-        width: 40%;
+        width: 50%;
         float: left;
         text-align: right;
         height: auto;
     }
 
-    .noviy_novorojdenniy select {
+    .window_novorojdenniy select {
         margin: 4px 3px 4px 3px;
         width: 250px;
         height: 20px;
@@ -40,7 +48,7 @@
         border-radius: 4px;
     }
 
-    .noviy_novorojdenniy input [type="text"] {
+    .window_novorojdenniy input [type="text"] {
         width: 245px !important;
     }
 
@@ -52,7 +60,7 @@
         border-radius: 4px
     }
 
-    .noviy_novorojdenniy input[type="checkbox"] {
+    .window_novorojdenniy input[type="checkbox"] {
         width: 16px;
         height: 16px;
         margin: 7px 5px 7px 0;
@@ -66,14 +74,14 @@
         outline: none;
     }
 
-    .noviy_novorojdenniy .SaveNovorojdenniy {
+    .window_novorojdenniy .SaveNovorojdenniy {
         position: relative;
-        left: 40%;
+        left: 43%;
         width: 200px;
         margin: 3px;
     }
 
-    .noviy_novorojdenniy .default {
+    .window_novorojdenniy .default {
         align-items: center;
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
@@ -83,7 +91,7 @@
     }
 
 
-    .noviy_novorojdenniy .text {
+    .window_novorojdenniy .text {
         width: 40%;
         float: left;
         text-align: right;
@@ -91,13 +99,13 @@
         margin: 7px 5px 7px 0;
     }
 
-    .noviy_novorojdenniy .doptext {
+    .window_novorojdenniy .doptext {
         float: right;
         text-align: left;
         margin-left: 2px;
     }
 
-    .noviy_novorojdenniy h3 {
+    .window_novorojdenniy h3 {
         font-style: italic;
         text-align: center;
         margin: 0;
@@ -105,36 +113,43 @@
 
 
 </style>
+
 <div class="window_novorojdenniy">
     <form style="padding: 0;" class="noviy_novorojdenniy" action="{% url 'home' %}" method="post">
         {% csrf_token %}
 
-        {{ beremennayao_novorojdenniy_plod_form.as_p }}
+        {{ novorojdenniy_form.as_p }}
 
         <div style="position: sticky; bottom: 0;" class="default">
-            <button class="SaveNovorojdenniy menubtn " type="submit">Перевести</button>
+            <button class="SaveNovorojdenniy menubtn " type="submit">Сохранить</button>
         </div>
     </form>
 </div>
 
 <script>
 
-    class WindowNovorojdenniy{
+    class WindowNovorojdenniy {
         constructor($window_novorojdenniy, $btn_open_window_novorojdenniy) {
             let self = this;
             this.$window = $window_novorojdenniy;
             this.$btn_open_window = $btn_open_window_novorojdenniy;
             this.$window.jqxWindow({
                 position: {x: '15%', y: '10%'},
+                maxHeight: 1000,
+                maxWidth: 2200,
+                minHeight: 400,
+                minWidth: 700,
                 theme: 'arctic',
+                height: 400,
                 width: '50%',
-                height: 290,
-                title: 'Запрос на перевод',
+                title: 'Новый Новорожденный',
                 autoOpen: false,
                 resizable: true,
-                draggable: true
+                draggable: true,
             });
+
             this.on_close();
+
         }
 
         open2(id) {
@@ -142,6 +157,45 @@
             this.$window.jqxWindow('open');
         }
 
+        open(id = 0) {
+            let self = this;
+            if (id) {
+                  NAPRAVLENIE_ID = id;
+                fetch(`/api/napravlenie/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
+                            self.$window.find('#id_nomer_novorojdennogo').val(data['nomer_novorojdennogo']);
+                            self.$window.find('#id_pol_novorojdennogo').val(data['pol_novorojdennogo']);
+                            self.$window.find('#id_ves_novorojdennogo').val(data['ves_novorojdennogo']);
+                            self.$window.find('#id_rost_novorojdennogo').val(data['rost_novorojdennogo']);
+                            self.$window.find('#id_ocenka_po_shkale_apgar_na1_min').val(data['ocenka_po_shkale_apgar_na1_min']);
+                            self.$window.find('#id_ocenka_po_shkale_apgar_na5_min').val(data['ocenka_po_shkale_apgar_na5_min']);
+                            self.$window.find('#id_vpr_novorojdennogo_po_mkb10').val(data['vpr_novorojdennogo_po_mkb10']);
+                            self.$window.find('#id_smert_novorojdennogo').val(data['smert_novorojdennogo']);
+                            self.$window.find('#id_prichina_smerti_materi_po_mkb10').val(data['prichina_smerti_materi_po_mkb10']);
+                            self.$window.jqxWindow('open');
+                            self.$window.jqxWindow('bringToFront');
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            let url = '{% url 'novorojdenniy_lv' %}';
+                            $('.noviy_novorojdenniy').attr('action', `${url}${id}`);
+                        }).catch(function () {
+                            $('.noviy_novorojdenniy').action(url)
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            } else {
+
+                let url = '{% url 'novorojdenniy_lv' %}';
+                $('.noviy_novorojdenniy').action(url)
+            }
+
+        }
 
         on_close() {
             let self = this;

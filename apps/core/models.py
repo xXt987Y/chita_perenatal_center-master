@@ -40,6 +40,10 @@ STEPENI_RISKA = (
     ('средняя', 'средняя'),
     ('высокая', 'высокая'),
 )
+TIP_OTCHETA = (
+    ('по текущим', 'по текущим'),
+    ('по завершенным', 'по завершенным'),
+)
 
 
 class ROL:
@@ -1303,3 +1307,16 @@ class VesaDliaOzenkiStepeniRiska(models.Model):
 
     def __str__(self):
         return f'{self.model_gde_smotret} - {self.stolbez_gde_smotret}'
+
+
+class Otchety(models.Model):
+    class Meta:
+        verbose_name = 'Отчеты'
+        verbose_name_plural = '-Отчеты-'
+
+    kod_otcheta = models.CharField('Код', max_length=255, null=True, blank=True)
+    nazvanie_otcheta = models.CharField('Наименование', max_length=255)
+    tip_otcheta = models.CharField('Тип', choices=TIP_OTCHETA, max_length=255)
+
+    def __str__(self):
+        return str(self.kod_otcheta)

@@ -56,9 +56,10 @@
                 {name: 'nomer', type: 'number'},
                 {name: 'fio', type: 'string'},
                 {name: 'otpravitel_title', type: 'string'},
-                {name: 'data_vzyatiya_str', type: 'date'},
+                {name: 'data_rojdeniya_str', type: 'date'},
                 {name: 'nomer_oms', type: 'number'},
-                {name: 'jk_beremennoy_title', type: 'string'}
+                {name: 'jk_beremennoy_title', type: 'string'},
+                {name: 'stepen_riska_title', type: 'string'}
             ]
         }
 
@@ -98,8 +99,8 @@
                 },
 
                 {
-                    text: 'Учет с',
-                    datafield: 'data_vzyatiya_str',
+                    text: 'Дата рождения',
+                    datafield: 'data_rojdeniya_str',
                     align: 'center',
                     cellsalign: 'center',
                     width: '10%',
@@ -112,7 +113,15 @@
                     datafield: 'jk_beremennoy_title',
                     align: 'center',
                     cellsalign: 'left',
-                    width: '45%',
+                    width: '35%',
+
+                },
+                {
+                    text: 'Степень риска',
+                    datafield: 'stepen_riska_title',
+                    align: 'center',
+                    cellsalign: 'left',
+                    width: '10%',
 
                 },
             ];
@@ -146,8 +155,95 @@
 
     }
 
+
     let $tabliza_beremennaya = $('.tabliza_beremennaya');
     $(document).ready(function () {
         new TablizaBeremennaya($tabliza_beremennaya, obj_window_beremennya);
     });
+
+
+    $(".tabliza_beremennaya").on("filter", function (event) {
+        // event arguments.
+        var args = event.args;
+        console.log(args);
+        // page number.
+        var pagenum = args.pagenum;
+        // page size.
+        var pagesize = args.pagesize;
+        // sorting information.
+        var sortInfo = event.args.sortinformation;
+        console.log(args.owner.pagesize);
+        var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+        console.log(paginginformation.pagenum);
+        console.log(args.owner.sortcolumn);
+        console.log(args.owner.sortcolumns);
+        console.log(args.owner.sortdirection);
+        console.log(args.owner.sortdirection);
+        var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+        console.log(filterinfo)
+
+        getDetail = async function (id) {
+        const self = this;
+        const url = `${self.URL}/${id}`;
+
+        const response = await fetch(
+            url,
+            {
+                method: 'get',
+                headers: self.HEADERS,
+                credentials: "same-origin",
+
+            }
+        )
+        if (response.status === 200) {
+            await response.json();
+        } else {
+            const text = await response.text();
+        }
+    }
+
+    });
+
+    $(".tabliza_beremennaya").on("pagechanged", function (event) {
+        // event arguments.
+        var args = event.args;
+        console.log(args);
+        // page number.
+        var pagenum = args.pagenum;
+        // page size.
+        var pagesize = args.pagesize;
+        // sorting information.
+        var sortInfo = event.args.sortinformation;
+        console.log(args.owner.pagesize);
+        console.log(pagenum);
+        console.log(args.owner.sortcolumn);
+        console.log(args.owner.sortcolumns);
+        console.log(args.owner.sortdirection);
+        console.log(args.owner.sortdirection);
+        var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+        console.log(filterinfo)
+    });
+
+    $(".tabliza_beremennaya").on("sort", function (event) {
+        // event arguments.
+        var args = event.args;
+        console.log(args);
+        // page number.
+        var pagenum = args.pagenum;
+        // page size.
+        var pagesize = args.pagesize;
+        // sorting information.
+        var sortInfo = event.args.sortinformation;
+        console.log(args.owner.pagesize);
+        var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+        console.log(paginginformation.pagenum);
+        console.log(args.owner.sortcolumn);
+        console.log(args.owner.sortcolumns);
+        console.log(args.owner.sortdirection);
+        console.log(args.owner.sortdirection);
+        var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+        console.log(filterinfo)
+    });
+
+
 </script>

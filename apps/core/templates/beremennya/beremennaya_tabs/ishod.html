@@ -107,6 +107,9 @@
 
 
 </style>
+
+
+
 <form class="ishod" action="{% url 'home' %}" method="post">
     {% csrf_token %}
 
@@ -220,12 +223,15 @@
 
 
     <h3>Новорожденные</h3>
-    <div class="default">
-        {% include 'beremennya/beremennaya_tabs/novorojdenniy/btn_open_window_novorojdenniy.html' %}
-    </div>
+
     <div class="default">
         <div class="text">Количество новорожденных:</div>
     </div>
+
+    <div class="default novorojd">
+        {% include 'beremennya/beremennaya_tabs/novorojdenniy/btn_open_window_novorojdenniy.html' %}
+    </div>
+
 
     {% include 'beremennya/beremennaya_tabs/tabliza_novorojdenniy.html' %}
 
@@ -236,4 +242,3 @@
         {% endif %}
     </div>
 </form>
-

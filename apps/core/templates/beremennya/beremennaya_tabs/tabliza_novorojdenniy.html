@@ -8,9 +8,9 @@
     'use strict';
 
 
-class TablizaNovorojdenniy {
+    class TablizaNovorojdenniy {
 
-   constructor($grid) {
+        constructor($grid) {
             let self = this;
             this.$grid = $grid;
             this.$grid.jqxGrid(self.nastroiki_grida);
@@ -44,93 +44,93 @@ class TablizaNovorojdenniy {
         }
 
 
-    get fields() {
-        return [
-            {name: 'pol_novorojdennogo_title', type: 'string'},
-            {name: 'ves_novorojdennogo', type: 'string'},
-            {name: 'rost_novorojdennogo', type: 'string'},
-            {name: 'ocenka_po_shkale_apgar_na1_min', type: 'string'},
-            {name: 'ocenka_po_shkale_apgar_na5_min', type: 'string'},
-            {name: 'vpr_novorojdennogo_po_mkb10', type: 'string'},
-            {name: 'smert_novorojdennogo', type: 'string'},
-        ]
+        get fields() {
+            return [
+                {name: 'pol_novorojdennogo_title', type: 'string'},
+                {name: 'ves_novorojdennogo', type: 'string'},
+                {name: 'rost_novorojdennogo', type: 'string'},
+                {name: 'ocenka_po_shkale_apgar_na1_min', type: 'string'},
+                {name: 'ocenka_po_shkale_apgar_na5_min', type: 'string'},
+                {name: 'vpr_novorojdennogo_po_mkb10', type: 'string'},
+                {name: 'smert_novorojdennogo', type: 'string'},
+            ]
+        }
+
+        get colums() {
+            return [
+                {
+                    text: 'Пол',
+                    datafield: 'pol_novorojdennogo_title',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "14%",
+
+                },
+                {
+                    text: 'Вес',
+                    datafield: 'ves_novorojdennogo',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "14%",
+
+                },
+                {
+                    text: 'Рост',
+                    datafield: 'rost_novorojdennogo',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "14%",
+
+                },
+                {
+                    text: 'Оценка по шкале АПГАР на 1 минуту',
+                    datafield: 'ocenka_po_shkale_apgar_na1_min',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "14%",
+
+                },
+                {
+                    text: 'Оценка по шкале АПГАР на 5 минут',
+                    datafield: 'ocenka_po_shkale_apgar_na5_min',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "14%",
+
+                },
+                {
+                    text: 'ВПР новорожденного (код по МКБ-10)',
+                    datafield: 'vpr_novorojdennogo_po_mkb10',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "14%",
+
+                },
+                {
+                    text: 'Смерть новорожденного',
+                    datafield: 'smert_novorojdennogo',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: "16%",
+
+                },
+            ];
+        }
+
+        get data_adapter() {
+
+            return new $.jqx.dataAdapter({
+                datatype: "json",
+                data: 'data',
+                url: '/api/novorojdenniy/',
+                datafields: this.fields,
+                sortcolumn: 'id',
+                sortdirection: 'desc'
+            });
+        }
     }
 
-    get colums() {
-        return [
-            {
-                text: 'Пол',
-                datafield: 'pol_novorojdennogo_title',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-            {
-                text: 'Вес',
-                datafield: 'ves_novorojdennogo',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-            {
-                text: 'Рост',
-                datafield: 'rost_novorojdennogo',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-            {
-                text: 'Оценка по шкале АПГАР на 1 минуту',
-                datafield: 'ocenka_po_shkale_apgar_na1_min',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-            {
-                text: 'Оценка по шкале АПГАР на 5 минут',
-                datafield: 'ocenka_po_shkale_apgar_na5_min',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-            {
-                text: 'ВПР новорожденного (код по МКБ-10)',
-                datafield: 'vpr_novorojdennogo_po_mkb10',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-            {
-                text: 'Смерть новорожденного',
-                datafield: 'smert_novorojdennogo',
-                align: 'center',
-                cellsalign: 'center',
-                width: '200',
-
-            },
-        ];
-    }
-
-    get data_adapter() {
-
-        return new $.jqx.dataAdapter({
-            datatype: "json",
-            data: 'data',
-            url: '/api/novorojdenniy/',
-            datafields: this.fields,
-            sortcolumn: 'id',
-            sortdirection: 'desc'
-        });
-    }
-}
-
-   let $tabliza_nocorojdenniy = $('.tabliza_novorojdenniy');
+    let $tabliza_nocorojdenniy = $('.tabliza_novorojdenniy');
     $(document).ready(function () {
         new TablizaNovorojdenniy($tabliza_nocorojdenniy);
     });

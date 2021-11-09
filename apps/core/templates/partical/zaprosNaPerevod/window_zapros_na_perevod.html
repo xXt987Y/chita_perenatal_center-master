@@ -1,21 +1,21 @@
 <style>
-    .smena_jk_u_beremennoy_form .jqx-tabs-headerWrapper {
+    .window_zapros_na_perevod .jqx-tabs-headerWrapper {
         display: none;
     }
 
-    .smena_jk_u_beremennoy_form .jqx-window-header {
+    .window_zapros_na_perevod .jqx-window-header {
         height: 16px;
         padding: 7px;
     }
 
-
-    .smena_jk_u_beremennoy_form .FixP label {
+    .window_zapros_na_perevod .FixP label {
 
         width: auto;
 
     }
 
-    .smena_jk_u_beremennoy_form p {
+
+    .window_zapros_na_perevod p {
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
         float: left;
@@ -23,15 +23,15 @@
         display: inline-flex;
     }
 
-    .smena_jk_u_beremennoy_form label {
+    .window_zapros_na_perevod label {
         margin: 7px 5px 7px 0;
-        width: 40%;
+        width: 50%;
         float: left;
         text-align: right;
         height: auto;
     }
 
-    .smena_jk_u_beremennoy_form select {
+    .window_zapros_na_perevod select {
         margin: 4px 3px 4px 3px;
         width: 250px;
         height: 20px;
@@ -40,7 +40,7 @@
         border-radius: 4px;
     }
 
-    .smena_jk_u_beremennoy_form input [type="text"] {
+    .window_zapros_na_perevod input [type="text"] {
         width: 245px !important;
     }
 
@@ -52,28 +52,28 @@
         border-radius: 4px
     }
 
-    .smena_jk_u_beremennoy_form input[type="checkbox"] {
+    .window_zapros_na_perevod input[type="checkbox"] {
         width: 16px;
         height: 16px;
         margin: 7px 5px 7px 0;
         opacity: 1;
         background: -webkit-gradient(linear, 0 0, 0 100%, from(#f8f8f8), to(#eaeaea));
         color: #333333;
-        text-shadow: 0 1px 1px rgb(255 255 255 / 75%);
+        text-shadow: 0 1px 1px rgb(255 255 255);
         border-radius: 4px;
         font-family: Verdana, Arial, sans-serif;
         border: 1px solid transparent;
         outline: none;
     }
 
-    .smena_jk_u_beremennoy_form .SaveSmenaJK {
+    .window_zapros_na_perevod .save_smena_jk {
         position: relative;
-        left: 40%;
+        left: 43%;
         width: 200px;
         margin: 3px;
     }
 
-    .smena_jk_u_beremennoy_form .default {
+    .window_zapros_na_perevod .default {
         align-items: center;
         margin: 1px 0 1px 0;
         background-color: #dee0e2;
@@ -82,22 +82,7 @@
         display: inline-flex;
     }
 
-
-    .smena_jk_u_beremennoy_form .text {
-        width: 40%;
-        float: left;
-        text-align: right;
-        height: auto;
-        margin: 7px 5px 7px 0;
-    }
-
-    .smena_jk_u_beremennoy_form .doptext {
-        float: right;
-        text-align: left;
-        margin-left: 2px;
-    }
-
-    .smena_jk_u_beremennoy_form h3 {
+    .window_zapros_na_perevod h3 {
         font-style: italic;
         text-align: center;
         margin: 0;
@@ -106,15 +91,23 @@
 
 </style>
 <div class="window_zapros_na_perevod">
-    <form style="padding: 0;" class="smena_jk_u_beremennoy_form" action="{% url 'home' %}" method="post">
-        {% csrf_token %}
+    <div style="overflow: hidden; padding: 0;" class="tab_smenaJK">
+        <ul>
+            <li style="display: none"></li>
+        </ul>
+        <div class="tab_beremennya_smena_jk">
+            <form id="smena_jk_u_beremennoy_form" class="smena_jk_u_beremennoy_form" action="{% url 'home' %}"
+                  method="post">
+                {% csrf_token %}
+                {{ smena_jk_form.as_p }}
 
-        {{ smena_jk_form.as_p }}
+                <div style="position: sticky; bottom: 0;" class="default">
+                    <button class="menubtn save_smena_jk" type="submit">Сохранить</button>
+                </div>
+            </form>
 
-        <div style="position: sticky; bottom: 0;" class="default">
-            <button class="SaveSmenaJK menubtn " type="submit">Перевести</button>
         </div>
-    </form>
+    </div>
 </div>
 
 <script>
@@ -131,7 +124,7 @@
                 height: 290,
                 title: 'Запрос на перевод',
                 autoOpen: false,
-                resizable: true,
+                resizable: false,
                 draggable: true
             });
             this.on_close();
@@ -142,6 +135,39 @@
             this.$window.jqxWindow('open');
         }
 
+        open(id = 0) {
+            let self = this;
+            if (id) {
+                SmenaJK_ID = id;
+                fetch(`/api/smenaJK/${id}`).then(function (response) {
+                    if (response.ok) {
+                        response.json().then(function (data) {
+                            self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
+                            self.$window.find('#id_novaya_JK').val(data['novaya_JK']);
+                            self.$window.find('#id_prichina').val(data['prichina']);
+
+                            self.$window.jqxWindow('open');
+                            self.$window.jqxWindow('bringToFront');
+                            {#если есть id - значит редачим. Если редачим значить есть url+id#}
+                            let url = '{% url 'smenaJK_lv' %}';
+                            $('.smena_jk_u_beremennoy_form').attr('action', `${url}${id}`);
+                        }).catch(function () {
+                            $('.smena_jk_u_beremennoy_form').action(url)
+                            alert('Не могу получить JSON ');
+                        })
+
+                    } else {
+                        alert('Не могу получить данные');
+                    }
+                })
+
+            } else {
+
+                let url = '{% url 'smenaJK_lv' %}';
+                $('.smena_jk_u_beremennoy_form').action(url)
+            }
+
+        }
 
         on_close() {
             let self = this;

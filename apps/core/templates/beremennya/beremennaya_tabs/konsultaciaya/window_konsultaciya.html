@@ -130,6 +130,16 @@
                     {{ konsultaciaya_form.nomer_beremennoy }}
                 </div>
 
+                 <div class="default">
+                    {{ konsultaciaya_form.tema.label_tag }}
+                    {{ konsultaciaya_form.tema }}
+                </div>
+
+                 <div class="default">
+                    {{ konsultaciaya_form.soobshenie.label_tag }}
+                    {{ konsultaciaya_form.soobshenie }}
+                </div>
+
                 <div class="default">
                     {{ konsultaciaya_form.zanesena_v_monitoring.label_tag }}
                     {{ konsultaciaya_form.zanesena_v_monitoring }}
@@ -366,6 +376,11 @@
                     {{ konsultaciaya_form.risk_prejdevremennih_rodov }}
                 </div>
 
+                <div class="default">
+                    {{ konsultaciaya_form.prochie.label_tag }}
+                    {{ konsultaciaya_form.prochie }}
+                </div>
+
                 <div style="position: sticky; bottom: 0;" class="default">
                     <button class="menubtn save_konsultaciaya" type="submit">Сохранить</button>
                 </div>
@@ -389,8 +404,8 @@
                 minHeight: 400,
                 minWidth: 700,
                 theme: 'arctic',
-                height: '70%',
-                width: '70%',
+                height: '40%',
+                width: '60%',
                 title: 'Новая Консультация',
                 autoOpen: false,
                 resizable: true,
