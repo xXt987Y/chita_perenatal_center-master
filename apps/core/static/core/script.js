@@ -227,7 +227,7 @@ class Beremenya {
         )
         if (response.status === 200) {
             alert('Добавление прошло успешно');
-             $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
+            $('.tabliza_beremennaya').jqxGrid({source: $('.tabliza_beremennaya').jqxGrid('source')});
             return await response.json();
         } else {
             const text = await response.text();
@@ -368,7 +368,7 @@ class Anketa {
     }
 
 
-   update = async function (id, data) {
+    update = async function (id, data) {
         const self = this;
         const url = `${self.URL}${id}`;
 
@@ -502,7 +502,7 @@ class Napravlenie {
     }
 
 
-   update = async function (id, data) {
+    update = async function (id, data) {
         const self = this;
         const url = `${self.URL}${id}`;
 
@@ -565,7 +565,6 @@ $(function () {
 });
 
 let NAPRAVLENIE_ID = null;
-
 
 
 class Konsultaciaya {
@@ -638,7 +637,7 @@ class Konsultaciaya {
     }
 
 
-   update = async function (id, data) {
+    update = async function (id, data) {
         const self = this;
         const url = `${self.URL}${id}`;
 
@@ -653,7 +652,7 @@ class Konsultaciaya {
         )
         if (response.status === 200) {
             alert('Изменение прошло успешно');
-             $('.tabliza_konsultaciaya').jqxGrid({source: $('.tabliza_konsultaciaya').jqxGrid('source')});
+            $('.tabliza_konsultaciaya').jqxGrid({source: $('.tabliza_konsultaciaya').jqxGrid('source')});
             await response.json();
         } else {
             const text = await response.text();
@@ -679,7 +678,6 @@ class Konsultaciaya {
             const text = await response.text();
         }
     }
-
 
 
     pareseFormToData($form) {
@@ -772,7 +770,7 @@ class SmenaJK {
     }
 
 
-   update = async function (id, data) {
+    update = async function (id, data) {
         const self = this;
         const url = `${self.URL}${id}`;
 
@@ -812,7 +810,6 @@ class SmenaJK {
             const text = await response.text();
         }
     }
-
 
 
     pareseFormToData($form) {
@@ -905,7 +902,7 @@ class Novorojdenniy {
     }
 
 
-   update = async function (id, data) {
+    update = async function (id, data) {
         const self = this;
         const url = `${self.URL}${id}`;
 
@@ -969,3 +966,83 @@ $(function () {
 
 let NOVOROJDENNIY_ID = null;
 
+$(".tabliza_beremennaya").on("filter", function (event) {
+    // event arguments.
+    var args = event.args;
+    // page number.
+    var pagenum = args.pagenum;
+    // page size.
+    var pagesize = args.pagesize;
+    // sorting information.
+    var sortInfo = event.args.sortinformation;
+    var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+    var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+    let sbordannihstranici =
+        [
+            args.owner.pagesize,
+            paginginformation.pagenum,
+            args.owner.sortcolumn,
+            args.owner.sortcolumns,
+            args.owner.sortdirection,
+            filterinfo,
+        ]
+    console.log(sbordannihstranici);
+});
+
+$(".tabliza_beremennaya").on("pagechanged", function (event) {
+    // event arguments.
+    var args = event.args;
+    // page number.
+    var pagenum = args.pagenum;
+    // page size.
+    var pagesize = args.pagesize;
+    // sorting information.
+    var sortInfo = event.args.sortinformation;
+    var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+    var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+    let sbordannihstranici =
+        [
+            args.owner.pagesize,
+            paginginformation.pagenum,
+            args.owner.sortcolumn,
+            args.owner.sortcolumns,
+            args.owner.sortdirection,
+            filterinfo,
+        ]
+    console.log(sbordannihstranici);
+});
+
+$(".tabliza_beremennaya").on("sort", function (event) {
+    // event arguments.
+    var args = event.args;
+    console.log(event.args);
+    // page number.
+    var pagenum = args.pagenum;
+    // page size.
+    var pagesize = args.pagesize;
+    // sorting information.
+    var sortInfo = event.args.sortinformation;
+    var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+    var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+    let sbordannihstranici =
+        [
+            args.owner.pagesize,
+            paginginformation.pagenum,
+            args.owner.sortcolumn,
+            args.owner.sortcolumns,
+            args.owner.sortdirection,
+            filterinfo,
+        ]
+    let sbordannihstranicijson = JSON.stringify(sbordannihstranici);
+    console.log(sbordannihstranici);
+    console.log(sbordannihstranicijson);
+    fetch(`/api/beremennaya/`).then(function (response) {
+                    if (response.ok) {
+                        response.json(sbordannihstranici);
+                        // alert('1');
+                    }
+                    else {
+                        alert('Не могу получить данные');
+                    }
+                });
+});
