@@ -1,0 +1,109 @@
+<div class="default">
+
+    c <input style="width: 150px!important;" type="date" name="calendar">
+    по <input style="width: 150px!important;" type="date" name="calendar">
+    <button class="topmenu menubtn">Сформировать отчет</button>
+</div>
+<div class="h100 tabliza_otchety"></div>
+<script>
+    'use strict';
+
+    class TablizaOtchety {
+
+        constructor($grid) {
+            let self = this;
+            this.$grid = $grid;
+            this.$grid.jqxGrid(self.nastroiki_grida);
+        }
+
+        get nastroiki_grida() {
+            let self = this;
+            return {
+                width: '100%',
+                height: '90%',
+                source: this.data_adapter,
+                columns: this.colums,
+                enabletooltips: true,
+                localization: RUS_LOCALIZ,
+                filterable: true,
+                showtoolbar: true,
+                pageable: true,
+                columnsresize: true,
+                autorowheight: true,
+                scrollmode: 'logical',
+                rowsheight: 40,
+                toolbarheight: 40,
+                theme: 'arctic',
+                altrows: true,
+                sortable: true,
+                showstatusbar: true,
+                statusbarheight: 25,
+                pagesizeoptions: ['5', '10', '30', '50', '100'],
+                pagesize: 30,
+            }
+        }
+
+        get fields() {
+            return [
+                {name: 'kod_otcheta', type: 'string'},
+                // {name: 'data_zaivlenia', type: 'date'},
+                {name: 'nazvanie_otcheta', type: 'string'},
+                // {name: 'razmer_restruc', type: 'number'},
+                {name: 'tip_otcheta', type: 'string'},
+
+            ]
+        }
+
+        get colums() {
+            return [
+                {
+                    text: 'Код',
+                    datafield: 'kod_otcheta',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '5%'
+                },
+
+                {
+                    text: 'Наименование отчета',
+                    datafield: 'nazvanie_otcheta',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '40%',
+
+                },
+
+
+                {
+                    text: 'Тип отчета',
+                    datafield: 'tip_otcheta',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '55%',
+
+                },
+
+            ];
+        }
+
+        get data_adapter() {
+
+            return new $.jqx.dataAdapter({
+                datatype: "json",
+                data: 'data',
+                url: '/api/otchety/',
+                datafields: this.fields,
+                sortcolumn: 'id',
+                sortdirection: 'desc'
+            });
+        }
+
+
+    }
+
+
+    let $tabliza_otchety = $('.tabliza_otchety');
+    $(document).ready(function () {
+        new TablizaOtchety($tabliza_otchety);
+    });
+</script>
