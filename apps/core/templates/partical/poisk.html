@@ -16,7 +16,7 @@
         margin: 2px 0 2px 3px;
     }
 
-    button{
+    button {
         margin: 3px 0 3px 3px;
     }
 </style>
@@ -26,10 +26,10 @@
         <div style=" margin-left: 3px;" class="def_poisk">
             <ul style="list-style-type: none;">
                 <li style="margin-top: 4%;">
-                    <input type="checkbox" class="" id="FIO_Poisk">ФИО</input>
+                    <input type="checkbox" class="" id="FIO_Poisk" checked>ФИО</input>
                 </li>
                 <li>
-                    <input type="checkbox" class="" id="NomerKarty_Poisk">№ Карты</input>
+                    <input type="checkbox" class="" id="NomerKarty_Poisk" checked>№ Карты</input>
                 </li>
                 <li>
                     <input type="checkbox" class="" id="GodOtkrKarty_Poisk">Год открытия карты</input>
@@ -42,10 +42,10 @@
         <div class="def_poisk">
             <ul style="list-style-type: none;">
                 <li style="margin-top: 4%;">
-                    <input type="checkbox" class="" id="OMS_Poisk">ОМС</input>
+                    <input type="checkbox" class="" id="OMS_Poisk" checked>ОМС</input>
                 </li>
                 <li>
-                    <input type="checkbox" class="" id="DataRojd_Poisk">Дата рождения</input>
+                    <input type="checkbox" class="" id="DataRojd_Poisk" checked>Дата рождения</input>
                 </li>
                 <li>
                     <input type="checkbox" class="" id="DataPostNaUchet_Poisk">Дата постановки на учет</input>
@@ -83,7 +83,7 @@
                     <input type="checkbox" class="" id="StRiskaPosleIsh_Poisk">Степень риска после исхода</input>
                 </li>
                 <li>
-                    <input type="checkbox" class="" id="StRiskaBer_Poisk">Степень риска беременности</input>
+                    <input type="checkbox" class="" id="StRiskaBer_Poisk" checked>Степень риска беременности</input>
                 </li>
             </ul>
         </div>
@@ -100,3 +100,181 @@
         </ul>
     </div>
 </div>
+
+<script>
+    $('#OsnovBtn_Poisk').on('click', function () {
+        $('#FIO_Poisk').prop('checked', true);
+        $('#NomerKarty_Poisk').prop('checked', true);
+        $('#OMS_Poisk').prop('checked', true);
+        $('#DataRojd_Poisk').prop('checked', true);
+        $('#StRiskaBer_Poisk').prop('checked', true);
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'fio');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer_oms');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_rojdeniya_str');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'stepen_riska_title');
+    })
+
+    $('#PokazBtn_Poisk').on('click', function () {
+        $('.def_poisk input:checkbox').prop('checked', true);
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'fio');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer_oms');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_rojdeniya_str');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_vzyatiya_str');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'mesto_postoyannogo_projivaniya_title');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'jk_beremennoy_title');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'vrach_title');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_ishoda_str');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'mesto_ishoda_title');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'stepen_riska_posle_ishoda_title');
+        $(".tabliza_beremennaya").jqxGrid('showcolumn', 'stepen_riska_title');
+    })
+
+    $('#UbratBtn_Poisk').on('click', function () {
+        $('.def_poisk input:checkbox').prop('checked', false);
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'fio');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'nomer');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'nomer_oms');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_rojdeniya_str');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_vzyatiya_str');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'mesto_postoyannogo_projivaniya_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'jk_beremennoy_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'vrach_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_ishoda_str');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'mesto_ishoda_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'stepen_riska_posle_ishoda_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'stepen_riska_title');
+    })
+
+
+    $('#FIO_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'fio');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'fio');
+        }
+    })
+
+    $('#NomerKarty_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'nomer');
+        }
+    })
+
+    $('#GodOtkrKarty_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+
+        } else {
+
+        }
+    })
+
+    $('#JKOtkrKarty_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+
+        } else {
+
+        }
+    })
+
+    $('#OMS_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer_oms');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'nomer_oms');
+        }
+    })
+
+    $('#DataRojd_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_rojdeniya_str');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_rojdeniya_str');
+        }
+    })
+
+    $('#DataPostNaUchet_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_vzyatiya_str');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_vzyatiya_str');
+        }
+    })
+
+    $('#MestPostProj_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'mesto_postoyannogo_projivaniya_title');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'mesto_postoyannogo_projivaniya_title');
+        }
+    })
+
+    $('#SrokTekBer_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+
+        } else {
+
+        }
+    })
+
+    $('#SrokPoPoslAnk_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+
+        } else {
+
+        }
+    })
+
+    $('#JKVedBer_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'jk_beremennoy_title');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'jk_beremennoy_title');
+        }
+    })
+
+    $('#FIOUchVr_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'vrach_title');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'vrach_title');
+        }
+    })
+
+    $('#IshodBer_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_ishoda_str');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_ishoda_str');
+        }
+    })
+
+    $('#MestoIshoda_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'mesto_ishoda_title');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'mesto_ishoda_title');
+        }
+    })
+
+    $('#StRiskaPosleIsh_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'stepen_riska_posle_ishoda_title');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'stepen_riska_posle_ishoda_title');
+        }
+    })
+
+    $('#StRiskaBer_Poisk').on('click', function () {
+        if ($(this).is(':checked')) {
+            $(".tabliza_beremennaya").jqxGrid('showcolumn', 'stepen_riska_title');
+        } else {
+            $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'stepen_riska_title');
+        }
+    })
+
+
+</script>

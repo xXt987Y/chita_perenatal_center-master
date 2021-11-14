@@ -59,7 +59,15 @@
                 {name: 'data_rojdeniya_str', type: 'date'},
                 {name: 'nomer_oms', type: 'number'},
                 {name: 'jk_beremennoy_title', type: 'string'},
-                {name: 'stepen_riska_title', type: 'string'}
+                {name: 'stepen_riska_title', type: 'string'},
+                {name: 'data_vzyatiya_str', type: 'date'},
+                {name: 'mesto_postoyannogo_projivaniya_title', type: 'string'},
+                {name: 'jk_beremennoy_title', type: 'string'},
+                {name: 'vrach_title', type: 'string'},
+                {name: 'mesto_ishoda_title', type: 'string'},
+                {name: 'stepen_riska_posle_ishoda_title', type: 'string'},
+                {name: 'data_ishoda_str', type: 'date'},
+
             ]
         }
 
@@ -71,7 +79,8 @@
                     align: 'center',
                     cellsalign: 'center',
                     width: '4%',
-
+                    hidecolumn: 'true',
+                    hidden: true,
                 },
                 {
                     text: 'ОМС',
@@ -113,8 +122,8 @@
                     datafield: 'jk_beremennoy_title',
                     align: 'center',
                     cellsalign: 'left',
-                    width: '35%',
-
+                    width: '10%',
+                    hidden: true,
                 },
                 {
                     text: 'Степень риска',
@@ -123,6 +132,64 @@
                     cellsalign: 'left',
                     width: '10%',
 
+                },
+                {
+                    text: 'Дата постановки на учет',
+                    datafield: 'data_vzyatiya_str',
+                    align: 'center',
+                    cellsalign: 'left',
+                    width: '15%',
+                    cellsformat: 'dd.mm.yyyy',
+                    hidden: true,
+                },
+                {
+                    text: 'Место постоянного проживания',
+                    datafield: 'mesto_postoyannogo_projivaniya_title',
+                    align: 'center',
+                    cellsalign: 'left',
+                    width: '10%',
+                    hidden: true,
+                },
+                {#{#}
+                {#    text: 'Жк ведущая беременную',#}
+                {#    datafield: 'jk_beremennoy_title',#}
+                {#    align: 'center',#}
+                {#    cellsalign: 'left',#}
+                {#    width: '5%',#}
+                {##}
+                {# },#}
+                {
+                    text: 'Врач',
+                    datafield: 'vrach_title',
+                    align: 'center',
+                    cellsalign: 'left',
+                    width: '10%',
+                    hidden: true,
+                },
+                {
+                    text: 'Дата исхода',
+                    datafield: 'data_ishoda_str',
+                    align: 'center',
+                    cellsalign: 'center',
+                    width: '10%',
+                    cellsformat: 'dd.mm.yyyy',
+                    hidden: true,
+                },
+                {
+                    text: 'Место исхода',
+                    datafield: 'mesto_ishoda_title',
+                    align: 'center',
+                    cellsalign: 'left',
+                    width: '10%',
+                    hidden: true,
+                },
+                {
+                    text: 'Степень риска после исхода',
+                    datafield: 'stepen_riska_posle_ishoda_title',
+                    align: 'center',
+                    cellsalign: 'left',
+                    width: '10%',
+                    hidden: true,
                 },
             ];
         }
@@ -160,9 +227,7 @@
     $(document).ready(function () {
         new TablizaBeremennaya($tabliza_beremennaya, obj_window_beremennya);
     });
-
-
-
+    $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'vrach_title');
 
 
 </script>
