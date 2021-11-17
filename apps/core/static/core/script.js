@@ -985,7 +985,11 @@ $(".tabliza_beremennaya").on("filter", function (event) {
 
 $(".tabliza_beremennaya").on("sort", function (event) {
     // event arguments.
+    let source = $('.tabliza_beremennaya').jqxGrid('source')
+    let naravlenie = '';
     var args = event.args;
+
+
     var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
 
 
@@ -1012,7 +1016,15 @@ $(".tabliza_beremennaya").on("sort", function (event) {
         'filtri': filtri,
     }
 
-    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+    // $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici))
+    //     .done(function (data) {
+    //         console.log($('.tabliza_beremennaya').jqxGrid('source'))
+    //         source.sortcolumn = 'fio'
+    //         $('.tabliza_beremennaya').jqxGrid({source: source});
+    //     })
+    //     .fail(function () {
+    //         alert("ошибка получения данных");
+    //     })
 
 });
 

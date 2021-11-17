@@ -2,6 +2,15 @@
 
 <style>
 
+
+    .stepen_srednia {
+        color: orange;
+    }
+
+    .stepen_visokia {
+        color: red;
+
+    }
 </style>
 
 <script>
@@ -132,6 +141,15 @@
                     align: 'center',
                     cellsalign: 'left',
                     width: '10%',
+                    cellclassname: function (_row, column, value, data) {
+                        let row = data['visibleindex']
+                        $($('.tabliza_beremennaya div[role="row"]')[row]).removeClass('stepen_nizkaia stepen_srednia stepen_visokia')
+                       if (value === "средняя") {
+                            $($('.tabliza_beremennaya div[role="row"]')[row]).addClass("stepen_srednia");
+                        }else if (value === "высокая") {
+                            $($('.tabliza_beremennaya div[role="row"]')[row]).addClass("stepen_visokia");
+                        }
+                    },
 
                 },
                 {
