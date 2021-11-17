@@ -103,6 +103,7 @@
 
 <script>
     $('#OsnovBtn_Poisk').on('click', function () {
+        $('.def_poisk input:checkbox').prop('checked', false);
         $('#FIO_Poisk').prop('checked', true);
         $('#NomerKarty_Poisk').prop('checked', true);
         $('#OMS_Poisk').prop('checked', true);
@@ -113,6 +114,14 @@
         $(".tabliza_beremennaya").jqxGrid('showcolumn', 'nomer_oms');
         $(".tabliza_beremennaya").jqxGrid('showcolumn', 'data_rojdeniya_str');
         $(".tabliza_beremennaya").jqxGrid('showcolumn', 'stepen_riska_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_vzyatiya_str');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'mesto_postoyannogo_projivaniya_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'jk_beremennoy_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'vrach_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'data_ishoda_str');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'mesto_ishoda_title');
+        $(".tabliza_beremennaya").jqxGrid('hidecolumn', 'stepen_riska_posle_ishoda_title');
+
     })
 
     $('#PokazBtn_Poisk').on('click', function () {
