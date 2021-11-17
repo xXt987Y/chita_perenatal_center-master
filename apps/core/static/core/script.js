@@ -138,24 +138,6 @@ let get_mega_json = new Promise(function (resolve, reject) {
 });
 
 
-// let mega_json = new Promise((resolve, reject) => {
-//
-//     setTimeout(() => {
-//         // переведёт промис в состояние fulfilled с результатом "result"
-//         resolve("result");
-//     }, 1000);
-//
-//     timer = window.setInterval(function () {
-//         if (FLAG_ZAGRUZKI === true) {
-//             sourse = MEGA_DANIE_SPRAVOCHNIX_TABLIZ[nazvanie_tablizi].map(item => item.nazvanie)
-//             clearInterval(timer);
-//             resolve(re)
-//         }
-//     }, 1000);
-//
-// });
-
-
 function get_featxh_data(form) {
     let zapros_data = {};
     $.map(form.serializeArray(), function (n, i) {
@@ -966,83 +948,103 @@ $(function () {
 
 let NOVOROJDENNIY_ID = null;
 
+// TODO сделать рефакторинг фронтенда
+
+//
 $(".tabliza_beremennaya").on("filter", function (event) {
-    // event arguments.
     var args = event.args;
-    // page number.
-    var pagenum = args.pagenum;
-    // page size.
-    var pagesize = args.pagesize;
-    // sorting information.
-    var sortInfo = event.args.sortinformation;
     var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+
+
     var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
-    let sbordannihstranici =
-        [
-            args.owner.pagesize,
-            paginginformation.pagenum,
-            args.owner.sortcolumn,
-            args.owner.sortcolumns,
-            args.owner.sortdirection,
-            filterinfo,
-        ]
-    console.log(sbordannihstranici);
+    let filtri = [];
+
+    filterinfo.forEach(function (item) {
+        let tmp = item.filter.getfilters()
+        tmp.forEach(function (item2) {
+            filtri.push({
+                'datafield': item.datafield,
+                'value': item2['value'],
+                'condition': item2['condition']
+            })
+        })
+
+    });
+
+    let sbordannihstranici = {
+        'pagesize': args.owner.pagesize,
+        'pagenum': paginginformation.pagenum,
+        'sortcolumn': args.owner.sortcolumn,
+        'sortdirection': args.owner.sortdirection.ascending,
+        'filtri': filtri,
+    }
+
+    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
 });
 
-$(".tabliza_beremennaya").on("pagechanged", function (event) {
-    // event arguments.
-    var args = event.args;
-    // page number.
-    var pagenum = args.pagenum;
-    // page size.
-    var pagesize = args.pagesize;
-    // sorting information.
-    var sortInfo = event.args.sortinformation;
-    var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
-    var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
-    let sbordannihstranici =
-        [
-            args.owner.pagesize,
-            paginginformation.pagenum,
-            args.owner.sortcolumn,
-            args.owner.sortcolumns,
-            args.owner.sortdirection,
-            filterinfo,
-        ]
-    console.log(sbordannihstranici);
-});
 
 $(".tabliza_beremennaya").on("sort", function (event) {
     // event arguments.
     var args = event.args;
-    console.log(event.args);
-    // page number.
-    var pagenum = args.pagenum;
-    // page size.
-    var pagesize = args.pagesize;
-    // sorting information.
-    var sortInfo = event.args.sortinformation;
     var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+
+
     var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
-    let sbordannihstranici =
-        [
-            args.owner.pagesize,
-            paginginformation.pagenum,
-            args.owner.sortcolumn,
-            args.owner.sortcolumns,
-            args.owner.sortdirection,
-            filterinfo,
-        ]
-    let sbordannihstranicijson = JSON.stringify(sbordannihstranici);
-    console.log(sbordannihstranici);
-    console.log(sbordannihstranicijson);
-    fetch(`/api/beremennaya/`).then(function (response) {
-                    if (response.ok) {
-                        response.json(sbordannihstranici);
-                        // alert('1');
-                    }
-                    else {
-                        alert('Не могу получить данные');
-                    }
-                });
+    let filtri = [];
+
+    filterinfo.forEach(function (item) {
+        let tmp = item.filter.getfilters()
+        tmp.forEach(function (item2) {
+            filtri.push({
+                'datafield': item.datafield,
+                'value': item2['value'],
+                'condition': item2['condition']
+            })
+        })
+
+    });
+
+    let sbordannihstranici = {
+        'pagesize': args.owner.pagesize,
+        'pagenum': paginginformation.pagenum,
+        'sortcolumn': args.owner.sortcolumn,
+        'sortdirection': args.owner.sortdirection.ascending,
+        'filtri': filtri,
+    }
+
+    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+
+});
+
+
+$(".tabliza_beremennaya").on("pagechanged", function (event) {
+    var args = event.args;
+    var paginginformation = $(".tabliza_beremennaya").jqxGrid('getpaginginformation');
+
+
+    var filterinfo = $(".tabliza_beremennaya").jqxGrid('getfilterinformation');
+    let filtri = [];
+
+    filterinfo.forEach(function (item) {
+        let tmp = item.filter.getfilters()
+        tmp.forEach(function (item2) {
+            filtri.push({
+                'datafield': item.datafield,
+                'value': item2['value'],
+                'condition': item2['condition']
+            })
+        })
+
+    });
+
+    let sbordannihstranici = {
+        'pagesize': args.owner.pagesize,
+        'pagenum': paginginformation.pagenum,
+        'sortcolumn': args.owner.sortcolumn,
+        'sortdirection': args.owner.sortdirection.ascending,
+        'filtri': filtri,
+    }
+
+    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+
 });
