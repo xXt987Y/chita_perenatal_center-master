@@ -63,11 +63,11 @@
         get fields() {
             return [
                 {name: 'id', type: 'number'},
-                {name: 'nomer', type: 'number'},
+                {name: 'nomer', type: 'string'},
                 {name: 'fio', type: 'string'},
                 {name: 'otpravitel_title', type: 'string'},
                 {name: 'data_rojdeniya_str', type: 'date'},
-                {name: 'nomer_oms', type: 'number'},
+                {name: 'nomer_oms', type: 'string'},
                 {name: 'jk_beremennoy_title', type: 'string'},
                 {name: 'stepen_riska_title', type: 'string'},
                 {name: 'data_vzyatiya_str', type: 'date'},
@@ -123,6 +123,7 @@
                     align: 'center',
                     cellsalign: 'center',
                     width: '10%',
+                    filtertype: 'range',
                     cellsformat: 'dd.mm.yyyy'
 
 
@@ -134,12 +135,14 @@
                     cellsalign: 'left',
                     width: '10%',
                     hidden: true,
+                     filtertype: 'checkedlist',
                 },
                 {
                     text: 'Степень риска',
                     datafield: 'stepen_riska_title',
                     align: 'center',
                     cellsalign: 'left',
+                     filtertype: 'checkedlist',
                     width: '10%',
                     cellclassname: function (_row, column, value, data) {
                         let row = data['visibleindex']
@@ -160,6 +163,7 @@
                     width: '15%',
                     cellsformat: 'dd.mm.yyyy',
                     hidden: true,
+                    filtertype: 'range',
                 },
                 {
                     text: 'Место постоянного проживания',
@@ -192,6 +196,7 @@
                     cellsalign: 'center',
                     width: '10%',
                     cellsformat: 'dd.mm.yyyy',
+                    filtertype: 'range',
                     hidden: true,
                 },
                 {
@@ -207,6 +212,7 @@
                     datafield: 'stepen_riska_posle_ishoda_title',
                     align: 'center',
                     cellsalign: 'left',
+                     filtertype: 'checkedlist',
                     width: '10%',
                     hidden: true,
                 },
