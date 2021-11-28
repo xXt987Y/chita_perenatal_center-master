@@ -64,9 +64,11 @@ class BeremennayaViewSetLV(APIView):
 
     def get(self, request):
         or_condition = Q()
-        beremennaya = []
+
         try:
             rol = request.user.polzovatel.rol
+
+
         except Exception:
             rol = None
         if rol:
@@ -86,6 +88,7 @@ class BeremennayaViewSetLV(APIView):
             if rol == ROL.VRACH_ZK or rol == ROL.ADMIN_ZK or rol == ROL.KONSULTANT_ZK:
                 beremennaya = beremennaya.filter(jk_beremennoy=request.user.polzovatel.med_organiizaciya)
 
+        beremennaya = beremennaya.filter(beremennaya_pometka_na_udalenie=False)
         serializer = BeremennayaSerializer(beremennaya, many=True)
         return Response(serializer.data)
 
@@ -171,7 +174,7 @@ class NapravlenieViewSetLV(APIView):
                 or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
 
         napravlenie = Napravlenie.objects.filter(or_condition)
-
+        napravlenie = napravlenie.filter(napravlenie_pometka_na_udalenie=False)
         serializer = NapravlenieSerializer(napravlenie, many=True)
         return Response(serializer.data)
 
@@ -207,7 +210,7 @@ class KonsultaciayaViewSetLV(APIView):
                 or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
 
         konsultaciaya = Konsultaciaya.objects.filter(or_condition)
-
+        konsultaciaya = konsultaciaya.filter(konsultaciya_pometka_na_udalenie=False)
         serializer = KonsultaciayaSerializer(konsultaciaya, many=True)
         return Response(serializer.data)
 
@@ -301,7 +304,7 @@ class AnketaViewSetLV(APIView):
                 or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
 
         anketa = Anketa.objects.filter(or_condition)
-
+        anketa = anketa.filter(anketa_pometka_na_udalenie=False)
         serializer = AnketaSerializer(anketa, many=True)
         return Response(serializer.data)
 

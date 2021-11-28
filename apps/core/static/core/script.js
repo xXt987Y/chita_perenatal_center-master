@@ -430,6 +430,16 @@ $(function () {
     });
 });
 
+$(function () {
+
+        let anketa = new Anketa();
+        const data = anketa.pareseFormToData($(this));
+        if (ANKETA_ID) {
+
+            anketa.update(ANKETA_ID, data);
+        }
+});
+
 let ANKETA_ID = null;
 
 
