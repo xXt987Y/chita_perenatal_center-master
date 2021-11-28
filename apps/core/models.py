@@ -1091,7 +1091,7 @@ class Konsultaciaya(models.Model):
     otpravleno = models.DateField('Отправлено (дата отправления)', auto_now=True,
                                   null=True, blank=True)
     otpravitel = models.ForeignKey(Polzovateli, verbose_name='Отправитель (роль)',
-                                   on_delete=models.PROTECT, null=True,
+                                   on_delete=models.SET_NULL, null=True,
                                    blank=True)
 
     tema = models.CharField('Тема', max_length=255, null=True, blank=True)

@@ -28,11 +28,14 @@
 
 
 <div class="default" xmlns="http://www.w3.org/1999/html">
-    <button class="btn_poisk topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Reg')">Поиск</button>
-    <button class="btn_rashirenniy_poisk topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Poisk')">Расширенный
-        поиск
+    <button class="btn_poisk topmenu menubtn btnregpoisk"  style="display: none" onclick="regPoisk(event, 'Reg')">Поиск</button>
+    <button class="btn_rashirenniy_poisk topmenu menubtn btnregpoisk" onclick="regPoisk(event, 'Poisk')">Столбцы
     </button>
-    <button class="topmenu menubtn">Консультации</button>
+    {% include 'beremennya/btn_open_window_beremennya.html' %}
+    <button class="topmenu menubtn" style="display: none">Консультации</button>
+     {% include 'partical/zaprosNaPerevod/btn_open_window_zapros_na_perevod.html' %}
+
+    <button class="Obnovit menubtn" onclick="ObnovitTablicu()">Обновить таблицу</button>
     {% include 'partical/smenaJK/btn_open_window_smenaJK.html' %}
     {% include 'partical/Otchety/btn_open_window_otchety.html' %}
     {% include 'partical/doctor/btn_open_window_doctor.html' %}
@@ -76,15 +79,13 @@
 
 <div class="default">
 
-    {% include 'beremennya/btn_open_window_beremennya.html' %}
+
     {% include 'partical/buttons/btn_open_window_redactirovat_beremennuyu.html' %}
     {% include 'partical/buttons/btn_open_window_novaya_anketa.html' %}
     {% include 'partical/buttons/btn_open_window_novoe_napravlenie.html' %}
     {% include 'partical/buttons/btn_open_window_novaya_konsultaciya.html' %}
     {#    {% include 'partical/buttons/btn_open_window_ishod.html' %}#}
-    {% include 'partical/zaprosNaPerevod/btn_open_window_zapros_na_perevod.html' %}
 
-    <button class="Obnovit menubtn" onclick="ObnovitTablicu()">Обновить таблицу</button>
 </div>
 
 <script>
