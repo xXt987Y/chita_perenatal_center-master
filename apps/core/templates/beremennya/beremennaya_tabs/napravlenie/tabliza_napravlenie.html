@@ -113,15 +113,24 @@
         }
 
         get data_adapter() {
-
-            return new $.jqx.dataAdapter({
+            if (NAPRAVLENIE_ID=0) {
+               return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: '/api/napravlenie/',
+                url:`/api/napravlenie/`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
-            });
+                });}
+            return new $.jqx.dataAdapter({
+                datatype: "json",
+                data: 'data',
+                url: `/api/napravlenie/napr/${BEREMENYA_ID}`,
+                datafields: this.fields,
+                sortcolumn: 'id',
+                sortdirection: 'desc'
+                });
+
         }
         otkrit_okno_prosmotra_napravlenie(event) {
             let args = event.args;
@@ -132,8 +141,6 @@
 
 
     let $tabliza_napravlenie = $('.tabliza_napravlenie');
-    $(document).ready(function () {
-        new TablizaNapravlenie($tabliza_napravlenie);
-    });
+
 
 </script>

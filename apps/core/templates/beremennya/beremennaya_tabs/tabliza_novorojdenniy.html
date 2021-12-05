@@ -122,7 +122,7 @@
             return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: '/api/novorojdenniy/',
+                url: `/api/novorojdenniy/${BEREMENYA_ID}`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
@@ -131,8 +131,5 @@
     }
 
     let $tabliza_nocorojdenniy = $('.tabliza_novorojdenniy');
-    $(document).ready(function () {
-        new TablizaNovorojdenniy($tabliza_nocorojdenniy);
-    });
 
 </script>

@@ -311,7 +311,9 @@ class BeremennayaSerializer(serializers.ModelSerializer):
         return obj.mesto_postoyannogo_projivaniya.nazvanie
 
     def get_vrach_title(self, obj):
-        return obj.vrach.fio
+        if obj.vrach:
+            return obj.vrach.fio
+        return "-"
 
     def get_stepen_riska_title(self, obj):
         if obj.stepen_riska:
@@ -348,7 +350,12 @@ class NovorojdenniySerializer(serializers.ModelSerializer):
     pol_novorojdennogo_title = serializers.SerializerMethodField()
 
     def get_pol_novorojdennogo_title(self, obj):
-        return obj.get_pol_novorojdennogo_display()
+        if obj:
+            if obj.get_pol_novorojdennogo_display:
+                return obj.get_pol_novorojdennogo_display()
+            return "-"
+        return ""
+
 
 
 class NapravlenieSerializer(serializers.ModelSerializer):
@@ -361,13 +368,25 @@ class NapravlenieSerializer(serializers.ModelSerializer):
     data_str = serializers.SerializerMethodField()
 
     def get_data_str(self, obj):
-        return obj.data.strftime("%d.%m.%Y")
+        if obj:
+            if obj.data:
+                return obj.data.strftime("%d.%m.%Y")
+            return "-"
+        return ""
 
     def get_punkt_napravleniya_title(self, obj):
-        return obj.punkt_napravleniya.nazvanie
+        if obj:
+            if obj.punkt_napravleniya:
+                return obj.punkt_napravleniya.nazvanie
+            return "-"
+        return ""
 
     def get_cel_napravleniya_title(self, obj):
-        return obj.cel_napravleniya.nazvanie
+        if obj:
+            if obj.cel_napravleniya:
+                return obj.cel_napravleniya.nazvanie
+            return "-"
+        return ""
 
 
 class KonsultaciayaSerializer(serializers.ModelSerializer):
@@ -380,13 +399,22 @@ class KonsultaciayaSerializer(serializers.ModelSerializer):
     otpravleno_str = serializers.SerializerMethodField()
 
     def get_otpravleno_str(self, obj):
-        return obj.otpravleno.strftime("%d.%m.%Y")
+        if obj:
+            if obj.otpravleno:
+                return obj.otpravleno.strftime("%d.%m.%Y")
+            return "-"
+        return ""
+
 
     def get_rol_otpavitelia_title(self, obj):
-        return obj.otpravitel.rol
+        if obj.otpravitel:
+            return obj.otpravitel.rol
+        return "-"
 
     def get_med_organiizaciya_title(self, obj):
-        return obj.otpravitel.med_organiizaciya.nazvanie
+        if obj.otpravitel:
+            return obj.otpravitel.med_organiizaciya.nazvanie
+        return "-"
 
 
 class MKB10Serializer(serializers.ModelSerializer):
@@ -426,10 +454,22 @@ class AnketaSerializer(serializers.ModelSerializer):
     data_zapolneniya_anketi_vrachem_str = serializers.SerializerMethodField()
 
     def get_familiya_vracha_title(self, obj):
-        return obj.familiya_vracha.fio
+        if obj:
+            if obj.familiya_vracha:
+                return obj.familiya_vracha.fio
+            return "-"
+        return ""
 
     def get_nomer_anketi_title(self, obj):
-        return obj.nomer_anketi.nomer
+        if obj:
+            if obj.nomer_anketi:
+                return obj.nomer_anketi.nomer
+            return "-"
+        return ""
 
     def get_data_zapolneniya_anketi_vrachem_str(self, obj):
-        return obj.data_zapolneniya_anketi_vrachem.strftime("%d.%m.%Y")
+        if obj:
+            if obj.data_zapolneniya_anketi_vrachem:
+                return obj.data_zapolneniya_anketi_vrachem.strftime("%d.%m.%Y")
+            return "-"
+        return ""

@@ -135,21 +135,21 @@
                     cellsalign: 'left',
                     width: '10%',
                     hidden: true,
-                     filtertype: 'checkedlist',
+                    filtertype: 'checkedlist',
                 },
                 {
                     text: 'Степень риска',
                     datafield: 'stepen_riska_title',
                     align: 'center',
                     cellsalign: 'left',
-                     filtertype: 'checkedlist',
+                    filtertype: 'checkedlist',
                     width: '10%',
                     cellclassname: function (_row, column, value, data) {
                         let row = data['visibleindex']
                         $($('.tabliza_beremennaya div[role="row"]')[row]).removeClass('stepen_nizkaia stepen_srednia stepen_visokia')
-                       if (value === "средняя") {
+                        if (value === "средняя") {
                             $($('.tabliza_beremennaya div[role="row"]')[row]).addClass("stepen_srednia");
-                        }else if (value === "высокая") {
+                        } else if (value === "высокая") {
                             $($('.tabliza_beremennaya div[role="row"]')[row]).addClass("stepen_visokia");
                         }
                     },
@@ -212,7 +212,7 @@
                     datafield: 'stepen_riska_posle_ishoda_title',
                     align: 'center',
                     cellsalign: 'left',
-                     filtertype: 'checkedlist',
+                    filtertype: 'checkedlist',
                     width: '10%',
                     hidden: true,
                 },
@@ -241,6 +241,12 @@
             {% endif %}
             {#если нет id - значит добавляем. Е#}
             this.obj_window_beremennya.open(id)
+            $(document).ready( function () {
+                new TablizaAnketi($tabliza_anketi);
+                new TablizaNapravlenie($tabliza_napravlenie);
+                new TablizaKonsultaciaya($tabliza_konsultaciya);
+                new TablizaNovorojdenniy($tabliza_nocorojdenniy);
+            });
             {#open_modal_redaktirovania(id);#}
         }
 

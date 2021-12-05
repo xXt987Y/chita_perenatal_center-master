@@ -98,11 +98,10 @@
         }
 
         get data_adapter() {
-
             return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: '/api/anketa/',
+                url: `/api/anketa/${BEREMENYA_ID}`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
@@ -119,7 +118,5 @@
 
 
     let $tabliza_anketi = $('.tabliza_anketi');
-    $(document).ready(function () {
-        new TablizaAnketi($tabliza_anketi, obj_window_anketi);
-    });
+
 </script>

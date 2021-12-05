@@ -6,7 +6,8 @@ from apps.core.api import RayonViewSetLV, RayonViewSetDV, BeremennayaViewSetLV, 
     DoctorViewSetDV, NovorojdenniyViewSetLV, NovorojdenniyViewSetDV, NapravlenieViewSetLV, NapravlenieViewSetDV, \
     KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV, \
     AnketaViewSetLV, AnketaViewSetDV, BeremennayaViewSetLV2, AnketaViewSetLV2, NapravlenieViewSetLV2, \
-    KonsultaciayaViewSetLV2, SmenaJKViewSetLV2, NovorojdenniyViewSetLV2, OtchetyViewSetLV, OtchetyViewSetDV
+    KonsultaciayaViewSetLV2, SmenaJKViewSetLV2, NovorojdenniyViewSetLV2, OtchetyViewSetLV, OtchetyViewSetDV, \
+    KonsultaciayaViewSetDV2, NapravlenieViewSetDV2
 from apps.core.views import home, sbor_znachenii_spravocnix_tabliz, vhod, vihod, loginpage
 
 urlpatterns = [
@@ -24,9 +25,11 @@ urlpatterns = [
     path('api/napravlenie/post', NapravlenieViewSetLV2.as_view(), name='napravlenie_lv_post'),
     path('api/napravlenie/', NapravlenieViewSetLV.as_view(), name='napravlenie_lv'),
     path('api/napravlenie/<int:pk>', NapravlenieViewSetDV.as_view(), name='napravlenie_dv'),
+    path('api/napravlenie/napr/<int:pk>', NapravlenieViewSetDV2.as_view(), name='napravlenie_dv2'),
     path('api/konsultaciaya/post', KonsultaciayaViewSetLV2.as_view(), name='konsultaciaya_lv_post'),
     path('api/konsultaciaya/', KonsultaciayaViewSetLV.as_view(), name='konsultaciaya_lv'),
     path('api/konsultaciaya/<int:pk>', KonsultaciayaViewSetDV.as_view(), name='konsultaciaya_dv'),
+    path('api/konsultaciaya/kons/<int:pk>', KonsultaciayaViewSetDV2.as_view(), name='konsultaciaya_dv2'),
     path('api/mkb10/', MKB10ViewSetLV.as_view()),
     path('api/mkb10/<int:pk>', MKB10ViewSetDV.as_view()),
     path('api/smenaJK/post', SmenaJKViewSetLV2.as_view(), name='smenaJK_lv_post'),

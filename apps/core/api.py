@@ -98,6 +98,7 @@ class BeremennayaViewSetDV(APIView):
 
     def post(self, request, pk):
         beremenia = get_object_or_404(Beremennaya, pk=pk)
+        
         serializer = self.serializer_class(data=request.data, instance=beremenia)
         if serializer.is_valid():
             serializer.save()
@@ -156,8 +157,9 @@ class NovorojdenniyViewSetLV(APIView):
 class NovorojdenniyViewSetDV(APIView):
 
     def get(self, request, pk):
-        novorojdenniy = Novorojdenniy.objects.get(pk=pk)
-        serializer = NovorojdenniySerializer(novorojdenniy, many=False)
+        beremennaya = Beremennaya.objects.get(id=pk)
+        novorojdenniy = beremennaya.novorojdenniy_set.all()
+        serializer = NovorojdenniySerializer(novorojdenniy, many=True)
         return Response(serializer.data)
 
 
@@ -181,6 +183,24 @@ class NapravlenieViewSetLV(APIView):
 
 class NapravlenieViewSetDV(APIView):
     authentication_classes = []
+    serializer_class = NapravlenieSerializer
+
+    def post(self, request, pk):
+        napravlenie = get_object_or_404(Napravlenie, pk=pk)
+        serializer = self.serializer_class(data=request.data, instance=napravlenie)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, pk):
+        beremennaya = Beremennaya.objects.get(id=pk)
+        napravlenie = beremennaya.napravlenie_set.all()
+        serializer = NapravlenieSerializer(napravlenie, many=True)
+        return Response(serializer.data)
+
+
+class NapravlenieViewSetDV2(APIView):
     serializer_class = NapravlenieSerializer
 
     def post(self, request, pk):
@@ -230,6 +250,25 @@ class KonsultaciayaViewSetDV(APIView):
         konsultaciaya = Konsultaciaya.objects.get(pk=pk)
         serializer = KonsultaciayaSerializer(konsultaciaya, many=False)
         return Response(serializer.data)
+
+
+class KonsultaciayaViewSetDV2(APIView):
+    serializer_class = KonsultaciayaSerializer
+
+    def post(self, request, pk):
+        konsultaciaya = get_object_or_404(Konsultaciaya, pk=pk)
+        serializer = self.serializer_class(data=request.data, instance=konsultaciaya)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, pk):
+        beremennaya=Beremennaya.objects.get(id=pk)
+        konsultaciaya = beremennaya.konsultaciaya_set.all()
+        serializer = KonsultaciayaSerializer(konsultaciaya, many=True)
+        return Response(serializer.data)
+
 
 
 class MKB10ViewSetLV(APIView):
@@ -321,8 +360,9 @@ class AnketaViewSetDV(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, pk):
-        anketa = Anketa.objects.get(pk=pk)
-        serializer = AnketaSerializer(anketa, many=False)
+        beremennaya=Beremennaya.objects.get(id=pk)
+        anketa = beremennaya.anketa_set.all()
+        serializer = AnketaSerializer(anketa, many=True)
         return Response(serializer.data)
 
 
