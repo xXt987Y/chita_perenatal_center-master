@@ -82,7 +82,7 @@
             let self = this;
             if (id) {
                 BEREMENYA_ID = id;
-                fetch(`/api/beremennaya/${id}`).then(function (response) {
+                fetch(`/api2/beremennaya/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('#id_stepen_riska').val(data['stepen_riska']);

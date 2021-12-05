@@ -989,7 +989,7 @@ $(".tabliza_beremennaya").on("filter", function (event) {
         'filtri': filtri,
     }
 
-    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+    $.get("/api2/beremennaya/", JSON.stringify(sbordannihstranici));
 });
 
 
@@ -1067,6 +1067,6 @@ $(".tabliza_beremennaya").on("pagechanged", function (event) {
         'filtri': filtri,
     }
 
-    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+    $.get("/api2/beremennaya/", JSON.stringify(sbordannihstranici));
 
 });
