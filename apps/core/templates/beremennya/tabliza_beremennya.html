@@ -224,7 +224,7 @@
             return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: '/api/beremennaya/',
+                url: '/api2/beremennaya/',
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
@@ -242,6 +242,10 @@
             {#если нет id - значит добавляем. Е#}
             this.obj_window_beremennya.open(id)
             $(document).ready( function () {
+                {#$('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});#}
+                {#$('.tabliza_napravlenie').jqxGrid({source: $('.tabliza_napravlenie').jqxGrid('source')});#}
+                {#$('.tabliza_novorojdenniy').jqxGrid({source: $('.tabliza_novorojdenniy').jqxGrid('source')});#}
+                {#$('.tabliza_konsultaciaya').jqxGrid({source: $('.tabliza_konsultaciaya').jqxGrid('source')});#}
                 new TablizaAnketi($tabliza_anketi);
                 new TablizaNapravlenie($tabliza_napravlenie);
                 new TablizaKonsultaciaya($tabliza_konsultaciya);

@@ -153,7 +153,7 @@
             let self = this;
             if (id) {
                   NAPRAVLENIE_ID = id;
-                fetch(`/api/napravlenie/${id}`).then(function (response) {
+                fetch(`/api2/napravlenie/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
@@ -165,7 +165,7 @@
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
                             {#если есть id - значит редачим. Если редачим значить есть url+id#}
-                            let url = '{% url 'napravlenie_lv' %}';
+                            let url = `/api2/napravlenie/${BEREMENYA_ID}`;
                             $('.novoe_napravlenie').attr('action', `${url}${id}`);
                         }).catch(function () {
                             $('.novoe_napravlenie').action(url)
@@ -179,7 +179,7 @@
 
             } else {
 
-                let url = '{% url 'napravlenie_lv' %}';
+                let url = `/api2/napravlenie/${BEREMENYA_ID}`;
                 $('.novoe_napravlenie').action(url)
             }
 

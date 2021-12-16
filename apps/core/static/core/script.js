@@ -151,7 +151,7 @@ function get_featxh_data(form) {
 
 
 class Beremenya {
-    URL = '/api/beremennaya/'
+    URL = '/api2/beremennaya/'
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -199,7 +199,7 @@ class Beremenya {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL + 'post',
+            self.URL ,
             {
                 method: 'post',
                 body: data,
@@ -282,7 +282,7 @@ let BEREMENYA_ID = null;
 
 
 class Anketa {
-    URL = 'api/anketa/'
+    URL = 'api2/anketa/'
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -331,7 +331,7 @@ class Anketa {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL + 'post',
+            self.URL,
             {
                 method: 'post',
                 body: data,
@@ -426,7 +426,7 @@ let ANKETA_ID = null;
 
 
 class Napravlenie {
-    URL = 'api/napravlenie/'
+    URL = 'api2/napravlenie/'
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -475,7 +475,7 @@ class Napravlenie {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL + 'post',
+            self.URL,
             {
                 method: 'post',
                 body: data,
@@ -560,7 +560,7 @@ let NAPRAVLENIE_ID = null;
 
 
 class Konsultaciaya {
-    URL = 'api/konsultaciaya/'
+    URL = 'api2/konsultaciaya/'
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -609,7 +609,7 @@ class Konsultaciaya {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL + 'post',
+            self.URL,
             {
                 method: 'post',
                 body: data,
@@ -989,7 +989,7 @@ $(".tabliza_beremennaya").on("filter", function (event) {
         'filtri': filtri,
     }
 
-    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+    $.get("/api2/beremennaya/", JSON.stringify(sbordannihstranici));
 });
 
 
@@ -1067,6 +1067,6 @@ $(".tabliza_beremennaya").on("pagechanged", function (event) {
         'filtri': filtri,
     }
 
-    $.get("/api/beremennaya/", JSON.stringify(sbordannihstranici));
+    $.get("/api2/beremennaya/", JSON.stringify(sbordannihstranici));
 
 });

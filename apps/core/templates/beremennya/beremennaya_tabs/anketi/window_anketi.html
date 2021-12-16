@@ -343,7 +343,7 @@
             alert(id);
             this.$window.find(`#id_nomer_anketi option[value="${id}"]`).prop('selected', true);
             this.$window.jqxWindow('open');
-            let url = '{% url 'anketa_lv' %}';
+            let url = `/api2/anketa/${BEREMENYA_ID}`;
             $('.novaya_anketa').attr('action', `${url}`);
         }
 
@@ -351,7 +351,7 @@
             let self = this;
             if (id) {
                 ANKETA_ID = id;
-                fetch(`/api/anketa/${id}`).then(function (response) {
+                fetch(`/api2/anketa/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('#id_nomer_anketi').val(data['nomer_anketi']);
@@ -399,7 +399,7 @@
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
                             {#если есть id - значит редачим. Если редачим значить есть url+id#}
-                            let url = '{% url 'anketa_lv' %}';
+                            let url = `/api2/anketa/${BEREMENYA_ID}`;
                             $('.novaya_anketa').attr('action', `${url}${id}`);
                         }).catch(function () {
                             $('.novaya_anketa').action(url)
@@ -413,7 +413,7 @@
 
             } else {
 
-                let url = '{% url 'anketa_lv' %}';
+                let url = `/api2/anketa/${BEREMENYA_ID}`;
                 $('.novaya_anketa').action(url)
             }
 

@@ -117,7 +117,7 @@
                return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url:`/api/napravlenie/`,
+                url:`/api2/napravlenie/`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
@@ -125,7 +125,7 @@
             return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: `/api/napravlenie/napr/${BEREMENYA_ID}`,
+                url: `/api2/napravlenie/${BEREMENYA_ID}`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
