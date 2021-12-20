@@ -70,7 +70,7 @@ class BeremennayaViewSetDV(APIView):
 
 # Список консультаций для одной беременной
 class KonsultaciayaViewSetLV(APIView):
-    serializer_class = BeremennayaSerializer
+    serializer_class = KonsultaciayaSerializer
 
     def get(self, request, beremenya_id):
         get_object_or_404(Beremennaya, id=beremenya_id)
@@ -89,7 +89,7 @@ class KonsultaciayaViewSetLV(APIView):
         serializer = KonsultaciayaSerializer(konsultaciaya, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request, beremenya_id,):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.validated_data['otpravitel'] = request.user.polzovatel
@@ -121,7 +121,7 @@ class KonsultaciayaViewSetDV(APIView):
 class AnketaViewSetLV(APIView):
     serializer_class = AnketaSerializer
 
-    def post(self, request):
+    def post(self, request, beremenya_id):
         self.authentication_classes = []
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
@@ -149,7 +149,7 @@ class AnketaViewSetLV(APIView):
 class AnketaViewSetDV(APIView):
     serializer_class = AnketaSerializer
 
-    def post(self, request, pk):
+    def post(self, request, beremenya_id, pk):
         anketa = get_object_or_404(Anketa, pk=pk)
         serializer = self.serializer_class(data=request.data, instance=anketa)
         if serializer.is_valid():
@@ -157,10 +157,9 @@ class AnketaViewSetDV(APIView):
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request, pk):
-        beremennaya=Beremennaya.objects.get(id=pk)
-        anketa = beremennaya.anketa_set.all()
-        serializer = AnketaSerializer(anketa, many=True)
+    def get(self, request, beremenya_id, pk):
+        anketa = Anketa.objects.get(pk=pk)
+        serializer = AnketaSerializer(anketa, many=False)
         return Response(serializer.data)
 
 
@@ -185,7 +184,7 @@ class NapravlenieViewSetLV(APIView):
         serializer = NapravlenieSerializer(napravlenie, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request, beremenya_id):
         self.authentication_classes = []
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
@@ -198,7 +197,7 @@ class NapravlenieViewSetLV(APIView):
 class NapravlenieViewSetDV(APIView):
     serializer_class = NapravlenieSerializer
 
-    def post(self, request, pk):
+    def post(self, request, beremenya_id, pk):
         napravlenie = get_object_or_404(Napravlenie, pk=pk)
         serializer = self.serializer_class(data=request.data, instance=napravlenie)
         if serializer.is_valid():
@@ -206,11 +205,11 @@ class NapravlenieViewSetDV(APIView):
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def get(self, request, pk):
-        beremennaya = Beremennaya.objects.get(id=pk)
-        napravlenie = beremennaya.napravlenie_set.all()
-        serializer = NapravlenieSerializer(napravlenie, many=True)
+    def get(self, request, beremenya_id, pk):
+        napravlenie = Napravlenie.objects.get(pk=pk)
+        serializer = NapravlenieSerializer(napravlenie, many=False)
         return Response(serializer.data)
+
 
 
 # Список новорожденных для одной беременной

@@ -431,10 +431,12 @@
             let self = this;
             if (id) {
                 KONSULTACIAYA_ID = id;
-                fetch(`/api2/konsultaciaya/${id}`).then(function (response) {
+                fetch(`/api2/konsultaciaya/${BEREMENYA_ID}/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
+                            self.$window.find('#id_tema').val(data['tema']);
+                            self.$window.find('#id_soobshenie').val(data['soobshenie']);
                             self.$window.find('#id_zanesena_v_monitoring').val(data['zanesena_v_monitoring']);
                             self.$window.find('#id_imeet_socialnie_faktori').val(data['imeet_socialnie_faktori']);
                             self.$window.find('#id_vzata_na_uchet').val(data['vzata_na_uchet']);

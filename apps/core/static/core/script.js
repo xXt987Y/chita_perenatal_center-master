@@ -282,7 +282,7 @@ let BEREMENYA_ID = null;
 
 
 class Anketa {
-    URL = 'api2/anketa/'
+    URL = `api2/anketa/${BEREMENYA_ID}/`
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -426,7 +426,7 @@ let ANKETA_ID = null;
 
 
 class Napravlenie {
-    URL = 'api2/napravlenie/'
+    URL = `api2/napravlenie/${BEREMENYA_ID}/`
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -560,7 +560,7 @@ let NAPRAVLENIE_ID = null;
 
 
 class Konsultaciaya {
-    URL = 'api2/konsultaciaya/'
+    URL = `/api2/konsultaciaya/${BEREMENYA_ID}/`
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -826,7 +826,7 @@ $(function () {
 let SmenaJK_ID = null;
 
 class Novorojdenniy {
-    URL = 'api/novorojdenniy/'
+    URL = `api/novorojdenniy/${BEREMENYA_ID}/`
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",

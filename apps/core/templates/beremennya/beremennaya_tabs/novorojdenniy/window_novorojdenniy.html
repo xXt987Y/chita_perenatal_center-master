@@ -161,7 +161,7 @@
             let self = this;
             if (id) {
                   NOVOROJDENNIY_ID = id;
-                fetch(`/api2/novorojdenniy/${id}`).then(function (response) {
+                fetch(`/api2/novorojdenniy/${BEREMENYA_ID}/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
