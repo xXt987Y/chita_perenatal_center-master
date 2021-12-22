@@ -1,6 +1,6 @@
 {% if user.polzovatel.rol == 1 or user.polzovatel.rol == 2 or user.polzovatel.rol == 3 %}
 <button class="topmenu menubtn" id="btn_open_window_anketi">Новая анкета</button>
-<button class="topmenu menubtn" id="btn_delete_anketi" onclick="deleteanketa();">Удалить анкету</button>
+
 {% endif %}
 
 <script>
@@ -47,6 +47,7 @@
             document.getElementById("btn_open_window_anketi").classList.add('menubtn');
         });
     })
+
 
 
 </script>

@@ -68,6 +68,7 @@ class BeremennayaViewSetDV(APIView):
         return Response(serializer.data)
 
 
+
 # Список консультаций для одной беременной
 class KonsultaciayaViewSetLV(APIView):
     serializer_class = KonsultaciayaSerializer
@@ -122,7 +123,6 @@ class AnketaViewSetLV(APIView):
     serializer_class = AnketaSerializer
 
     def post(self, request, beremenya_id):
-        self.authentication_classes = []
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -161,6 +161,13 @@ class AnketaViewSetDV(APIView):
         anketa = Anketa.objects.get(pk=pk)
         serializer = AnketaSerializer(anketa, many=False)
         return Response(serializer.data)
+
+    def delete(self, request, beremenya_id, pk):
+        anketa = get_object_or_404(Anketa, pk=pk)
+        anketa.anketa_pometka_na_udalenie = True
+        anketa.save()
+        serializer = AnketaSerializer(instance=anketa, many=False)
+        return Response(serializer.data, status=200)
 
 
 # Список направлений для одной беременной

@@ -199,7 +199,7 @@ class Beremenya {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL ,
+            self.URL,
             {
                 method: 'post',
                 body: data,
@@ -386,6 +386,8 @@ class Anketa {
             }
         )
         if (response.status === 200) {
+            alert('Изменение прошло успешно');
+            $('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});
             await response.json();
         } else {
             const text = await response.text();
@@ -412,15 +414,32 @@ $(function () {
     });
 });
 
-$(function () {
 
-        let anketa = new Anketa();
-        const data = anketa.pareseFormToData($(this));
-        if (ANKETA_ID) {
-
-            anketa.update(ANKETA_ID, data);
+$("#btn_delete_anketi").click(async function () {
+    let HEADERS = {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+    };
+    const url = URL = `api2/anketa/${BEREMENYA_ID}/${ANKETA_ID}`;
+    const response = await fetch(
+        url,
+        {
+            method: 'delete',
+            headers: HEADERS,
+            credentials: "same-origin"
         }
-});
+    )
+    if (response.status === 200) {
+        $('.tabliza_anketi').jqxGrid({source: $('.tabliza_anketi').jqxGrid('source')});
+        await response.json();
+    } else {
+        const text = await response.text();
+    }
+
+
+})
+
 
 let ANKETA_ID = null;
 
