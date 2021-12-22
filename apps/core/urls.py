@@ -59,7 +59,7 @@ urlpatterns = [
     path('api2/konsultaciaya/<int:beremenya_id>/', KonsultaciayaViewSetLV.as_view(), name='konsultaciaya_lv'),
     path('api2/konsultaciaya/<int:beremenya_id>/<int:pk>', KonsultaciayaViewSetDV.as_view(), name='konsultaciaya_dv'),
 
-    path('api/novorojdenniy/<int:beremenya_id>/', NovorojdenniyViewSetLV.as_view(), name='novorojdenniy_lv'),
-    path('api/novorojdenniy/<int:beremenya_id>/<int:pk>', NovorojdenniyViewSetDV.as_view(), name='novorojdenniy_dv'),
+    path('api2/novorojdenniy/<int:beremenya_id>/', NovorojdenniyViewSetLV.as_view(), name='novorojdenniy_lv'),
+    path('api2/novorojdenniy/<int:beremenya_id>/<int:pk>', NovorojdenniyViewSetDV.as_view(), name='novorojdenniy_dv'),
 
 ]

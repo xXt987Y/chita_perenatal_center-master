@@ -232,7 +232,7 @@ class NovorojdenniyViewSetLV(APIView):
         serializer = NovorojdenniySerializer(novorojdenniy, many=True)
         return Response(serializer.data)
 
-    def post(self, request):
+    def post(self, request, beremenya_id):
         serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -242,7 +242,7 @@ class NovorojdenniyViewSetLV(APIView):
 # Редактирование одного новорожденного
 class NovorojdenniyViewSetDV(APIView):
 
-    def get(self, request, pk):
+    def get(self, request, beremenya_id, pk):
         beremennaya = Beremennaya.objects.get(id=pk)
         novorojdenniy = beremennaya.novorojdenniy_set.all()
         serializer = NovorojdenniySerializer(novorojdenniy, many=True)

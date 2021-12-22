@@ -13,7 +13,12 @@
         constructor($grid) {
             let self = this;
             this.$grid = $grid;
+            this.obj_window_napravlenie = $obj_novorojdenniy;
+            this.$window_novorojdenniy = $window_novorojdenniy;
             this.$grid.jqxGrid(self.nastroiki_grida);
+            this.$grid.on('rowdoubleclick', function (event) {
+                self.otkrit_okno_prosmotra_novorojdenniy(event);
+            });
         }
 
         get nastroiki_grida() {
@@ -122,11 +127,16 @@
             return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: `/api/novorojdenniy/${BEREMENYA_ID}`,
+                url: `/api2/novorojdenniy/${BEREMENYA_ID}`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
             });
+        }
+        otkrit_okno_prosmotra_napravlenie(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.otkrit_okno_prosmotra_novorojdenniy.open(id)
         }
     }
 

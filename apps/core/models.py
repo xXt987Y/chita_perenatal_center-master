@@ -1096,12 +1096,11 @@ class Konsultaciaya(models.Model):
 
     tema = models.CharField('Тема', max_length=255, null=True, blank=True)
     soobshenie = models.TextField('Сообщение', null=True, blank=True)
-    egp = models.BooleanField('ЭГП', default=False, null=True, blank=True)
-    oaa = models.BooleanField('ОАА', default=False, null=True, blank=True)
-    rubec_na_matke = models.BooleanField('Рубец на матке',
-                                         default=False, null=True, blank=True)
-    rh_sensibilizaciya = models.BooleanField('Rh-сенсибилизация',
-                                             default=False, null=True, blank=True)
+    egp = models.IntegerField('ЭГП', choices=CHECK_BOX, default=False, null=True, blank=True)
+    oaa = models.IntegerField('ОАА', choices=CHECK_BOX, default=False, null=True, blank=True)
+    rubec_na_matke = models.IntegerField('Рубец на матке', choices=CHECK_BOX, default=False, null=True, blank=True)
+    rh_sensibilizaciya = models.IntegerField('Rh-сенсибилизация', choices=CHECK_BOX, default=False, null=True,
+                                             blank=True)
     prochie = models.TextField('Прочие', null=True, blank=True)
     zanesena_v_monitoring = models.IntegerField('Занесена в мониторинг беременных', choices=CHECK_BOX, default=False,
                                                 null=True,

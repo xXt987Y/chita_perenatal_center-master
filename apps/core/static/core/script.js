@@ -826,7 +826,7 @@ $(function () {
 let SmenaJK_ID = null;
 
 class Novorojdenniy {
-    URL = `api/novorojdenniy/${BEREMENYA_ID}/`
+    URL = `api2/novorojdenniy/${BEREMENYA_ID}/`
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -875,7 +875,7 @@ class Novorojdenniy {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL + 'post',
+            self.URL,
             {
                 method: 'post',
                 body: data,
