@@ -7,13 +7,12 @@
 <script>
     'use strict';
 
-
     class TablizaNovorojdenniy {
 
         constructor($grid) {
             let self = this;
             this.$grid = $grid;
-            this.obj_window_napravlenie = $obj_novorojdenniy;
+            this.obj_window_novorojdenniy = $obj_novorojdenniy;
             this.$window_novorojdenniy = $window_novorojdenniy;
             this.$grid.jqxGrid(self.nastroiki_grida);
             this.$grid.on('rowdoubleclick', function (event) {
@@ -133,10 +132,10 @@
                 sortdirection: 'desc'
             });
         }
-        otkrit_okno_prosmotra_napravlenie(event) {
+        otkrit_okno_prosmotra_novorojdenniy(event) {
             let args = event.args;
             let id = (args.row.bounddata.id);
-            this.otkrit_okno_prosmotra_novorojdenniy.open(id)
+            this.obj_window_novorojdenniy.open(id)
         }
     }
 

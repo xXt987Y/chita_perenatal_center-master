@@ -3,11 +3,10 @@ from django.urls import path
 # router = routers.DefaultRouter()
 # router.register(r'rayon', RayonViewSet)
 from apps.core.api import RayonViewSetLV, RayonViewSetDV, DoctorViewSetLV, \
-    DoctorViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV, \
-    SmenaJKViewSetLV2, OtchetyViewSetLV, OtchetyViewSetDV
+    DoctorViewSetDV, MKB10ViewSetLV, MKB10ViewSetDV,  OtchetyViewSetLV, OtchetyViewSetDV
 from apps.core.api2 import BeremennayaViewSetLV, BeremennayaViewSetDV, KonsultaciayaViewSetLV, KonsultaciayaViewSetDV, \
     AnketaViewSetLV, AnketaViewSetDV, NapravlenieViewSetLV, NapravlenieViewSetDV, NovorojdenniyViewSetLV, \
-    NovorojdenniyViewSetDV
+    NovorojdenniyViewSetDV, SmenaJKViewSetLV, SmenaJKViewSetDV
 from apps.core.views import home, sbor_znachenii_spravocnix_tabliz, vhod, vihod, loginpage
 
 urlpatterns = [
@@ -20,9 +19,6 @@ urlpatterns = [
 
     path('api/mkb10/', MKB10ViewSetLV.as_view()),
     path('api/mkb10/<int:pk>', MKB10ViewSetDV.as_view()),
-    path('api/smenaJK/post', SmenaJKViewSetLV2.as_view(), name='smenaJK_lv_post'),
-    path('api/smenaJK/', SmenaJKViewSetLV.as_view(), name='smenaJK_lv'),
-    path('api/smenaJK/<int:pk>', SmenaJKViewSetDV.as_view(), name='smenaJK_dv'),
 
     path('api/otchety/', OtchetyViewSetLV.as_view()),
     path('api/otchety/<int:pk>', OtchetyViewSetDV.as_view()),
@@ -48,4 +44,6 @@ urlpatterns = [
     path('api2/novorojdenniy/<int:beremenya_id>/', NovorojdenniyViewSetLV.as_view(), name='novorojdenniy_lv'),
     path('api2/novorojdenniy/<int:beremenya_id>/<int:pk>', NovorojdenniyViewSetDV.as_view(), name='novorojdenniy_dv'),
 
+    path('api2/smenaJK/<int:beremenya_id>/', SmenaJKViewSetLV.as_view(), name='smenaJK_lv'),
+    path('api2/smenaJK/<int:beremenya_id>/<int:pk>', SmenaJKViewSetDV.as_view(), name='smenaJK_dv'),
 ]

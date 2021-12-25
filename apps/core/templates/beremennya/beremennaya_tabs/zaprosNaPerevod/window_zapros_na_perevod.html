@@ -91,12 +91,12 @@
 
 </style>
 <div class="window_zapros_na_perevod">
-    <div style="overflow: hidden; padding: 0;" class="tab_smenaJK">
+    <div style="overflow: hidden; padding: 0;" class="tab_zapros_na_perevod">
         <ul>
             <li style="display: none"></li>
         </ul>
-        <div class="tab_beremennya_smena_jk">
-            <form id="smena_jk_u_beremennoy_form" class="smena_jk_u_beremennoy_form" action="{% url 'home' %}"
+        <div class="tab_zapros_na_perevod">
+            <form id="smena_jk_u_beremennoy_form" class="zapros_na_perevod_form" action="{% url 'home' %}"
                   method="post">
                 {% csrf_token %}
                 {{ smena_jk_form.as_p }}
@@ -139,7 +139,7 @@
             let self = this;
             if (id) {
                 SmenaJK_ID = id;
-                fetch(`/api/smenaJK/${id}`).then(function (response) {
+                fetch(`/api2/smenaJK/${BEREMENYA_ID}/${id}`).then(function (response) {
                     if (response.ok) {
                         response.json().then(function (data) {
                             self.$window.find('#id_nomer_beremennoy').val(data['nomer_beremennoy']);
@@ -149,7 +149,7 @@
                             self.$window.jqxWindow('open');
                             self.$window.jqxWindow('bringToFront');
                             {#если есть id - значит редачим. Если редачим значить есть url+id#}
-                            let url = '{% url 'smenaJK_lv' %}';
+                            let url = `/api2/novorojdenniy/${SmenaJK_ID}`;
                             $('.smena_jk_u_beremennoy_form').attr('action', `${url}${id}`);
                         }).catch(function () {
                             $('.smena_jk_u_beremennoy_form').action(url)
@@ -163,7 +163,7 @@
 
             } else {
 
-                let url = '{% url 'smenaJK_lv' %}';
+                let url = `/api2/novorojdenniy/${SmenaJK_ID}`;
                 $('.smena_jk_u_beremennoy_form').action(url)
             }
 
@@ -178,6 +178,9 @@
     }
 
     let $window_zapros_na_perevod = $('.window_zapros_na_perevod');
-    let $obj_zapros_na_perevod = new WindowZaprosNaPerevod($window_zapros_na_perevod, $btn_open_window_zapros_na_perevod);
-
+    let $tab_zapros_na_perevod = $('.tab_zapros_na_perevod');
+    let obj_window_zapros_na_perevod = new WindowZaprosNaPerevod($window_zapros_na_perevod, $tab_zapros_na_perevod, $btn_open_window_zapros_na_perevod);
+    $(function () {
+        new WindowZaprosNaPerevod($window_zapros_na_perevod, $tab_zapros_na_perevod, $btn_open_window_zapros_na_perevod)
+    })
 </script>

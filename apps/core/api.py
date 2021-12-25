@@ -207,29 +207,29 @@ class MKB10ViewSetDV(APIView):
         return Response(serializer.data)
 
 
-class SmenaJKViewSetLV(APIView):
+# class SmenaJKViewSetLV(APIView):
+#
+#     def get(self, request):
+#         or_condition = Q()
+#
+#         spisok_polei = list(map(lambda x: x.attname, Doctor._meta.fields))
+#         for key, value in dict(request.query_params).items():
+#             if key in spisok_polei:
+#                 tmp_key = f'{key}__contains'
+#                 or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
+#
+#         smenaJK = Smena_JK_u_beremennoy.objects.filter(or_condition)
+#
+#         serializer = SmenaJKSerializer(smenaJK, many=True)
+#         return Response(serializer.data)
 
-    def get(self, request):
-        or_condition = Q()
 
-        spisok_polei = list(map(lambda x: x.attname, Doctor._meta.fields))
-        for key, value in dict(request.query_params).items():
-            if key in spisok_polei:
-                tmp_key = f'{key}__contains'
-                or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
-
-        smenaJK = Smena_JK_u_beremennoy.objects.filter(or_condition)
-
-        serializer = SmenaJKSerializer(smenaJK, many=True)
-        return Response(serializer.data)
-
-
-class SmenaJKViewSetDV(APIView):
-
-    def get(self, request, pk):
-        smenaJK = Smena_JK_u_beremennoy.objects.get(pk=pk)
-        serializer = SmenaJKSerializer(smenaJK, many=False)
-        return Response(serializer.data)
+# class SmenaJKViewSetDV(APIView):
+#
+#     def get(self, request, pk):
+#         smenaJK = Smena_JK_u_beremennoy.objects.get(pk=pk)
+#         serializer = SmenaJKSerializer(smenaJK, many=False)
+#         return Response(serializer.data)
 
 
 # class AnketaViewSetLV(APIView):
@@ -314,15 +314,15 @@ class SmenaJKViewSetDV(APIView):
 #         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class SmenaJKViewSetLV2(APIView):
-    serializer_class = SmenaJKSerializer
-
-    def post(self, request):
-        serializer = self.serializer_class(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=200)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+# class SmenaJKViewSetLV2(APIView):
+#     serializer_class = SmenaJKSerializer
+#
+#     def post(self, request):
+#         serializer = self.serializer_class(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=200)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 # class NovorojdenniyViewSetLV2(APIView):
 #     serializer_class = NovorojdenniySerializer

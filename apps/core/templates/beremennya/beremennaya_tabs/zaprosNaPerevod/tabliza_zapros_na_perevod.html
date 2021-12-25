@@ -1,22 +1,26 @@
-
-<div class="h100 tabliza_smenaJK"></div>
+<div style="border-right-width: 0; border-left-width: 0;" class="tabliza_zapros_na_perevod"></div>
 
 <script>
     'use strict';
 
-    class TablizaSmenaJK {
+    class TablizaZaprosNaPerevod {
 
         constructor($grid) {
             let self = this;
             this.$grid = $grid;
+            this.obj_window_zapros_na_perevod = obj_window_zapros_na_perevod;
+            this.$window_zapros_na_perevod = $window_zapros_na_perevod;
             this.$grid.jqxGrid(self.nastroiki_grida);
+            this.$grid.on('rowdoubleclick', function (event) {
+                self.otkrit_okno_prosmotra_zapros_na_perevod(event);
+            });
         }
 
         get nastroiki_grida() {
             let self = this;
             return {
                 width: '100%',
-                height: '100%',
+                height: 'calc(100% - 37px)',
                 source: this.data_adapter,
                 columns: this.colums,
                 enabletooltips: true,
@@ -91,18 +95,22 @@
             return new $.jqx.dataAdapter({
                 datatype: "json",
                 data: 'data',
-                url: '/api/smenaJK/',
+                url: `/api2/smenaJK/${BEREMENYA_ID}`,
                 datafields: this.fields,
                 sortcolumn: 'id',
                 sortdirection: 'desc'
             });
         }
+
+        otkrit_okno_prosmotra_zapros_na_perevod(event) {
+            let args = event.args;
+            let id = (args.row.bounddata.id);
+            this.obj_window_zapros_na_perevod.open(id)
+        }
     }
 
 
-    let $tabliza_smenaJK = $('.tabliza_smenaJK');
-    $(document).ready(function () {
-        new TablizaSmenaJK($tabliza_smenaJK);
-    });
+    let $tabliza_zapros_na_perevod = $('.tabliza_zapros_na_perevod');
+
 
 </script>

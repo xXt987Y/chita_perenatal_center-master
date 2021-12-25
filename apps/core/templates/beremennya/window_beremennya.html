@@ -6,6 +6,7 @@
             <li>Направление</li>
             <li>Консультация</li>
             <li>Исход</li>
+            <li>Запрос на перевод</li>
             {#            <li>История</li>#}
         </ul>
         <div class="tab_osnovnie_danie">
@@ -23,8 +24,11 @@
         <div>
             {% include 'beremennya/beremennaya_tabs/ishod.html' %}
         </div>
+{#        <div>#}
+{#            {% include 'beremennya/beremennaya_tabs/istoriya.html' %}#}
+{#        </div>#}
         <div>
-            {% include 'beremennya/beremennaya_tabs/istoriya.html' %}
+            {% include 'beremennya/beremennaya_tabs/zaprosNaPerevod/zapros_na_perevod.html' %}
         </div>
         <div style="color: #0a73a7; height: 100px; width: 100px" class="pechat">Pechat</div>
     </div>
@@ -88,12 +92,10 @@
                             self.$window.find('#id_stepen_riska').val(data['stepen_riska']);
                             self.$window.find('#id_nomer').val(data['nomer']);
                             self.$window.find('#id_jk_beremennoy').val(data['jk_beremennoy']);
-
                             {% if user.polzovatel.rol == 2 or user.polzovatel.rol == 3 or user.polzovatel.rol == 4 %}
                                 self.$window.find('#id_jk_beremennoy').val({{ user.polzovatel.med_organiizaciya.id }});
                                 self.$window.find('#id_jk_beremennoy').prop("disabled", true);
                             {% endif %}
-
                             self.$window.find('#id_data_vzyatiya').val(data['data_vzyatiya']);
                             self.$window.find('#id_vrach').val(data['vrach']);
                             self.$window.find('#id_fio').val(data['fio']);

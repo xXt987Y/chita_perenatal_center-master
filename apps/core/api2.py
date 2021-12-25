@@ -4,9 +4,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from apps.core.models import Beremennaya, ROL, Konsultaciaya, Anketa, Doctor, Napravlenie, Novorojdenniy
+from apps.core.models import Beremennaya, ROL, Konsultaciaya, Anketa, Doctor, Napravlenie, Novorojdenniy, \
+    Smena_JK_u_beremennoy
 from apps.core.serializers import BeremennayaSerializer, KonsultaciayaSerializer, AnketaSerializer, \
-    NapravlenieSerializer, NovorojdenniySerializer
+    NapravlenieSerializer, NovorojdenniySerializer, SmenaJKSerializer
 
 
 # Список беременных
@@ -246,6 +247,7 @@ class NovorojdenniyViewSetLV(APIView):
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
 # Редактирование одного новорожденного
 class NovorojdenniyViewSetDV(APIView):
 
@@ -253,4 +255,51 @@ class NovorojdenniyViewSetDV(APIView):
         beremennaya = Beremennaya.objects.get(id=pk)
         novorojdenniy = beremennaya.novorojdenniy_set.all()
         serializer = NovorojdenniySerializer(novorojdenniy, many=True)
+        return Response(serializer.data)
+
+
+# Список переводов (смен ЖК) для одной беременной
+class SmenaJKViewSetLV(APIView):
+    serializer_class = SmenaJKSerializer
+
+    def get(self, request, beremenya_id):
+        beremennaya = get_object_or_404(Beremennaya, id=beremenya_id)
+        or_condition = Q()
+
+        spisok_polei = list(map(lambda x: x.attname, Doctor._meta.fields))
+        for key, value in dict(request.query_params).items():
+            if key in spisok_polei:
+                tmp_key = f'{key}__contains'
+                or_condition.add(Q(**{tmp_key: value[0]}), Q.OR)
+
+        smenaJK = Smena_JK_u_beremennoy.objects.filter(or_condition)
+        smenaJK = smenaJK.filter(nomer_beremennoy=beremennaya)
+        serializer = SmenaJKSerializer(smenaJK, many=True)
+        return Response(serializer.data)
+
+
+    def post(self, request, beremenya_id):
+        serializer = self.serializer_class(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# Редактирование перевода
+class SmenaJKViewSetDV(APIView):
+    serializer_class = SmenaJKSerializer
+
+    def post(self, request, beremenya_id, pk):
+        smenaJK = get_object_or_404(Smena_JK_u_beremennoy, pk=pk)
+        serializer = self.serializer_class(data=request.data, instance=smenaJK)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=200)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def get(self, request, beremenya_id, pk):
+        smenaJK = Smena_JK_u_beremennoy.objects.get(pk=pk)
+        serializer = SmenaJKSerializer(smenaJK, many=False)
         return Response(serializer.data)

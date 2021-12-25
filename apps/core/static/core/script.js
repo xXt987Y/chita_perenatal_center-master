@@ -713,7 +713,7 @@ $(function () {
 let KONSULTACIAYA_ID = null;
 
 class SmenaJK {
-    URL = 'api/smenaJK/'
+    URL = `api2/smenaJK/${BEREMENYA_ID}/`
     HEADERS = {
         "X-CSRFToken": getCookie("csrftoken"),
         "Accept": "application/json",
@@ -762,7 +762,7 @@ class SmenaJK {
     create = async function (data) {
         let self = this;
         const response = await fetch(
-            self.URL + 'post',
+            self.URL,
             {
                 method: 'post',
                 body: data,
@@ -772,8 +772,8 @@ class SmenaJK {
             }
         )
         if (response.status === 200) {
-
             alert('Добавление прошло успешно');
+            $('.tabliza_zapros_na_perevod').jqxGrid({source: $('.tabliza_zapros_na_perevod').jqxGrid('source')});
             return await response.json();
         } else {
             const text = await response.text();
@@ -796,6 +796,7 @@ class SmenaJK {
         )
         if (response.status === 200) {
             alert('Изменение прошло успешно');
+            $('.tabliza_zapros_na_perevod').jqxGrid({source: $('.tabliza_zapros_na_perevod').jqxGrid('source')});
             await response.json();
         } else {
             const text = await response.text();
@@ -829,7 +830,7 @@ class SmenaJK {
 }
 
 $(function () {
-    $('.smena_jk_u_beremennoy_form').submit(function (e) {
+    $('.zapros_na_perevod_form').submit(function (e) {
         e.preventDefault()
         let smenaJK = new SmenaJK();
         const data = smenaJK.pareseFormToData($(this));

@@ -207,5 +207,7 @@
 
     let $window_novorojdenniy = $('.window_novorojdenniy');
     let $obj_novorojdenniy = new WindowNovorojdenniy($window_novorojdenniy, $btn_open_window_novorojdenniy);
-
+    $(function () {
+        new WindowNovorojdenniy($window_novorojdenniy, $btn_open_window_novorojdenniy)
+    })
 </script>

@@ -356,7 +356,7 @@
                 ANKETA_ID = id;
                 fetch(`/api2/anketa/${BEREMENYA_ID}/${id}`).then(function (response) {
                     if (response.ok) {
-                        response.json().then(function (data) {
+                        response.json().then(function (data) {x
                             self.$window.find('#id_nomer_anketi').val(data['nomer_anketi']);
                             self.$window.find('#id_data_zapolneniya_anketi_vrachem').val(data['data_zapolneniya_anketi_vrachem']);
                             self.$window.find('#id_familiya_vracha').val(data['familiya_vracha']);
@@ -415,9 +415,9 @@
                 })
 
             } else {
-
                 let url = `/api2/anketa/${BEREMENYA_ID}`;
                 $('.novaya_anketa').action(url)
+
             }
 
         }
