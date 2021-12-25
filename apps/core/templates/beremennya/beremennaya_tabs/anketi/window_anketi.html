@@ -343,11 +343,8 @@
         }
 
         open2(id) {
-            alert(id);
             this.$window.find(`#id_nomer_anketi option[value="${id}"]`).prop('selected', true);
             this.$window.jqxWindow('open');
-            let url = `/api2/anketa/${BEREMENYA_ID}`;
-            $('.novaya_anketa').attr('action', `${url}`);
         }
 
         open(id = 0) {
@@ -356,7 +353,7 @@
                 ANKETA_ID = id;
                 fetch(`/api2/anketa/${BEREMENYA_ID}/${id}`).then(function (response) {
                     if (response.ok) {
-                        response.json().then(function (data) {x
+                        response.json().then(function (data) {
                             self.$window.find('#id_nomer_anketi').val(data['nomer_anketi']);
                             self.$window.find('#id_data_zapolneniya_anketi_vrachem').val(data['data_zapolneniya_anketi_vrachem']);
                             self.$window.find('#id_familiya_vracha').val(data['familiya_vracha']);

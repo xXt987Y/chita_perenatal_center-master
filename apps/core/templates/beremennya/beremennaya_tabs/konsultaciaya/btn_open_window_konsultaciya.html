@@ -1,13 +1,14 @@
 {% if user.polzovatel.rol == 1 or user.polzovatel.rol == 2 or user.polzovatel.rol == 3 %}
-<button class="topmenu menubtn" id="btn_open_window_konsultaciya">Новая консультация</button>
-<button class="topmenu menubtn" id="btn_delete_konsultaciya">Удалить консультацию</button>
+    <button class="topmenu menubtn" id="btn_open_window_konsultaciya">Новая консультация</button>
+    <button class="topmenu menubtn" id="btn_delete_konsultaciya">Удалить консультацию</button>
 {% endif %}
 <script>
 
     class BtnWindowKonsultaciya {
-        constructor($btn_open_window_konsultaciya, $window) {
+        constructor($btn_open_window_konsultaciya, $window, $obj_window_konsultaciya) {
             this.$btn = $btn_open_window_konsultaciya;
             this.$window = $window;
+            this.obj_window_konsultaciya = obj_window_konsultaciya;
             this.on_click_toogle_btn();
 
         }
@@ -16,13 +17,16 @@
             let self = this;
             this.$btn.click(function () {
                     let tgl = self.$window.jqxWindow('isOpen');
+                    let rowindexes = $('.tabliza_beremennaya').jqxGrid('getselectedrowindexes');
+                    let data = $('.tabliza_beremennaya').jqxGrid('getrowdatabyid', rowindexes);
+                    let sr = data.id;
                     if (tgl === false) {
                         document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn');
                         document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn_toggle');
                         document.getElementById('novaya_konsultaciya').reset();
-                        self.$window.jqxWindow('open');
+                        obj_window_konsultaciya.open2(data.id);
                         self.$window.jqxWindow('bringToFront');
-                        KONSULTACIAYA_ID=0;
+                        KONSULTACIAYA_ID = 0;
                     } else {
                         document.getElementById("btn_open_window_konsultaciya").classList.remove('menubtn_toggle');
                         document.getElementById("btn_open_window_konsultaciya").classList.add('menubtn');
